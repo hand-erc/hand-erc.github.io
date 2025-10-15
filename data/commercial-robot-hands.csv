@@ -1,37 +1,41 @@
-﻿# Actuators,Hand name,Company name,Link to hand page,"Text description (important basic facts, things we particularly care about, and differentiating points, not all details)",Photo filename (coming soon),Date added,notes
-20,Shadow Dexterous Hand,Shadow Robot,https://shadowrobot.com/dexterous-hand-series/,"Actuation: 20 geared brushed DC motors pulling tendons passing through Bowden tubes at wrist. Each finger has 3 independently driven DOF and a fourth coupled DOF. Option to reduce from 4 fingers and a thumb to 3, 2, or 1 fingers and a thumb. 1-DOF palm flex. Wrist: 2 DOF. Communication: EtherCAT. Optional fingertip tactile sensors.",shadow-dexterous-hand.png,25-Aug,
-,Shadow DEX-EE,Shadow Robot,https://shadowrobot.com/dex-ee/,,shadow_dex_ee_v1.jpg,25-Aug,
-,XHAND1,ROBOTERA,https://www.robotera.com/en/goods1/4.html,,xhand1_v1.png,25-Aug,
-,Allegro Hand,Wonik Robotics,https://www.allegrohand.com/,,allegrohand_v1.png,25-Aug,
-,SVH,Schunk,https://schunk.com/us/en/gripping-systems/special-gripper/svh/c/PGR_3161,,SVH_resized5.png,25-Aug,
-,Ability Hand,PSYONIC,https://www.psyonic.io/robots,,,25-Aug,
-,ProHand 1.0,Proception AI,https://www.proception.ai/hand,,,25-Aug,
-,Surge,Alt-Bionics,https://www.altbionics.com/robotics/,removable fingers,,25-Aug,
-,DM-Hand1,Daimon Robotics,https://www.dmrobot.com/en/products/p2/dm-hand1.html,,,25-Aug,
-,COVVI Robotic Hand,COVVI Robotics,https://www.covvi-robotics.com/robotic-hand/,springs integrated in transmission,,25-Aug,
-,IH2 Azzurra,Prensilia,https://www.prensilia.com/ih2-azzurra-hand/,,,25-Aug,
-,Mia Hand,Prensilia,https://www.prensilia.com/mia-hand/,,,25-Aug,
-,qb SoftHand,qb Robotics,https://qbrobotics.com/,Different models available.,,25-Aug,
-,DG-5F,Tesollo,https://en.tesollo.com/dg-5f/,,,25-Aug,
-,DG-4F,Tesollo,https://en.tesollo.com/dg-4f/,,,25-Aug,
-,DG-3F,Tesollo,https://en.tesollo.com/dg-3f-m/,,,25-Aug,
-,RH8D,seed robotics,https://www.seedrobotics.com/rh8d-adult-robot-hand,,,25-Aug,
-,RH6D,seed robotics,https://www.seedrobotics.com/rh5d-rh7d-childsize-robot-hand,,,25-Aug,
-,RH4D,seed robotics,https://www.seedrobotics.com/rh4d-advanced-manipulator,,,25-Aug,
-22,SharpaWave,Sharpa,https://www.sharpa.com/,Coming soon.,,25-Aug,
-,AIDIN-Hand,Aidin Robotics,https://www.aidinrobotics.co.kr/en/robotic-hand,,,25-Aug,
-,RH56DFX,Inspire-Robots,https://inspire-robots.store/collections/all/products/the-dexterous-hands-rh56dfx-series?variant=42735794323700,,,25-Aug,
-,RH56DFTP,Inspire-Robots,https://inspire-robots.store/collections/all/products/the-dexterous-hands-rh56dftp?variant=45933596246260,,,25-Aug,
-,BH8-282 BarrettHand,Barrett,https://barrett.com/barretthand,,,25-Aug,
-,uHandPi,HiWonder,https://www.hiwonder.com/products/uhandpi?variant=40961372618839&srsltid=AfmBOoptNeCTcLtVY4iDHGg-k-ZKqYVl-_1gMoVJrFRdm6gtrl5YtpBW,"Super cheap servo driven, linkage transmission hands",,25-Aug,
-,Agile Hand,Agile Robotics,https://www.agile-robots.com/en/solutions/agile-hand/,Modular digits,,25-Aug,
-,Cyberhand,Vishwa Robotics,https://vishwarobotics.com/cyberhand,Only 6 dof with 12 joints ,,25-Aug,
-,F.02 Humanoid Hand,Figure AI,https://www.figure.ai/,Not sure if just the hand is available for purchase,,25-Aug,
-22 (allegedly),Optimus Hand,Tesla,,Not sure if just the hand is available for purchase,,25-Aug,
-,Smart Hands,Roboworks,https://www.roboworks.net/store/p/smarthands,Another 6 dof 12 joint hand. who makes this robot hand? seems like the web page is for a distributor,,25-Aug,
-,G1 Dex Hand,Unitree,https://www.unitree.com/g1,three digit dexterous hand,,25-Aug,
-,Clone Hand,Clone Robotics,https://clonerobotics.com/hand,extremely biomimetic,,25-Aug,
-,Muscle v0,Daxo Robotics,https://daxo-robotics.com/,"""Infinite dof"" 108 artificial muscles and AI powered to route power through other muscles in case of muscle failure. Continuum hand ",,25-Aug,More info: https://mikekalil.com/blog/daxo-robotics/ 
-,GMH18,PaXini,https://paxini.com/dex/gen3,,,25-Aug,
-,ROHand,OYMotion,https://oymotion.com/en/product62/191,,,25-Aug,
-,DexHand021,DexRobot,https://www.dex-robot.com/en/dexhandList,Three available models,dexrobot_hand-removebg_resize.png,25-Aug,
+Hand name,Company name,Link to hand page,# of Fingers,Total DoF,# of Actuators,Photo filename,Text description,Date updated
+Shadow Dexterous Hands,Shadow Robot,https://www.shadowrobot.com/dexterous-hand-series/,5,24,20,shadow-dexterous-hand.png,20 geared brushed DC motors. Tendon-driven. Shadow Tactile Sensing (STF) acheived with magnets and 3-axis Hall effect sensor (Only on the index and thumb by default). Full ROS integration. Motors stored in the base of the hand. Tendons susceptible to wearing down after excessive use.,Oct 13
+DEX-EE,Shadow Robot,https://www.shadowrobot.com/dex-ee/,3,12,15,shadow_dex_ee.jpg,15 DC motors. Tendon-driven.  Distal tactile sensors with optional middle and proximal sensors that use magnets and 3-axis Hall Effect. Full ROS integration. Modular fingers and tactile sensors. Motors stored in the base of each finger. Backdrivable. More durable than Shadow Dexterous Hands.,Oct 13
+XHand1,RobotEra,https://www.robotera.com/en/goods1/4.html,5,12,12,xhand1.png,"12 brushless DC motors. Quasi-Direct Drive (QDD). Tactile array sensors (>100 points) on each finger. Backdrivable. The thumb can be used for a pinky position to improve grip stability. Supports Linux, SDK, and ROS. ",Oct 13
+Allegro Hand V5(4F Plus),Wonik Robotics,https://www.allegrohand.com/v5-4fplus,4,16,16,allegrohand_v5.jpeg,16 DC motors. Gear-driven. Omni-directional capacitive pressure-sensitive tactile sensors. Different fingertips for different grips. Supports ROS.,Oct 13
+Allegro Hand V4,Wonik Robotics,https://www.allegrohand.com/v4,4,16,16,allegrohand_v4.png,"16 DC motors. Gear-driven. No tactile sensing built-in. Supports Linux, Windows, and ROS. Widely used for dexterity research.",Oct 13
+SVH,Schunk,https://schunk.com/us/en/gripping-systems/special-gripper/svh/c/PGR_3161,5,20,9,SVH.png,9 servomotors. Gear/spindle-driven. No tactile sensing built-in. Supports ROS and can be controlled with Raspberry Pi. Left and right variants available.,Oct 13
+Ability Hand,Psyonic,https://www.psyonic.io/robots,5,12,6,abilityhand.png,6 DC motors. Tendon-driven. Tactile sensing with the use of flexible PCB that house three barometric pressure sensors cast in silicone. Used in prosthesis and robotics.,Oct 13
+ProHand 1.0,Proception AI,https://www.proception.ai/hand,5,22*,N/A,prohand.png,Unknown number and type of actuators. Tendon-driven. High resolution touch sensors. The specifications are not finalized. Planned to release in 2028.   *not finalized,Oct 13
+Surge Hand,Alt Bionics,https://www.altbionics.com/robotics/,5,6,6,surgehand.png,6 DC motors. Gear-driven. Optional force sensors (not released). Modular fingers. Rubberized surfaces on fingers and palm.,Oct 13
+DM-Hand1,Daimon Robotics,https://www.dmrobot.com/en/products/p2/dm-hand1.html,5,12,6,dmhand1.png,"6 DC motors. Tendon-driven. Vision-based tactile sensors. The sensors are very thin, reducing finger thickness.",Oct 13
+COVVI Robotic Hand,Covvi,https://www.covvi-robotics.com/robotic-hand/,5,6,6,covvirobotichand.png,6 DC motors. Gear-driven. Force Sensing Resistor (FSR) in all fingertips. ROS2 and Python ECI API compatible. The index finger is touchscreen compatible. Improved fingertip friction with serrated-like texture. Adapted from COVVI Presthetic Hand.,Oct 13
+IH2 Azzurra,Prensilia,https://www.prensilia.com/ih2-azzurra-hand/,5,11,5,ih2azzurra.png,5 Brushed DC motors. Tendon-driven. No tactile sensing built-in. Includes force and position sensors for motors and optional tendon tension sensors. ,Oct 13
+Mia Hand R&D,Prensilia,https://www.prensilia.com/mia-hand/,5,4,3,miahand.png,"3 DC motors. Tendon-driven. Optional fingertip force sensors. Integrated with ROS. 3 Variants of the Mia Hand: prosthesis, industry, and R&D.",Oct 13
+SoftHand Industry,QbRobotics,https://qbrobotics.com/product/qb-softhand-industry/,5,19,1,softhandindustry.png,1 DC motor. Tendon-driven. No tactile sensing built-in. The fingers open and close together. ROS & ROS2 compatible. Interchangeable glove. ,Oct 13
+SoftHand2 Research,QbRobotics,https://qbrobotics.com/product/qb-softhand-2-research/,5,19,2,softhand2research.png,"2 DC motors. Tendon-driven. No tactile sensing built-in. ROS & ROS2 compatible. Interchangeable glove. Dislocatable, self-healing finger joints",Oct 13
+DG-5F,Tesollo,https://en.tesollo.com/dg-5f/,5,20,20,dg5f.png,20 brushless DC motors. Direct-drive. Optional force sensors at finger tips. ROS1 & ROS2 compatible. Suitable for research and industrial applications.,Oct 13
+DG-4F,Tesollo,https://en.tesollo.com/dg-4f/,4,18,18,dg4f.png,"18 DC motors. Gear-driven. Optional force sensors at finger tips. Adaptive gripping capability: fingers can shift to form right hand, left hand, or gripper. ",Oct 13
+DG-3F-M,Tesollo,https://en.tesollo.com/dg-3f-m/,3,12,12,dg3fm.png,12 brushless DC motor. Gear-driven. No tactile sensing built-in. Fully modular structure. Supports C/C++ and SDK.,Oct 13
+DG-3F-B,Tesollo,https://en.tesollo.com/dg-3f-b/,3,12,12,dg3fb.png,12 brushless DC motor. Gear-driven. No tactile sensing built-in. Optional suction-type fingertip.,Oct 13
+RH8D,Seed Robotics,https://www.seedrobotics.com/rh8d-adult-robot-hand,5,19,8,RH8D.png,8 smart actuators*. Tendon-driven. Optional FTS pressure sensors (3 or 1 axis). Optional capacitive pads for back of palm. Open source ROS package. Dyneema (Kevlar) tendons.   *likely servomotors,Oct 13
+RH6D,Seed Robotics,https://www.seedrobotics.com/rh5d-rh7d-childsize-robot-hand,4,15,6,RH6D.png,6 smart actuators*. Tendon-driven. Optional FTS pressure sensors (3 or 1 axis). Optional capacitive pads for back of palm. Child-size hands. Dyneema (Kevlar) tendons.   *likely servomotors,Oct 13
+RH4D,Seed Robotics,https://www.seedrobotics.com/rh4d-advanced-manipulator,3,11,4,RH4D.png,4 smart actuators*. Tendon-driven. No tactile sensing built-in. Optional capacitive pads for back of palm. Palm distance sensor detects proximity of objects. Dyneema (Kevlar) tendons.   *likely servomotors,Oct 13
+Sharpa Dexterous Hands,Sharpa,https://www.sharpa.com/,5,22,22,Sharpa.png,"22 actuators*. Unknown transmission type. Dynamic Tactile Array (DTA) which can detect up to 30N. Supports ROS, Linux, C++, Python, and Windows.   *Sharpa has not publicly disclosed this information",Oct 13
+Aidin Robotic Hand,Aidin Robotics,https://www.aidinrobotics.co.kr/en/robotic-hand,5,15,N/A,Aidin.png,Unknown number of actuators. Unknown transmission type. 6-axis F/T sensor on each fingertip. Only for research purpose.,Oct 13
+The Dexterous Hands RH56BFX/DFX,Inspire-Robots,https://inspire-robots.store/collections/all/products/dexterous-hand-rh56dfx-series?variant=42723202072820,5,6,6,DexterousHandsDFX.png,6 linear mini servo motors. Linear-driven. No tactile sensing built-in. 2 variants available: BFX has greater speed and DFX has greater grip force. Supports ROS. Similar size to real hand.,Oct 13
+The Dexterious Hands RH56DFTP,Inspire-Robots,https://inspire-robots.store/products/the-dexterous-hands-rh56dftp?variant=45933596246260,5,6,6,DexterousHandsDFTP.png,6 linear mini servo motors. Linear-driven. 17 tactile sensors. Similar to the RH56BFX/DFX but with tactile sensors. Similar size to real hand.,Oct 13
+BarrettHand,Barrett,https://barrett.com/barretthand,3,8,4,BarrettHand.png,"4 brushless DC motors. Worm drive integrated with cable drive. Optional torque and tactile sensing in fingertips. Perception palm sensor that uses cameras, lasers, LED, and infrared to assist with object localization. Backdrivable. Modular finger design.",Oct 13
+uHandPi,Hiwonder,https://www.hiwonder.com/products/uhandpi?variant=40961372618839,5,6,6,uHandPi.png,"6 servomotors. Linkage-driven. No tactile sensing built-in. Uses camera for AI image recogntion, finger-guessing, etc. Integrated with Raspberry Pi 5.",Oct 13
+Agile Hand,Agile Robots,https://www.agile-robots.com/en/robotic-solutions/agile-hand,5,15-16*,15-16*,agilehand.png,"15 or 16 actuators. Unknown actuator and transmission type. Optional tactile sensing. Modular finger design. Compatible with C++, Python, and ROS.    *Optional thumb actuator",Oct 13
+F.02 Humanoid Hand,Figure AI,https://www.figure.ai/,5,16,N/A,f02hand.png,Unknown number of actuators. Unknown actuator and transmission type.  Unknown tactile sensing. Part of the Figure 02 humanoid robot. Figure AI recently announced Figure 03.,Oct 13
+Optimus Hand,Tesla,https://www.tesla.com/AI,5,22,N/A,optimushand.png,Unknown number of actuators. Unknown actuator and transmission type. Unknown tactile sensing. Part of the Optimus humanoid robot.,Oct 13
+Smart Hands,Roboworks,https://www.roboworks.net/store/p/smarthands,5,6,6,smarthands.png,6 micro linear servomotors. Unknown transmission type. 6 pressure sensors. Integrated with ROS.,Oct 14
+Dex5-1P,Unitree,https://www.unitree.com/Dex5-1,5,20,16,dex5-1p.png,16 DC motors. Gear-driven. 94 pressure sensors. Backdriveable. Modular finger design.,Oct 14
+Dex3-1,Unitree,https://www.unitree.com/Dex3-1,3,7,7,dex3-1.png,"7 micro brushless DC motors. 6 Direct-drive, 1 gear-driven. 33 tactile sensors. Sensors on finger tips, fingers phalanges, and palm.",Oct 14
+Clone Hand,Clone,https://clonerobotics.com/hand,5,27,N/A,clonehand.png,Artificial muscle fibers (Myofiber technology). Unknown tactile sensing. Clone has not publicly disclosed detailed information on Myofiber.,Oct 14
+Muscle v0,Daxo Robotics,https://daxo-robotics.com/,5,N/A,108,musclev0.png,"108 actuators. Unknown actuator and transmission type. Unknown tactile sensing. Uses artificial muscles to acheive ""infinite"" degrees of freedom. Working prototype.",Oct 14
+GMH18 GEN3,PaXini,https://paxini.com/,5,18,11,gmh18.png,"11 hollow cup motor. Multi-link mechanism. >1000 ITPU multi-dimensional tactile sensing units, featuring 15 types of tactile perception capabilities. Supports camera expansion on the palm and back of hand.",Oct 14
+RO Hand,OY Motion,https://oymotion.com/en/product62/191,5,11,6,rohand.png,"6 actuators. Unknown actuator and transmission type. High-density dot-matrix tactile sensors. Supports SDK, ROS, and ROS2. Used in inspection robots, prosthetics, and research.",Oct 14
+DexHand021,DexRobot,https://www.dex-robot.com/en/productionDexhand,5,19,12,dexrobot_hand.png,"12 DC motors. Tendon-driven. Position, force, and tactile sensors. Supports ROS and ROS2. Independently replaceable fingers. High lifespan cycles.",Oct 14
+Atlas Gripper,Boston Dynamics,https://bostondynamics.com/atlas/,3,7,7,atlasgripper.png,7 actuators. Unknown actuator and transmission type. Tactile sensors on fingertips and cameras in the palm. Articulated thumb joint. Part of the Atlas humanoid robot.,Oct 14

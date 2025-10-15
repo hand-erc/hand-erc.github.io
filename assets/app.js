@@ -3,14 +3,15 @@ const CSV_PATH = window.CSV_PATH || "./data/commercial-robot-hands.csv";
 
 // Exact column names in your CSV
 const COL = {
-  ACTUATORS: "# Actuators",
   NAME: "Hand name",
   COMPANY: "Company name",
   LINK: "Link to hand page",
-  DESC: "Text description (important basic facts, things we particularly care about, and differentiating points, not all details)",
-  PHOTO_FILE: "Photo filename (coming soon)",
-  DATE_ADDED: "Date added",
-  NOTES: "notes",
+  FINGERS: "# of Fingers",
+  TOTALDOF: "Total DoF",
+  ACTUATORS: "# of Actuators",
+  PHOTO_FILE: "Photo filename",
+  DESC: "Text description",
+  DATE_UPDATED: "Date updated",
 };
 
 // If PHOTO_FILE has a filename, look for it in /assets/img/<filename>
@@ -59,9 +60,11 @@ function renderHeader() {
     { key: "_image", label: "Image" },
     { key: COL.NAME, label: "Hand name" },
     { key: COL.COMPANY, label: "Company" },
-    { key: COL.ACTUATORS, label: "# Actuators" },
+    { key: COL.FINGERS, label: "# of Fingers" },
+    { key: COL.TOTALDOF, label: "Total DoF" },
+    { key: COL.ACTUATORS, label: "# of Actuators" },
     { key: COL.DESC, label: "Description" },
-    { key: COL.DATE_ADDED, label: "Date added" },
+    { key: COL.DATE_UPDATED, label: "Date updated" },
   ];
 
   thead.innerHTML = "<tr>" + headers.map(h => {
@@ -89,10 +92,12 @@ function renderBody() {
   tbody.innerHTML = rows.map(r => {
     const name = norm(r[COL.NAME]);
     const company = norm(r[COL.COMPANY]);
+    const fingers = norm(r[COL.FINGERS]);
+    const totaldof = norm(r[COL.TOTALDOF]);
     const actuators = norm(r[COL.ACTUATORS]);
     const link = norm(r[COL.LINK]);  // we'll use this to wrap the name
     const desc = norm(r[COL.DESC]);
-    const dateAdded = norm(r[COL.DATE_ADDED]);
+    const dateUpdated = norm(r[COL.DATE_UPDATED]);
 
     const imgUrl = imageFromPhotoColumn(r[COL.PHOTO_FILE]);
     const imgCell = (toggleImages && !toggleImages.checked) ? "" :
@@ -125,9 +130,11 @@ function renderBody() {
       ${imgCell}
       <td>${nameCell}</td>
       <td>${companyCell}</td>
+      <td>${fingers}</td>
+      <td>${totaldof}</td>
       <td>${actuators}</td>
       ${descCell}
-      <td>${dateAdded}</td>
+      <td>${dateUpdated}</td>
     </tr>`;
   }).join("");
 }
@@ -170,7 +177,7 @@ function applyTransforms() {
   viewRows = rawRows.filter(r => {
     if (!needle) return true;
     const hay = [
-      r[COL.NAME], r[COL.COMPANY], r[COL.DESC], r[COL.DATE_ADDED],
+      r[COL.NAME], r[COL.COMPANY], r[COL.FINGERS], r[COL.TOTALDOF], r[COL.ACTUATORS], r[COL.DESC], r[COL.DATE_UPDATED],
       // you can add r[COL.NOTES] here if you want search to include the hidden notes
     ].map(v => norm(v).toLowerCase()).join(" ");
     return hay.includes(needle);
@@ -293,4 +300,3 @@ loadCSV().catch(err => {
   window.addEventListener('scroll', () => { preview.style.display = 'none'; activeTarget = null; }, { passive: true });
   window.addEventListener('resize', () => { preview.style.display = 'none'; activeTarget = null; });
 })();
-

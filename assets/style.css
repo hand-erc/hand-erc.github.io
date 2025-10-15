@@ -1,7 +1,7 @@
 :root{--bg:#fff;--fg:#111;--muted:#667085;--border:#e5e7eb;--accent:#2563eb}
 *{box-sizing:border-box}
 html,body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
-.wrap{max-width:1100px;margin:0 auto;padding:1rem}
+.wrap{max-width:1200px;margin:0 auto;padding:1rem}
 h1{margin:.5rem 0;font-size:clamp(1.5rem,2.5vw,2rem)}
 .muted{color:var(--muted)} .small{font-size:.875rem;color:var(--muted)}
 .toolbar{display:flex;gap:.75rem;align-items:center;flex-wrap:wrap;margin:.75rem 0}
@@ -24,7 +24,7 @@ img.thumb{display:block;width:80px;height:60px;object-fit:cover;border-radius:.5
 /* Fold long text, show full on hover */
 
 /* In-place expansion for long descriptions */
-/* td.folded { max-width: 320px; }
+ td.folded { max-width: 320px; }
 td.folded .inner {
   display: block;
   white-space: nowrap;
@@ -33,26 +33,26 @@ td.folded .inner {
 }
 td.folded:hover .inner {
   white-space: normal;        
-} */
+}
 
 /* Floating hover card for descriptions */
-td.folded { position: relative; max-width: 320px; }
+/* td.folded { position: relative; max-width: 320px; }
 td.folded .inner {
   display: block;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-}
+} */
 
 /* Hover card (below, narrower) */
-td.folded[data-full]:hover::after {
+/* td.folded[data-full]:hover::after {
   content: attr(data-full);
   position: absolute;
   left: 0;
   top: 100%;
   margin-top: -16px;
-  width: min(420px, 60vw);   /* was 520px/70vw → narrower */
-  max-height: 40vh;
+  width: min(420px, 60vw);  /* was 520px/70vw → narrower */
+  /*max-height: 40vh;
   overflow: auto;
   white-space: normal;
   background: #fff;
@@ -62,12 +62,12 @@ td.folded[data-full]:hover::after {
   box-shadow: 0 8px 24px rgba(0,0,0,.12);
   z-index: 20;
   pointer-events: none;
-}
+} */
 
 /* On very small screens, make it even narrower */
-@media (max-width: 640px) {
+/* @media (max-width: 640px) {
   td.folded:hover::after { width: min(360px, 85vw); }
-}
+} */
 
 /* Floating hover card for images */
 td.image { position: relative; }
