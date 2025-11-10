@@ -7,7 +7,6 @@ const COL = {
   COMPANY: "Company name",
   LINK: "Link to hand page",
   FINGERS: "# of Fingers",
-  TOTALDOF: "Total DoF",
   ACTUATORS: "# of Actuators",
   PHOTO_FILE: "Photo filename",
   DESC: "Text description",
@@ -61,7 +60,6 @@ function renderHeader() {
     { key: COL.NAME, label: "Hand name" },
     { key: COL.COMPANY, label: "Company" },
     { key: COL.FINGERS, label: "# of Fingers" },
-    { key: COL.TOTALDOF, label: "Total DoF" },
     { key: COL.ACTUATORS, label: "# of Actuators" },
     { key: COL.DESC, label: "Description" },
     { key: COL.DATE_UPDATED, label: "Date updated" },
@@ -93,7 +91,6 @@ function renderBody() {
     const name = norm(r[COL.NAME]);
     const company = norm(r[COL.COMPANY]);
     const fingers = norm(r[COL.FINGERS]);
-    const totaldof = norm(r[COL.TOTALDOF]);
     const actuators = norm(r[COL.ACTUATORS]);
     const link = norm(r[COL.LINK]);  // we'll use this to wrap the name
     const desc = norm(r[COL.DESC]);
@@ -131,7 +128,6 @@ function renderBody() {
       <td>${nameCell}</td>
       <td>${companyCell}</td>
       <td>${fingers}</td>
-      <td>${totaldof}</td>
       <td>${actuators}</td>
       ${descCell}
       <td>${dateUpdated}</td>
@@ -177,7 +173,7 @@ function applyTransforms() {
   viewRows = rawRows.filter(r => {
     if (!needle) return true;
     const hay = [
-      r[COL.NAME], r[COL.COMPANY], r[COL.FINGERS], r[COL.TOTALDOF], r[COL.ACTUATORS], r[COL.DESC], r[COL.DATE_UPDATED],
+      r[COL.NAME], r[COL.COMPANY], r[COL.FINGERS], r[COL.ACTUATORS], r[COL.DESC], r[COL.DATE_UPDATED],
       // you can add r[COL.NOTES] here if you want search to include the hidden notes
     ].map(v => norm(v).toLowerCase()).join(" ");
     return hay.includes(needle);
