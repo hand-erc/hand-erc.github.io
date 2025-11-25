@@ -101,3 +101,9 @@ td.image { position: relative; }
 }
 
 .imgpop { cursor: zoom-in; }
+
+/* reduce width of 2nd column  */
+table td:nth-child(2) {
+  white-space: normal;
+  word-break: break-word;
+}
