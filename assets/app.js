@@ -296,3 +296,89 @@ loadCSV().catch(err => {
   window.addEventListener('scroll', () => { preview.style.display = 'none'; activeTarget = null; }, { passive: true });
   window.addEventListener('resize', () => { preview.style.display = 'none'; activeTarget = null; });
 })();
+
+/* === Description hover-card (global, non-clipped, auto-flip) === */
+(function () {
+  const card = document.getElementById("hovercard");
+  if (!card) return;
+
+  let activeCell = null;
+
+  function placeCard(target) {
+    const rect = target.getBoundingClientRect();
+    const pad = 8;
+
+    const w = Math.min(420, window.innerWidth * 0.60);
+    card.style.maxWidth = w + "px";
+
+    // measure height after content is set
+    const h = Math.min(card.scrollHeight, window.innerHeight * 0.40);
+
+    // Default: below
+    let top = rect.bottom + pad;
+
+    // Flip above if not enough room
+    const spaceBelow = window.innerHeight - rect.bottom;
+    const spaceAbove = rect.top;
+
+    if (spaceBelow < h + pad && spaceAbove > spaceBelow) {
+      top = rect.top - h - pad;
+    }
+
+    // Horizontal alignment
+    let left = rect.left;
+    left = Math.max(pad, Math.min(left, window.innerWidth - w - pad));
+
+    // Force inside viewport vertically if needed
+    if (top < pad) top = pad;
+    if (top + h + pad > window.innerHeight)
+      top = window.innerHeight - h - pad;
+
+    card.style.left = left + "px";
+    card.style.top = top + "px";
+    card.style.maxHeight = h + "px";
+  }
+
+  // Delegated events (works after table re-renders)
+  document.addEventListener("mouseover", (e) => {
+    const cell = e.target.closest("td.folded");
+    if (!cell) return;
+
+    activeCell = cell;
+    const full = cell.dataset.full;
+    if (!full) return;
+
+    card.textContent = full;
+    card.style.display = "block";
+    placeCard(cell);
+  });
+
+  document.addEventListener("mousemove", (e) => {
+    if (!activeCell) return;
+    if (e.target.closest("td.folded") === activeCell) {
+      placeCard(activeCell);
+    }
+  });
+
+  document.addEventListener("mouseout", (e) => {
+    const stillInside =
+      e.relatedTarget &&
+      e.relatedTarget.closest &&
+      e.relatedTarget.closest("td.folded") === activeCell;
+
+    if (stillInside) return;
+
+    activeCell = null;
+    card.style.display = "none";
+  });
+
+  window.addEventListener("scroll", () => {
+    activeCell = null;
+    card.style.display = "none";
+  }, { passive: true });
+
+  window.addEventListener("resize", () => {
+    activeCell = null;
+    card.style.display = "none";
+  });
+})();
