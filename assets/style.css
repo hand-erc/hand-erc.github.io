@@ -45,26 +45,6 @@ td.folded .inner {
   text-overflow: ellipsis;
 }
 
-/* Hover card (below, narrower) */
-td.folded[data-full]:hover::after {
-  content: attr(data-full);
-  position: absolute;
-  left: 0;
-  top: 100%;
-  margin-top: -16px;
-  width: min(420px, 60vw);   /* was 520px/70vw → narrower */
-  max-height: 40vh;
-  overflow: auto;
-  white-space: normal;
-  background: #fff;
-  border: 1px solid #e5e7eb;
-  border-radius: .5rem;
-  padding: .6rem .7rem;
-  box-shadow: 0 8px 24px rgba(0,0,0,.12);
-  z-index: 20;
-  pointer-events: none;
-}
-
 /* On very small screens, make it even narrower */
 @media (max-width: 640px) {
   td.folded:hover::after { width: min(360px, 85vw); }
