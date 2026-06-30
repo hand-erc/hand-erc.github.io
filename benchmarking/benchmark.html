@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title id="page-title">Benchmark - HAND Benchmarking</title>
+  <meta name="description" content="Benchmark details - HAND Benchmarking">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+  <link rel="stylesheet" href="static/css/benchmarks.css">
+
+  <!-- JS -->
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script defer src="static/js/index.js"></script>
+  <script defer src="static/js/benchmark-detail.js"></script>
+</head>
+<body>
+  <div class="draft-banner">DRAFT - NOT FOR DISTRIBUTION</div>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar benchmark-navbar" role="navigation" aria-label="main navigation">
+    <div class="container">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="benchmarks.html">
+          <span class="icon"><i class="fas fa-arrow-left"></i></span>
+          <span>Back to Benchmarks</span>
+        </a>
+      </div>
+      <div id="navMenu" class="navbar-menu">
+        <div class="navbar-end">
+          <a class="navbar-item" href="index.html">
+            <strong>Multi-Level Hand Benchmarks</strong>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Scroll to Top Button -->
+  <button class="scroll-to-top" onclick="scrollToTop()" title="Scroll to top">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+
+  <main id="main-content">
+
+    <!-- Loading State -->
+    <div id="loading-state">
+      <div class="loading-spinner">
+        <span class="icon"><i class="fas fa-spinner"></i></span>
+        <span>Loading benchmark...</span>
+      </div>
+    </div>
+
+    <!-- Not Found State (hidden by default) -->
+    <div id="not-found-state" style="display: none;">
+      <div class="not-found">
+        <div class="icon"><i class="fas fa-search"></i></div>
+        <p class="title is-4">Benchmark Not Found</p>
+        <p class="subtitle">The requested benchmark could not be found.</p>
+        <a href="index.html" class="button is-dark">
+          <span class="icon"><i class="fas fa-arrow-left"></i></span>
+          <span>Back to Benchmarks</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Benchmark Content (hidden until loaded) -->
+    <div id="benchmark-content" style="display: none;">
+
+      <!-- Hero -->
+      <section class="hero is-small is-light">
+        <div class="hero-body">
+          <div class="container is-max-desktop">
+            <nav class="breadcrumb" aria-label="breadcrumbs">
+              <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a id="breadcrumb-level" href="benchmarks.html">Level</a></li>
+                <li class="is-active"><a id="breadcrumb-benchmark" aria-current="page">Benchmark</a></li>
+              </ul>
+            </nav>
+            <h1 class="title is-2" id="benchmark-title"></h1>
+            <p class="subtitle is-5" id="benchmark-subtitle" style="color: var(--text-secondary);"></p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Image -->
+      <section class="detail-section" id="image-section" style="display: none;">
+        <div class="container is-max-desktop has-text-centered">
+          <img id="benchmark-image" class="benchmark-hero-image" src="" alt="" loading="lazy">
+        </div>
+      </section>
+
+      <!-- Description -->
+      <section class="detail-section">
+        <div class="container is-max-desktop">
+          <h2 class="title is-3">Description</h2>
+          <div class="content has-text-justified" id="benchmark-description"></div>
+        </div>
+      </section>
+
+      <!-- Justification -->
+      <section class="detail-section" id="justification-section" style="display: none;">
+        <div class="container is-max-desktop">
+          <h2 class="title is-3">Justification</h2>
+          <div class="content has-text-justified" id="benchmark-justification"></div>
+        </div>
+      </section>
+
+      <!-- Setup -->
+      <section class="detail-section" id="setup-section" style="display: none;">
+        <div class="container is-max-desktop">
+          <h2 class="title is-3">Setup</h2>
+          <div class="content has-text-justified" id="benchmark-setup"></div>
+        </div>
+      </section>
+
+      <!-- Items -->
+      <section class="detail-section" id="items-section" style="display: none;">
+        <div class="container is-max-desktop">
+          <h2 class="title is-3">Items</h2>
+          <div id="benchmark-items"></div>
+        </div>
+      </section>
+
+      <!-- Procedures -->
+      <section class="detail-section">
+        <div class="container is-max-desktop">
+          <h2 class="title is-3">Procedures</h2>
+          <ol class="procedures-list" id="benchmark-procedures"></ol>
+        </div>
+      </section>
+
+      <!-- Metrics -->
+      <section class="detail-section">
+        <div class="container is-max-desktop">
+          <h2 class="title is-3">Metrics</h2>
+          <div id="benchmark-metrics"></div>
+        </div>
+      </section>
+
+      <!-- Analysis Methods -->
+      <section class="detail-section">
+        <div class="container is-max-desktop">
+          <h2 class="title is-3">Analysis Methods</h2>
+          <ul class="analysis-list" id="benchmark-analysis"></ul>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="content has-text-centered">
+        <p>
+          <strong>HAND Benchmarking</strong> &mdash; System Integration Team
+        </p>
+        <p>
+          This website template is adapted from the
+          <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank" rel="noopener">Academic Project Page Template</a>,
+          licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a>.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

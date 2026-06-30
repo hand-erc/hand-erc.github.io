@@ -1,0 +1,431 @@
+{
+  "description": ["Hand-level benchmarks test the hand, fingers, and wrist independent of arms, vision, and higher-level control.", 
+                  " Hand-level performance is dictated by design of the hand's architecture and contributions from the many components."],
+  "sections": [
+    {
+      "title": "Hand",
+      "description": "",
+      "benchmarks": [
+        {
+          "id": "hand-weight",
+          "title": "Weight",
+          "shortDescription": "",
+          "description": "",
+          "procedures": [""],
+          "metrics": [{ "name": "", "unit": "", "description": "" }],
+          "analysisMethods": [""]
+        },
+        {
+          "id": "number-of-fingers",
+          "title": "Number of Fingers",
+          "shortDescription": "",
+          "description": "",
+          "procedures": [""],
+          "metrics": [{ "name": "", "unit": "", "description": "" }],
+          "analysisMethods": [""]
+        },
+        {
+          "id": "number-of-actuators",
+          "title": "Number of Actuators",
+          "shortDescription": "",
+          "description": "",
+          "procedures": [""],
+          "metrics": [{ "name": "", "unit": "", "description": "" }],
+          "analysisMethods": [""]
+        },
+        {
+          "id": "hand-size",
+          "title": "Size",
+          "shortDescription": "",
+          "description": "",
+          "procedures": [""],
+          "metrics": [{ "name": "", "unit": "", "description": "" }],
+          "analysisMethods": [""]
+        },
+        {
+          "id": "hand-power-consumption",
+          "title": "Power Consumption",
+          "shortDescription": "",
+          "description": "",
+          "procedures": [""],
+          "metrics": [{ "name": "", "unit": "", "description": "" }],
+          "analysisMethods": [""]
+        },
+        {
+          "id": "hand-serviceability",
+          "title": "Serviceability",
+          "shortDescription": "",
+          "description": "",
+          "procedures": [""],
+          "metrics": [{ "name": "", "unit": "", "description": "" }],
+          "analysisMethods": [""]
+        }
+      ],
+      "subsections": [
+        {
+          "title": "Mobility",
+          "description": "",
+          "benchmarks": [
+            {
+              "id": "degrees-of-freedom",
+              "title": "Degrees of Freedom",
+              "shortDescription": "",
+              "description": "",
+              "procedures": [""],
+              "metrics": [{ "name": "", "unit": "", "description": "" }],
+              "analysisMethods": [""]
+            },
+            {
+              "id": "kapandji-score",
+              "title": "Kapandji Score",
+              "shortDescription": "",
+              "description": "",
+              "procedures": [""],
+              "metrics": [{ "name": "", "unit": "", "description": "" }],
+              "analysisMethods": [""]
+            },
+            {
+              "id": "workspace",
+              "title": "Workspace",
+              "shortDescription": "",
+              "description": "",
+              "procedures": [""],
+              "metrics": [{ "name": "", "unit": "", "description": "" }],
+              "analysisMethods": [""]
+            },
+            {
+              "id": "joint-limits",
+              "title": "Joint Limits",
+              "shortDescription": "",
+              "description": "",
+              "procedures": [""],
+              "metrics": [{ "name": "", "unit": "", "description": "" }],
+              "analysisMethods": [""]
+            }
+          ]
+        },
+        {
+          "title": "Grasping",
+          "description": "",
+          "benchmarks": [
+            {
+              "id": "grasp-taxonomy-score",
+              "title": "GRASP Taxonomy Score",
+              "shortDescription": "",
+              "description": "",
+              "procedures": [""],
+              "metrics": [{ "name": "", "unit": "", "description": "" }],
+              "analysisMethods": [""]
+            },
+            {
+              "id": "grasping-volume",
+              "title": "Grasping Volume",
+              "shortDescription": "",
+              "description": "",
+              "procedures": [""],
+              "metrics": [{ "name": "", "unit": "", "description": "" }],
+              "analysisMethods": [""]
+            },
+            {
+              "id": "grasp-pullout-strength",
+              "title": "Grasp Resilience",
+              "shortDescription": "",
+              "description": "",
+              "procedures": [""],
+              "metrics": [{ "name": "", "unit": "", "description": "" }],
+              "analysisMethods": [""]
+            },
+            {
+              "id": "grasp-contact-patch-area",
+              "title": "Grasp Contact Patch Area",
+              "shortDescription": "",
+              "description": "",
+              "procedures": [""],
+              "metrics": [{ "name": "", "unit": "", "description": "" }],
+              "analysisMethods": [""]
+            },
+            {
+              "id": "grasp-pullout-strength-2",
+              "title": "Grasp Pullout Strength",
+              "shortDescription": "",
+              "description": "",
+              "procedures": [""],
+              "metrics": [{ "name": "", "unit": "", "description": "" }],
+              "analysisMethods": [""]
+            }
+          ]
+        },
+        {
+          "title": "Strength",
+          "description": "",
+          "benchmarks": [
+            {
+              "id": "grasp-strength",
+              "title": "Grasp Strength",
+              "shortDescription": "",
+              "description": "",
+              "procedures": [""],
+              "metrics": [{ "name": "", "unit": "", "description": "" }],
+              "analysisMethods": [""]
+            },
+            {
+              "id": "pinch-strength",
+              "title": "Pinch Strength",
+              "shortDescription": "",
+              "description": "",
+              "procedures": [""],
+              "metrics": [{ "name": "", "unit": "", "description": "" }],
+              "analysisMethods": [""]
+            },
+            {
+              "id": "hand-payload",
+              "title": "Payload",
+              "shortDescription": "",
+              "description": "",
+              "procedures": [""],
+              "metrics": [{ "name": "", "unit": "", "description": "" }],
+              "analysisMethods": [""]
+            }
+          ]
+        },
+        {
+          "title": "Speed",
+          "description": "",
+          "benchmarks": [
+            {
+              "id": "grasp-cycle-time",
+              "title": "Grasp Cycle Time",
+              "shortDescription": "",
+              "description": "",
+              "procedures": [""],
+              "metrics": [{ "name": "", "unit": "", "description": "" }],
+              "analysisMethods": [""]
+            }
+          ]
+        },
+        {
+          "title": "Dynamics",
+          "description": "",
+          "benchmarks": [
+            {
+              "id": "grasp-impedance",
+              "title": "Grasp Impedance",
+              "shortDescription": "",
+              "description": "",
+              "procedures": [""],
+              "metrics": [{ "name": "", "unit": "", "description": "" }],
+              "analysisMethods": [""]
+            }
+          ]
+        },
+        {
+          "title": "Durability",
+          "description": "",
+          "benchmarks": [
+            {
+              "id": "hand-operational-fatigue-life",
+              "title": "Operational Fatigue-Life",
+              "shortDescription": "",
+              "description": "",
+              "procedures": [""],
+              "metrics": [{ "name": "", "unit": "", "description": "" }],
+              "analysisMethods": [""]
+            },
+            {
+              "id": "hand-impact-resilience",
+              "title": "Impact Resilience",
+              "shortDescription": "",
+              "description": "",
+              "procedures": [""],
+              "metrics": [{ "name": "", "unit": "", "description": "" }],
+              "analysisMethods": [""]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Wrist",
+      "description": "",
+      "benchmarks": [
+        {
+          "id": "wrist-passive-impedance",
+          "title": "Passive Impedance",
+          "shortDescription": "",
+          "description": "",
+          "procedures": [""],
+          "metrics": [{ "name": "", "unit": "", "description": "" }],
+          "analysisMethods": [""]
+        },
+        {
+          "id": "wrist-z-width",
+          "title": "Z-Width",
+          "shortDescription": "",
+          "description": "",
+          "procedures": [""],
+          "metrics": [{ "name": "", "unit": "", "description": "" }],
+          "analysisMethods": [""]
+        },
+        {
+          "id": "wrist-durability",
+          "title": "Durability",
+          "shortDescription": "",
+          "description": "",
+          "procedures": [""],
+          "metrics": [{ "name": "", "unit": "", "description": "" }],
+          "analysisMethods": [""]
+        },
+        {
+          "id": "wrist-coupling",
+          "title": "Coupling",
+          "shortDescription": "",
+          "description": "",
+          "procedures": [""],
+          "metrics": [{ "name": "", "unit": "", "description": "" }],
+          "analysisMethods": [""]
+        },
+        {
+          "id": "wrist-strength",
+          "title": "Strength",
+          "shortDescription": "",
+          "description": "",
+          "procedures": [""],
+          "metrics": [{ "name": "", "unit": "", "description": "" }],
+          "analysisMethods": [""]
+        },
+        {
+          "id": "wrist-speed",
+          "title": "Speed",
+          "shortDescription": "",
+          "description": "",
+          "procedures": [""],
+          "metrics": [{ "name": "", "unit": "", "description": "" }],
+          "analysisMethods": [""]
+        },
+        {
+          "id": "wrist-repeatability",
+          "title": "Repeatability",
+          "shortDescription": "",
+          "description": "",
+          "procedures": [""],
+          "metrics": [{ "name": "", "unit": "", "description": "" }],
+          "analysisMethods": [""]
+        }
+      ]
+    },
+    {
+      "title": "Finger",
+      "description": "",
+      "benchmarks": [
+        {
+          "id": "fingertip-passive-impedance",
+          "title": "Passive Impedance",
+          "shortDescription": "",
+          "description": "",
+          "procedures": [""],
+          "metrics": [{ "name": "", "unit": "", "description": "" }],
+          "analysisMethods": [""]
+        },
+        {
+          "id": "fingertip-z-width",
+          "title": "Z-Width",
+          "shortDescription": "",
+          "description": "",
+          "procedures": [""],
+          "metrics": [{ "name": "", "unit": "", "description": "" }],
+          "analysisMethods": [""]
+        },
+        {
+          "id": "fingertip-force-control-bandwidth",
+          "title": "Force Control Bandwidth",
+          "shortDescription": "",
+          "description": "",
+          "procedures": [""],
+          "metrics": [{ "name": "", "unit": "", "description": "" }],
+          "analysisMethods": [""]
+        },
+        {
+          "id": "fingertip-force-tracking",
+          "title": "Force Tracking",
+          "shortDescription": "",
+          "description": "",
+          "procedures": [""],
+          "metrics": [{ "name": "", "unit": "", "description": "" }],
+          "analysisMethods": [""]
+        },
+        {
+          "id": "fingertip-motion-control-bandwidth",
+          "title": "Motion Control Bandwidth",
+          "shortDescription": "",
+          "description": "",
+          "procedures": [""],
+          "metrics": [{ "name": "", "unit": "", "description": "" }],
+          "analysisMethods": [""]
+        },
+        {
+          "id": "fingertip-motion-tracking",
+          "title": "Motion Tracking",
+          "shortDescription": "",
+          "description": "",
+          "procedures": [""],
+          "metrics": [{ "name": "", "unit": "", "description": "" }],
+          "analysisMethods": [""]
+        },
+        {
+          "id": "fingertip-repeatability",
+          "title": "Repeatability",
+          "shortDescription": "",
+          "description": "",
+          "procedures": [""],
+          "metrics": [{ "name": "", "unit": "", "description": "" }],
+          "analysisMethods": [""]
+        },
+        {
+          "id": "fingertip-strength",
+          "title": "Strength",
+          "shortDescription": "",
+          "description": "",
+          "procedures": [""],
+          "metrics": [{ "name": "", "unit": "", "description": "" }],
+          "analysisMethods": [""]
+        },
+        {
+          "id": "fingertip-speed",
+          "title": "Speed",
+          "shortDescription": "",
+          "description": "",
+          "procedures": [""],
+          "metrics": [{ "name": "", "unit": "", "description": "" }],
+          "analysisMethods": [""]
+        },
+        {
+          "id": "finger-degrees-of-freedom",
+          "title": "Degrees of Freedom",
+          "shortDescription": "",
+          "description": "",
+          "procedures": [""],
+          "metrics": [{ "name": "", "unit": "", "description": "" }],
+          "analysisMethods": [""]
+        },
+        {
+          "id": "fingertip-backdrive-force",
+          "title": "Fingertip Backdrive Force",
+          "shortDescription": "",
+          "description": "",
+          "procedures": [""],
+          "metrics": [{ "name": "", "unit": "", "description": "" }],
+          "analysisMethods": [""]
+        },
+        {
+          "id": "finger-joint-backlash",
+          "title": "Joint Backlash",
+          "shortDescription": "",
+          "description": "",
+          "procedures": [""],
+          "metrics": [{ "name": "", "unit": "", "description": "" }],
+          "analysisMethods": [""]
+        }
+      ]
+    }
+  ]
+}

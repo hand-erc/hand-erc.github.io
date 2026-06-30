@@ -1,0 +1,28 @@
+{
+  "levels": [
+    {
+      "id": "application",
+      "label": "Application Level",
+      "icon": "fa-layer-group",
+      "file": "data/application.jsonc"
+    },
+    {
+      "id": "system",
+      "label": "System Level",
+      "icon": "fa-cogs",
+      "file": "data/system.jsonc"
+    },
+    {
+      "id": "hand",
+      "label": "Hand Level",
+      "icon": "fa-hand",
+      "file": "data/hand.jsonc"
+    },
+    {
+      "id": "component",
+      "label": "Component Level",
+      "icon": "fa-puzzle-piece",
+      "file": "data/component.jsonc"
+    }
+  ]
+}
