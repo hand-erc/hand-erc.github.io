@@ -1,0 +1,565 @@
+{
+  "description": ["Component-level benchmarks are the 'unit' tests of the hand, focusing on the performance of one or a few components.",
+                  " At this level, system designers have the most control of performance, but the least insight into how their decisions affect dexterity."],
+  "sections": [
+    {
+      "title": "Actuators",
+      "description": "",
+      "benchmarks": [
+        {
+          "id": "z-width",
+          "title": "Z-Width",
+          "shortDescription": "",
+          "description": "",
+          "procedures": [""],
+          "metrics": [{ "name": "", "unit": "", "description": "" }],
+          "analysisMethods": [""]
+        },
+        {
+          "id": "output-inertia",
+          "title": "Output Inertia",
+          "shortDescription": "",
+          "description": "",
+          "procedures": [""],
+          "metrics": [{ "name": "", "unit": "", "description": "" }],
+          "analysisMethods": [""]
+        },
+        {
+          "id": "force-torque-control-bandwidth",
+          "title": "Force/Torque Control Bandwidth",
+          "shortDescription": "",
+          "description": "",
+          "procedures": [""],
+          "metrics": [{ "name": "", "unit": "", "description": "" }],
+          "analysisMethods": [""]
+        },
+        {
+          "id": "force-torque-density",
+          "title": "Force/Torque Density",
+          "shortDescription": "",
+          "description": "",
+          "procedures": [""],
+          "metrics": [{ "name": "", "unit": "", "description": "" }],
+          "analysisMethods": [""]
+        },
+        {
+          "id": "maximum-effort",
+          "title": "Maximum Continuous Force/Torque",
+          "shortDescription": "",
+          "description": "",
+          "procedures": [""],
+          "metrics": [{ "name": "", "unit": "", "description": "" }],
+          "analysisMethods": [""]
+        },
+        {
+          "id": "maximum-speed",
+          "title": "Maximum Speed",
+          "shortDescription": "",
+          "description": "",
+          "procedures": [""],
+          "metrics": [{ "name": "", "unit": "", "description": "" }],
+          "analysisMethods": [""]
+        },
+        {
+          "id": "thermal-properties",
+          "title": "Thermal Properties",
+          "shortDescription": "",
+          "description": "",
+          "procedures": [""],
+          "metrics": [{ "name": "", "unit": "", "description": "" }],
+          "analysisMethods": [""]
+        },
+        {
+          "id": "backdrive-force-torque",
+          "title": "Backdrive Force/Torque",
+          "shortDescription": "",
+          "description": "",
+          "procedures": [""],
+          "metrics": [{ "name": "", "unit": "", "description": "" }],
+          "analysisMethods": [""]
+        },
+        {
+          "id": "actuator-responsiveness",
+          "title": "Responsiveness",
+          "shortDescription": "",
+          "description": "",
+          "procedures": [""],
+          "metrics": [{ "name": "", "unit": "", "description": "" }],
+          "analysisMethods": [""]
+        },
+        {
+          "id": "actuator-power-density",
+          "title": "Power Density",
+          "shortDescription": "",
+          "description": "",
+          "procedures": [""],
+          "metrics": [{ "name": "", "unit": "", "description": "" }],
+          "analysisMethods": [""]
+        },
+        {
+          "id": "actuator-force-velocity-behavior",
+          "title": "Force-Velocity Behavior",
+          "shortDescription": "",
+          "description": "",
+          "procedures": [""],
+          "metrics": [{ "name": "", "unit": "", "description": "" }],
+          "analysisMethods": [""]
+        },
+        {
+          "id": "actuator-parasitic-stiffness",
+          "title": "Parasitic Stiffness",
+          "shortDescription": "",
+          "description": "",
+          "procedures": [""],
+          "metrics": [{ "name": "", "unit": "", "description": "" }],
+          "analysisMethods": [""]
+        },
+        {
+          "id": "actuator-breakaway-force-torque",
+          "title": "Breakaway Force/Torque",
+          "shortDescription": "",
+          "description": "",
+          "procedures": [""],
+          "metrics": [{ "name": "", "unit": "", "description": "" }],
+          "analysisMethods": [""]
+        }
+      ]
+    },
+    {
+      "title": "Mechanical Transmission",
+      "description": "",
+      "benchmarks": [
+        {
+          "id": "force-efficiency",
+          "title": "Force Transmission Efficiency",
+          "shortDescription": "",
+          "description": "",
+          "procedures": [""],
+          "metrics": [{ "name": "", "unit": "", "description": "" }],
+          "analysisMethods": [""]
+        },
+        {
+          "id": "overall-transmission-ratio",
+          "title": "Overall Transmission Ratio",
+          "shortDescription": "",
+          "description": "",
+          "procedures": [""],
+          "metrics": [{ "name": "", "unit": "", "description": "" }],
+          "analysisMethods": [""]
+        },
+        {
+          "id": "transmission-stiffness",
+          "title": "Transmission Stiffness",
+          "shortDescription": "",
+          "description": "",
+          "procedures": [""],
+          "metrics": [{ "name": "", "unit": "", "description": "" }],
+          "analysisMethods": [""]
+        },
+        {
+          "id": "transmission-Backlash",
+          "title": "Backlash",
+          "shortDescription": "",
+          "description": "",
+          "procedures": [""],
+          "metrics": [{ "name": "", "unit": "", "description": "" }],
+          "analysisMethods": [""]
+        },
+        {
+          "id": "mechanical-complexity",
+          "title": "Mechanical Complexity",
+          "shortDescription": "",
+          "description": "",
+          "procedures": [""],
+          "metrics": [{ "name": "", "unit": "", "description": "" }],
+          "analysisMethods": [""]
+        },
+        {
+          "id": "mechanical-transmission-coupling",
+          "title": "Mechanical Transmission Coupling",
+          "shortDescription": "",
+          "description": "",
+          "procedures": [""],
+          "metrics": [{ "name": "", "unit": "", "description": "" }],
+          "analysisMethods": [""]
+        },
+        {
+          "id": "transmission-power-efficiency",
+          "title": "Power Efficiency",
+          "shortDescription": "",
+          "description": "",
+          "procedures": [""],
+          "metrics": [{ "name": "", "unit": "", "description": "" }],
+          "analysisMethods": [""]
+        },
+        {
+          "id": "transmission-friction",
+          "title": "Friction",
+          "shortDescription": "",
+          "description": "",
+          "procedures": [""],
+          "metrics": [{ "name": "", "unit": "", "description": "" }],
+          "analysisMethods": [""]
+        },
+        {
+          "id": "transmission-creep",
+          "title": "Creep",
+          "shortDescription": "",
+          "description": "",
+          "procedures": [""],
+          "metrics": [{ "name": "", "unit": "", "description": "" }],
+          "analysisMethods": [""]
+        },
+        {
+          "id": "transmission-hysteresis",
+          "title": "Hysteresis",
+          "shortDescription": "",
+          "description": "",
+          "procedures": [""],
+          "metrics": [{ "name": "", "unit": "", "description": "" }],
+          "analysisMethods": [""]
+        }
+      ],
+      "subsections": [
+        {
+          "title": "Tendons",
+          "description": "",
+          "benchmarks": [
+            {
+              "id": "tendon-stiffness",
+              "title": "Tendon Stiffness",
+              "shortDescription": "",
+              "description": "",
+              "procedures": [""],
+              "metrics": [{ "name": "", "unit": "", "description": "" }],
+              "analysisMethods": [""]
+            },
+            {
+              "id": "tendon-lifetime",
+              "title": "Fatigue-Life",
+              "shortDescription": "",
+              "description": "",
+              "procedures": [""],
+              "metrics": [{ "name": "", "unit": "", "description": "" }],
+              "analysisMethods": [""]
+            },
+            {
+              "id": "tendon-ultimate-strength",
+              "title": "Ultimate Strength",
+              "shortDescription": "",
+              "description": "",
+              "procedures": [""],
+              "metrics": [{ "name": "", "unit": "", "description": "" }],
+              "analysisMethods": [""]
+            },
+            {
+              "id": "tendon-hysteresis",
+              "title": "Hysteresis",
+              "shortDescription": "",
+              "description": "",
+              "procedures": [""],
+              "metrics": [{ "name": "", "unit": "", "description": "" }],
+              "analysisMethods": [""]
+            },
+            {
+              "id": "tendon-termination-strength",
+              "title": "Termination Strength",
+              "shortDescription": "",
+              "description": "",
+              "procedures": [""],
+              "metrics": [{ "name": "", "unit": "", "description": "" }],
+              "analysisMethods": [""]
+            },
+            {
+              "id": "tendon-creep-strain",
+              "title": "Creep Strain",
+              "shortDescription": "",
+              "description": "",
+              "procedures": [""],
+              "metrics": [{ "name": "", "unit": "", "description": "" }],
+              "analysisMethods": [""]
+            },
+            {
+              "id": "tendon-path-friction",
+              "title": "Tendon-Path Friction",
+              "shortDescription": "",
+              "description": "",
+              "procedures": [""],
+              "metrics": [{ "name": "", "unit": "", "description": "" }],
+              "analysisMethods": [""]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Soft, Durable Skin",
+      "description": "",
+      "benchmarks": [
+        {
+          "id": "skin-contact-patch-evolution",
+          "title": "Contact Patch Evolution",
+          "shortDescription": "",
+          "description": "",
+          "procedures": [""],
+          "metrics": [{ "name": "", "unit": "", "description": "" }],
+          "analysisMethods": [""]
+        },
+        {
+          "id": "skin-elastic-modulus",
+          "title": "Elastic Modulus",
+          "shortDescription": "",
+          "description": "",
+          "procedures": [""],
+          "metrics": [{ "name": "", "unit": "", "description": "" }],
+          "analysisMethods": [""]
+        },
+        {
+          "id": "skin-friction",
+          "title": "Friction",
+          "shortDescription": "",
+          "description": "",
+          "procedures": [""],
+          "metrics": [{ "name": "", "unit": "", "description": "" }],
+          "analysisMethods": [""]
+        },
+        {
+          "id": "skin-storage-modulus",
+          "title": "Storage Modulus",
+          "shortDescription": "",
+          "description": "",
+          "procedures": [""],
+          "metrics": [{ "name": "", "unit": "", "description": "" }],
+          "analysisMethods": [""]
+        },
+        {
+          "id": "skin-loss-modulus",
+          "title": "Loss Modulus",
+          "shortDescription": "",
+          "description": "",
+          "procedures": [""],
+          "metrics": [{ "name": "", "unit": "", "description": "" }],
+          "analysisMethods": [""]
+        },
+        {
+          "id": "skin-tan-delta",
+          "title": "Tan Delta",
+          "shortDescription": "",
+          "description": "",
+          "procedures": [""],
+          "metrics": [{ "name": "", "unit": "", "description": "" }],
+          "analysisMethods": [""]
+        },
+        {
+          "id": "skin-run-in",
+          "title": "Run-In",
+          "shortDescription": "",
+          "description": "",
+          "procedures": [""],
+          "metrics": [{ "name": "", "unit": "", "description": "" }],
+          "analysisMethods": [""]
+        },
+        {
+          "id": "skin-fatigue-life",
+          "title": "Fatigue-Life",
+          "shortDescription": "",
+          "description": "",
+          "procedures": [""],
+          "metrics": [{ "name": "", "unit": "", "description": "" }],
+          "analysisMethods": [""]
+        },
+        {
+          "id": "skin-geometry",
+          "title": "Geometry",
+          "shortDescription": "",
+          "description": "",
+          "procedures": [""],
+          "metrics": [{ "name": "", "unit": "", "description": "" }],
+          "analysisMethods": [""]
+        },
+        {
+          "id": "skin-shore-hardness",
+          "title": "Shore Hardness",
+          "shortDescription": "",
+          "description": "",
+          "procedures": [""],
+          "metrics": [{ "name": "", "unit": "", "description": "" }],
+          "analysisMethods": [""]
+        },
+        {
+          "id": "skin-surface-adhesion",
+          "title": "Surface Adhesion",
+          "shortDescription": "",
+          "description": "",
+          "procedures": [""],
+          "metrics": [{ "name": "", "unit": "", "description": "" }],
+          "analysisMethods": [""]
+        },
+        {
+          "id": "skin-creep",
+          "title": "Creep",
+          "shortDescription": "",
+          "description": "",
+          "procedures": [""],
+          "metrics": [{ "name": "", "unit": "", "description": "" }],
+          "analysisMethods": [""]
+        }
+      ]
+    },
+    {
+      "title": "Sensors",
+      "description": "",
+      "benchmarks": [
+        {
+          "id": "sensor-resolution",
+          "title": "Resolution",
+          "shortDescription": "",
+          "description": "",
+          "procedures": [""],
+          "metrics": [{ "name": "", "unit": "", "description": "" }],
+          "analysisMethods": [""]
+        },
+        {
+          "id": "sensor-sample-rate",
+          "title": "Sampling Rate",
+          "shortDescription": "",
+          "description": "",
+          "procedures": [""],
+          "metrics": [{ "name": "", "unit": "", "description": "" }],
+          "analysisMethods": [""]
+        },
+        {
+          "id": "sensing-bandwidth",
+          "title": "Sensing Bandwidth",
+          "shortDescription": "",
+          "description": "",
+          "procedures": [""],
+          "metrics": [{ "name": "", "unit": "", "description": "" }],
+          "analysisMethods": [""]
+        },
+        {
+          "id": "sensor-snr",
+          "title": "Signal to Noise Ratio",
+          "shortDescription": "",
+          "description": "",
+          "procedures": [""],
+          "metrics": [{ "name": "", "unit": "", "description": "" }],
+          "analysisMethods": [""]
+        },
+        {
+          "id": "sensor-repeatability",
+          "title": "Repeatability",
+          "shortDescription": "",
+          "description": "",
+          "procedures": [""],
+          "metrics": [{ "name": "", "unit": "", "description": "" }],
+          "analysisMethods": [""]
+        },
+        {
+          "id": "sensor-latency",
+          "title": "Latency",
+          "shortDescription": "",
+          "description": "",
+          "procedures": [""],
+          "metrics": [{ "name": "", "unit": "", "description": "" }],
+          "analysisMethods": [""]
+        },
+        {
+          "id": "sensor-sensing-range",
+          "title": "Sensing Range",
+          "shortDescription": "",
+          "description": "",
+          "procedures": [""],
+          "metrics": [{ "name": "", "unit": "", "description": "" }],
+          "analysisMethods": [""]
+        },
+        {
+          "id": "sensor-lifetime",
+          "title": "Lifetime",
+          "shortDescription": "",
+          "description": "",
+          "procedures": [""],
+          "metrics": [{ "name": "", "unit": "", "description": "" }],
+          "analysisMethods": [""]
+        },
+        {
+          "id": "sensor-power-consumption",
+          "title": "Power Consumption",
+          "shortDescription": "",
+          "description": "",
+          "procedures": [""],
+          "metrics": [{ "name": "", "unit": "", "description": "" }],
+          "analysisMethods": [""]
+        }
+      ],
+      "subsections": [
+        {
+          "title": "Tactile",
+          "description": "",
+          "benchmarks": [
+            {
+              "id": "tactile-spatial-resolution",
+              "title": "Spatial Resolution",
+              "shortDescription": "",
+              "description": "",
+              "procedures": [""],
+              "metrics": [{ "name": "", "unit": "", "description": "" }],
+              "analysisMethods": [""]
+            },
+            {
+              "id": "tactile-scalability",
+              "title": "Scalability",
+              "shortDescription": "",
+              "description": "",
+              "procedures": [""],
+              "metrics": [{ "name": "", "unit": "", "description": "" }],
+              "analysisMethods": [""]
+            },
+            {
+              "id": "tactile-hand-coverage",
+              "title": "Hand Coverage",
+              "shortDescription": "",
+              "description": "",
+              "procedures": [""],
+              "metrics": [{ "name": "", "unit": "", "description": "" }],
+              "analysisMethods": [""]
+            },
+            {
+              "id": "tactile-slip-shear-sensitivity",
+              "title": "Slip/Shear Sensitivity",
+              "shortDescription": "",
+              "description": "",
+              "procedures": [""],
+              "metrics": [{ "name": "", "unit": "", "description": "" }],
+              "analysisMethods": [""]
+            },
+            {
+              "id": "tactile-sensing-modalities",
+              "title": "Sensing Modalities",
+              "shortDescription": "",
+              "description": "",
+              "procedures": [""],
+              "metrics": [{ "name": "", "unit": "", "description": "" }],
+              "analysisMethods": [""]
+            }
+          ]
+        },
+        {
+          "title": "Kinesthetic",
+          "description": "",
+          "benchmarks": [
+            {
+              "id": "kinesthetic-resolution-density",
+              "title": "Resolution Density",
+              "shortDescription": "",
+              "description": "",
+              "procedures": [""],
+              "metrics": [{ "name": "", "unit": "", "description": "" }],
+              "analysisMethods": [""]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

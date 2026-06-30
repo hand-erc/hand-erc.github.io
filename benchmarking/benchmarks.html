@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Multi-Level Hand Benchmarks</title>
+  <meta name="description" content="Standardized benchmarks for evaluating dexterous robot systems across application, system, hand, and component levels.">
+  <meta name="keywords" content="hand, benchmarking, robotic, evaluation, metrics">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Multi-Level Hand Benchmarks">
+  <meta property="og:description" content="Standardized benchmarks for evaluating artificial hands.">
+  <meta property="og:type" content="website">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+  <link rel="stylesheet" href="static/css/benchmarks.css">
+
+  <!-- JS -->
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script defer src="static/js/index.js"></script>
+  <script defer src="static/js/benchmarks.js"></script>
+</head>
+<body>
+  <div class="draft-banner">DRAFT - NOT FOR DISTRIBUTION</div>
+
+  <!-- Scroll to Top Button -->
+  <button class="scroll-to-top" onclick="scrollToTop()" title="Scroll to top">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+
+  <!-- Breadcrumb -->
+  <section class="section" style="padding-top: 1.5rem; padding-bottom: 0;">
+    <div class="container is-fluid">
+      <nav class="breadcrumb" aria-label="breadcrumbs">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li class="is-active"><a aria-current="page">Multi-Level Hand Benchmarks</a></li>
+        </ul>
+      </nav>
+    </div>
+  </section>
+
+  <!-- Hero Section -->
+  <section class="hero publication-header is-light">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">Multi-Level Hand Benchmarks</h1>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                Benchmarks for evaluating robot hands at the application, system, hand, and component level.
+              </span>
+            </div>
+            <div class="is-size-6 publication-authors">
+              <span class="author-block">HAND ERC &mdash; System Integration Team</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Page Description -->
+  <section class="section" style="padding-top: 2rem; padding-bottom: 1rem;">
+    <div class="container is-max-widescreen">
+      <div class="content has-text-left">
+        <p class="is-size-5" style="color: var(--text-secondary); line-height: 1.8;">
+          This page presents a hierarchical set of benchmarks for evaluating dexterous robotic hands. The benchmarks listed here 
+          are test protocols that yield performance scores using one or more metrics. Some metrics can be evaluated without 
+          performing a test. Due to the complexity of a fully integrated dexterous hand system, we have broken down hand benchmarking into four levels:
+          Application, System, Hand, and Component.
+        </p>
+
+
+        <p class="is-size-5" style="color: var(--text-secondary); line-height: 1.8;">
+           <strong> Hand </strong> and <strong> Component-Level </strong> benchmarks are more directly affected by design decisions. The complexity
+           of a robot hand creates an <a href="attribution.html">attribution problem</a>, where system designers have difficulty understanding the s
+           ensitivity of system-level performance to their decisions. These benchmarks will help us make those connections.
+        </p>
+
+  
+
+        <p class="is-size-5" style="color: var(--text-secondary); line-height: 1.8;"></p>
+          
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tabs and Benchmark Cards -->
+  <section class="section">
+    <div class="container">
+
+      <!-- Tab Navigation -->
+      <div id="level-tabs">
+        <div class="tabs is-centered is-boxed is-medium">
+          <ul>
+            <li data-level="application">
+              <a>
+                <span>Application Level</span>
+              </a>
+            </li>
+            <li class="is-active" data-level="system">
+              <a>
+                <span>System Level</span>
+              </a>
+            </li>
+            <li data-level="hand">
+              <a>
+                <span>Hand Level</span>
+              </a>
+            </li>
+            <li data-level="component">
+              <a>
+                <span>Component Level</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Tab Content (populated by benchmarks.js) -->
+      <div id="tab-content">
+        <div class="loading-spinner">
+          <span class="icon"><i class="fas fa-spinner"></i></span>
+          <span>Loading benchmarks...</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Noscript Fallback -->
+  <noscript>
+    <section class="section">
+      <div class="container has-text-centered">
+        <p class="is-size-5">Please enable JavaScript to view the benchmarks.</p>
+      </div>
+    </section>
+  </noscript>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="content has-text-centered">
+        <p>
+          <strong>HAND Benchmarking</strong> &mdash; System Integration Team
+        </p>
+        <p>
+          This website template is adapted from the
+          <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank" rel="noopener">Academic Project Page Template</a>,
+          licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a>.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
