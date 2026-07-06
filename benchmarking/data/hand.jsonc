@@ -336,24 +336,6 @@
           "analysisMethods": [""]
         },
         {
-          "id": "fingertip-force-control-bandwidth",
-          "title": "Force Control Bandwidth",
-          "shortDescription": "",
-          "description": "",
-          "procedures": [""],
-          "metrics": [{ "name": "", "unit": "", "description": "" }],
-          "analysisMethods": [""]
-        },
-        {
-          "id": "fingertip-force-tracking",
-          "title": "Force Tracking",
-          "shortDescription": "",
-          "description": "",
-          "procedures": [""],
-          "metrics": [{ "name": "", "unit": "", "description": "" }],
-          "analysisMethods": [""]
-        },
-        {
           "id": "fingertip-motion-control-bandwidth",
           "title": "Motion Control Bandwidth",
           "shortDescription": "",
@@ -408,15 +390,6 @@
           "analysisMethods": [""]
         },
         {
-          "id": "fingertip-backdrive-force",
-          "title": "Fingertip Backdrive Force",
-          "shortDescription": "",
-          "description": "",
-          "procedures": [""],
-          "metrics": [{ "name": "", "unit": "", "description": "" }],
-          "analysisMethods": [""]
-        },
-        {
           "id": "finger-joint-backlash",
           "title": "Joint Backlash",
           "shortDescription": "",
@@ -424,6 +397,59 @@
           "procedures": [""],
           "metrics": [{ "name": "", "unit": "", "description": "" }],
           "analysisMethods": [""]
+        }
+      ],
+      "subsections": [
+        {
+          "title": "Transparency",
+          "description": "",
+          "benchmarks": [
+            {
+              "id": "breakaway-fingertip-force",
+              "title": "Breakaway Fingertip Force",
+              "shortDescription": "",
+              "description": "",
+              "procedures": [""],
+              "metrics": [{ "name": "", "unit": "", "description": "" }],
+              "analysisMethods": [""]
+            },
+            {
+              "id": "fingertip-force-control-bandwidth",
+              "title": "Fingertip Force Control Bandwidth",
+              "shortDescription": "",
+              "description": "",
+              "procedures": [""],
+              "metrics": [{ "name": "", "unit": "", "description": "" }],
+              "analysisMethods": [""]
+            },
+            {
+              "id": "fingertip-force-tracking",
+              "title": "Fingertip Force Tracking",
+              "shortDescription": "",
+              "description": "",
+              "procedures": [""],
+              "metrics": [{ "name": "", "unit": "", "description": "" }],
+              "analysisMethods": [""]
+            },
+            {
+              "id": "fingertip-effective-impedance",
+              "title": "Fingertip Effective Impedance",
+              "shortDescription": "",
+              "description": "",
+              "procedures": [""],
+              "metrics": [{ "name": "", "unit": "", "description": "" }],
+              "analysisMethods": [""]
+            },
+            {
+              "id": "fingertip-backdrive-force",
+              "title": "Backdrive Force",
+              "shortDescription": "",
+              "description": "",
+              "procedures": [""],
+              "metrics": [{ "name": "", "unit": "", "description": "" }],
+              "analysisMethods": [""]
+            }
+          ]
         }
       ]
     }
