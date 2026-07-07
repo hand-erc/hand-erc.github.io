@@ -1,0 +1,14 @@
+{
+  "description": ["Component testbeds are standardized setups for evaluating individual components of dexterous robotic hands."],
+  "testbeds": [
+    {
+      "name": "Finger Testbed",
+      "hostInstitution": "Northwestern University",
+      "images": ["Images/Finger Testbed.png"],
+      "description": "The goal of this project is to develop a set of metrics and associated testing hardware to evaluate the physical performance of a single robot finger. Metrics in this project evaluate the strength, speed, impedance, and control bandwidth of a robot finger.",
+      "associatedBenchmarks": ["<a href='benchmarks.html#hand'>Finger Benchmarks (Hand Level)</a>"],
+      "measurementHardware": ["Fingertip dynamometer", "Vision-based motion capture"],
+      "testbedLead": "anthony.shilati@northwestern.edu"
+    }
+  ]
+}

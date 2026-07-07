@@ -23,6 +23,13 @@
       "label": "Component Level",
       "icon": "fa-puzzle-piece",
       "file": "data/component.jsonc"
+    },
+    {
+      "id": "component-testbeds",
+      "label": "Component Testbeds",
+      "icon": "fa-flask",
+      "file": "data/component-testbeds.jsonc",
+      "type": "testbeds"
     }
   ]
 }

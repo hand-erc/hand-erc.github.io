@@ -318,15 +318,6 @@
       "description": "",
       "benchmarks": [
         {
-          "id": "fingertip-passive-impedance",
-          "title": "Passive Impedance",
-          "shortDescription": "",
-          "description": "",
-          "procedures": [""],
-          "metrics": [{ "name": "", "unit": "", "description": "" }],
-          "analysisMethods": [""]
-        },
-        {
           "id": "fingertip-z-width",
           "title": "Z-Width",
           "shortDescription": "",
@@ -401,52 +392,113 @@
       ],
       "subsections": [
         {
-          "title": "Transparency",
+          "title": "Finger Transparency",
           "description": "",
           "benchmarks": [
             {
-              "id": "breakaway-fingertip-force",
-              "title": "Breakaway Fingertip Force",
+              "id": "finger-breakaway-force",
+              "title": "Finger Breakaway Force",
               "shortDescription": "",
-              "description": "",
-              "procedures": [""],
-              "metrics": [{ "name": "", "unit": "", "description": "" }],
+              "description": "Finger breakaway force is the smallest commanded fingertip force that causes motion at the joints. It is used to characterize the amount of force lost to static friction and is directly related to the precision of finger force control.",
+              "associatedTestbed": "<a href='benchmarks.html#component-testbeds'>Finger Testbed</a>",
+              "procedures": [
+                "Ensure the finger is free to move with each joint approximately flexed by 10°.",
+                "Slowly ramp the commanded fingertip force (0.05 N/s) until motion is detected at the joints or fingertip."
+              ],
+              "collectedData": [
+                "Fingertip position (X<sub>tip</sub>), or joint angles (θ)",
+                "Commanded fingertip force (F<sub>tip,ref</sub>)"
+              ],
+              "metrics": [
+                { "name": "Finger Breakaway Force", "unit": "N", "dataUsed": "X_tip or θ, F_tip,ref" }
+              ],
               "analysisMethods": [""]
             },
             {
               "id": "fingertip-force-control-bandwidth",
               "title": "Fingertip Force Control Bandwidth",
               "shortDescription": "",
-              "description": "",
-              "procedures": [""],
-              "metrics": [{ "name": "", "unit": "", "description": "" }],
+              "description": "Force control bandwidth describes how rapidly the finger system can respond to a change in the control input. It is defined as the frequency at which the system's closed-loop force-control frequency response drops to -3 dB.",
+              "associatedTestbed": "<a href='benchmarks.html#component-testbeds'>Finger Testbed</a>",
+              "procedures": [
+                "Secure the fingertip to the dynamometer with the finger's joints each flexed by approximately 10°. Ensure that the dynamometer is normal to the finger pad.",
+                "In force control mode, command a fingertip force sine sweep with an amplitude of 3N. The frequency range should be 0.1 Hz up to 120% of the finger's resonant frequency from the <a href='benchmark.html?id=fingertip-effective-impedance'>fingertip effective impedance</a> measurement.",
+                "Compute the transfer function from the commanded fingertip force to the measured fingertip force and identify the frequency at which the response drops to -3dB."
+              ],
+              "collectedData": [
+                "Internally measured fingertip force (F<sub>tip, int</sub>)",
+                "Externally measured fingertip force (F<sub>tip, ext</sub>)"
+              ],
+              "metrics": [
+                { "name": "Fingertip Force Control Bandwidth", "unit": "Hz", "dataUsed": "Commanded fingertip force and externally measured fingertip force" }
+              ],
               "analysisMethods": [""]
             },
             {
               "id": "fingertip-force-tracking",
               "title": "Fingertip Force Tracking",
               "shortDescription": "",
-              "description": "",
-              "procedures": [""],
-              "metrics": [{ "name": "", "unit": "", "description": "" }],
-              "analysisMethods": [""]
+              "description": "This benchmark is adapted from a set of performance measures proposed by NIST [1]. Finger force tracking measures both the precision of fingertip force control and the accuracy of finger force sensing.",
+              "associatedTestbed": "<a href='benchmarks.html#component-testbeds'>Finger Testbed</a>",
+              "procedures": [
+                "Secure the fingertip to the dynamometer with the finger's joints each flexed by approximately 10°. Ensure that the dynamometer is normal to the finger pad.",
+                "Command a sinusoidal fingertip force profile like the one provided by NIST, while recording the fingertip force measured by the finger sensors and by the dynamometer force sensor."
+              ],
+              "collectedData": [
+                "Commanded fingertip force (F<sub>tip,ref</sub>)",
+                "Internally measured fingertip force (F<sub>tip,int</sub>)",
+                "Externally measured fingertip force (F<sub>tip, ext</sub>)"
+              ],
+              "metrics": [
+                { "name": "Fingertip Force Control Accuracy", "unit": "N", "dataUsed": "F_tip,ext, F_tip,ref", "equation": "√(1/n Σ(F_tip,ext − F_tip,ref)²)" },
+                { "name": "Fingertip Force Sensing Accuracy", "unit": "N", "dataUsed": "F_tip,ext, F_tip,int", "equation": "√(1/n Σ(F_tip,ext − F_tip,int)²)" }
+              ],
+              "analysisMethods": [""],
+              "references": ["J. Falco, K. Van Wyk, S. Liu, and S. Carpin, \"Grasping the Performance: Facilitating Replicable Performance Measures via Benchmarking and Standardized Methodologies,\" <em>IEEE Robot. Automat. Mag.</em>, vol. 22, no. 4, pp. 125–136, Dec. 2015, doi: 10.1109/MRA.2015.2460891."]
             },
             {
               "id": "fingertip-effective-impedance",
               "title": "Fingertip Effective Impedance",
               "shortDescription": "",
-              "description": "",
-              "procedures": [""],
-              "metrics": [{ "name": "", "unit": "", "description": "" }],
+              "description": "Fingertip effective impedance (primarily compliance and mass) governs the force bandwidth in both the forward and the backwards paths. It is measured by approximating dynamic properties with a linear model from measurements of the finger's response to local excitations.",
+              "image": "Images/Dynamic Model.png",
+              "associatedTestbed": "<a href='benchmarks.html#component-testbeds'>Finger Testbed</a>",
+              "procedures": [
+                "Secure the fingertip to the dynamometer with the finger's joints each flexed by approximately 10°. Ensure that the dynamometer is normal to the finger pad.",
+                "Engage the desired control mode or leave the finger passive.",
+                "Excite the finger with a position sine sweep while taking collocated measurements of fingertip contact force and position.",
+                "Using the measured force and position data, compute the mechanical impedance frequency response. Tools in MATLAB, Python, and other languages simplify this process."
+              ],
+              "collectedData": [
+                "Fingertip force (F<sub>tip</sub>)",
+                "Fingertip position (X<sub>tip</sub>)"
+              ],
+              "metrics": [
+                { "name": "Effective Mass", "unit": "g", "dataUsed": "F_tip, X_tip" },
+                { "name": "Effective Stiffness", "unit": "N/m", "dataUsed": "F_tip, X_tip" },
+                { "name": "Effective Damping", "unit": "Ns/m", "dataUsed": "F_tip, X_tip" }
+              ],
               "analysisMethods": [""]
             },
             {
-              "id": "fingertip-backdrive-force",
-              "title": "Backdrive Force",
+              "id": "finger-backdrive-force",
+              "title": "Finger Backdrive Force",
               "shortDescription": "",
-              "description": "",
-              "procedures": [""],
-              "metrics": [{ "name": "", "unit": "", "description": "" }],
+              "description": "Finger backdrive force measures the responsiveness of the finger to environmental forces. It measures the amount of force imposed on the fingertip that causes motion at the actuators.",
+              "associatedTestbed": "<a href='benchmarks.html#component-testbeds'>Finger Testbed</a>",
+              "procedures": [
+                "Secure the fingertip to the dynamometer with the finger's joints each flexed by approximately 10°. Ensure that the dynamometer is normal to the finger pad.",
+                "Put the finger into a passive state by removing power from the actuators.",
+                "Command the fingertip dynamometer to move slowly (0.5 mm/s) while pushing on the fingertip. At the same time, measure fingertip contact force with the dynamometer's force sensor and the actuator positions.",
+                "Record the contact force for which actuator motion is detected."
+              ],
+              "collectedData": [
+                "Fingertip contact force (F<sub>tip</sub>)",
+                "Actuator positions (X<sub>act</sub>)"
+              ],
+              "metrics": [
+                { "name": "Finger Backdrive Force", "unit": "N", "dataUsed": "F_tip, X_act" }
+              ],
               "analysisMethods": [""]
             }
           ]
