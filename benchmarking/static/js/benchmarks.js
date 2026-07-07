@@ -23,16 +23,25 @@ async function fetchBenchmarks() {
 }
 
 /**
- * Create HTML for a single benchmark card with numbering prefix.
+ * Filter out benchmarks marked as hidden (_hidden: true) in the data.
+ * To restore a hidden benchmark, remove its _hidden property.
+ */
+function filterVisible(benchmarks) {
+  return benchmarks.filter(function (b) { return !b._hidden; });
+}
+
+/**
+ * Create HTML for a single benchmark card.
+ * Numbering is disabled — to re-enable, restore the ${number} span below.
  */
 function createCard(benchmark, index, prefix) {
-  const number = prefix ? prefix + '.' + (index + 1) : String(index + 1);
+  // const number = prefix ? prefix + '.' + (index + 1) : String(index + 1);  // NUMBERING DISABLED — uncomment to restore
   return `
     <div class="column is-one-third-desktop is-half-tablet">
       <a href="benchmark.html?id=${benchmark.id}" class="benchmark-card-link">
         <div class="card benchmark-card">
           <div class="card-content">
-            <p class="title is-5"><span class="benchmark-number">${number}.</span> ${benchmark.title}</p>
+            <p class="title is-5">${benchmark.title}</p>
             <p class="subtitle is-6">${benchmark.shortDescription}</p>
           </div>
           <footer class="card-footer">
@@ -48,11 +57,13 @@ function createCard(benchmark, index, prefix) {
 
 /**
  * Create HTML for a subsection (smaller heading + card grid).
+ * Numbering is disabled — to re-enable, restore the section-number span below.
  */
 function createSubsection(subsection, subIndex, sectionPrefix) {
-  const subPrefix = sectionPrefix + '.' + (subIndex + 1);
-  const cardsHTML = subsection.benchmarks.map(function (b, i) {
-    return createCard(b, i, subPrefix);
+  // const subPrefix = sectionPrefix + '.' + (subIndex + 1);  // NUMBERING DISABLED — uncomment to restore
+  const visibleBenchmarks = filterVisible(subsection.benchmarks);
+  const cardsHTML = visibleBenchmarks.map(function (b, i) {
+    return createCard(b, i, '');
   }).join('');
 
   const descriptionHTML = subsection.description
@@ -63,7 +74,7 @@ function createSubsection(subsection, subIndex, sectionPrefix) {
     <div class="benchmark-subsection collapsible is-collapsed">
       <h4 class="title is-5 subsection-divider collapsible-toggle" onclick="toggleCollapse(this)">
         <span class="collapse-icon"><i class="fas fa-chevron-down"></i></span>
-        <span class="section-number">${subPrefix}</span> ${subsection.title}
+        ${subsection.title}
       </h4>
       <div class="collapsible-content">
         ${descriptionHTML}
@@ -78,9 +89,12 @@ function createSubsection(subsection, subIndex, sectionPrefix) {
  * Create HTML for a benchmark section (divider + card grid).
  * Supports optional subsections array.
  */
+/**
+ * Numbering is disabled — to re-enable, restore the numberHTML and sectionPrefix usage below.
+ */
 function createSection(section, sectionIndex, totalSections) {
-  const showSectionNumber = totalSections > 1;
-  const sectionPrefix = String(sectionIndex + 1);
+  // const showSectionNumber = totalSections > 1;  // NUMBERING DISABLED — uncomment to restore
+  // const sectionPrefix = String(sectionIndex + 1);  // NUMBERING DISABLED — uncomment to restore
 
   const descriptionHTML = section.description
     ? `<p class="section-description">${section.description}</p>`
@@ -88,28 +102,39 @@ function createSection(section, sectionIndex, totalSections) {
 
   let contentHTML = '';
 
-  // Render section-level benchmarks first
+  // Render section-level benchmarks first (filtering hidden)
   if (section.benchmarks && section.benchmarks.length > 0) {
-    const cardsHTML = section.benchmarks.map(function (b, i) {
-      return createCard(b, i, showSectionNumber ? sectionPrefix : '');
+    const visibleBenchmarks = filterVisible(section.benchmarks);
+    const cardsHTML = visibleBenchmarks.map(function (b, i) {
+      return createCard(b, i, '');
     }).join('');
     contentHTML += `<div class="columns is-multiline benchmark-cards">${cardsHTML}</div>`;
   }
 
-  // Then render subsections if present
+  // Then render subsections if present (filtering hidden)
   if (section.subsections && section.subsections.length > 0) {
-    contentHTML += section.subsections.map(function (sub, i) {
-      return createSubsection(sub, i, sectionPrefix);
+    contentHTML += filterVisible(section.subsections).map(function (sub, i) {
+      return createSubsection(sub, i, '');
     }).join('');
   }
 
-  const numberHTML = showSectionNumber ? `<span class="section-number">${sectionPrefix}.</span> ` : '';
+  // const numberHTML = showSectionNumber ? `<span class="section-number">${sectionPrefix}.</span> ` : '';  // NUMBERING DISABLED — uncomment to restore
+
+  // If there is only one section, render it flat (no collapsible dropdown)
+  if (totalSections === 1) {
+    return `
+      <div class="benchmark-section">
+        <h3 class="title is-4 section-divider">${section.title}</h3>
+        ${descriptionHTML}
+        ${contentHTML}
+      </div>`;
+  }
 
   return `
     <div class="benchmark-section collapsible is-collapsed">
       <h3 class="title is-4 section-divider collapsible-toggle" onclick="toggleCollapse(this)">
         <span class="collapse-icon"><i class="fas fa-chevron-down"></i></span>
-        ${numberHTML}${section.title}
+        ${section.title}
       </h3>
       <div class="collapsible-content">
         ${descriptionHTML}
