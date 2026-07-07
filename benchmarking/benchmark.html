@@ -29,7 +29,7 @@
   <nav class="navbar benchmark-navbar" role="navigation" aria-label="main navigation">
     <div class="container">
       <div class="navbar-brand">
-        <a class="navbar-item" href="benchmarks.html">
+        <a class="navbar-item" id="back-link" href="benchmarks.html">
           <span class="icon"><i class="fas fa-arrow-left"></i></span>
           <span>Back to Benchmarks</span>
         </a>
@@ -92,18 +92,22 @@
         </div>
       </section>
 
-      <!-- Image -->
-      <section class="detail-section" id="image-section" style="display: none;">
-        <div class="container is-max-desktop has-text-centered">
-          <img id="benchmark-image" class="benchmark-hero-image" src="" alt="" loading="lazy">
-        </div>
-      </section>
-
       <!-- Description -->
       <section class="detail-section">
         <div class="container is-max-desktop">
           <h2 class="title is-3">Description</h2>
-          <div class="content has-text-justified" id="benchmark-description"></div>
+          <div class="columns">
+            <div class="column" id="description-text-column">
+              <div class="content has-text-justified" id="benchmark-description"></div>
+            </div>
+            <div class="column is-narrow" id="image-section" style="display: none;">
+              <img id="benchmark-image" src="" alt="" loading="lazy" style="max-width: 280px; border-radius: 6px;">
+            </div>
+          </div>
+          <div id="testbed-section" style="display: none; margin-top: 1rem;">
+            <h4 class="title is-6">Associated Component Testbed</h4>
+            <div class="content" id="benchmark-testbed"></div>
+          </div>
         </div>
       </section>
 
@@ -131,11 +135,27 @@
         </div>
       </section>
 
-      <!-- Procedures -->
+      <!-- Test Procedure -->
       <section class="detail-section">
         <div class="container is-max-desktop">
-          <h2 class="title is-3">Procedures</h2>
+          <h2 class="title is-3">Test Procedure</h2>
           <ol class="procedures-list" id="benchmark-procedures"></ol>
+        </div>
+      </section>
+
+      <!-- Collected Data -->
+      <section class="detail-section" id="collected-data-section" style="display: none;">
+        <div class="container is-max-desktop">
+          <h2 class="title is-3">Collected Data</h2>
+          <ul id="benchmark-collected-data"></ul>
+        </div>
+      </section>
+
+      <!-- Analysis Methods -->
+      <section class="detail-section" id="analysis-section" style="display: none;">
+        <div class="container is-max-desktop">
+          <h2 class="title is-3">Analysis Methods</h2>
+          <ul class="analysis-list" id="benchmark-analysis"></ul>
         </div>
       </section>
 
@@ -147,11 +167,11 @@
         </div>
       </section>
 
-      <!-- Analysis Methods -->
-      <section class="detail-section">
+      <!-- References -->
+      <section class="detail-section" id="references-section" style="display: none;">
         <div class="container is-max-desktop">
-          <h2 class="title is-3">Analysis Methods</h2>
-          <ul class="analysis-list" id="benchmark-analysis"></ul>
+          <h2 class="title is-3">References</h2>
+          <ol id="benchmark-references"></ol>
         </div>
       </section>
 

@@ -15,7 +15,7 @@ async function fetchBenchmarks() {
   const levelPromises = index.levels.map(async (level) => {
     const res = await fetch(level.file);
     const levelData = await res.json();
-    return { ...level, sections: levelData.sections, description: levelData.description || '', comingSoon: levelData.comingSoon || false };
+    return { ...level, sections: levelData.sections, testbeds: levelData.testbeds, description: levelData.description || '', comingSoon: levelData.comingSoon || false };
   });
 
   benchmarkData = { levels: await Promise.all(levelPromises) };
@@ -60,7 +60,7 @@ function createSubsection(subsection, subIndex, sectionPrefix) {
     : '';
 
   return `
-    <div class="benchmark-subsection collapsible">
+    <div class="benchmark-subsection collapsible is-collapsed">
       <h4 class="title is-5 subsection-divider collapsible-toggle" onclick="toggleCollapse(this)">
         <span class="collapse-icon"><i class="fas fa-chevron-down"></i></span>
         <span class="section-number">${subPrefix}</span> ${subsection.title}
@@ -106,7 +106,7 @@ function createSection(section, sectionIndex, totalSections) {
   const numberHTML = showSectionNumber ? `<span class="section-number">${sectionPrefix}.</span> ` : '';
 
   return `
-    <div class="benchmark-section collapsible">
+    <div class="benchmark-section collapsible is-collapsed">
       <h3 class="title is-4 section-divider collapsible-toggle" onclick="toggleCollapse(this)">
         <span class="collapse-icon"><i class="fas fa-chevron-down"></i></span>
         ${numberHTML}${section.title}
@@ -115,6 +115,48 @@ function createSection(section, sectionIndex, totalSections) {
         ${descriptionHTML}
         ${contentHTML}
       </div>
+    </div>`;
+}
+
+/**
+ * Create HTML for a testbeds table.
+ */
+function createTestbedsTable(testbeds) {
+  const rows = testbeds.map(function (tb) {
+    const images = (tb.images || []).map(function (src) {
+      return '<img src="' + src + '" alt="' + (tb.name || '') + '" style="max-height:900px; margin:2px;">';
+    }).join('');
+    const benchmarks = (tb.associatedBenchmarks || []).join(', ');
+    const hardware = (tb.measurementHardware || []).join(', ');
+    return '<tr>' +
+      '<td>' + (tb.name || '') + '</td>' +
+      '<td>' + (tb.hostInstitution || '') + '</td>' +
+      '<td>' + (images || '') + '</td>' +
+      '<td>' + (tb.description || '') + '</td>' +
+      '<td>' + benchmarks + '</td>' +
+      '<td>' + hardware + '</td>' +
+      '<td>' + (tb.testbedLead ? '<a href="mailto:' + tb.testbedLead + '">' + tb.testbedLead + '</a>' : '') + '</td>' +
+      '</tr>';
+  }).join('');
+
+  return `
+    <div class="table-container" style="overflow-x: auto;">
+      <table class="table is-bordered is-striped is-hoverable is-fullwidth">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Host Institution</th>
+            <th>Images</th>
+            <th>Description</th>
+            <th>Associated Benchmarks</th>
+            <th>Measurement Hardware</th>
+            <th>Testbed Lead</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${rows || '<tr><td colspan="7" class="has-text-centered has-text-grey">No testbeds added yet.</td></tr>'}
+        </tbody>
+      </table>
     </div>`;
 }
 
@@ -148,6 +190,8 @@ function renderTabPanels(data) {
           <p class="title is-4">Coming Soon</p>
           <p class="subtitle">Benchmarks for this level are currently under development.</p>
         </div>`;
+    } else if (level.type === 'testbeds') {
+      panel.innerHTML = descHTML + createTestbedsTable(level.testbeds || []);
     } else {
       const total = level.sections.length;
       panel.innerHTML = descHTML + level.sections.map(function (s, i) {
