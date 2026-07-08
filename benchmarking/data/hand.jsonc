@@ -460,7 +460,7 @@
               "id": "fingertip-effective-impedance",
               "title": "Fingertip Effective Impedance",
               "shortDescription": "",
-              "description": "Fingertip effective impedance (primarily compliance and mass) governs the force bandwidth in both the forward and the backwards paths. It is measured by approximating dynamic properties with a linear model from measurements of the finger's response to local excitations.",
+              "description": "Fingertip effective impedance (primarily compliance and mass) governs the force bandwidth in both the forward and the backward paths. It is measured by approximating dynamic properties with a linear model from measurements of the finger's response to local excitations.",
               "image": "Images/Dynamic Model.png",
               "associatedTestbed": "<a href='benchmarks.html#component-testbeds'>Finger Testbed</a>",
               "procedures": [

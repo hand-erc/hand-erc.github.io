@@ -11,7 +11,7 @@
           "id": "box-and-blocks",
           "title": "Box and Blocks",
           "shortDescription": "Transfer as many blocks as possible from a cluttered bin to another bin within 60 seconds.",
-          "description": "Starting with blocks in an initial bin, transfer as many blocks as possible over a devider into an adjacent target bin within 60 seconds.",
+          "description": "Starting with blocks in an initial bin, transfer as many blocks as possible over a divider into an adjacent target bin within 60 seconds.",
           "justification": "Box and Blocks evaluates a system’s ability to isolate, grasp, and transport objects from a cluttered environment to a designated target location under time constraints. Although the task involves quasistatic direct manipulation of simple rigid objects with low constraint complexity, high performance still requires reliable grasp acquisition, grasp stability, and efficient object handling, all of which benefit from increased dexterity. Furthermore, object transport serves as a fundamental building block for many more complex manipulation behaviors, which can often be decomposed into sequences of grasp-and-transport actions.",
           "items": [
             {
@@ -45,7 +45,7 @@
           ],
           "procedures": [
             "Setup environment as described above.",
-            "During a 60 second time period, transfer as many blocks as possible from one bin to another."
+            "During a 60-second time period, transfer as many blocks as possible from one bin to another."
           ],
           "metrics": [
             {
@@ -586,7 +586,7 @@
           ],
           "procedures": [
             "Setup environment as described above.",
-            "During a 60 second time period, transfer as many blocks as possible using the chopsticks from one bin to another.",
+            "During a 60-second time period, transfer as many blocks as possible using the chopsticks from one bin to another.",
             "Record the number of blocks successfully transferred and the number of blocks outside of both bins."
           ],
           "metrics": [
@@ -702,7 +702,7 @@
             "Roll the socks into a compact bundle.",
             "Secure the bundle by tucking one sock cuff over the bundle such that the socks remain paired after release.",
             "Release the completed bundle.",
-            "A trial is considered successful if the sock is successfully bundled after the socks are released from the manipulator."
+            "A trial is considered successful if the socks are successfully bundled after they are released from the manipulator."
           ],
           "metrics": [
             {
@@ -827,7 +827,7 @@
           "id": "bundle-dowels-with-rubber-band",
           "title": "Bundle Dowels with a Rubber Band",
           "shortDescription": "Collect seven dowels into a close-packed bundle and wrap them twice with a rubber band.",
-          "description": "Collect seven dowels on a table into a close packed bundle and wrap twice with a rubber band.",
+          "description": "Collect seven dowels on a table into a close-packed bundle and wrap twice with a rubber band.",
           "justification": "Bundle Dowels with a Rubber Band evaluates a system's ability to coordinate manipulation of multiple objects while simultaneously handling a deformable fastening element. The task involves quasistatic direct manipulation of several rigid objects together with a deformable elastic object, requiring control over substantially more degrees of freedom than single-object manipulation tasks. Relative to simple relocation or assembly tasks, successful completion requires gathering, aligning, and maintaining a stable configuration of multiple independent dowels before manipulating the rubber band to secure the resulting bundle. The task exhibits high constraint complexity, as the manipulator must manage contacts between the hand, multiple dowels, the table, and the rubber band while preserving the arrangement of the bundle throughout the fastening process. It also involves substantial constraint change, with contacts being repeatedly established and broken as dowels are collected, compressed into a close-packed configuration, and subsequently secured by stretching and wrapping the rubber band. More broadly, bundling objects with a flexible fastener is representative of many packaging, manufacturing, and household organization tasks that require coordinated manipulation of both rigid and deformable components.",
           "items": [
             {
