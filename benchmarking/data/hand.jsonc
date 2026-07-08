@@ -42,7 +42,7 @@
           "metrics": [{ "name": "", "unit": "", "description": "" }],
           "analysisMethods": [""]
         },
-        {
+        {"_comment": "HIDDEN — remove _hidden to restore", "_hidden": true,
           "id": "hand-power-consumption",
           "title": "Power Consumption",
           "shortDescription": "",
@@ -51,7 +51,7 @@
           "metrics": [{ "name": "", "unit": "", "description": "" }],
           "analysisMethods": [""]
         },
-        {
+        {"_comment": "HIDDEN — remove _hidden to restore", "_hidden": true,
           "id": "hand-serviceability",
           "title": "Serviceability",
           "shortDescription": "",
@@ -86,7 +86,7 @@
             },
             {
               "id": "workspace",
-              "title": "Workspace",
+              "title": "Workspace Volume",
               "shortDescription": "",
               "description": "",
               "procedures": [""],
@@ -135,18 +135,9 @@
               "metrics": [{ "name": "", "unit": "", "description": "" }],
               "analysisMethods": [""]
             },
-            {
+            {"_comment": "HIDDEN — remove _hidden to restore", "_hidden": true,
               "id": "grasp-contact-patch-area",
               "title": "Grasp Contact Patch Area",
-              "shortDescription": "",
-              "description": "",
-              "procedures": [""],
-              "metrics": [{ "name": "", "unit": "", "description": "" }],
-              "analysisMethods": [""]
-            },
-            {
-              "id": "grasp-pullout-strength-2",
-              "title": "Grasp Pullout Strength",
               "shortDescription": "",
               "description": "",
               "procedures": [""],
@@ -160,8 +151,8 @@
           "description": "",
           "benchmarks": [
             {
-              "id": "grasp-strength",
-              "title": "Grasp Strength",
+              "id": "grasp-pullout-strength-2",
+              "title": "Grasp Pullout Strength",
               "shortDescription": "",
               "description": "",
               "procedures": [""],
@@ -169,6 +160,15 @@
               "analysisMethods": [""]
             },
             {
+              "id": "grasp-strength",
+              "title": "Grasp Strength",
+              "shortDescription": "",
+              "description": "",
+              "procedures": [""],
+              "metrics": [{ "name": "", "unit": "", "description": "" }, { "name": "Pinch Strength", "unit": "", "description": "" }],
+              "analysisMethods": [""]
+            },
+            {"_comment": "HIDDEN — moved to Grasp Strength metric; remove _hidden to restore as separate benchmark", "_hidden": true,
               "id": "pinch-strength",
               "title": "Pinch Strength",
               "shortDescription": "",
@@ -203,11 +203,11 @@
             }
           ]
         },
-        {
+        {"_comment": "HIDDEN — remove _hidden to restore", "_hidden": true,
           "title": "Dynamics",
           "description": "",
           "benchmarks": [
-            {
+            {"_comment": "HIDDEN — remove _hidden to restore", "_hidden": true,
               "id": "grasp-impedance",
               "title": "Grasp Impedance",
               "shortDescription": "",
