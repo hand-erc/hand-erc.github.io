@@ -1,0 +1,22 @@
+{
+  "description": "These benchmarks can be evaluated from the design or specification of the hand without performing a physical test.",
+  "categories": [
+    {
+      "title": "Hand Level",
+      "sections": [
+        {
+          "title": "Hand",
+          "benchmarks": [
+            { "name": "Weight", "description": "Total mass of the hand" },
+            { "name": "Number of Fingers", "description": "Total number of fingers on the hand" },
+            { "name": "Number of Actuators", "description": "Total number of actuators in the hand" },
+            { "name": "Size", "description": "Overall dimensions of the hand" },
+            { "name": "Degrees of Freedom", "description": "Total number of independent degrees of freedom" },
+            { "name": "Joint Limits", "description": "Range of motion for each joint" },
+            { "name": "Workspace Volume", "description": "Volume of space reachable by the fingertips" }
+          ]
+        }
+      ]
+    }
+  ]
+}
