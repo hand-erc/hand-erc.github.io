@@ -1,6 +1,7 @@
 {
-  "description": ["Hand-level benchmarks test the hand, fingers, and wrist independent of arms, vision, and higher-level control.", 
-                  " Hand-level performance is dictated by design of the hand's architecture and contributions from the many components."],
+  "description": ["Hand-level benchmarks test the hand, fingers, and wrist independent of arms, vision, and higher-level control.",
+                  " Hand-level performance is dictated by design of the hand's architecture and contributions from the many components.",
+                  " Some hand-level benchmarks do not require physical evaluation or are not yet supported — see <a href='other-benchmarks.html'>Other Benchmarks</a>."],
   "sections": [
     {
       "title": "Hand",
