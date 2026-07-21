@@ -4,7 +4,7 @@
   "sections": [
     {
       "title": "Actuators",
-      "description": "",
+      "description": "Effort is used as a general description of force or torque.",
       "benchmarks": [
         {
           "id": "z-width",
@@ -26,7 +26,7 @@
         },
         {
           "id": "force-torque-control-bandwidth",
-          "title": "Force/Torque Control Bandwidth",
+          "title": "Effort Control Bandwidth",
           "shortDescription": "",
           "description": "",
           "procedures": [""],
@@ -35,7 +35,7 @@
         },
         {
           "id": "force-torque-density",
-          "title": "Force/Torque Density",
+          "title": "Effort Density",
           "shortDescription": "",
           "description": "",
           "procedures": [""],
@@ -44,7 +44,7 @@
         },
         {
           "id": "maximum-effort",
-          "title": "Maximum Continuous Force/Torque",
+          "title": "Maximum Continuous Effort",
           "shortDescription": "",
           "description": "",
           "procedures": [""],
@@ -71,7 +71,7 @@
         },
         {
           "id": "backdrive-force-torque",
-          "title": "Backdrive Force/Torque",
+          "title": "Backdrive Effort",
           "shortDescription": "",
           "description": "",
           "procedures": [""],
@@ -98,14 +98,14 @@
         },
         {
           "id": "actuator-force-velocity-behavior",
-          "title": "Force-Velocity Behavior",
+          "title": "Effort-Velocity Behavior",
           "shortDescription": "",
           "description": "",
           "procedures": [""],
           "metrics": [{ "name": "", "unit": "", "description": "" }],
           "analysisMethods": [""]
         },
-        {
+        {"_comment": "HIDDEN — moved to Not Currently Supported tab; remove _hidden to restore", "_hidden": true,
           "id": "actuator-parasitic-stiffness",
           "title": "Parasitic Stiffness",
           "shortDescription": "",
@@ -116,7 +116,7 @@
         },
         {
           "id": "actuator-breakaway-force-torque",
-          "title": "Breakaway Force/Torque",
+          "title": "Breakaway Effort",
           "shortDescription": "",
           "description": "",
           "procedures": [""],
@@ -156,7 +156,7 @@
           "metrics": [{ "name": "", "unit": "", "description": "" }],
           "analysisMethods": [""]
         },
-        {
+        {"_comment": "HIDDEN — moved to Hysteresis metric; remove _hidden to restore as separate benchmark", "_hidden": true,
           "id": "transmission-Backlash",
           "title": "Backlash",
           "shortDescription": "",
@@ -183,7 +183,7 @@
           "metrics": [{ "name": "", "unit": "", "description": "" }],
           "analysisMethods": [""]
         },
-        {
+        {"_comment": "HIDDEN — remove _hidden to restore", "_hidden": true,
           "id": "transmission-power-efficiency",
           "title": "Power Efficiency",
           "shortDescription": "",
@@ -202,21 +202,12 @@
           "analysisMethods": [""]
         },
         {
-          "id": "transmission-creep",
-          "title": "Creep",
-          "shortDescription": "",
-          "description": "",
-          "procedures": [""],
-          "metrics": [{ "name": "", "unit": "", "description": "" }],
-          "analysisMethods": [""]
-        },
-        {
           "id": "transmission-hysteresis",
           "title": "Hysteresis",
           "shortDescription": "",
           "description": "",
           "procedures": [""],
-          "metrics": [{ "name": "", "unit": "", "description": "" }],
+          "metrics": [{ "name": "", "unit": "", "description": "" }, { "name": "Backlash", "unit": "", "description": "" }],
           "analysisMethods": [""]
         }
       ],
@@ -253,8 +244,8 @@
               "analysisMethods": [""]
             },
             {
-              "id": "tendon-hysteresis",
-              "title": "Hysteresis",
+              "id": "tendon-creep",
+              "title": "Creep",
               "shortDescription": "",
               "description": "",
               "procedures": [""],
@@ -279,7 +270,7 @@
               "metrics": [{ "name": "", "unit": "", "description": "" }],
               "analysisMethods": [""]
             },
-            {
+            {"_comment": "HIDDEN — remove _hidden to restore", "_hidden": true,
               "id": "tendon-path-friction",
               "title": "Tendon-Path Friction",
               "shortDescription": "",
@@ -377,7 +368,7 @@
           "metrics": [{ "name": "", "unit": "", "description": "" }],
           "analysisMethods": [""]
         },
-        {
+        {"_comment": "HIDDEN — remove _hidden to restore", "_hidden": true,
           "id": "skin-shore-hardness",
           "title": "Shore Hardness",
           "shortDescription": "",
@@ -398,6 +389,15 @@
         {
           "id": "skin-creep",
           "title": "Creep",
+          "shortDescription": "",
+          "description": "",
+          "procedures": [""],
+          "metrics": [{ "name": "", "unit": "", "description": "" }],
+          "analysisMethods": [""]
+        },
+        {
+          "id": "skin-hysteresis",
+          "title": "Hysteresis",
           "shortDescription": "",
           "description": "",
           "procedures": [""],
@@ -473,7 +473,7 @@
           "metrics": [{ "name": "", "unit": "", "description": "" }],
           "analysisMethods": [""]
         },
-        {
+        {"_comment": "HIDDEN — moved to Not Currently Supported tab; remove _hidden to restore", "_hidden": true,
           "id": "sensor-lifetime",
           "title": "Lifetime",
           "shortDescription": "",
@@ -482,7 +482,7 @@
           "metrics": [{ "name": "", "unit": "", "description": "" }],
           "analysisMethods": [""]
         },
-        {
+        {"_comment": "HIDDEN — moved to Not Currently Supported tab; remove _hidden to restore", "_hidden": true,
           "id": "sensor-power-consumption",
           "title": "Power Consumption",
           "shortDescription": "",
@@ -506,7 +506,7 @@
               "metrics": [{ "name": "", "unit": "", "description": "" }],
               "analysisMethods": [""]
             },
-            {
+            {"_comment": "HIDDEN — moved to Not Currently Supported tab; remove _hidden to restore", "_hidden": true,
               "id": "tactile-scalability",
               "title": "Scalability",
               "shortDescription": "",
@@ -515,7 +515,7 @@
               "metrics": [{ "name": "", "unit": "", "description": "" }],
               "analysisMethods": [""]
             },
-            {
+            {"_comment": "HIDDEN — moved to Not Currently Supported tab; remove _hidden to restore", "_hidden": true,
               "id": "tactile-hand-coverage",
               "title": "Hand Coverage",
               "shortDescription": "",
@@ -533,7 +533,7 @@
               "metrics": [{ "name": "", "unit": "", "description": "" }],
               "analysisMethods": [""]
             },
-            {
+            {"_comment": "HIDDEN — moved to Not Currently Supported tab; remove _hidden to restore", "_hidden": true,
               "id": "tactile-sensing-modalities",
               "title": "Sensing Modalities",
               "shortDescription": "",
@@ -544,11 +544,11 @@
             }
           ]
         },
-        {
+        {"_comment": "HIDDEN — moved to Not Currently Supported tab; remove _hidden to restore", "_hidden": true,
           "title": "Kinesthetic",
           "description": "",
           "benchmarks": [
-            {
+            {"_hidden": true,
               "id": "kinesthetic-resolution-density",
               "title": "Resolution Density",
               "shortDescription": "",

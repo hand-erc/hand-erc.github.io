@@ -1,0 +1,55 @@
+{
+  "description": "These benchmarks are not currently supported but may be added in the future.",
+  "categories": [
+    {
+      "title": "Hand Level",
+      "sections": [
+        {
+          "title": "Hand",
+          "benchmarks": [
+            { "name": "Power Consumption", "description": "Power consumed by the hand during operation" },
+            { "name": "Serviceability", "description": "Ease of maintaining and repairing the hand" },
+            { "name": "Grasp Contact Patch Area", "description": "Contact area between the hand and grasped object" },
+            { "name": "Pinch Strength", "description": "Maximum force in a pinch grasp" },
+            { "name": "Grasp Impedance", "description": "Mechanical impedance of the hand during grasping" },
+            { "name": "Payload", "description": "Maximum payload the hand can support" },
+            { "name": "Operational Fatigue-Life", "description": "Number of operational cycles before failure" },
+            { "name": "Impact Resilience", "description": "Ability of the hand to withstand impacts" },
+            { "name": "Wrist Coupling", "description": "Coupling between wrist degrees of freedom" },
+            { "name": "Wrist Durability", "description": "Durability of the wrist under repeated loading" }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Component Level",
+      "sections": [
+        {
+          "title": "Actuators",
+          "benchmarks": [
+            { "name": "Parasitic Stiffness", "description": "Stiffness arising from non-ideal mechanical properties of the actuator" }
+          ]
+        },
+        {
+          "title": "Mechanical Transmission",
+          "benchmarks": [
+            { "name": "Mechanical Complexity", "description": "Number and arrangement of mechanical components in the transmission" },
+            { "name": "Mechanical Transmission Coupling", "description": "Coupling between transmission channels" },
+            { "name": "Creep Strain", "description": "Time-dependent elongation of tendons under constant load" }
+          ]
+        },
+        {
+          "title": "Sensors",
+          "benchmarks": [
+            { "name": "Scalability", "description": "Ability to scale the sensor to different sizes and configurations" },
+            { "name": "Hand Coverage", "description": "Proportion of the hand surface covered by tactile sensors" },
+            { "name": "Sensing Modalities", "description": "Types of tactile information the sensor can detect" },
+            { "name": "Resolution Density", "description": "Spatial density of kinesthetic sensing resolution" },
+            { "name": "Lifetime", "description": "Expected operational lifetime of the sensor" },
+            { "name": "Power Consumption", "description": "Power consumed by the sensor during operation" }
+          ]
+        }
+      ]
+    }
+  ]
+}

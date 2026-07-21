@@ -15,7 +15,7 @@ async function fetchBenchmarks() {
   const levelPromises = index.levels.map(async (level) => {
     const res = await fetch(level.file);
     const levelData = await res.json();
-    return { ...level, sections: levelData.sections, testbeds: levelData.testbeds, description: levelData.description || '', comingSoon: levelData.comingSoon || false };
+    return { ...level, sections: levelData.sections, testbeds: levelData.testbeds, categories: levelData.categories, description: levelData.description || '', comingSoon: levelData.comingSoon || false };
   });
 
   benchmarkData = { levels: await Promise.all(levelPromises) };
@@ -112,10 +112,18 @@ function createSection(section, sectionIndex, totalSections) {
   }
 
   // Then render subsections if present (filtering hidden)
+  // SUBSECTION HEADINGS DISABLED — to restore, replace the block below with: contentHTML += filterVisible(section.subsections).map(function (sub, i) { return createSubsection(sub, i, ''); }).join('');
   if (section.subsections && section.subsections.length > 0) {
-    contentHTML += filterVisible(section.subsections).map(function (sub, i) {
-      return createSubsection(sub, i, '');
-    }).join('');
+    var allSubBenchmarks = [];
+    filterVisible(section.subsections).forEach(function (sub) {
+      allSubBenchmarks = allSubBenchmarks.concat(filterVisible(sub.benchmarks));
+    });
+    if (allSubBenchmarks.length > 0) {
+      var subCardsHTML = allSubBenchmarks.map(function (b, i) {
+        return createCard(b, i, '');
+      }).join('');
+      contentHTML += `<div class="columns is-multiline benchmark-cards">${subCardsHTML}</div>`;
+    }
   }
 
   // const numberHTML = showSectionNumber ? `<span class="section-number">${sectionPrefix}.</span> ` : '';  // NUMBERING DISABLED — uncomment to restore
@@ -186,6 +194,28 @@ function createTestbedsTable(testbeds) {
 }
 
 /**
+ * Create HTML for the "Not Currently Supported" tab.
+ */
+function createNotSupportedList(categories) {
+  return categories.map(function (cat) {
+    const sectionsHTML = cat.sections.map(function (sec) {
+      const items = sec.benchmarks.map(function (b) {
+        return '<li>' + b.name + ' &mdash; ' + b.description + '</li>';
+      }).join('');
+      return `
+        <h5 class="title is-6" style="margin-bottom: 0.5rem; margin-top: 1rem;">${sec.title}</h5>
+        <ul style="list-style: disc; padding-left: 1.5rem; margin-bottom: 0.5rem;">${items}</ul>`;
+    }).join('');
+
+    return `
+      <div class="benchmark-section" style="margin-bottom: 2rem;">
+        <h3 class="title is-4 section-divider">${cat.title}</h3>
+        ${sectionsHTML}
+      </div>`;
+  }).join('');
+}
+
+/**
  * Render all tab panels from the data.
  */
 function renderTabPanels(data) {
@@ -217,6 +247,8 @@ function renderTabPanels(data) {
         </div>`;
     } else if (level.type === 'testbeds') {
       panel.innerHTML = descHTML + createTestbedsTable(level.testbeds || []);
+    } else if (level.type === 'not-supported') {
+      panel.innerHTML = descHTML + createNotSupportedList(level.categories || []);
     } else {
       const total = level.sections.length;
       panel.innerHTML = descHTML + level.sections.map(function (s, i) {

@@ -6,7 +6,7 @@
       "title": "Hand",
       "description": "",
       "benchmarks": [
-        {
+        {"_comment": "HIDDEN — moved to Design-Based Benchmarks tab; remove _hidden to restore", "_hidden": true,
           "id": "hand-weight",
           "title": "Weight",
           "shortDescription": "",
@@ -15,7 +15,7 @@
           "metrics": [{ "name": "", "unit": "", "description": "" }],
           "analysisMethods": [""]
         },
-        {
+        {"_comment": "HIDDEN — moved to Design-Based Benchmarks tab; remove _hidden to restore", "_hidden": true,
           "id": "number-of-fingers",
           "title": "Number of Fingers",
           "shortDescription": "",
@@ -24,7 +24,7 @@
           "metrics": [{ "name": "", "unit": "", "description": "" }],
           "analysisMethods": [""]
         },
-        {
+        {"_comment": "HIDDEN — moved to Design-Based Benchmarks tab; remove _hidden to restore", "_hidden": true,
           "id": "number-of-actuators",
           "title": "Number of Actuators",
           "shortDescription": "",
@@ -33,7 +33,7 @@
           "metrics": [{ "name": "", "unit": "", "description": "" }],
           "analysisMethods": [""]
         },
-        {
+        {"_comment": "HIDDEN — moved to Design-Based Benchmarks tab; remove _hidden to restore", "_hidden": true,
           "id": "hand-size",
           "title": "Size",
           "shortDescription": "",
@@ -66,9 +66,18 @@
           "title": "Mobility",
           "description": "",
           "benchmarks": [
-            {
+            {"_comment": "HIDDEN — moved to Design-Based Benchmarks tab; remove _hidden to restore", "_hidden": true,
               "id": "degrees-of-freedom",
               "title": "Degrees of Freedom",
+              "shortDescription": "",
+              "description": "",
+              "procedures": [""],
+              "metrics": [{ "name": "", "unit": "", "description": "" }],
+              "analysisMethods": [""]
+            },
+            {
+              "id": "karma",
+              "title": "KaRMA",
               "shortDescription": "",
               "description": "",
               "procedures": [""],
@@ -84,7 +93,7 @@
               "metrics": [{ "name": "", "unit": "", "description": "" }],
               "analysisMethods": [""]
             },
-            {
+            {"_comment": "HIDDEN — moved to Design-Based Benchmarks tab; remove _hidden to restore", "_hidden": true,
               "id": "workspace",
               "title": "Workspace Volume",
               "shortDescription": "",
@@ -93,7 +102,7 @@
               "metrics": [{ "name": "", "unit": "", "description": "" }],
               "analysisMethods": [""]
             },
-            {
+            {"_comment": "HIDDEN — moved to Design-Based Benchmarks tab; remove _hidden to restore", "_hidden": true,
               "id": "joint-limits",
               "title": "Joint Limits",
               "shortDescription": "",
@@ -150,7 +159,7 @@
           "title": "Strength",
           "description": "",
           "benchmarks": [
-            {
+            {"_comment": "HIDDEN — moved to Grasp Strength metric; remove _hidden to restore as separate benchmark", "_hidden": true,
               "id": "grasp-pullout-strength-2",
               "title": "Grasp Pullout Strength",
               "shortDescription": "",
@@ -165,7 +174,7 @@
               "shortDescription": "",
               "description": "",
               "procedures": [""],
-              "metrics": [{ "name": "", "unit": "", "description": "" }, { "name": "Pinch Strength", "unit": "", "description": "" }],
+              "metrics": [{ "name": "", "unit": "", "description": "" }, { "name": "Pinch Strength", "unit": "", "description": "" }, { "name": "Pullout Strength", "unit": "", "description": "" }],
               "analysisMethods": [""]
             },
             {"_comment": "HIDDEN — moved to Grasp Strength metric; remove _hidden to restore as separate benchmark", "_hidden": true,
@@ -177,7 +186,7 @@
               "metrics": [{ "name": "", "unit": "", "description": "" }],
               "analysisMethods": [""]
             },
-            {
+            {"_comment": "HIDDEN — moved to Not Currently Supported tab; remove _hidden to restore", "_hidden": true,
               "id": "hand-payload",
               "title": "Payload",
               "shortDescription": "",
@@ -218,11 +227,11 @@
             }
           ]
         },
-        {
+        {"_comment": "HIDDEN — moved to Not Currently Supported tab; remove _hidden to restore", "_hidden": true,
           "title": "Durability",
           "description": "",
           "benchmarks": [
-            {
+            {"_hidden": true,
               "id": "hand-operational-fatigue-life",
               "title": "Operational Fatigue-Life",
               "shortDescription": "",
@@ -231,7 +240,7 @@
               "metrics": [{ "name": "", "unit": "", "description": "" }],
               "analysisMethods": [""]
             },
-            {
+            {"_hidden": true,
               "id": "hand-impact-resilience",
               "title": "Impact Resilience",
               "shortDescription": "",
@@ -266,7 +275,7 @@
           "metrics": [{ "name": "", "unit": "", "description": "" }],
           "analysisMethods": [""]
         },
-        {
+        {"_comment": "HIDDEN — moved to Not Currently Supported tab; remove _hidden to restore", "_hidden": true,
           "id": "wrist-durability",
           "title": "Durability",
           "shortDescription": "",
@@ -275,7 +284,7 @@
           "metrics": [{ "name": "", "unit": "", "description": "" }],
           "analysisMethods": [""]
         },
-        {
+        {"_comment": "HIDDEN — moved to Not Currently Supported tab; remove _hidden to restore", "_hidden": true,
           "id": "wrist-coupling",
           "title": "Coupling",
           "shortDescription": "",

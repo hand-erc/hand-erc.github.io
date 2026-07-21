@@ -30,6 +30,20 @@
       "icon": "fa-flask",
       "file": "data/component-testbeds.jsonc",
       "type": "testbeds"
+    },
+    {
+      "id": "model-based",
+      "label": "Design-Based Benchmarks",
+      "icon": "fa-cube",
+      "file": "data/model-based.jsonc",
+      "type": "not-supported"
+    },
+    {
+      "id": "not-currently-supported",
+      "label": "Not Currently Supported",
+      "icon": "fa-clock",
+      "file": "data/not-currently-supported.jsonc",
+      "type": "not-supported"
     }
   ]
 }
