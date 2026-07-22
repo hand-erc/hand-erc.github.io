@@ -78,7 +78,7 @@
             {
               "id": "karma",
               "title": "KaRMA",
-              "shortDescription": "",
+              "shortDescription": "A benchmark of the hand's ability to rotate and translate an object throughout points in its workspace.",
               "description": "",
               "procedures": [""],
               "metrics": [{ "name": "", "unit": "", "description": "" }],
@@ -88,7 +88,7 @@
             {
               "id": "kapandji-score",
               "title": "Kapandji Score",
-              "shortDescription": "",
+              "shortDescription": "A measure of the thumb's mobility.",
               "description": "",
               "procedures": [""],
               "metrics": [{ "name": "", "unit": "", "description": "" }],
@@ -122,7 +122,7 @@
             {
               "id": "grasp-taxonomy-score",
               "title": "GRASP Taxonomy Score",
-              "shortDescription": "",
+              "shortDescription": "Measures the hand's mobility by measuring how many human hand grasps it can achieve.",
               "description": "",
               "procedures": [""],
               "metrics": [{ "name": "", "unit": "", "description": "" }],
@@ -132,7 +132,7 @@
             {
               "id": "grasping-volume",
               "title": "Grasping Volume",
-              "shortDescription": "",
+              "shortDescription": "The minimum and maximum size of an object a hand can grasp.",
               "description": "",
               "procedures": [""],
               "metrics": [{ "name": "", "unit": "", "description": "" }],
@@ -176,7 +176,7 @@
             {
               "id": "grasp-strength",
               "title": "Grasp Strength",
-              "shortDescription": "",
+              "shortDescription": "The overall force production of the hand in a wrap grasp and a pinch grasp.",
               "description": "",
               "procedures": [""],
               "metrics": [{ "name": "", "unit": "", "description": "" }, { "name": "Pinch Strength", "unit": "", "description": "" }, { "name": "Wrap Grasp Strength", "unit": "", "description": "" }, { "name": "Pullout Strength", "unit": "", "description": "" }],
@@ -214,7 +214,7 @@
             {
               "id": "grasp-cycle-time",
               "title": "Grasp Cycle Time",
-              "shortDescription": "",
+              "shortDescription": "The time required to move from a stable grasp to the open position and back to a stable grasp.",
               "description": "",
               "procedures": [""],
               "metrics": [{ "name": "", "unit": "", "description": "" }],
@@ -275,7 +275,7 @@
         {
           "id": "wrist-passive-impedance",
           "title": "Passive Impedance",
-          "shortDescription": "",
+          "shortDescription": "Measure of the hand's responsiveness to environmental disturbances.",
           "description": "",
           "procedures": [""],
           "metrics": [{ "name": "", "unit": "", "description": "" }],
@@ -302,7 +302,7 @@
         {
           "id": "wrist-strength",
           "title": "Strength",
-          "shortDescription": "",
+          "shortDescription": "Force production capability.",
           "description": "",
           "procedures": [""],
           "metrics": [{ "name": "", "unit": "", "description": "" }],
@@ -311,7 +311,7 @@
         {
           "id": "wrist-speed",
           "title": "Speed",
-          "shortDescription": "",
+          "shortDescription": "Maximum joint speed of the wrist.",
           "description": "",
           "procedures": [""],
           "metrics": [{ "name": "", "unit": "", "description": "" }],
@@ -320,7 +320,7 @@
         {
           "id": "wrist-repeatability",
           "title": "Repeatability",
-          "shortDescription": "",
+          "shortDescription": "Positioning consistency in repeatedly commanding the wrist to the same position.",
           "description": "",
           "procedures": [""],
           "metrics": [{ "name": "", "unit": "", "description": "" }],
@@ -329,7 +329,7 @@
         {
           "id": "wrist-z-width",
           "title": "Z-Width",
-          "shortDescription": "",
+          "shortDescription": "The dynamic range of impedances the wrist can display.",
           "description": "",
           "procedures": [""],
           "metrics": [{ "name": "", "unit": "", "description": "" }],
@@ -344,7 +344,7 @@
         {
           "id": "fingertip-motion-control-bandwidth",
           "title": "Motion Control Bandwidth",
-          "shortDescription": "",
+          "shortDescription": "The speed with which the finger's position controller responds to control inputs.",
           "description": "",
           "procedures": [""],
           "metrics": [{ "name": "", "unit": "", "description": "" }],
@@ -353,7 +353,7 @@
         {
           "id": "fingertip-motion-tracking",
           "title": "Motion Tracking",
-          "shortDescription": "",
+          "shortDescription": "Position control and sensing accuracy of the finger for sinusoidal position inputs.",
           "description": "",
           "procedures": [""],
           "metrics": [{ "name": "", "unit": "", "description": "" }],
@@ -362,7 +362,7 @@
         {
           "id": "fingertip-strength",
           "title": "Strength",
-          "shortDescription": "",
+          "shortDescription": "The maximum force that can be produced at the fingertip.",
           "description": "",
           "procedures": [""],
           "metrics": [{ "name": "", "unit": "", "description": "" }],
@@ -376,7 +376,7 @@
         {
           "id": "fingertip-speed",
           "title": "Speed",
-          "shortDescription": "",
+          "shortDescription": "The maximum speed of the finger.",
           "description": "",
           "procedures": [""],
           "metrics": [{ "name": "", "unit": "", "description": "" }],
@@ -394,7 +394,7 @@
         {
           "id": "finger-joint-backlash",
           "title": "Joint Backlash",
-          "shortDescription": "",
+          "shortDescription": "Lost motion caused by clearances in the finger's transmission elements.",
           "description": "",
           "procedures": [""],
           "metrics": [{ "name": "", "unit": "", "description": "" }],
@@ -403,7 +403,7 @@
         {
           "id": "fingertip-repeatability",
           "title": "Repeatability",
-          "shortDescription": "",
+          "shortDescription": "Inconsistency when repeatedly commanding joints to the same position.",
           "description": "",
           "procedures": [""],
           "metrics": [{ "name": "", "unit": "", "description": "" }],
@@ -417,7 +417,7 @@
         {
           "id": "fingertip-z-width",
           "title": "Z-Width",
-          "shortDescription": "",
+          "shortDescription": "The dynamic range of impedances the finger can display.",
           "description": "",
           "procedures": [""],
           "metrics": [{ "name": "", "unit": "", "description": "" }],
@@ -432,7 +432,7 @@
             {
               "id": "finger-breakaway-force",
               "title": "Finger Breakaway Force",
-              "shortDescription": "",
+              "shortDescription": "The minimum commanded fingertip force that causes motion of the finger. A measure of static friction.",
               "description": "Finger breakaway force is the smallest commanded fingertip force that causes motion at the joints. It is used to characterize the amount of force lost to static friction and is directly related to the precision of finger force control.",
               "associatedTestbed": "<a href='benchmarks.html#component-testbeds'>Finger Testbed</a>",
               "procedures": [
@@ -451,7 +451,7 @@
             {
               "id": "fingertip-force-control-bandwidth",
               "title": "Fingertip Force Control Bandwidth",
-              "shortDescription": "",
+              "shortDescription": "The speed with which the finger's force controller responds to control inputs.",
               "description": "Force control bandwidth describes how rapidly the finger system can respond to a change in the control input. It is defined as the frequency at which the system's closed-loop force-control frequency response drops to -3 dB.",
               "associatedTestbed": "<a href='benchmarks.html#component-testbeds'>Finger Testbed</a>",
               "procedures": [
@@ -471,7 +471,7 @@
             {
               "id": "fingertip-force-tracking",
               "title": "Fingertip Force Tracking",
-              "shortDescription": "",
+              "shortDescription": "Force control and sensing accuracy when tracking sinusoidal force inputs.",
               "description": "This benchmark is adapted from a set of performance measures proposed by NIST [1]. Finger force tracking measures both the precision of fingertip force control and the accuracy of finger force sensing.",
               "associatedTestbed": "<a href='benchmarks.html#component-testbeds'>Finger Testbed</a>",
               "procedures": [
@@ -496,7 +496,7 @@
             {
               "id": "fingertip-effective-impedance",
               "title": "Fingertip Impedance",
-              "shortDescription": "",
+              "shortDescription": "The mechanical responsiveness of the finger to environmental disturbances.",
               "description": "Fingertip impedance (primarily compliance and mass) governs the force bandwidth in both the forward and the backward paths. It is measured by approximating dynamic properties with a linear model from measurements of the finger's response to local excitations.",
               "image": "Images/Dynamic Model.png",
               "associatedTestbed": "<a href='benchmarks.html#component-testbeds'>Finger Testbed</a>",
@@ -520,7 +520,7 @@
             {
               "id": "finger-backdrive-force",
               "title": "Finger Backdrive Force",
-              "shortDescription": "",
+              "shortDescription": "The minimum force imposed at the fingertip that causes motion of the actuators.",
               "description": "Finger backdrive force measures the responsiveness of the finger to environmental forces. It measures the amount of force imposed on the fingertip that causes motion at the actuators.",
               "associatedTestbed": "<a href='benchmarks.html#component-testbeds'>Finger Testbed</a>",
               "procedures": [

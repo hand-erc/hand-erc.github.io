@@ -1,5 +1,5 @@
 {
-  "description": ["Component testbeds are standardized setups for evaluating individual components of dexterous robotic hands."],
+  "description": ["Component test beds are used to benchmark the performance of robot hands at the hand and component level. Listed below are the component testbeds under development within the HAND ERC."],
   "testbeds": [
     {
       "name": "Finger Testbed",
