@@ -14,14 +14,14 @@
             { "name": "Degrees of Freedom", "description": "Total number of independent degrees of freedom" },
             { "name": "Joint Limits", "description": "Range of motion for each joint" },
             { "name": "Workspace Volume", "description": "Volume of space reachable by the fingertips" },
-            { "name": "KaRMA", "description": "A benchmark of the hand's ability to rotate and translate an object throughout points in its workspace" }
+            { "name": "KaRMA", "description": "A benchmark of the hand's ability to rotate and translate an object throughout points in its workspace" },
+            { "name": "Interactivity", "description": "Workspace overlap between the fingers and the thumb" }
           ]
         },
         {
           "title": "Finger",
           "benchmarks": [
-            { "name": "Degrees of Freedom", "description": "Total number of independent degrees of freedom per finger" },
-            { "name": "Interactivity", "description": "Number of independent contact points on the finger" }
+            { "name": "Degrees of Freedom", "description": "Total number of independent degrees of freedom per finger" }
           ]
         }
       ]
