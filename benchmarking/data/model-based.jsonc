@@ -15,6 +15,12 @@
             { "name": "Joint Limits", "description": "Range of motion for each joint" },
             { "name": "Workspace Volume", "description": "Volume of space reachable by the fingertips" }
           ]
+        },
+        {
+          "title": "Finger",
+          "benchmarks": [
+            { "name": "Degrees of Freedom", "description": "Total number of independent degrees of freedom per finger" }
+          ]
         }
       ]
     }

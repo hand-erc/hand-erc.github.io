@@ -1,7 +1,6 @@
 {
-  "description": ["Hand-level benchmarks test the hand, fingers, and wrist independent of arms, vision, and higher-level control.",
-                  " Hand-level performance is dictated by design of the hand's architecture and contributions from the many components.",
-                  " Some hand-level benchmarks do not require physical evaluation or are not yet supported — see <a href='other-benchmarks.html'>Other Benchmarks</a>."],
+  "description": ["Hand-level benchmarks test the physical performance of the hand and its subsystems, including the fingers and wrist, independent of arms, vision, and higher-level control.",
+                  " Hand-level performance is dictated by the hand's architecture design and contributions from the many components."],
   "sections": [
     {
       "title": "Hand",
@@ -83,7 +82,8 @@
               "description": "",
               "procedures": [""],
               "metrics": [{ "name": "", "unit": "", "description": "" }],
-              "analysisMethods": [""]
+              "analysisMethods": [""],
+              "references": ["M. Peticco and P. Agrawal, \"KaRMA: A Kinematic Metric for Fine Manipulation Ability in Robotic Hands,\" 2026, arXiv. doi: <a href='https://doi.org/10.48550/ARXIV.2605.15548'>10.48550/ARXIV.2605.15548</a>."]
             },
             {
               "id": "kapandji-score",
@@ -92,7 +92,8 @@
               "description": "",
               "procedures": [""],
               "metrics": [{ "name": "", "unit": "", "description": "" }],
-              "analysisMethods": [""]
+              "analysisMethods": [""],
+              "references": ["A. Kapandji, \"Cotation clinique de l'opposition et de la contre-opposition du pouce,\" <em>Annales de Chirurgie de la Main</em>, vol. 5, no. 1, pp. 67–73, 1986, doi: <a href='https://doi.org/10.1016/S0753-9053(86)80053-9'>10.1016/S0753-9053(86)80053-9</a>."]
             },
             {"_comment": "HIDDEN — moved to Design-Based Benchmarks tab; remove _hidden to restore", "_hidden": true,
               "id": "workspace",
@@ -125,7 +126,8 @@
               "description": "",
               "procedures": [""],
               "metrics": [{ "name": "", "unit": "", "description": "" }],
-              "analysisMethods": [""]
+              "analysisMethods": [""],
+              "references": ["T. Feix, J. Romero, H.-B. Schmiedmayer, A. M. Dollar, and D. Kragic, \"The GRASP Taxonomy of Human Grasp Types,\" <em>IEEE Transactions on Human-Machine Systems</em>, vol. 46, pp. 66–77, 2016."]
             },
             {
               "id": "grasping-volume",
@@ -134,16 +136,18 @@
               "description": "",
               "procedures": [""],
               "metrics": [{ "name": "", "unit": "", "description": "" }],
-              "analysisMethods": [""]
+              "analysisMethods": [""],
+              "references": ["G. A. Kragten, C. Meijneke, and J. L. Herder, \"A proposal for benchmark tests for underactuated or compliant hands,\" <em>Mech. Sci.</em>, vol. 1, no. 1, pp. 13–18, Dec. 2010, doi: <a href='https://doi.org/10.5194/ms-1-13-2010'>10.5194/ms-1-13-2010</a>."]
             },
-            {
+            {"_comment": "HIDDEN — moved to Not Currently Supported (other-benchmarks.html); remove _hidden to restore", "_hidden": true,
               "id": "grasp-pullout-strength",
               "title": "Grasp Resilience",
               "shortDescription": "",
               "description": "",
               "procedures": [""],
               "metrics": [{ "name": "", "unit": "", "description": "" }],
-              "analysisMethods": [""]
+              "analysisMethods": [""],
+              "references": ["F. Negrello <em>et al.</em>, \"Benchmarking Hand and Grasp Resilience to Dynamic Loads,\" <em>IEEE Robotics and Automation Letters</em>, vol. 5, no. 2, pp. 1780–1787, Apr. 2020, doi: <a href='https://doi.org/10.1109/LRA.2020.2969180'>10.1109/LRA.2020.2969180</a>."]
             },
             {"_comment": "HIDDEN — remove _hidden to restore", "_hidden": true,
               "id": "grasp-contact-patch-area",
@@ -175,8 +179,13 @@
               "shortDescription": "",
               "description": "",
               "procedures": [""],
-              "metrics": [{ "name": "", "unit": "", "description": "" }, { "name": "Pinch Strength", "unit": "", "description": "" }, { "name": "Pullout Strength", "unit": "", "description": "" }],
-              "analysisMethods": [""]
+              "metrics": [{ "name": "", "unit": "", "description": "" }, { "name": "Pinch Strength", "unit": "", "description": "" }, { "name": "Wrap Grasp Strength", "unit": "", "description": "" }, { "name": "Pullout Strength", "unit": "", "description": "" }],
+              "analysisMethods": [""],
+              "references": [
+                "J. Falco <em>et al.</em>, \"Benchmarking Protocols for Evaluating Grasp Strength, Grasp Cycle Time, Finger Strength, and Finger Repeatability of Robot End-Effectors,\" <em>IEEE Robot. Autom. Lett.</em>, vol. 5, no. 2, pp. 644–651, Apr. 2020, doi: <a href='https://doi.org/10.1109/LRA.2020.2964164'>10.1109/LRA.2020.2964164</a>.",
+                "J. Falco, K. Van Wyk, S. Liu, and S. Carpin, \"Grasping the Performance: Facilitating Replicable Performance Measures via Benchmarking and Standardized Methodologies,\" <em>IEEE Robot. Automat. Mag.</em>, vol. 22, no. 4, pp. 125–136, Dec. 2015, doi: <a href='https://doi.org/10.1109/MRA.2015.2460891'>10.1109/MRA.2015.2460891</a>.",
+                "J. Falco, K. Van Wyk, and E. Messina, \"Performance Metrics and Test Methods for Robotic Hands.\" Oct. 2018. doi: <a href='https://doi.org/10.6028/NIST.SP.1227-draft'>10.6028/NIST.SP.1227-draft</a>."
+              ]
             },
             {"_comment": "HIDDEN — moved to Grasp Strength metric; remove _hidden to restore as separate benchmark", "_hidden": true,
               "id": "pinch-strength",
@@ -209,7 +218,12 @@
               "description": "",
               "procedures": [""],
               "metrics": [{ "name": "", "unit": "", "description": "" }],
-              "analysisMethods": [""]
+              "analysisMethods": [""],
+              "references": [
+                "J. Falco <em>et al.</em>, \"Benchmarking Protocols for Evaluating Grasp Strength, Grasp Cycle Time, Finger Strength, and Finger Repeatability of Robot End-Effectors,\" <em>IEEE Robot. Autom. Lett.</em>, vol. 5, no. 2, pp. 644–651, Apr. 2020, doi: <a href='https://doi.org/10.1109/LRA.2020.2964164'>10.1109/LRA.2020.2964164</a>.",
+                "J. Falco, K. Van Wyk, S. Liu, and S. Carpin, \"Grasping the Performance: Facilitating Replicable Performance Measures via Benchmarking and Standardized Methodologies,\" <em>IEEE Robot. Automat. Mag.</em>, vol. 22, no. 4, pp. 125–136, Dec. 2015, doi: <a href='https://doi.org/10.1109/MRA.2015.2460891'>10.1109/MRA.2015.2460891</a>.",
+                "J. Falco, K. Van Wyk, and E. Messina, \"Performance Metrics and Test Methods for Robotic Hands.\" Oct. 2018. doi: <a href='https://doi.org/10.6028/NIST.SP.1227-draft'>10.6028/NIST.SP.1227-draft</a>."
+              ]
             }
           ]
         },
@@ -267,15 +281,6 @@
           "metrics": [{ "name": "", "unit": "", "description": "" }],
           "analysisMethods": [""]
         },
-        {
-          "id": "wrist-z-width",
-          "title": "Z-Width",
-          "shortDescription": "",
-          "description": "",
-          "procedures": [""],
-          "metrics": [{ "name": "", "unit": "", "description": "" }],
-          "analysisMethods": [""]
-        },
         {"_comment": "HIDDEN — moved to Not Currently Supported tab; remove _hidden to restore", "_hidden": true,
           "id": "wrist-durability",
           "title": "Durability",
@@ -320,6 +325,15 @@
           "procedures": [""],
           "metrics": [{ "name": "", "unit": "", "description": "" }],
           "analysisMethods": [""]
+        },
+        {
+          "id": "wrist-z-width",
+          "title": "Z-Width",
+          "shortDescription": "",
+          "description": "",
+          "procedures": [""],
+          "metrics": [{ "name": "", "unit": "", "description": "" }],
+          "analysisMethods": [""]
         }
       ]
     },
@@ -327,15 +341,6 @@
       "title": "Finger",
       "description": "",
       "benchmarks": [
-        {
-          "id": "fingertip-z-width",
-          "title": "Z-Width",
-          "shortDescription": "",
-          "description": "",
-          "procedures": [""],
-          "metrics": [{ "name": "", "unit": "", "description": "" }],
-          "analysisMethods": [""]
-        },
         {
           "id": "fingertip-motion-control-bandwidth",
           "title": "Motion Control Bandwidth",
@@ -355,22 +360,18 @@
           "analysisMethods": [""]
         },
         {
-          "id": "fingertip-repeatability",
-          "title": "Repeatability",
-          "shortDescription": "",
-          "description": "",
-          "procedures": [""],
-          "metrics": [{ "name": "", "unit": "", "description": "" }],
-          "analysisMethods": [""]
-        },
-        {
           "id": "fingertip-strength",
           "title": "Strength",
           "shortDescription": "",
           "description": "",
           "procedures": [""],
           "metrics": [{ "name": "", "unit": "", "description": "" }],
-          "analysisMethods": [""]
+          "analysisMethods": [""],
+          "references": [
+            "J. Falco <em>et al.</em>, \"Benchmarking Protocols for Evaluating Grasp Strength, Grasp Cycle Time, Finger Strength, and Finger Repeatability of Robot End-Effectors,\" <em>IEEE Robot. Autom. Lett.</em>, vol. 5, no. 2, pp. 644–651, Apr. 2020, doi: <a href='https://doi.org/10.1109/LRA.2020.2964164'>10.1109/LRA.2020.2964164</a>.",
+            "J. Falco, K. Van Wyk, and E. Messina, \"Performance Metrics and Test Methods for Robotic Hands.\" Oct. 2018. doi: <a href='https://doi.org/10.6028/NIST.SP.1227-draft'>10.6028/NIST.SP.1227-draft</a>.",
+            "J. Falco, K. Van Wyk, S. Liu, and S. Carpin, \"Grasping the Performance: Facilitating Replicable Performance Measures via Benchmarking and Standardized Methodologies,\" <em>IEEE Robot. Automat. Mag.</em>, vol. 22, no. 4, pp. 125–136, Dec. 2015, doi: <a href='https://doi.org/10.1109/MRA.2015.2460891'>10.1109/MRA.2015.2460891</a>."
+          ]
         },
         {
           "id": "fingertip-speed",
@@ -381,7 +382,7 @@
           "metrics": [{ "name": "", "unit": "", "description": "" }],
           "analysisMethods": [""]
         },
-        {
+        {"_comment": "HIDDEN — moved to Design-Based Benchmarks (other-benchmarks.html); remove _hidden to restore", "_hidden": true,
           "id": "finger-degrees-of-freedom",
           "title": "Degrees of Freedom",
           "shortDescription": "",
@@ -393,6 +394,29 @@
         {
           "id": "finger-joint-backlash",
           "title": "Joint Backlash",
+          "shortDescription": "",
+          "description": "",
+          "procedures": [""],
+          "metrics": [{ "name": "", "unit": "", "description": "" }],
+          "analysisMethods": [""]
+        },
+        {
+          "id": "fingertip-repeatability",
+          "title": "Repeatability",
+          "shortDescription": "",
+          "description": "",
+          "procedures": [""],
+          "metrics": [{ "name": "", "unit": "", "description": "" }],
+          "analysisMethods": [""],
+          "references": [
+            "J. Falco <em>et al.</em>, \"Benchmarking Protocols for Evaluating Grasp Strength, Grasp Cycle Time, Finger Strength, and Finger Repeatability of Robot End-Effectors,\" <em>IEEE Robot. Autom. Lett.</em>, vol. 5, no. 2, pp. 644–651, Apr. 2020, doi: <a href='https://doi.org/10.1109/LRA.2020.2964164'>10.1109/LRA.2020.2964164</a>.",
+            "J. Falco, K. Van Wyk, and E. Messina, \"Performance Metrics and Test Methods for Robotic Hands.\" Oct. 2018. doi: <a href='https://doi.org/10.6028/NIST.SP.1227-draft'>10.6028/NIST.SP.1227-draft</a>.",
+            "J. Falco, K. Van Wyk, S. Liu, and S. Carpin, \"Grasping the Performance: Facilitating Replicable Performance Measures via Benchmarking and Standardized Methodologies,\" <em>IEEE Robot. Automat. Mag.</em>, vol. 22, no. 4, pp. 125–136, Dec. 2015, doi: <a href='https://doi.org/10.1109/MRA.2015.2460891'>10.1109/MRA.2015.2460891</a>."
+          ]
+        },
+        {
+          "id": "fingertip-z-width",
+          "title": "Z-Width",
           "shortDescription": "",
           "description": "",
           "procedures": [""],
@@ -432,7 +456,7 @@
               "associatedTestbed": "<a href='benchmarks.html#component-testbeds'>Finger Testbed</a>",
               "procedures": [
                 "Secure the fingertip to the dynamometer with the finger's joints each flexed by approximately 10°. Ensure that the dynamometer is normal to the finger pad.",
-                "In force control mode, command a fingertip force sine sweep with an amplitude of 3N. The frequency range should be 0.1 Hz up to 120% of the finger's resonant frequency from the <a href='benchmark.html?id=fingertip-effective-impedance'>fingertip effective impedance</a> measurement.",
+                "In force control mode, command a fingertip force sine sweep with an amplitude of 3N. The frequency range should be 0.1 Hz up to 120% of the finger's resonant frequency from the <a href='benchmark.html?id=fingertip-effective-impedance'>fingertip impedance</a> measurement.",
                 "Compute the transfer function from the commanded fingertip force to the measured fingertip force and identify the frequency at which the response drops to -3dB."
               ],
               "collectedData": [
@@ -464,13 +488,16 @@
                 { "name": "Fingertip Force Sensing Accuracy", "unit": "N", "dataUsed": "F_tip,ext, F_tip,int", "equation": "√(1/n Σ(F_tip,ext − F_tip,int)²)" }
               ],
               "analysisMethods": [""],
-              "references": ["J. Falco, K. Van Wyk, S. Liu, and S. Carpin, \"Grasping the Performance: Facilitating Replicable Performance Measures via Benchmarking and Standardized Methodologies,\" <em>IEEE Robot. Automat. Mag.</em>, vol. 22, no. 4, pp. 125–136, Dec. 2015, doi: 10.1109/MRA.2015.2460891."]
+              "references": [
+                "J. Falco, K. Van Wyk, and E. Messina, \"Performance Metrics and Test Methods for Robotic Hands.\" Oct. 2018. doi: <a href='https://doi.org/10.6028/NIST.SP.1227-draft'>10.6028/NIST.SP.1227-draft</a>.",
+                "J. Falco, K. Van Wyk, S. Liu, and S. Carpin, \"Grasping the Performance: Facilitating Replicable Performance Measures via Benchmarking and Standardized Methodologies,\" <em>IEEE Robot. Automat. Mag.</em>, vol. 22, no. 4, pp. 125–136, Dec. 2015, doi: <a href='https://doi.org/10.1109/MRA.2015.2460891'>10.1109/MRA.2015.2460891</a>."
+              ]
             },
             {
               "id": "fingertip-effective-impedance",
-              "title": "Fingertip Effective Impedance",
+              "title": "Fingertip Impedance",
               "shortDescription": "",
-              "description": "Fingertip effective impedance (primarily compliance and mass) governs the force bandwidth in both the forward and the backward paths. It is measured by approximating dynamic properties with a linear model from measurements of the finger's response to local excitations.",
+              "description": "Fingertip impedance (primarily compliance and mass) governs the force bandwidth in both the forward and the backward paths. It is measured by approximating dynamic properties with a linear model from measurements of the finger's response to local excitations.",
               "image": "Images/Dynamic Model.png",
               "associatedTestbed": "<a href='benchmarks.html#component-testbeds'>Finger Testbed</a>",
               "procedures": [

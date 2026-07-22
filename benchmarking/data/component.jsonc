@@ -1,7 +1,6 @@
 {
   "description": ["Component-level benchmarks are the 'unit' tests of the hand, focusing on the performance of one or a few components.",
-                  " At this level, system designers have the most control of performance, but the least insight into how their decisions affect dexterity.",
-                  " Some component-level benchmarks are not yet supported — see <a href='other-benchmarks.html'>Other Benchmarks</a>."],
+                  " At this level, system designers have the most control of performance, but the least insight into how their decisions affect dexterity."],
   "sections": [
     {
       "title": "Actuators",
@@ -61,7 +60,7 @@
           "metrics": [{ "name": "", "unit": "", "description": "" }],
           "analysisMethods": [""]
         },
-        {
+        {"_comment": "HIDDEN — moved to Not Currently Supported (other-benchmarks.html); remove _hidden to restore", "_hidden": true,
           "id": "thermal-properties",
           "title": "Thermal Properties",
           "shortDescription": "",
@@ -88,7 +87,7 @@
           "metrics": [{ "name": "", "unit": "", "description": "" }],
           "analysisMethods": [""]
         },
-        {
+        {"_comment": "HIDDEN — moved to Not Currently Supported (other-benchmarks.html); remove _hidden to restore", "_hidden": true,
           "id": "actuator-power-density",
           "title": "Power Density",
           "shortDescription": "",
@@ -129,6 +128,7 @@
     {
       "title": "Mechanical Transmission",
       "description": "",
+      "showSubsectionHeadings": true,
       "benchmarks": [
         {
           "id": "force-efficiency",

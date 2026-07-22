@@ -1,7 +1,9 @@
 {
   "description": [
     "System-Level dexterity benchmarks require high-level integration of the hands with robot arms, vision, control, AI,",
-    " possibly teleoperation, and more to complete short-horizon 'atomic' tasks. These atomic tasks were selected to test different",
+    " possibly teleoperation, and more to complete short-horizon 'atomic' tasks.",
+    " The short-horizon nature of system-level tasks enables evaluation of the hand dexterous performance without incorporating details like long-horizon multi-step planning.",
+    " These atomic tasks were selected to test different",
     " features of dexterity, emphasizing in-hand manipulation."
   ],
   "sections": [
