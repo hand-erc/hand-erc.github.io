@@ -71,16 +71,13 @@ function createSubsection(subsection, subIndex, sectionPrefix) {
     : '';
 
   return `
-    <div class="benchmark-subsection collapsible is-collapsed">
-      <h4 class="title is-5 subsection-divider collapsible-toggle" onclick="toggleCollapse(this)">
-        <span class="collapse-icon"><i class="fas fa-chevron-down"></i></span>
+    <div class="benchmark-subsection">
+      <h4 class="title is-5 subsection-divider">
         ${subsection.title}
       </h4>
-      <div class="collapsible-content">
-        ${descriptionHTML}
-        <div class="columns is-multiline benchmark-cards">
-          ${cardsHTML}
-        </div>
+      ${descriptionHTML}
+      <div class="columns is-multiline benchmark-cards">
+        ${cardsHTML}
       </div>
     </div>`;
 }
@@ -102,27 +99,34 @@ function createSection(section, sectionIndex, totalSections) {
 
   let contentHTML = '';
 
-  // Render section-level benchmarks first (filtering hidden)
-  if (section.benchmarks && section.benchmarks.length > 0) {
-    const visibleBenchmarks = filterVisible(section.benchmarks);
-    const cardsHTML = visibleBenchmarks.map(function (b, i) {
-      return createCard(b, i, '');
-    }).join('');
-    contentHTML += `<div class="columns is-multiline benchmark-cards">${cardsHTML}</div>`;
-  }
+  // Collect visible section-level benchmarks
+  var visibleBenchmarks = section.benchmarks ? filterVisible(section.benchmarks) : [];
 
-  // Then render subsections if present (filtering hidden)
-  // SUBSECTION HEADINGS DISABLED — to restore, replace the block below with: contentHTML += filterVisible(section.subsections).map(function (sub, i) { return createSubsection(sub, i, ''); }).join('');
-  if (section.subsections && section.subsections.length > 0) {
-    var allSubBenchmarks = [];
-    filterVisible(section.subsections).forEach(function (sub) {
-      allSubBenchmarks = allSubBenchmarks.concat(filterVisible(sub.benchmarks));
-    });
-    if (allSubBenchmarks.length > 0) {
-      var subCardsHTML = allSubBenchmarks.map(function (b, i) {
+  if (section.showSubsectionHeadings) {
+    // Render section-level benchmarks in their own grid, then subsections with headings
+    if (visibleBenchmarks.length > 0) {
+      var cardsHTML = visibleBenchmarks.map(function (b, i) {
         return createCard(b, i, '');
       }).join('');
-      contentHTML += `<div class="columns is-multiline benchmark-cards">${subCardsHTML}</div>`;
+      contentHTML += `<div class="columns is-multiline benchmark-cards">${cardsHTML}</div>`;
+    }
+    if (section.subsections && section.subsections.length > 0) {
+      contentHTML += filterVisible(section.subsections).map(function (sub, i) {
+        return createSubsection(sub, i, '');
+      }).join('');
+    }
+  } else {
+    // Merge all benchmarks (section + subsections) into a single flat grid
+    if (section.subsections && section.subsections.length > 0) {
+      filterVisible(section.subsections).forEach(function (sub) {
+        visibleBenchmarks = visibleBenchmarks.concat(filterVisible(sub.benchmarks));
+      });
+    }
+    if (visibleBenchmarks.length > 0) {
+      var cardsHTML = visibleBenchmarks.map(function (b, i) {
+        return createCard(b, i, '');
+      }).join('');
+      contentHTML += `<div class="columns is-multiline benchmark-cards">${cardsHTML}</div>`;
     }
   }
 

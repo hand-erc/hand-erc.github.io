@@ -236,6 +236,18 @@ if (benchmark.protocolLink) {
       analysisSection.style.display = 'none';
     }
   }
+  // References
+  if (benchmark.references && benchmark.references.length > 0) {
+    const refList = document.getElementById('benchmark-references');
+    refList.innerHTML = '';
+    benchmark.references.forEach(function (ref) {
+      const li = document.createElement('li');
+      li.innerHTML = ref;
+      refList.appendChild(li);
+    });
+    document.getElementById('references-section').style.display = '';
+  }
+
   // Show content, hide loading
   document.getElementById('loading-state').style.display = 'none';
   document.getElementById('benchmark-content').style.display = '';

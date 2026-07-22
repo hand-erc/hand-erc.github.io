@@ -10,13 +10,13 @@
             { "name": "Power Consumption", "description": "Power consumed by the hand during operation" },
             { "name": "Serviceability", "description": "Ease of maintaining and repairing the hand" },
             { "name": "Grasp Contact Patch Area", "description": "Contact area between the hand and grasped object" },
-            { "name": "Pinch Strength", "description": "Maximum force in a pinch grasp" },
             { "name": "Grasp Impedance", "description": "Mechanical impedance of the hand during grasping" },
             { "name": "Payload", "description": "Maximum payload the hand can support" },
             { "name": "Operational Fatigue-Life", "description": "Number of operational cycles before failure" },
             { "name": "Impact Resilience", "description": "Ability of the hand to withstand impacts" },
             { "name": "Wrist Coupling", "description": "Coupling between wrist degrees of freedom" },
-            { "name": "Wrist Durability", "description": "Durability of the wrist under repeated loading" }
+            { "name": "Wrist Durability", "description": "Durability of the wrist under repeated loading" },
+            { "name": "Grasp Resilience", "description": "Resilience of grasps to dynamic loads" }
           ]
         }
       ]
@@ -27,7 +27,9 @@
         {
           "title": "Actuators",
           "benchmarks": [
-            { "name": "Parasitic Stiffness", "description": "Stiffness arising from non-ideal mechanical properties of the actuator" }
+            { "name": "Parasitic Stiffness", "description": "Stiffness arising from non-ideal mechanical properties of the actuator" },
+            { "name": "Thermal Properties", "description": "Thermal characteristics of the actuator during operation" },
+            { "name": "Power Density", "description": "Power output per unit mass or volume of the actuator" }
           ]
         },
         {
