@@ -4,22 +4,13 @@
   "sections": [
     {
       "title": "Actuators",
-      "description": "Effort is used as a general description of force or torque.",
+      "description": "Actuators can act about an axis (torque) or along a line (force). To address this in the benchmarks, forces and torques are generally referred to as efforts. When reporting performance scores, whether the actuator produces torques or forces needs to be defined.",
       "benchmarks": [
-        {
-          "id": "z-width",
-          "title": "Z-Width",
-          "shortDescription": "",
-          "description": "",
-          "procedures": [""],
-          "metrics": [{ "name": "", "unit": "", "description": "" }],
-          "analysisMethods": [""]
-        },
         {
           "id": "output-inertia",
           "title": "Output Inertia",
           "shortDescription": "",
-          "description": "",
+          "description": "Actuator output inertia is a dynamic property of the actuator that affects control bandwidth and force transparency. An actuator with larger inertia experiences a reduction in control bandwidth. Adding a speed reduction to the actuator, such as a gearhead for motors, amplifies the actuator inertia as felt by the environment (reflected inertia). The reflected inertia scales with N\u00B2, where N is the transmission ratio of the speed reduction. Reflected inertia amplification combined with transmission friction has significantly negative effects on a finger's mechanical transparency. Along with negatively affecting transparency and force control bandwidth, there is a tradeoff between actuator inertia and strength. Decreasing actuator inertia improves mechanical transparency and bandwidth, but it also reduces strength.",
           "procedures": [""],
           "metrics": [{ "name": "", "unit": "", "description": "" }],
           "analysisMethods": [""]
@@ -122,6 +113,15 @@
           "procedures": [""],
           "metrics": [{ "name": "", "unit": "", "description": "" }],
           "analysisMethods": [""]
+        },
+        {
+          "id": "z-width",
+          "title": "Z-Width",
+          "shortDescription": "",
+          "description": "",
+          "procedures": [""],
+          "metrics": [{ "name": "", "unit": "", "description": "" }],
+          "analysisMethods": [""]
         }
       ]
     },
@@ -152,7 +152,7 @@
           "id": "transmission-stiffness",
           "title": "Transmission Stiffness",
           "shortDescription": "",
-          "description": "",
+          "description": "Transmission stiffness can be reduced by adding elastic elements in series with the actuator and mechanical transmission, making the finger more responsive to the environment. Decreasing transmission stiffness makes the finger more passively responsive, but it also decreases the finger's mechanical bandwidth. Unwanted compliance is introduced to the transmission through gearing compliance, tendon-driven systems, and flexing of structural components.",
           "procedures": [""],
           "metrics": [{ "name": "", "unit": "", "description": "" }],
           "analysisMethods": [""]
@@ -197,7 +197,7 @@
           "id": "transmission-friction",
           "title": "Friction",
           "shortDescription": "",
-          "description": "",
+          "description": "Transmission friction arises between interfacing surfaces along the transmission path from actuator efforts to the finger links. Stiction in the transmission causes force losses below the transmission breakaway force, while dynamic friction leads to force loss in the transmission. It is possible to compensate for friction with control at the cost of higher control effort. Also, due to the nonlinear behaviors of friction, good friction compensation is difficult to achieve.",
           "procedures": [""],
           "metrics": [{ "name": "", "unit": "", "description": "" }],
           "analysisMethods": [""]

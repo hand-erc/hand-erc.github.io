@@ -472,7 +472,7 @@
               "id": "fingertip-force-tracking",
               "title": "Fingertip Force Tracking",
               "shortDescription": "Force control and sensing accuracy when tracking sinusoidal force inputs.",
-              "description": "Force control accuracy is only measured in the forward direction, from the actuators to the environment. Force sensing accuracy is also measured as it can significantly impact the force control performance. This test is performed with the fingertip blocked. The finger is then commanded to produce sinusoidal force profiles at the fingertip, and the RMSE between commanded force and externally measured force is computed. For force sensing accuracy, the RMSE between the internally sensed and externally measured fingertip force is calculated.",
+              "description": "Force control accuracy is only measured in the forward direction, from the actuators to the environment. Force sensing accuracy is also measured as it can significantly impact the force control performance. This test is performed with the fingertip blocked. The finger is commanded to produce sinusoidal force profiles at the fingertip, and the RMSE between commanded force and externally measured force is computed. For force sensing accuracy, the RMSE between the internally sensed and externally measured fingertip force is calculated.",
               "associatedTestbed": "<a href='benchmarks.html#component-testbeds'>Finger Testbed</a>",
               "procedures": [
                 "Secure the fingertip to the dynamometer with the finger's joints each flexed by approximately 10°. Ensure that the dynamometer is normal to the finger pad.",
