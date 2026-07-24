@@ -132,26 +132,11 @@ function createSection(section, sectionIndex, totalSections) {
 
   // const numberHTML = showSectionNumber ? `<span class="section-number">${sectionPrefix}.</span> ` : '';  // NUMBERING DISABLED — uncomment to restore
 
-  // If there is only one section, render it flat (no collapsible dropdown)
-  if (totalSections === 1) {
-    return `
-      <div class="benchmark-section">
-        <h3 class="title is-4 section-divider">${section.title}</h3>
-        ${descriptionHTML}
-        ${contentHTML}
-      </div>`;
-  }
-
   return `
-    <div class="benchmark-section collapsible is-collapsed">
-      <h3 class="title is-4 section-divider collapsible-toggle" onclick="toggleCollapse(this)">
-        <span class="collapse-icon"><i class="fas fa-chevron-down"></i></span>
-        ${section.title}
-      </h3>
-      <div class="collapsible-content">
-        ${descriptionHTML}
-        ${contentHTML}
-      </div>
+    <div class="benchmark-section">
+      <h3 class="title is-4 section-divider">${section.title}</h3>
+      ${descriptionHTML}
+      ${contentHTML}
     </div>`;
 }
 

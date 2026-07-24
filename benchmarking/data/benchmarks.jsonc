@@ -32,6 +32,13 @@
       "type": "testbeds"
     },
     {
+      "id": "hand-metrics",
+      "label": "Hand Metrics",
+      "icon": "fa-chart-bar",
+      "file": "data/hand-metrics.jsonc",
+      "type": "not-supported"
+    },
+    {
       "id": "model-based",
       "label": "Design-Based Benchmarks",
       "icon": "fa-cube",
