@@ -68,10 +68,11 @@ function populatePage(benchmark, level) {
   // Page title
   document.title = benchmark.title + ' - HAND Benchmarking';
 
-  // Breadcrumb
+  // Breadcrumb and back link
   document.getElementById('breadcrumb-level').textContent = level.label;
   document.getElementById('breadcrumb-level').href = 'benchmarks.html#' + level.id;
   document.getElementById('breadcrumb-benchmark').textContent = benchmark.title;
+  document.getElementById('back-link').href = 'benchmarks.html#' + level.id;
 
   // Hero
   document.getElementById('benchmark-title').textContent = benchmark.title;
