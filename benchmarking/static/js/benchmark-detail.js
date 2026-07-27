@@ -78,18 +78,45 @@ function populatePage(benchmark, level) {
   document.getElementById('benchmark-title').textContent = benchmark.title;
   document.getElementById('benchmark-subtitle').textContent = benchmark.shortDescription;
 
-  // Image
-  if (benchmark.image && benchmark.image.trim() !== '') {
-    const imgSection = document.getElementById('image-section');
-    const img = document.getElementById('benchmark-image');
-    img.src = benchmark.image;
-    img.alt = benchmark.title;
-    imgSection.style.display = '';
+  // Images
+  var imageList = benchmark.images || (benchmark.image ? [benchmark.image] : []);
+  if (imageList.length > 0) {
+    var largeSection = document.getElementById('large-image-section');
+    var sidebarSection = document.getElementById('image-section');
+    var existingImg = document.getElementById('benchmark-image');
+    existingImg.style.display = 'none';
 
-    // Hide image section if the image fails to load
-    img.onerror = function () {
-      imgSection.style.display = 'none';
-    };
+    var hasLargeImages = false;
+    imageList.forEach(function (item) {
+      var src = typeof item === 'string' ? item : item.src;
+      var maxWidth = typeof item === 'object' && item.maxWidth ? item.maxWidth : '280px';
+      var useLarge = typeof item === 'object' && item.maxWidth;
+      if (src && src.trim() !== '') {
+        var img = document.createElement('img');
+        img.src = src;
+        img.alt = benchmark.title;
+        img.loading = 'lazy';
+        img.style.maxWidth = maxWidth;
+        img.style.borderRadius = '6px';
+        img.style.display = 'block';
+        img.style.height = 'auto';
+        img.onerror = function () { img.style.display = 'none'; };
+        if (useLarge) {
+          img.style.flex = '0 1 ' + maxWidth;
+          img.style.maxHeight = '300px';
+          img.style.objectFit = 'contain';
+          largeSection.appendChild(img);
+          hasLargeImages = true;
+        } else {
+          img.style.marginBottom = '8px';
+          sidebarSection.appendChild(img);
+          sidebarSection.style.display = '';
+        }
+      }
+    });
+    if (hasLargeImages) {
+      largeSection.style.display = 'flex';
+    }
   }
 
   // Description
