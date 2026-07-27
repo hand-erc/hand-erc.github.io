@@ -270,13 +270,13 @@
     },
     {
       "title": "Wrist",
-      "description": "",
+      "description": "Each benchmark in this category can be measured for both pitch and yaw axes.",
       "benchmarks": [
         {
           "id": "wrist-passive-impedance",
           "title": "Passive Impedance",
           "shortDescription": "Measure of the hand's responsiveness to environmental disturbances.",
-          "description": "",
+          "description": "Mechanical impedance is a frequency-dependent measure of a system's resistance to motion. It is defined as the ratio of force to velocity: F/V. For the wrist of a robot hand, it is measured using a dynamometer, which excites the wrist with sinusoidal motions while measuring the resulting contact force. From the data, the frequency response of the mechanical impedance is measured, and dynamic properties are extracted by fitting a model to the data. From passive impedance, the effective mass, stiffness, and damping can be extracted. The wrist's passive dynamics define the system resonance, which imposes a fundamental limitation on force control bandwidth.",
           "procedures": [""],
           "metrics": [{ "name": "", "unit": "", "description": "" }],
           "analysisMethods": [""]
@@ -303,7 +303,7 @@
           "id": "wrist-strength",
           "title": "Strength",
           "shortDescription": "Force production capability.",
-          "description": "",
+          "description": "For the wrist, strength is measured in terms of the maximum torque it can output about the yaw and pitch axes.",
           "procedures": [""],
           "metrics": [{ "name": "", "unit": "", "description": "" }],
           "analysisMethods": [""]
@@ -312,7 +312,7 @@
           "id": "wrist-speed",
           "title": "Speed",
           "shortDescription": "Maximum joint speed of the wrist.",
-          "description": "",
+          "description": "Wrist speed is a measure of the maximum angular speed the wrist can achieve, about both the yaw and the pitch axes.",
           "procedures": [""],
           "metrics": [{ "name": "", "unit": "", "description": "" }],
           "analysisMethods": [""]
@@ -321,7 +321,7 @@
           "id": "wrist-repeatability",
           "title": "Repeatability",
           "shortDescription": "Positioning consistency in repeatedly commanding the wrist to the same position.",
-          "description": "",
+          "description": "Repeatability is a measure of how accurately the wrist can be repeatedly commanded to the same configuration.",
           "procedures": [""],
           "metrics": [{ "name": "", "unit": "", "description": "" }],
           "analysisMethods": [""]
@@ -330,7 +330,7 @@
           "id": "wrist-z-width",
           "title": "Z-Width",
           "shortDescription": "The dynamic range of impedances the wrist can display.",
-          "description": "",
+          "description": "Z-Width measures the dynamic range of mechanical impedance the wrist can display to the environment.",
           "procedures": [""],
           "metrics": [{ "name": "", "unit": "", "description": "" }],
           "analysisMethods": [""]
@@ -500,7 +500,7 @@
               "title": "Fingertip Impedance",
               "shortDescription": "The mechanical responsiveness of the finger to environmental disturbances.",
               "description": "Mechanical impedance is a frequency-dependent measure of a system's resistance to motion. It is defined as the ratio of force to velocity: F/V. For a robot finger, it is measured using a dynamometer, which excites the fingertip with sinusoidal motions while measuring the resulting contact force. From the data, the frequency response of the mechanical impedance is measured, and dynamic properties are extracted by fitting a model to the data. For a passive (uncontrolled) finger, the effective mass, stiffness, and damping can be extracted. For controlled fingers, bounds on the controlled mass, stiffness, and damping can be determined. The fingers' passive dynamics define the system resonance, which imposes a fundamental limitation on force bandwidth both from the actuators to the environment and from the environment to the actuators.",
-              "image": "Images/Dynamic Model.png",
+              "images": [{"src": "Images/Finger Impedance Measurement.png", "maxWidth": "55%"}, {"src": "Images/Dynamic Model.png", "maxWidth": "40%"}],
               "associatedTestbed": "<a href='benchmarks.html#component-testbeds'>Finger Testbed</a>",
               "procedures": [
                 "Secure the fingertip to the dynamometer with the finger's joints each flexed by approximately 10°. Ensure that the dynamometer is normal to the finger pad.",
