@@ -410,6 +410,7 @@
     {
       "title": "Sensors",
       "description": "",
+      "showSubsectionHeadings": true,
       "benchmarks": [
         {
           "id": "sensor-resolution",
@@ -417,7 +418,7 @@
           "shortDescription": "",
           "description": "",
           "procedures": [""],
-          "metrics": [{ "name": "", "unit": "", "description": "" }],
+          "metrics": [{ "name": "", "unit": "", "description": "" }, { "name": "Tactile Sensor Force Resolution", "unit": "N/Pa", "description": "" }],
           "analysisMethods": [""]
         },
         {
@@ -504,7 +505,7 @@
               "shortDescription": "",
               "description": "",
               "procedures": [""],
-              "metrics": [{ "name": "", "unit": "", "description": "" }],
+              "metrics": [{ "name": "Taxel Density", "unit": "taxel/mm²", "description": "" }, { "name": "Two-Point Discrimination", "unit": "mm", "description": "" }],
               "analysisMethods": [""]
             },
             {"_comment": "HIDDEN — moved to Not Currently Supported tab; remove _hidden to restore", "_hidden": true,
@@ -528,6 +529,42 @@
             {
               "id": "tactile-slip-shear-sensitivity",
               "title": "Slip/Shear Sensitivity",
+              "shortDescription": "",
+              "description": "",
+              "procedures": [""],
+              "metrics": [{ "name": "", "unit": "", "description": "" }],
+              "analysisMethods": [""]
+            },
+            {
+              "id": "tactile-temporal-resolution",
+              "title": "Temporal Resolution",
+              "shortDescription": "",
+              "description": "This can be tested using a DAQ directly connected to the taxels or after processing, including multiplexers, filters, ADCs, and post-processing.",
+              "procedures": [""],
+              "metrics": [{ "name": "Response Time", "unit": "s", "description": "Response time to the application of a static load" }],
+              "analysisMethods": [""]
+            },
+            {
+              "id": "tactile-minimum-force-detection",
+              "title": "Minimum Force Detection",
+              "shortDescription": "",
+              "description": "",
+              "procedures": [""],
+              "metrics": [{ "name": "Minimum Detectable Force", "unit": "N", "description": "" }],
+              "analysisMethods": [""]
+            },
+            {
+              "id": "tactile-vibration-sensing-range",
+              "title": "Vibration Sensing Range",
+              "shortDescription": "",
+              "description": "",
+              "procedures": [""],
+              "metrics": [{ "name": "Phase Lag", "unit": "", "description": "Phase lag from shaker signal to sensed signal" }],
+              "analysisMethods": [""]
+            },
+            {
+              "id": "tactile-stability",
+              "title": "Stability",
               "shortDescription": "",
               "description": "",
               "procedures": [""],

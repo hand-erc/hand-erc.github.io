@@ -333,9 +333,46 @@
   background-color: var(--background-accent);
 }
 
+/* "Other" card — dashed border style */
+.benchmark-card.other-card {
+  border-style: dashed;
+  border-color: var(--text-light);
+  background: var(--background-secondary);
+}
+
+.benchmark-card.other-card:hover {
+  border-color: var(--primary-color);
+  border-style: dashed;
+}
+
+.benchmark-card.other-card .card-content .title {
+  color: var(--text-secondary);
+}
+
 /* Card grid spacing */
 .benchmark-cards .column {
   margin-bottom: 1rem;
+}
+
+/* =============================================
+   Performance Metrics Listing Tables
+   ============================================= */
+
+.benchmark-listing-table {
+  margin-top: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.benchmark-listing-table .metric-number {
+  font-weight: 600;
+  color: var(--text-light);
+  text-align: center;
+  width: 3.5rem;
+}
+
+.benchmark-listing-table .metric-name {
+  font-weight: 600;
+  color: var(--text-primary);
 }
 
 /* Placeholder image for benchmarks without images */

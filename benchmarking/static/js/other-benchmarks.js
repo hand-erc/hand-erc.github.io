@@ -27,20 +27,8 @@ function escapeHTML(str) {
 
 document.addEventListener('DOMContentLoaded', async function () {
   try {
-    var [designRes, notSupportedRes] = await Promise.all([
-      fetch('data/model-based.jsonc'),
-      fetch('data/not-currently-supported.jsonc')
-    ]);
-
-    var designData = await designRes.json();
+    var notSupportedRes = await fetch('data/not-currently-supported.jsonc');
     var notSupportedData = await notSupportedRes.json();
-
-    // Design-Based Benchmarks
-    var desc = designData.description;
-    document.getElementById('design-based-description').textContent =
-      Array.isArray(desc) ? desc.join('') : desc;
-    document.getElementById('design-based-content').innerHTML =
-      renderCategories(designData.categories || []);
 
     // Not Currently Supported
     var nsDesc = notSupportedData.description;
@@ -51,8 +39,6 @@ document.addEventListener('DOMContentLoaded', async function () {
 
   } catch (error) {
     console.error('Failed to load data:', error);
-    document.getElementById('design-based-content').innerHTML =
-      '<p class="has-text-danger">Failed to load benchmarks. Please try refreshing.</p>';
     document.getElementById('not-supported-content').innerHTML =
       '<p class="has-text-danger">Failed to load benchmarks. Please try refreshing.</p>';
   }
