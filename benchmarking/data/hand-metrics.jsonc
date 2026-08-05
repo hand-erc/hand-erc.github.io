@@ -2,6 +2,32 @@
   "description": "A comprehensive list of metrics used to evaluate robot hand performance across all subsystems and components.",
   "categories": [
     {
+      "title": "Design-Based Benchmarks",
+      "preamble": "These benchmarks can be evaluated from the design or specification of the hand without performing a physical test.",
+      "sections": [
+        {
+          "title": "Hand",
+          "benchmarks": [
+            { "name": "Weight", "description": "Total mass of the hand" },
+            { "name": "Number of Fingers", "description": "Total number of fingers on the hand" },
+            { "name": "Number of Actuators", "description": "Total number of actuators in the hand" },
+            { "name": "Size", "description": "Overall dimensions of the hand" },
+            { "name": "Degrees of Freedom", "description": "Total number of independent degrees of freedom" },
+            { "name": "Joint Limits", "description": "Range of motion for each joint" },
+            { "name": "Workspace Volume", "description": "Volume of space reachable by the fingertips" },
+            { "name": "KaRMA", "description": "A benchmark of the hand's ability to rotate and translate an object throughout points in its workspace" },
+            { "name": "Interactivity of Fingers", "description": "Workspace overlap between the fingers and the thumb" }
+          ]
+        },
+        {
+          "title": "Finger",
+          "benchmarks": [
+            { "name": "Degrees of Freedom", "description": "Total number of independent degrees of freedom per finger" }
+          ]
+        }
+      ]
+    },
+    {
       "title": "Hand",
       "sections": [
         {

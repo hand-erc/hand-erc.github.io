@@ -226,9 +226,14 @@ function createNotSupportedList(categories) {
         <ul style="list-style: disc; padding-left: 1.5rem; margin-bottom: 0.5rem;">${items}</ul>`;
     }).join('');
 
+    const preambleHTML = cat.preamble
+      ? `<p class="section-description">${cat.preamble}</p>`
+      : '';
+
     return `
       <div class="benchmark-section" style="margin-bottom: 2rem;">
         <h3 class="title is-4 section-divider">${cat.title}</h3>
+        ${preambleHTML}
         ${sectionsHTML}
       </div>`;
   }).join('');
