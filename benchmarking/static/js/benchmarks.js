@@ -83,13 +83,36 @@ function createSubsection(subsection, subIndex, sectionPrefix) {
 }
 
 /**
+ * Create HTML for the "Other" card that links to the Other Benchmarks page.
+ */
+function createOtherCard() {
+  return `
+    <div class="column is-one-third-desktop is-half-tablet">
+      <a href="other-benchmarks.html" class="benchmark-card-link">
+        <div class="card benchmark-card other-card">
+          <div class="card-content">
+            <p class="title is-5">Other</p>
+            <p class="subtitle is-6">Benchmarks not currently supported or that do not require physical evaluation.</p>
+          </div>
+          <footer class="card-footer">
+            <span class="card-footer-item">
+              <span class="icon"><i class="fas fa-arrow-right"></i></span>
+              <span>View Other Benchmarks</span>
+            </span>
+          </footer>
+        </div>
+      </a>
+    </div>`;
+}
+
+/**
  * Create HTML for a benchmark section (divider + card grid).
  * Supports optional subsections array.
  */
 /**
  * Numbering is disabled — to re-enable, restore the numberHTML and sectionPrefix usage below.
  */
-function createSection(section, sectionIndex, totalSections) {
+function createSection(section, sectionIndex, totalSections, levelId) {
   // const showSectionNumber = totalSections > 1;  // NUMBERING DISABLED — uncomment to restore
   // const sectionPrefix = String(sectionIndex + 1);  // NUMBERING DISABLED — uncomment to restore
 
@@ -132,11 +155,18 @@ function createSection(section, sectionIndex, totalSections) {
 
   // const numberHTML = showSectionNumber ? `<span class="section-number">${sectionPrefix}.</span> ` : '';  // NUMBERING DISABLED — uncomment to restore
 
+  // Append "Other" card for hand and component levels
+  const showOther = (levelId === 'hand' || levelId === 'component');
+  const otherHTML = showOther
+    ? `<div class="columns is-multiline benchmark-cards">${createOtherCard()}</div>`
+    : '';
+
   return `
     <div class="benchmark-section">
       <h3 class="title is-4 section-divider">${section.title}</h3>
       ${descriptionHTML}
       ${contentHTML}
+      ${otherHTML}
     </div>`;
 }
 
@@ -241,7 +271,7 @@ function renderTabPanels(data) {
     } else {
       const total = level.sections.length;
       panel.innerHTML = descHTML + level.sections.map(function (s, i) {
-        return createSection(s, i, total);
+        return createSection(s, i, total, level.id);
       }).join('');
     }
 
