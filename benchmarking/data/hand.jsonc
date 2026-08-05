@@ -513,9 +513,9 @@
                 "Fingertip position (X<sub>tip</sub>)"
               ],
               "metrics": [
-                { "name": "Effective Mass", "unit": "g", "dataUsed": "F_tip, X_tip" },
-                { "name": "Effective Stiffness", "unit": "N/m", "dataUsed": "F_tip, X_tip" },
-                { "name": "Effective Damping", "unit": "Ns/m", "dataUsed": "F_tip, X_tip" }
+                { "name": "Fingertip Effective Mass", "unit": "g", "dataUsed": "F_tip, X_tip" },
+                { "name": "Fingertip Effective Stiffness", "unit": "N/m", "dataUsed": "F_tip, X_tip" },
+                { "name": "Fingertip Effective Damping", "unit": "Ns/m", "dataUsed": "F_tip, X_tip" }
               ],
               "analysisMethods": [""]
             },
