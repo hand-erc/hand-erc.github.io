@@ -418,7 +418,7 @@
           "shortDescription": "",
           "description": "",
           "procedures": [""],
-          "metrics": [{ "name": "", "unit": "", "description": "" }, { "name": "Tactile Sensor Force Resolution", "unit": "N/Pa", "description": "" }],
+          "metrics": [{ "name": "", "unit": "", "description": "" }, { "name": "Tactile Sensor Force Resolution", "unit": "", "description": "" }],
           "analysisMethods": [""]
         },
         {

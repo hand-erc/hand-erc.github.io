@@ -8,12 +8,18 @@ document.addEventListener('DOMContentLoaded', async function () {
   }
 
   try {
-    // Load index, then search each level file for the benchmark
-    const indexResponse = await fetch('data/benchmarks.jsonc');
+    // Load index and PM data in parallel
+    const [indexResponse, pmResponse] = await Promise.all([
+      fetch('data/benchmarks.jsonc'),
+      fetch('data/hand-metrics.jsonc')
+    ]);
     const index = await indexResponse.json();
+    const pmData = await pmResponse.json();
+    const pmIndex = buildPMIndex(pmData);
 
     let benchmark = null;
     let parentLevel = null;
+    let parentSection = null;
 
     // Fetch all level files in parallel, then search
     const levelResults = await Promise.all(
@@ -25,13 +31,17 @@ document.addEventListener('DOMContentLoaded', async function () {
     );
 
     for (const level of levelResults) {
+      if (!level.sections) continue;
       for (const section of level.sections) {
         // Search in section benchmarks
-        const found = section.benchmarks.find(b => b.id === benchmarkId);
-        if (found) {
-          benchmark = found;
-          parentLevel = level;
-          break;
+        if (section.benchmarks) {
+          const found = section.benchmarks.find(b => b.id === benchmarkId);
+          if (found) {
+            benchmark = found;
+            parentLevel = level;
+            parentSection = section;
+            break;
+          }
         }
         // Search in subsections if present
         if (section.subsections) {
@@ -40,6 +50,7 @@ document.addEventListener('DOMContentLoaded', async function () {
             if (subFound) {
               benchmark = subFound;
               parentLevel = level;
+              parentSection = section;
               break;
             }
           }
@@ -54,7 +65,7 @@ document.addEventListener('DOMContentLoaded', async function () {
       return;
     }
 
-    populatePage(benchmark, parentLevel);
+    populatePage(benchmark, parentLevel, parentSection, pmIndex);
   } catch (error) {
     console.error('Failed to load benchmark data:', error);
     showNotFound();
@@ -62,9 +73,78 @@ document.addEventListener('DOMContentLoaded', async function () {
 });
 
 /**
+ * Build a Performance Metrics index from hand-metrics.jsonc.
+ * Returns: { levelId: { sectionTitle: [{name, number}] } }
+ */
+function buildPMIndex(pmData) {
+  var LEVEL_MAP = { 'Application': 'application', 'System': 'system', 'Hand': 'hand', 'Component': 'component' };
+  var index = {};
+
+  (pmData.categories || []).forEach(function (cat, ci) {
+    var catNum = ci + 1;
+    var levelId = LEVEL_MAP[cat.title] || cat.title.toLowerCase();
+    index[levelId] = index[levelId] || {};
+
+    (cat.sections || []).forEach(function (sec, si) {
+      var secNum = catNum + '.' + (si + 1);
+      var entries = [];
+
+      if (sec.benchmarks) {
+        sec.benchmarks.forEach(function (b, bi) {
+          entries.push({ name: b.name, number: secNum + '.' + (bi + 1) });
+        });
+      }
+      if (sec.subsections) {
+        sec.subsections.forEach(function (sub, subi) {
+          var subNum = secNum + '.' + (subi + 1);
+          sub.benchmarks.forEach(function (b, bi) {
+            entries.push({ name: b.name, number: subNum + '.' + (bi + 1) });
+          });
+        });
+      }
+
+      index[levelId][sec.title] = entries;
+    });
+  });
+
+  return index;
+}
+
+/**
+ * Look up a Performance Metrics reference number.
+ */
+function findPMNumber(pmIndex, levelId, sectionTitle, name) {
+  if (!name) return '';
+
+  // Try section-specific lookup first
+  if (pmIndex[levelId] && pmIndex[levelId][sectionTitle]) {
+    var found = pmIndex[levelId][sectionTitle].find(function (e) { return e.name === name; });
+    if (found) return found.number;
+  }
+
+  // Fall back to any section in this level
+  if (pmIndex[levelId]) {
+    for (var sec in pmIndex[levelId]) {
+      var found = pmIndex[levelId][sec].find(function (e) { return e.name === name; });
+      if (found) return found.number;
+    }
+  }
+
+  // Fall back to all levels
+  for (var lid in pmIndex) {
+    for (var sec in pmIndex[lid]) {
+      var found = pmIndex[lid][sec].find(function (e) { return e.name === name; });
+      if (found) return found.number;
+    }
+  }
+
+  return '';
+}
+
+/**
  * Populate the page with benchmark data.
  */
-function populatePage(benchmark, level) {
+function populatePage(benchmark, level, section, pmIndex) {
   // Page title
   document.title = benchmark.title + ' - HAND Benchmarking';
 
@@ -212,12 +292,16 @@ if (benchmark.protocolLink) {
   const table = document.createElement('table');
   table.className = 'table is-fullwidth is-striped is-hoverable metrics-table';
   table.innerHTML =
-    '<thead><tr><th>Metric</th><th>Unit</th><th>Description</th></tr></thead><tbody></tbody>';
+    '<thead><tr><th style="width:5.5rem">PM Ref</th><th>Metric</th><th>Unit</th><th>Description</th></tr></thead><tbody></tbody>';
 
+  const sectionTitle = section ? section.title : '';
   const tbody = table.querySelector('tbody');
   benchmark.metrics.forEach(function (m) {
+    const searchName = m.name || benchmark.title;
+    const pmNum = findPMNumber(pmIndex, level.id, sectionTitle, searchName);
     const row = document.createElement('tr');
     row.innerHTML =
+      '<td class="metric-number">' + escapeHTML(pmNum) + '</td>' +
       '<td>' + escapeHTML(m.name) + '</td>' +
       '<td>' + escapeHTML(m.unit) + '</td>' +
       '<td>' + escapeHTML(m.description) + '</td>';
