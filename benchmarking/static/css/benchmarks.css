@@ -375,6 +375,29 @@
   color: var(--text-primary);
 }
 
+/* =============================================
+   Sub-subsection Dividers (third level)
+   ============================================= */
+
+.benchmark-subsubsection {
+  margin-bottom: 2rem;
+  margin-left: 1rem;
+}
+
+.benchmark-subsubsection:last-child {
+  margin-bottom: 0;
+}
+
+.subsubsection-divider {
+  font-family: 'Inter', sans-serif !important;
+  font-weight: 600 !important;
+  color: var(--text-light);
+  position: relative;
+  padding-bottom: 0.4rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
 /* Placeholder image for benchmarks without images */
 .benchmark-card .card-image .placeholder-image {
   width: 100%;

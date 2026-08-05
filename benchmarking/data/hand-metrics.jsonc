@@ -1,28 +1,20 @@
 {
-  "description": "A comprehensive list of metrics used to evaluate robot hand performance across all subsystems and components.",
+  "description": "A comprehensive list of metrics used to evaluate robot hand performance across all levels.",
   "categories": [
     {
-      "title": "Design-Based Benchmarks",
-      "preamble": "These benchmarks can be evaluated from the design or specification of the hand without performing a physical test.",
+      "title": "Application",
+      "sections": []
+    },
+    {
+      "title": "System",
       "sections": [
         {
-          "title": "Hand",
+          "title": "Atomic Benchmarking Tasks",
           "benchmarks": [
-            { "name": "Weight", "description": "Total mass of the hand" },
-            { "name": "Number of Fingers", "description": "Total number of fingers on the hand" },
-            { "name": "Number of Actuators", "description": "Total number of actuators in the hand" },
-            { "name": "Size", "description": "Overall dimensions of the hand" },
-            { "name": "Degrees of Freedom", "description": "Total number of independent degrees of freedom" },
-            { "name": "Joint Limits", "description": "Range of motion for each joint" },
-            { "name": "Workspace Volume", "description": "Volume of space reachable by the fingertips" },
-            { "name": "KaRMA", "description": "A benchmark of the hand's ability to rotate and translate an object throughout points in its workspace" },
-            { "name": "Interactivity of Fingers", "description": "Workspace overlap between the fingers and the thumb" }
-          ]
-        },
-        {
-          "title": "Finger",
-          "benchmarks": [
-            { "name": "Degrees of Freedom", "description": "Total number of independent degrees of freedom per finger" }
+            { "name": "Number of Blocks Transferred", "unit": "blocks", "description": "Tasks: Box and Blocks, Use Chopsticks" },
+            { "name": "Pegs Inserted", "unit": "pegs", "description": "Tasks: Peg-in-Hole" },
+            { "name": "Total Task Completion Time", "unit": "seconds", "description": "Tasks: Pick Up Flat Object, Tie a Knot, Twist Lid on Jar, Use Screwdriver, Use Scissors, Fasten Button, In-Hand Reorienting, Blindly Retrieve an Object from Cover, Bundle Socks, Zip a Zipper, Paper Folding, Bundle Dowels with a Rubber Band" },
+            { "name": "Spin Duration", "unit": "seconds", "description": "Tasks: Spin a Top" }
           ]
         }
       ]
@@ -31,182 +23,183 @@
       "title": "Hand",
       "sections": [
         {
-          "title": "Mobility",
-          "benchmarks": [
-            { "name": "KaRMA", "description": "Ability to rotate and translate an object throughout points in the workspace" },
-            { "name": "Kapandji Score", "description": "Thumb mobility" },
-            { "name": "GRASP Taxonomy Score", "description": "Number of human hand grasps the hand can achieve" },
-            { "name": "Grasping Volume", "description": "Minimum and maximum size of an object the hand can grasp" },
-            { "name": "Degrees of Freedom", "description": "Total number of independent degrees of freedom" },
-            { "name": "Joint Limits", "description": "Range of motion for each joint" },
-            { "name": "Workspace Volume", "description": "Volume of space reachable by the fingertips" },
-            { "name": "Interactivity of Fingers", "description": "Workspace overlap between the fingers and the thumb" }
+          "title": "Hand",
+          "subsections": [
+            {
+              "title": "Mobility",
+              "benchmarks": [
+                { "name": "Kapandji Score", "unit": "", "description": "Thumb mobility" },
+                { "name": "GRASP Taxonomy Score", "unit": "", "description": "Number of human hand grasps the hand can achieve" },
+                { "name": "Grasping Volume", "unit": "mm", "description": "Minimum and maximum size of an object the hand can grasp - measured in terms of sphere/cylinder radius" }
+              ]
+            },
+            {
+              "title": "Strength",
+              "benchmarks": [
+                { "name": "Wrap Grasp Strength", "unit": "N", "description": "Force production in a wrap grasp" },
+                { "name": "Pinch Strength", "unit": "N", "description": "Force production in a pinch grasp" },
+                { "name": "Pullout Strength", "unit": "N", "description": "Resistance to object pullout from a grasp" }
+              ]
+            },
+            {
+              "title": "Speed",
+              "benchmarks": [
+                { "name": "Grasp Cycle Time", "unit": "s", "description": "Time to move from stable grasp to open position and back" }
+              ]
+            },
+            {
+              "title": "Design",
+              "benchmarks": [
+                { "name": "Weight", "unit": "g", "description": "Total mass of the hand" },
+                { "name": "Number of Fingers", "unit": "", "description": "Total number of fingers on the hand" },
+                { "name": "Number of Actuators", "unit": "", "description": "Total number of actuators in the hand" },
+                { "name": "Size", "unit": "mm", "description": "Overall dimensions of the hand" },
+                { "name": "Degrees of Freedom", "unit": "", "description": "Total number of independent degrees of freedom" },
+                { "name": "Joint Limits", "unit": "deg", "description": "Range of motion for each joint" },
+                { "name": "Workspace Volume", "unit": "mm³", "description": "Volume of space reachable by the fingertips" },
+                { "name": "KaRMA", "unit": "", "description": "Ability to rotate and translate an object throughout points in the workspace" },
+                { "name": "Interactivity of Fingers", "unit": "mm³", "description": "Workspace overlap between the fingers and the thumb" }
+              ]
+            }
           ]
         },
-        {
-          "title": "Strength",
-          "benchmarks": [
-            { "name": "Wrap Grasp Strength", "description": "Force production in a wrap grasp" },
-            { "name": "Pinch Strength", "description": "Force production in a pinch grasp" },
-            { "name": "Pullout Strength", "description": "Resistance to object pullout from a grasp" }
-          ]
-        },
-        {
-          "title": "Speed",
-          "benchmarks": [
-            { "name": "Grasp Cycle Time", "description": "Time to move from stable grasp to open position and back" }
-          ]
-        },
-        {
-          "title": "Design",
-          "benchmarks": [
-            { "name": "Weight", "description": "Total mass of the hand" },
-            { "name": "Number of Fingers", "description": "Total number of fingers on the hand" },
-            { "name": "Number of Actuators", "description": "Total number of actuators in the hand" },
-            { "name": "Size", "description": "Overall dimensions of the hand" }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "Wrist",
-      "sections": [
         {
           "title": "Wrist",
           "benchmarks": [
-            { "name": "Passive Impedance", "description": "Responsiveness to environmental disturbances" },
-            { "name": "Strength", "description": "Force production capability" },
-            { "name": "Speed", "description": "Maximum joint speed" },
-            { "name": "Repeatability", "description": "Positioning consistency in repeatedly commanding the wrist to the same position" },
-            { "name": "Z-Width", "description": "Dynamic range of impedances the wrist can display" }
+            { "name": "Passive Impedance", "unit": "", "description": "Responsiveness to environmental disturbances" },
+            { "name": "Strength", "unit": "Nm", "description": "Force production capability" },
+            { "name": "Speed", "unit": "rad/s", "description": "Maximum joint speed" },
+            { "name": "Repeatability", "unit": "deg", "description": "Positioning consistency in repeatedly commanding the wrist to the same position" },
+            { "name": "Z-Width", "unit": "", "description": "Dynamic range of impedances the wrist can display" }
+          ]
+        },
+        {
+          "title": "Finger",
+          "subsections": [
+            {
+              "title": "Motion",
+              "benchmarks": [
+                { "name": "Motion Control Bandwidth", "unit": "Hz", "description": "Speed with which the finger's position controller responds to control inputs" },
+                { "name": "Motion Tracking", "unit": "", "description": "Position control and sensing accuracy for sinusoidal position inputs" },
+                { "name": "Speed", "unit": "mm/s", "description": "Maximum achievable fingertip speed" },
+                { "name": "Repeatability", "unit": "", "description": "Inconsistency when repeatedly commanding joints to the same position" },
+                { "name": "Degrees of Freedom", "unit": "", "description": "Total number of independent degrees of freedom per finger" }
+              ]
+            },
+            {
+              "title": "Strength",
+              "benchmarks": [
+                { "name": "Strength", "unit": "N", "description": "Maximum force that can be produced at the fingertip" }
+              ]
+            },
+            {
+              "title": "Transparency",
+              "benchmarks": [
+                { "name": "Z-Width", "unit": "", "description": "Dynamic range of impedances the finger can display" },
+                { "name": "Joint Backlash", "unit": "deg", "description": "Lost motion caused by clearances in the finger's transmission elements" },
+                { "name": "Finger Breakaway Force", "unit": "N", "description": "Minimum commanded fingertip force that causes motion of the finger" },
+                { "name": "Fingertip Force Control Bandwidth", "unit": "Hz", "description": "Speed with which the finger's force controller responds to control inputs" },
+                { "name": "Fingertip Force Control Accuracy", "unit": "N", "description": "Accuracy of fingertip force control when tracking a sinusoidal force input" },
+                { "name": "Fingertip Force Sensing Accuracy", "unit": "N", "description": "Accuracy of fingertip force sensing when tracking a sinusoidal force input" },
+                { "name": "Fingertip Effective Mass", "unit": "g", "description": "Effective mass of the finger at the fingertip" },
+                { "name": "Fingertip Effective Stiffness", "unit": "N/m", "description": "Effective stiffness of the finger at the fingertip" },
+                { "name": "Fingertip Effective Damping", "unit": "Ns/m", "description": "Effective damping of the finger at the fingertip" },
+                { "name": "Finger Backdrive Force", "unit": "N", "description": "Minimum force imposed at the fingertip that causes motion of the actuators" }
+              ]
+            }
           ]
         }
       ]
     },
     {
-      "title": "Finger",
-      "sections": [
-        {
-          "title": "Motion",
-          "benchmarks": [
-            { "name": "Motion Control Bandwidth", "description": "Speed with which the finger's position controller responds to control inputs" },
-            { "name": "Motion Tracking", "description": "Position control and sensing accuracy for sinusoidal position inputs" },
-            { "name": "Speed", "description": "Maximum speed of the finger" },
-            { "name": "Repeatability", "description": "Inconsistency when repeatedly commanding joints to the same position" },
-            { "name": "Degrees of Freedom", "description": "Total number of independent degrees of freedom per finger" }
-          ]
-        },
-        {
-          "title": "Strength",
-          "benchmarks": [
-            { "name": "Strength", "description": "Maximum force that can be produced at the fingertip" }
-          ]
-        },
-        {
-          "title": "Transparency",
-          "benchmarks": [
-            { "name": "Z-Width", "description": "Dynamic range of impedances the finger can display" },
-            { "name": "Joint Backlash", "description": "Lost motion caused by clearances in the finger's transmission elements" },
-            { "name": "Finger Breakaway Force", "description": "Minimum commanded fingertip force that causes motion of the finger" },
-            { "name": "Fingertip Force Control Bandwidth", "description": "Speed with which the finger's force controller responds to control inputs" },
-            { "name": "Fingertip Force Control Accuracy", "description": "Accuracy of fingertip force control when tracking a sinusoidal force input" },
-            { "name": "Fingertip Force Sensing Accuracy", "description": "Accuracy of fingertip force sensing when tracking a sinusoidal force input" },
-            { "name": "Fingertip Effective Mass", "description": "Effective mass of the finger at the fingertip" },
-            { "name": "Fingertip Effective Stiffness", "description": "Effective stiffness of the finger at the fingertip" },
-            { "name": "Fingertip Effective Damping", "description": "Effective damping of the finger at the fingertip" },
-            { "name": "Finger Backdrive Force", "description": "Minimum force imposed at the fingertip that causes motion of the actuators" }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "Actuators",
+      "title": "Component",
       "sections": [
         {
           "title": "Actuators",
           "benchmarks": [
-            { "name": "Z-Width", "description": "Dynamic range of impedances the actuator can display" },
-            { "name": "Output Inertia", "description": "Inertia at the actuator output" },
-            { "name": "Effort Control Bandwidth", "description": "Speed with which the actuator's effort controller responds to control inputs" },
-            { "name": "Effort Density", "description": "Force or torque output per unit mass or volume" },
-            { "name": "Maximum Continuous Effort", "description": "Maximum sustained force or torque output" },
-            { "name": "Maximum Speed", "description": "Maximum speed of the actuator output" },
-            { "name": "Backdrive Effort", "description": "Effort required to backdrive the actuator" },
-            { "name": "Responsiveness", "description": "Speed of actuator response to input changes" },
-            { "name": "Effort-Velocity Behavior", "description": "Relationship between actuator effort and velocity" },
-            { "name": "Breakaway Effort", "description": "Minimum effort that causes motion from rest" }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "Mechanical Transmission",
-      "sections": [
-        {
-          "title": "Transmission",
-          "benchmarks": [
-            { "name": "Force Transmission Efficiency", "description": "Ratio of output to input force" },
-            { "name": "Overall Transmission Ratio", "description": "Ratio of output to input displacement" },
-            { "name": "Transmission Stiffness", "description": "Stiffness of the transmission system" },
-            { "name": "Friction", "description": "Friction in the transmission elements" },
-            { "name": "Hysteresis", "description": "Hysteresis in the transmission system" },
-            { "name": "Backlash", "description": "Lost motion due to clearances in the transmission" }
+            { "name": "Z-Width", "unit": "", "description": "Dynamic range of impedances the actuator can display" },
+            { "name": "Output Inertia", "unit": "", "description": "Inertia at the actuator output" },
+            { "name": "Effort Control Bandwidth", "unit": "Hz", "description": "Speed with which the actuator's effort controller responds to control inputs" },
+            { "name": "Effort Density", "unit": "", "description": "Force or torque output per unit mass or volume" },
+            { "name": "Maximum Continuous Effort", "unit": "", "description": "Maximum sustained force or torque output" },
+            { "name": "Maximum Speed", "unit": "", "description": "Maximum speed of the actuator output" },
+            { "name": "Backdrive Effort", "unit": "", "description": "Effort required to backdrive the actuator" },
+            { "name": "Responsiveness", "unit": "", "description": "Speed of actuator response to input changes" },
+            { "name": "Effort-Velocity Behavior", "unit": "", "description": "Relationship between actuator effort and velocity" },
+            { "name": "Breakaway Effort", "unit": "", "description": "Minimum effort that causes motion from rest" }
           ]
         },
         {
-          "title": "Tendons",
-          "benchmarks": [
-            { "name": "Tendon Stiffness", "description": "Stiffness of the tendon" },
-            { "name": "Fatigue-Life", "description": "Number of cycles before tendon failure" },
-            { "name": "Ultimate Strength", "description": "Maximum load before tendon failure" },
-            { "name": "Creep", "description": "Time-dependent elongation under constant load" },
-            { "name": "Termination Strength", "description": "Strength of the tendon termination point" }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "Soft, Durable Skin",
-      "sections": [
-        {
-          "title": "Skin",
-          "benchmarks": [
-            { "name": "Contact Patch Evolution", "description": "Change in contact area under varying loads" },
-            { "name": "Elastic Modulus", "description": "Stiffness of the skin material" },
-            { "name": "Friction", "description": "Friction coefficient of the skin surface" },
-            { "name": "Storage Modulus", "description": "Energy stored elastically during deformation" },
-            { "name": "Loss Modulus", "description": "Energy dissipated during deformation" },
-            { "name": "Tan Delta", "description": "Ratio of loss modulus to storage modulus" },
-            { "name": "Run-In", "description": "Initial wear-in behavior of the skin" },
-            { "name": "Fatigue-Life", "description": "Number of cycles before skin failure" },
-            { "name": "Geometry", "description": "Physical dimensions and shape of the skin" },
-            { "name": "Surface Adhesion", "description": "Adhesion of the skin surface to objects" },
-            { "name": "Creep", "description": "Time-dependent deformation under constant load" },
-            { "name": "Hysteresis", "description": "Energy loss during loading and unloading cycles" }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "Sensors",
-      "sections": [
-        {
-          "title": "General",
-          "benchmarks": [
-            { "name": "Resolution", "description": "Smallest detectable change in measured quantity" },
-            { "name": "Sampling Rate", "description": "Number of measurements per second" },
-            { "name": "Sensing Bandwidth", "description": "Frequency range of the sensor" },
-            { "name": "Signal to Noise Ratio", "description": "Ratio of signal power to noise power" },
-            { "name": "Repeatability", "description": "Consistency of repeated measurements" },
-            { "name": "Latency", "description": "Time delay between stimulus and measurement" },
-            { "name": "Sensing Range", "description": "Range of measurable values" }
+          "title": "Mechanical Transmission",
+          "subsections": [
+            {
+              "title": "General Transmission",
+              "benchmarks": [
+                { "name": "Force Transmission Efficiency", "unit": "", "description": "Ratio of output to input force" },
+                { "name": "Overall Transmission Ratio", "unit": "", "description": "Ratio of output to input displacement" },
+                { "name": "Transmission Stiffness", "unit": "N/m", "description": "Stiffness of the transmission system" },
+                { "name": "Friction", "unit": "", "description": "Friction in the transmission elements" },
+                { "name": "Hysteresis", "unit": "", "description": "Hysteresis in the transmission system" },
+                { "name": "Backlash", "unit": "", "description": "Lost motion due to clearances in the transmission" }
+              ]
+            },
+            {
+              "title": "Tendons",
+              "benchmarks": [
+                { "name": "Tendon Stiffness", "unit": "N/m", "description": "Stiffness of the tendon" },
+                { "name": "Fatigue-Life", "unit": "cycles", "description": "Number of cycles before tendon failure" },
+                { "name": "Ultimate Strength", "unit": "N", "description": "Maximum load before tendon failure" },
+                { "name": "Creep", "unit": "", "description": "Time-dependent elongation under constant load" },
+                { "name": "Termination Strength", "unit": "N", "description": "Strength of the tendon termination point" }
+              ]
+            }
           ]
         },
         {
-          "title": "Tactile",
+          "title": "Soft, Durable Skin",
           "benchmarks": [
-            { "name": "Spatial Resolution", "description": "Smallest distinguishable distance between contact points" },
-            { "name": "Slip/Shear Sensitivity", "description": "Ability to detect slip and shear forces" }
+            { "name": "Contact Patch Evolution", "unit": "mm²/N", "description": "Change in contact area under varying loads" },
+            { "name": "Elastic Modulus", "unit": "Pa", "description": "Stiffness of the skin material" },
+            { "name": "Friction", "unit": "", "description": "Friction coefficient of the skin surface" },
+            { "name": "Storage Modulus", "unit": "Pa", "description": "Energy stored elastically during deformation" },
+            { "name": "Loss Modulus", "unit": "Pa", "description": "Energy dissipated during deformation" },
+            { "name": "Tan Delta", "unit": "", "description": "Ratio of loss modulus to storage modulus" },
+            { "name": "Run-In", "unit": "", "description": "Initial wear-in behavior of the skin" },
+            { "name": "Fatigue-Life", "unit": "cycles", "description": "Number of cycles before skin failure" },
+            { "name": "Geometry", "unit": "mm", "description": "Physical dimensions and shape of the skin" },
+            { "name": "Surface Adhesion", "unit": "", "description": "Adhesion of the skin surface to objects" },
+            { "name": "Creep", "unit": "", "description": "Time-dependent deformation under constant load" },
+            { "name": "Hysteresis", "unit": "", "description": "Energy loss during loading and unloading cycles" }
+          ]
+        },
+        {
+          "title": "Sensors",
+          "subsections": [
+            {
+              "title": "General",
+              "benchmarks": [
+                { "name": "Resolution", "unit": "", "description": "Smallest detectable change in measured quantity" },
+                { "name": "Tactile Sensor Force Resolution", "unit": "N/Pa", "description": "Force resolution of tactile sensors" },
+                { "name": "Sampling Rate", "unit": "Hz", "description": "Number of measurements per second" },
+                { "name": "Sensing Bandwidth", "unit": "Hz", "description": "Frequency range of the sensor" },
+                { "name": "Signal to Noise Ratio", "unit": "dB", "description": "Ratio of signal power to noise power" },
+                { "name": "Repeatability", "unit": "", "description": "Consistency of repeated measurements" },
+                { "name": "Latency", "unit": "s", "description": "Time delay between stimulus and measurement" },
+                { "name": "Sensing Range", "unit": "", "description": "Range of measurable values" }
+              ]
+            },
+            {
+              "title": "Tactile",
+              "benchmarks": [
+                { "name": "Taxel Density", "unit": "taxel/mm²", "description": "Number of sensing elements per unit area" },
+                { "name": "Two-Point Discrimination", "unit": "mm", "description": "Smallest distinguishable distance between two contact points" },
+                { "name": "Slip/Shear Sensitivity", "unit": "", "description": "Ability to detect slip and shear forces" },
+                { "name": "Response Time", "unit": "s", "description": "Response time to the application of a static load" },
+                { "name": "Minimum Detectable Force", "unit": "N", "description": "Smallest force that can be reliably detected" },
+                { "name": "Phase Lag", "unit": "", "description": "Phase lag from shaker signal to sensed signal" },
+                { "name": "Stability", "unit": "", "description": "Consistency of sensor output over time" }
+              ]
+            }
           ]
         }
       ]

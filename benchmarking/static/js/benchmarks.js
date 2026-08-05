@@ -224,39 +224,85 @@ function createNotSupportedList(categories) {
 }
 
 /**
- * Create HTML for the "Performance Metrics" tab (numbered tables).
+ * Create a metrics table from an array of rows.
+ */
+function createPMTable(rows) {
+  return `
+    <div class="table-container">
+      <table class="table is-fullwidth is-striped is-hoverable metrics-table benchmark-listing-table">
+        <thead>
+          <tr>
+            <th style="width: 5.5rem;">#</th>
+            <th>Performance Metric</th>
+            <th>Unit</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>${rows}</tbody>
+      </table>
+    </div>`;
+}
+
+/**
+ * Create table rows for an array of benchmarks with a given number prefix.
+ */
+function createPMRows(benchmarks, prefix) {
+  return benchmarks.map(function (b, i) {
+    return `<tr>
+      <td class="metric-number">${prefix}.${i + 1}</td>
+      <td class="metric-name">${b.name}</td>
+      <td>${b.unit || ''}</td>
+      <td>${b.description}</td>
+    </tr>`;
+  }).join('');
+}
+
+/**
+ * Create HTML for the "Performance Metrics" tab (3-level hierarchy with numbered tables).
  */
 function createPerformanceMetricsTables(categories) {
   return categories.map(function (cat, catIndex) {
     const catNumber = catIndex + 1;
 
+    if (!cat.sections || cat.sections.length === 0) {
+      return `
+        <div class="benchmark-section">
+          <h3 class="title is-4 section-divider"><span class="section-number">${catNumber}.</span> ${cat.title}</h3>
+          <p class="section-description" style="font-style: italic; color: var(--text-light);">No metrics defined yet.</p>
+        </div>`;
+    }
+
     const sectionsHTML = cat.sections.map(function (sec, secIndex) {
       const secNumber = catNumber + '.' + (secIndex + 1);
-      const rows = sec.benchmarks.map(function (b, i) {
-        return `<tr>
-          <td class="metric-number">${secNumber}.${i + 1}</td>
-          <td class="metric-name">${b.name}</td>
-          <td>${b.description}</td>
-        </tr>`;
-      }).join('');
+      let secContent = '';
+
+      if (sec.subsections && sec.subsections.length > 0) {
+        // Section has sub-subsections
+        if (sec.benchmarks && sec.benchmarks.length > 0) {
+          secContent += createPMTable(createPMRows(sec.benchmarks, secNumber));
+        }
+        secContent += sec.subsections.map(function (sub, subIndex) {
+          const subNumber = secNumber + '.' + (subIndex + 1);
+          var rows = createPMRows(sub.benchmarks, subNumber);
+          return `
+            <div class="benchmark-subsubsection">
+              <h5 class="title is-6 subsubsection-divider">
+                <span class="section-number">${subNumber}</span> ${sub.title}
+              </h5>
+              ${createPMTable(rows)}
+            </div>`;
+        }).join('');
+      } else if (sec.benchmarks && sec.benchmarks.length > 0) {
+        // Section with direct benchmarks only
+        secContent += createPMTable(createPMRows(sec.benchmarks, secNumber));
+      }
 
       return `
         <div class="benchmark-subsection">
           <h4 class="title is-5 subsection-divider">
             <span class="section-number">${secNumber}</span> ${sec.title}
           </h4>
-          <div class="table-container">
-            <table class="table is-fullwidth is-striped is-hoverable metrics-table benchmark-listing-table">
-              <thead>
-                <tr>
-                  <th style="width: 3.5rem;">#</th>
-                  <th>Performance Metric</th>
-                  <th>Description</th>
-                </tr>
-              </thead>
-              <tbody>${rows}</tbody>
-            </table>
-          </div>
+          ${secContent}
         </div>`;
     }).join('');
 
