@@ -32,10 +32,8 @@ function filterVisible(benchmarks) {
 
 /**
  * Create HTML for a single benchmark card.
- * Numbering is disabled — to re-enable, restore the ${number} span below.
  */
 function createCard(benchmark, index, prefix) {
-  // const number = prefix ? prefix + '.' + (index + 1) : String(index + 1);  // NUMBERING DISABLED — uncomment to restore
   return `
     <div class="column is-one-third-desktop is-half-tablet">
       <a href="benchmark.html?id=${benchmark.id}" class="benchmark-card-link">
@@ -57,10 +55,8 @@ function createCard(benchmark, index, prefix) {
 
 /**
  * Create HTML for a subsection (smaller heading + card grid).
- * Numbering is disabled — to re-enable, restore the section-number span below.
  */
 function createSubsection(subsection, subIndex, sectionPrefix) {
-  // const subPrefix = sectionPrefix + '.' + (subIndex + 1);  // NUMBERING DISABLED — uncomment to restore
   const visibleBenchmarks = filterVisible(subsection.benchmarks);
   const cardsHTML = visibleBenchmarks.map(function (b, i) {
     return createCard(b, i, '');
@@ -109,13 +105,7 @@ function createOtherCard() {
  * Create HTML for a benchmark section (divider + card grid).
  * Supports optional subsections array.
  */
-/**
- * Numbering is disabled — to re-enable, restore the numberHTML and sectionPrefix usage below.
- */
 function createSection(section, sectionIndex, totalSections, levelId) {
-  // const showSectionNumber = totalSections > 1;  // NUMBERING DISABLED — uncomment to restore
-  // const sectionPrefix = String(sectionIndex + 1);  // NUMBERING DISABLED — uncomment to restore
-
   const descriptionHTML = section.description
     ? `<p class="section-description">${section.description}</p>`
     : '';
@@ -124,14 +114,16 @@ function createSection(section, sectionIndex, totalSections, levelId) {
 
   // Collect visible section-level benchmarks
   var visibleBenchmarks = section.benchmarks ? filterVisible(section.benchmarks) : [];
+  const showOther = (levelId === 'hand' || levelId === 'component');
 
   if (section.showSubsectionHeadings) {
-    // Render section-level benchmarks in their own grid, then subsections with headings
-    if (visibleBenchmarks.length > 0) {
-      var cardsHTML = visibleBenchmarks.map(function (b, i) {
-        return createCard(b, i, '');
-      }).join('');
-      contentHTML += `<div class="columns is-multiline benchmark-cards">${cardsHTML}</div>`;
+    // Render section-level benchmarks (+ Other card if applicable) in their own grid, then subsections with headings
+    var cardsHTML = visibleBenchmarks.map(function (b, i) {
+      return createCard(b, i, '');
+    }).join('');
+    var otherCard = showOther ? createOtherCard() : '';
+    if (cardsHTML || otherCard) {
+      contentHTML += `<div class="columns is-multiline benchmark-cards">${cardsHTML}${otherCard}</div>`;
     }
     if (section.subsections && section.subsections.length > 0) {
       contentHTML += filterVisible(section.subsections).map(function (sub, i) {
@@ -145,28 +137,20 @@ function createSection(section, sectionIndex, totalSections, levelId) {
         visibleBenchmarks = visibleBenchmarks.concat(filterVisible(sub.benchmarks));
       });
     }
-    if (visibleBenchmarks.length > 0) {
-      var cardsHTML = visibleBenchmarks.map(function (b, i) {
-        return createCard(b, i, '');
-      }).join('');
-      contentHTML += `<div class="columns is-multiline benchmark-cards">${cardsHTML}</div>`;
+    var cardsHTML = visibleBenchmarks.map(function (b, i) {
+      return createCard(b, i, '');
+    }).join('');
+    var otherCard = showOther ? createOtherCard() : '';
+    if (cardsHTML || otherCard) {
+      contentHTML += `<div class="columns is-multiline benchmark-cards">${cardsHTML}${otherCard}</div>`;
     }
   }
-
-  // const numberHTML = showSectionNumber ? `<span class="section-number">${sectionPrefix}.</span> ` : '';  // NUMBERING DISABLED — uncomment to restore
-
-  // Append "Other" card for hand and component levels
-  const showOther = (levelId === 'hand' || levelId === 'component');
-  const otherHTML = showOther
-    ? `<div class="columns is-multiline benchmark-cards">${createOtherCard()}</div>`
-    : '';
 
   return `
     <div class="benchmark-section">
       <h3 class="title is-4 section-divider">${section.title}</h3>
       ${descriptionHTML}
       ${contentHTML}
-      ${otherHTML}
     </div>`;
 }
 
@@ -213,7 +197,7 @@ function createTestbedsTable(testbeds) {
 }
 
 /**
- * Create HTML for the "Not Currently Supported" tab.
+ * Create HTML for the "Not Currently Supported" tab (bullet list format).
  */
 function createNotSupportedList(categories) {
   return categories.map(function (cat) {
@@ -233,6 +217,56 @@ function createNotSupportedList(categories) {
     return `
       <div class="benchmark-section" style="margin-bottom: 2rem;">
         <h3 class="title is-4 section-divider">${cat.title}</h3>
+        ${preambleHTML}
+        ${sectionsHTML}
+      </div>`;
+  }).join('');
+}
+
+/**
+ * Create HTML for the "Performance Metrics" tab (numbered tables).
+ */
+function createPerformanceMetricsTables(categories) {
+  return categories.map(function (cat, catIndex) {
+    const catNumber = catIndex + 1;
+
+    const sectionsHTML = cat.sections.map(function (sec, secIndex) {
+      const secNumber = catNumber + '.' + (secIndex + 1);
+      const rows = sec.benchmarks.map(function (b, i) {
+        return `<tr>
+          <td class="metric-number">${secNumber}.${i + 1}</td>
+          <td class="metric-name">${b.name}</td>
+          <td>${b.description}</td>
+        </tr>`;
+      }).join('');
+
+      return `
+        <div class="benchmark-subsection">
+          <h4 class="title is-5 subsection-divider">
+            <span class="section-number">${secNumber}</span> ${sec.title}
+          </h4>
+          <div class="table-container">
+            <table class="table is-fullwidth is-striped is-hoverable metrics-table benchmark-listing-table">
+              <thead>
+                <tr>
+                  <th style="width: 3.5rem;">#</th>
+                  <th>Performance Metric</th>
+                  <th>Description</th>
+                </tr>
+              </thead>
+              <tbody>${rows}</tbody>
+            </table>
+          </div>
+        </div>`;
+    }).join('');
+
+    const preambleHTML = cat.preamble
+      ? `<p class="section-description">${cat.preamble}</p>`
+      : '';
+
+    return `
+      <div class="benchmark-section">
+        <h3 class="title is-4 section-divider"><span class="section-number">${catNumber}.</span> ${cat.title}</h3>
         ${preambleHTML}
         ${sectionsHTML}
       </div>`;
@@ -271,6 +305,8 @@ function renderTabPanels(data) {
         </div>`;
     } else if (level.type === 'testbeds') {
       panel.innerHTML = descHTML + createTestbedsTable(level.testbeds || []);
+    } else if (level.type === 'performance-metrics') {
+      panel.innerHTML = descHTML + createPerformanceMetricsTables(level.categories || []);
     } else if (level.type === 'not-supported') {
       panel.innerHTML = descHTML + createNotSupportedList(level.categories || []);
     } else {

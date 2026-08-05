@@ -32,11 +32,11 @@
       "type": "testbeds"
     },
     {
-      "id": "hand-metrics",
-      "label": "Hand Metrics",
+      "id": "performance-metrics",
+      "label": "Performance Metrics",
       "icon": "fa-chart-bar",
       "file": "data/hand-metrics.jsonc",
-      "type": "not-supported"
+      "type": "performance-metrics"
     },
     {
       "id": "model-based",

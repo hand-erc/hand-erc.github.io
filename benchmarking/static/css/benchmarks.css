@@ -354,6 +354,27 @@
   margin-bottom: 1rem;
 }
 
+/* =============================================
+   Performance Metrics Listing Tables
+   ============================================= */
+
+.benchmark-listing-table {
+  margin-top: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.benchmark-listing-table .metric-number {
+  font-weight: 600;
+  color: var(--text-light);
+  text-align: center;
+  width: 3.5rem;
+}
+
+.benchmark-listing-table .metric-name {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
 /* Placeholder image for benchmarks without images */
 .benchmark-card .card-image .placeholder-image {
   width: 100%;
