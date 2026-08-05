@@ -92,7 +92,7 @@ function createOtherCard() {
         <div class="card benchmark-card other-card">
           <div class="card-content">
             <p class="title is-5">Other</p>
-            <p class="subtitle is-6">Benchmarks not currently supported or that do not require physical evaluation.</p>
+            <p class="subtitle is-6">Benchmarks that are not currently supported but may be included in the future.</p>
           </div>
           <footer class="card-footer">
             <span class="card-footer-item">
