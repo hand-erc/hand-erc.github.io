@@ -39,21 +39,6 @@ body {
   padding-top: 36px;
 }
 
-/* Draft watermark banner */
-.draft-banner {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background: #dc2626;
-  color: #fff;
-  text-align: center;
-  font-weight: 700;
-  font-size: 0.85rem;
-  letter-spacing: 0.1em;
-  padding: 0.5rem 0;
-  z-index: 9999;
-}
 
 /* Modern Button Styles */
 .button {
