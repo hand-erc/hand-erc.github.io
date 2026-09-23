@@ -14,6 +14,15 @@
         {
           "id": "box-and-blocks",
           "title": "Box and Blocks",
+          "primitiveProfile": {
+            "manipulation": "Direct",
+            "rigidity": "Rigid objects and environment",
+            "relativeSize": "Small relative to the hand",
+            "controlledDegreesOfFreedom": "Moderate — multiple independent blocks",
+            "constraintComplexity": "Low",
+            "constraintChange": "Moderate — grasp, transport, and release",
+            "motionRegime": "Quasistatic"
+          },
           "shortDescription": "Transfer as many blocks as possible from a cluttered bin to another bin within 60 seconds.",
           "configurationImages": [
             { "src": "Images/task_pictures/box_and_blocks/starting.jpg", "caption": "Starting configuration", "alt": "Blocks arranged in the starting bin" },
@@ -72,6 +81,15 @@
         {
           "id": "peg-in-hole",
           "title": "Peg-in-Hole",
+          "primitiveProfile": {
+            "manipulation": "Direct",
+            "rigidity": "Rigid peg and fixture",
+            "relativeSize": "Comparable to the hand",
+            "controlledDegreesOfFreedom": "Moderate — precise six-DoF object pose",
+            "constraintComplexity": "High — tight position and angle tolerances",
+            "constraintChange": "High — free motion to constrained insertion",
+            "motionRegime": "Quasistatic"
+          },
           "shortDescription": "Insert pegs into a pegboard with holes of various shapes and tolerances.",
           "configurationImages": [
             { "src": "Images/task_pictures/peg_in_hole/starting.jpg", "caption": "Starting configuration", "alt": "NIST assembly task board before assembly" },
@@ -130,6 +148,15 @@
         {
           "id": "pick-up-flat-object",
           "title": "Pick Up Flat Object",
+          "primitiveProfile": {
+            "manipulation": "Direct",
+            "rigidity": "Rigid object and support",
+            "relativeSize": "Much smaller than the hand",
+            "controlledDegreesOfFreedom": "Low — one rigid object",
+            "constraintComplexity": "High — support restricts grasp access",
+            "constraintChange": "Moderate — table contact to hand support",
+            "motionRegime": "Quasistatic"
+          },
           "shortDescription": "Stably grasp an M6 washer initially lying flat on a rigid table.",
           "configurationImages": [
             { "src": "Images/task_pictures/grasp_flat_object/starting.jpg", "caption": "Starting configuration", "alt": "Washer lying flat on the table" },
@@ -176,6 +203,15 @@
         {
           "id": "tie-a-knot",
           "title": "Tie a Knot",
+          "primitiveProfile": {
+            "manipulation": "Direct",
+            "rigidity": "Deformable rope; rigid environment",
+            "relativeSize": "Thin relative to the hand",
+            "controlledDegreesOfFreedom": "High — continuously deformable rope",
+            "constraintComplexity": "High — contact and topological constraints",
+            "constraintChange": "High — evolving contacts and topology",
+            "motionRegime": "Primarily quasistatic"
+          },
           "shortDescription": "Tie a rope into a tight overhand knot.",
           "configurationImages": [
             { "src": "Images/task_pictures/tie_a_knot/starting.jpg", "caption": "Starting configuration", "alt": "Untied rope on the table" },
@@ -222,6 +258,15 @@
         {
           "id": "twist-lid-on-jar",
           "title": "Twist Lid on Jar",
+          "primitiveProfile": {
+            "manipulation": "Direct",
+            "rigidity": "Rigid lid, jar, and environment",
+            "relativeSize": "Comparable to the hand",
+            "controlledDegreesOfFreedom": "Moderate — translation, alignment, and rotation",
+            "constraintComplexity": "High — threaded alignment and torque",
+            "constraintChange": "High — free motion to thread engagement",
+            "motionRegime": "Quasistatic"
+          },
           "shortDescription": "Pick up a regular mouth round jar lid from a table and thread and tighten it onto a fixed jar.",
           "configurationImages": [
             { "src": "Images/task_pictures/twist_lid/starting.jpg", "caption": "Starting configuration", "alt": "Jar and detached lid in their starting positions" },
@@ -280,6 +325,15 @@
         {
           "id": "thread-screw-with-screwdriver",
           "title": "Use Screwdriver",
+          "primitiveProfile": {
+            "manipulation": "Indirect — tool use",
+            "rigidity": "Rigid tool, screw, and environment",
+            "relativeSize": "Hand-scale tool; small screw",
+            "controlledDegreesOfFreedom": "High — tool pose and screw interaction",
+            "constraintComplexity": "High — alignment, axial force, and torque",
+            "constraintChange": "High — transport, engagement, and tightening",
+            "motionRegime": "Quasistatic"
+          },
           "shortDescription": "Use a screwdriver to thread a screw.",
           "configurationImages": [
             { "src": "Images/task_pictures/use_screwdriver/starting.png", "caption": "Starting configuration", "alt": "Screwdriver and partially threaded screw before the task" },
@@ -341,6 +395,15 @@
         {
           "id": "cut-pattern-with-scissors",
           "title": "Use Scissors",
+          "primitiveProfile": {
+            "manipulation": "Indirect — articulated tool",
+            "rigidity": "Rigid tool; deformable paper",
+            "relativeSize": "Hand-scale tool; larger sheet",
+            "controlledDegreesOfFreedom": "High — tool articulation and sheet control",
+            "constraintComplexity": "High — cutting path, contact, and material control",
+            "constraintChange": "High — repeated blade-material contact",
+            "motionRegime": "Quasistatic"
+          },
           "shortDescription": "Pick up and use scissors to cut out a circle drawn on a piece of paper.",
           "configurationImages": [
             { "src": "Images/task_pictures/use_scissors/starting.jpg", "caption": "Starting configuration", "alt": "Scissors and marked paper before cutting" },
@@ -395,6 +458,15 @@
         {
           "id": "fasten-unfasten-button",
           "title": "Fasten Button",
+          "primitiveProfile": {
+            "manipulation": "Direct",
+            "rigidity": "Rigid button; deformable fabric",
+            "relativeSize": "Much smaller than the hand",
+            "controlledDegreesOfFreedom": "High — object pose and fabric deformation",
+            "constraintComplexity": "High — tight geometry and force coordination",
+            "constraintChange": "High — contact, partial insertion, and passage",
+            "motionRegime": "Quasistatic"
+          },
           "shortDescription": "Button a button on a buttoning board.",
           "configurationImages": [
             { "src": "Images/task_pictures/button_button/starting.jpg", "caption": "Starting configuration", "alt": "Unfastened button on the task board" },
@@ -441,6 +513,15 @@
         {
           "id": "in-hand-object-reorientation",
           "title": "In-Hand Reorienting",
+          "primitiveProfile": {
+            "manipulation": "Direct",
+            "rigidity": "Rigid object; no environmental support",
+            "relativeSize": "Comparable to the fingers",
+            "controlledDegreesOfFreedom": "High — object pose and multiple finger joints",
+            "constraintComplexity": "High — simultaneous contacts and grasp forces",
+            "constraintChange": "Moderate — contacts shift without release",
+            "motionRegime": "Quasistatic"
+          },
           "shortDescription": "Change the orientation of a small rectangular prism from a stable grasp to another stable grasp.",
           "configurationImages": [
             { "src": "Images/task_pictures/in_hand_reorientation/starting.jpg", "caption": "Initial grasp", "alt": "Stock reference of a cube held in an initial grasp" },
@@ -482,6 +563,15 @@
         {
           "id": "spin-a-top",
           "title": "Spin a Top",
+          "primitiveProfile": {
+            "manipulation": "Direct",
+            "rigidity": "Rigid object and environment",
+            "relativeSize": "Small relative to the hand",
+            "controlledDegreesOfFreedom": "Moderate — orientation, spin, and release",
+            "constraintComplexity": "Moderate — motion and release timing",
+            "constraintChange": "High — stable grasp to free dynamic motion",
+            "motionRegime": "Dynamic"
+          },
           "shortDescription": "Spin a hand-spun top so that it remains upright.",
           "configurationImages": [
             { "src": "Images/task_pictures/spin_top/starting_and_ending.jpg", "caption": "Starting configuration", "alt": "Stationary top before the task" },
@@ -529,6 +619,15 @@
         {
           "id": "use-chopsticks",
           "title": "Use Chopsticks",
+          "primitiveProfile": {
+            "manipulation": "Indirect — two tools",
+            "rigidity": "Rigid tools, objects, and environment",
+            "relativeSize": "Hand-scale tools; small objects",
+            "controlledDegreesOfFreedom": "High — two tools and object pose",
+            "constraintComplexity": "High — alignment and force regulation",
+            "constraintChange": "High — repeated acquisition and release cycles",
+            "motionRegime": "Quasistatic"
+          },
           "shortDescription": "Use a pair of chopsticks to grasp small wooden cubes individually and transfer them into a target container (Box and Blocks but with chopsticks).",
           "configurationImages": [
             { "src": "Images/task_pictures/use_chopsticks/starting.jpg", "caption": "Starting configuration", "alt": "Blocks and chopsticks before the task" },
@@ -592,6 +691,15 @@
         {
           "id": "extract-object-from-opaque-bag",
           "title": "Blindly Retrieve an Object from Cover",
+          "primitiveProfile": {
+            "manipulation": "Direct",
+            "rigidity": "Rigid objects and confined environment",
+            "relativeSize": "Small relative to the hand",
+            "controlledDegreesOfFreedom": "High — multiple objects and tactile search",
+            "constraintComplexity": "High — clutter, confinement, and no vision",
+            "constraintChange": "High — exploratory contacts form and break",
+            "motionRegime": "Quasistatic"
+          },
           "shortDescription": "Retrieve a particular rigid object from among several in a box without exteroceptive sensing.",
           "configurationImages": [
             { "src": "Images/task_pictures/retrieve_clutter/starting.jpg", "caption": "Starting configuration", "alt": "Objects concealed beneath the opaque cover" },
@@ -645,6 +753,15 @@
         {
           "id": "bundle-socks",
           "title": "Bundle Socks",
+          "primitiveProfile": {
+            "manipulation": "Direct",
+            "rigidity": "Deformable objects; rigid environment",
+            "relativeSize": "Comparable to the hand",
+            "controlledDegreesOfFreedom": "High — two continuously deformable objects",
+            "constraintComplexity": "High — alignment, rolling, and tucking",
+            "constraintChange": "High — repeated folding, stretching, and contact",
+            "motionRegime": "Quasistatic"
+          },
           "shortDescription": "Bundle two socks into a pair.",
           "configurationImages": [
             { "src": "Images/task_pictures/bundle_socks/starting.jpg", "caption": "Starting configuration", "alt": "Two separate socks before bundling" },
@@ -692,6 +809,15 @@
         {
           "id": "zip-unzip-zipper",
           "title": "Zip a Zipper",
+          "primitiveProfile": {
+            "manipulation": "Direct",
+            "rigidity": "Rigid mechanism; deformable fabric",
+            "relativeSize": "Small pull; hand-scale fixture",
+            "controlledDegreesOfFreedom": "High — mechanism motion and fabric deformation",
+            "constraintComplexity": "High — alignment, tension, and guided motion",
+            "constraintChange": "High — engagement and disengagement",
+            "motionRegime": "Quasistatic"
+          },
           "shortDescription": "Zip and unzip a garment zipper.",
           "configurationImages": [
             { "src": "Images/task_pictures/zip_zipper/starting_and_ending.jpg", "caption": "Starting configuration", "alt": "Zipper in its starting configuration" },
@@ -740,6 +866,15 @@
         {
           "id": "paper-folding",
           "title": "Paper Folding",
+          "primitiveProfile": {
+            "manipulation": "Direct",
+            "rigidity": "Deformable paper; rigid environment",
+            "relativeSize": "Larger than the hand",
+            "controlledDegreesOfFreedom": "High — distributed sheet deformation",
+            "constraintComplexity": "High — edge alignment and crease control",
+            "constraintChange": "High — support, fold, and crease contacts",
+            "motionRegime": "Quasistatic"
+          },
           "shortDescription": "Fold a piece of paper in half with a sharp crease.",
           "configurationImages": [
             { "src": "Images/task_pictures/fold_paper/starting.jpg", "caption": "Starting configuration", "alt": "Unfolded paper on the table" },
@@ -787,6 +922,15 @@
         {
           "id": "bundle-dowels-with-rubber-band",
           "title": "Bundle Dowels with a Rubber Band",
+          "primitiveProfile": {
+            "manipulation": "Direct",
+            "rigidity": "Rigid dowels; deformable fastener",
+            "relativeSize": "Thin dowels longer than the hand",
+            "controlledDegreesOfFreedom": "High — seven objects and an elastic fastener",
+            "constraintComplexity": "High — alignment, compression, and wrapping",
+            "constraintChange": "High — gathering, stretching, and securing",
+            "motionRegime": "Quasistatic"
+          },
           "shortDescription": "Collect seven dowels into a close-packed bundle and wrap them twice with a rubber band.",
           "configurationImages": [
             { "src": "Images/task_pictures/bundle_dowels/starting.jpg", "caption": "Starting configuration", "alt": "Separate dowels and rubber band before bundling" },
