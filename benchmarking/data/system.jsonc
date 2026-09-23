@@ -14,9 +14,22 @@
         {
           "id": "box-and-blocks",
           "title": "Box and Blocks",
+          "primitiveProfile": {
+            "manipulation": "Direct",
+            "rigidity": "Rigid manipulanda / rigid environment",
+            "relativeSize": "Smaller than the hand",
+            "controlledDegreesOfFreedom": "Low — one rigid block at a time",
+            "constraintComplexity": "Low",
+            "constraintChange": "Moderate — repeated grasp, transport, and release",
+            "motionRegime": "Quasistatic"
+          },
           "shortDescription": "Transfer as many blocks as possible from a cluttered bin to another bin within 60 seconds.",
+          "configurationImages": [
+            { "src": "Images/task_pictures/box_and_blocks/ending.jpg", "caption": "Starting configuration", "alt": "Blocks arranged in the starting bin" },
+            { "src": "Images/task_pictures/box_and_blocks/starting.jpg", "caption": "Ending configuration", "alt": "Blocks transferred into the target bin" }
+          ],
           "description": "Starting with blocks in an initial bin, transfer as many blocks as possible over a divider into an adjacent target bin within 60 seconds. This task's setup and procedure are equivalent to Protocol 3a of the YCB Box and Blocks benchmark. Further details on the setup and procedure can be found here.",
-          "justification": "Box and Blocks evaluates a system's ability to isolate, grasp, and transport objects from a cluttered environment to a designated target location under time constraints. Although the task involves quasistatic direct manipulation of simple rigid objects with low constraint complexity, high performance still requires reliable grasp acquisition, grasp stability, and efficient object handling, all of which benefit from increased dexterity. Furthermore, object transport serves as a fundamental building block for many more complex manipulation behaviors, which can often be decomposed into sequences of grasp-and-transport actions.",
+          "justification": "Box and Blocks evaluates a system's ability to isolate, grasp, and transport objects from a cluttered environment to a designated target location under time constraints. The task involves quasistatic direct manipulation of rigid blocks in a rigid environment. The blocks are smaller than the hand, and only one block is intentionally controlled at a time, yielding low controlled degrees of freedom and low constraint complexity. High performance still requires reliable grasp acquisition, grasp stability, and efficient object handling, while the repeated grasp, transport, and release cycle produces moderate constraint change. Furthermore, object transport serves as a fundamental building block for many more complex manipulation behaviors, which can often be decomposed into sequences of grasp-and-transport actions.",
           "items": [
             {
               "item": "Bins",
@@ -49,8 +62,8 @@
             "The manipulation system's end effector must start outside of both bins."
           ],
           "procedures": [
-            "Setup environment as described above.",
-            "During a 60 second time period, transfer as many blocks as possible from one bin to another."
+            "Set up the environment as described above.",
+            "During a 60-second period, transfer as many blocks as possible from one bin to the other."
           ],
           "metrics": [
             {
@@ -60,17 +73,30 @@
             }
           ],
           "executionConstraints": [
-            "For a successful transfer, a blcok must cross over the deviding barrier before being dropped. BLocks cannot be tossed over the barrier.",
-            "If multiple blocks are tranported at the same time, it is counted as one block."
+            "A transfer is successful only if the block crosses the divider before it is released; blocks may not be tossed over the divider.",
+            "Transporting multiple blocks simultaneously counts as one block transferred."
           ],
           "protocolLink": "https://www.ycbbenchmarks.com/protocols-and-benchmarks/"
         },
         {
           "id": "peg-in-hole",
           "title": "Peg-in-Hole",
+          "primitiveProfile": {
+            "manipulation": "Direct",
+            "rigidity": "Rigid manipulanda / rigid environment",
+            "relativeSize": "Comparable to the hand",
+            "controlledDegreesOfFreedom": "Low — one rigid peg at a time",
+            "constraintComplexity": "High — tight position and angle tolerances",
+            "constraintChange": "High — free motion to constrained insertion",
+            "motionRegime": "Quasistatic"
+          },
           "shortDescription": "Insert pegs into a pegboard with holes of various shapes and tolerances.",
+          "configurationImages": [
+            { "src": "Images/task_pictures/peg_in_hole/starting.jpg", "caption": "Starting configuration", "alt": "NIST assembly task board before assembly" },
+            { "src": "Images/task_pictures/peg_in_hole/ending.jpg", "caption": "Ending configuration", "alt": "NIST assembly task board after assembly" }
+          ],
           "description": "Insert pegs into the NIST Assembly Task Board M1 with holes of various shapes and tolerances. This task's setup and procedure are equivalent to a single round of ManipulationNet's peg insertion task. Further details on the setup and procedure can be found here.",
-          "justification": "Peg-in-Hole evaluates a system's ability to perform precision assembly under tight geometric tolerances. The task involves quasistatic direct manipulation of a rigid object whose size is comparable to that of the hand. The task exhibits high constraint complexity, since successful completion depends on satisfying multiple geometric constraints simultaneously while operating within narrow positional and angular tolerances. It also features significant constraint change, as the interaction progresses from unconstrained free-space motion to increasingly restrictive contact conditions as the peg enters the hole. More broadly, peg insertion serves as a canonical example of contact-rich assembly and is representative of a wide range of industrial manufacturing operations.",
+          "justification": "Peg-in-Hole evaluates a system's ability to perform precision assembly under tight geometric tolerances. The task involves quasistatic direct manipulation of one rigid peg at a time within a rigid fixture and environment. Each peg is comparable in size to the hand, and controlling a single rigid peg produces low controlled degrees of freedom. The task nevertheless exhibits high constraint complexity because successful completion requires satisfying multiple geometric constraints simultaneously within narrow positional and angular tolerances. It also features high constraint change as the interaction progresses from unconstrained free-space motion to increasingly restrictive contact conditions during insertion. More broadly, peg insertion serves as a canonical example of contact-rich assembly and is representative of a wide range of industrial manufacturing operations.",
           "items": [
             {
               "item": "NIST Assembly Task Board M1",
@@ -101,10 +127,10 @@
             "Place both the assembly task board and peg holder on the table in any preferred configuration."
           ],
           "procedures": [
-            "Place the pegs and pegboard in the perscribed starting positions and select a row n from the pegboard rows numbered 1 through 4 to fill.",
-            "Grasp peg of shape corresponding to target hole.",
+            "Place the pegs and pegboard in the prescribed starting positions, then select a pegboard row, numbered 1 through 4, to fill.",
+            "Grasp the peg whose shape corresponds to the target hole.",
             "Align and insert the peg into the target hole.",
-            "Repeat for all five peg-hole pairs. The order of insertion is A(n),B(n),C(n),D(n),E(n)."
+            "Repeat for all five peg-hole pairs. The insertion order is A(n), B(n), C(n), D(n), E(n)."
           ],
           "metrics": [
             {
@@ -114,17 +140,30 @@
             }
           ],
           "executionConstraints": [
-            "Any strategy may be used to accomplish this task.",
-            "The manipulation system has three hours to complete the task."
+            "Any manipulation strategy may be used.",
+            "The task must be completed within three hours."
           ],
           "protocolLink": "https://manipulation-net.org/tasks/peg_in_hole.html"
         },
         {
           "id": "pick-up-flat-object",
           "title": "Pick Up Flat Object",
+          "primitiveProfile": {
+            "manipulation": "Direct",
+            "rigidity": "Rigid manipulanda / rigid environment",
+            "relativeSize": "Smaller than the hand",
+            "controlledDegreesOfFreedom": "Low — one rigid object",
+            "constraintComplexity": "High — support severely restricts grasp contacts and approaches",
+            "constraintChange": "Moderate — table contact to hand support",
+            "motionRegime": "Quasistatic"
+          },
           "shortDescription": "Stably grasp an M6 washer initially lying flat on a rigid table.",
+          "configurationImages": [
+            { "src": "Images/task_pictures/grasp_flat_object/starting.jpg", "caption": "Starting configuration", "alt": "Washer lying flat on the table" },
+            { "src": "Images/task_pictures/grasp_flat_object/ending.jpg", "caption": "Ending configuration", "alt": "Washer lifted above the table" }
+          ],
           "description": "Grasp and lift an M6 washer initially resting flat on a rigid tabletop to a specified height without dropping it.",
-          "justification": "Pick Up Flat Object evaluates a system's ability to acquire and maintain a stable grasp on a thin object resting on a supporting surface. The task involves quasistatic direct manipulation of a rigid object whose dimensions are substantially smaller than those of the hand, requiring precise fingertip placement and careful coordination during grasp acquisition. Unlike many object relocation tasks, the supporting surface significantly restricts access to the object, increasing constraint complexity by limiting feasible contact locations and grasp approaches. Successful completion often requires managing changing contact conditions as the object transitions from table contact to hand support, introducing moderate constraint change throughout the grasping process. More broadly, grasping thin objects is representative of many real-world manipulation scenarios involving washers, coins, cards, sheets, and other low-profile objects that are challenging to isolate from supporting surfaces.",
+          "justification": "Pick Up Flat Object evaluates a system's ability to acquire and maintain a stable grasp on a thin object resting on a supporting surface. The task involves quasistatic direct manipulation of one rigid object that is smaller than the hand within a rigid environment, producing low controlled degrees of freedom. Unlike conventional object-relocation tasks, the rigid supporting surface severely restricts access to the object, creating high constraint complexity by sharply limiting feasible contact locations and grasp approaches. Successful completion also requires managing the transition from table contact to hand support, producing moderate constraint change during grasp acquisition. More broadly, grasping thin objects is representative of many real-world manipulation scenarios involving washers, coins, cards, sheets, and other low-profile objects that are challenging to isolate from supporting surfaces.",
           "items": [
             {
               "item": "M6 washer",
@@ -147,7 +186,7 @@
             "Position the manipulator in the prescribed starting configuration.",
             "Transport the washer to a height of at least 2 cm above the tabletop.",
             "Maintain control of the washer for a minimum of 3 seconds while keeping it stationary and above the required height.",
-            "A trial is considered successful if the washer is lifted to the required height, and comes to rest within the target region for the alloted time."
+            "A trial is successful if the washer is lifted to the required height and remains stationary within the target region for the allotted time."
           ],
           "metrics": [
             {
@@ -157,16 +196,29 @@
             }
           ],
           "executionConstraints": [
-            "Any method can be used to grasp, lift, and hold the washer at the desired height.",
-            "The manipulation system has 60 seconds to complete the task."
+            "Any method may be used to grasp, lift, and hold the washer at the required height.",
+            "The task must be completed within 60 seconds."
           ]
         },
         {
           "id": "tie-a-knot",
           "title": "Tie a Knot",
+          "primitiveProfile": {
+            "manipulation": "Direct",
+            "rigidity": "Deformable manipulanda / rigid environment",
+            "relativeSize": "Mixed relative to the hand",
+            "controlledDegreesOfFreedom": "High — continuously deformable rope",
+            "constraintComplexity": "High — contact and topological constraints",
+            "constraintChange": "High — evolving contacts and topology",
+            "motionRegime": "Quasistatic"
+          },
           "shortDescription": "Tie a rope into a tight overhand knot.",
+          "configurationImages": [
+            { "src": "Images/task_pictures/tie_a_knot/starting.jpg", "caption": "Starting configuration", "alt": "Untied rope on the table" },
+            { "src": "Images/task_pictures/tie_a_knot/ending.jpg", "caption": "Ending configuration", "alt": "Rope tied in an overhand knot" }
+          ],
           "description": "Tie a rope into a tight overhand knot.",
-          "justification": "Tie a Knot evaluates a system's ability to manipulate deformable objects whose geometry changes continuously throughout the task. The task involves direct manipulation of a flexible rope with some dimensions that are small relative to the hand and whose effective number of controllable degrees of freedom is substantially greater than that of rigid objects. Unlike rigid-body manipulation tasks, successful completion requires coordinating a sequence of intermediate configurations while controlling both the global shape and local contacts of the string. In addition, knot formation requires satisfying topological constraints that do not arise in conventional assembly tasks. While the task is primarily quasistatic, successful execution demands precise contact management, and adaptation to continuously changing object geometry. More broadly, knot tying serves as a representative benchmark for deformable-object manipulation and captures many of the challenges encountered when handling ropes, cables, sutures, and other flexible materials.",
+          "justification": "Tie a Knot evaluates a system's ability to manipulate a deformable object whose geometry changes continuously throughout the task. The task involves quasistatic direct manipulation of a deformable rope in a rigid environment. Its diameter is smaller than the hand while its length is larger, giving it mixed relative size, and its continuously changing shape produces high controlled degrees of freedom. Successful completion requires coordinating intermediate configurations while controlling the rope's global shape, local contacts, and self-contacts. Knot formation also imposes topological constraints, producing high constraint complexity and high constraint change as contacts and topology evolve. More broadly, knot tying serves as a representative benchmark for deformable-object manipulation and captures many of the challenges encountered when handling ropes, cables, sutures, and other flexible materials.",
           "items": [
             {
               "item": "rope",
@@ -182,14 +234,14 @@
             }
           ],
           "setup": [
-            "Place the rope near the center of the table in any configuration such that the rope does not self intersect.",
+            "Place the rope near the center of the table in any configuration that does not self-intersect.",
             "The manipulator shall begin each trial with the nearest point on the end effector at least 100 mm away from all of the manipulanda."
           ],
           "procedures": [
             "Position the manipulator in the prescribed starting configuration.",
-            "Manipulate the rope to tie and overhand knot.",
+            "Manipulate the rope to tie an overhand knot.",
             "Release the tied rope onto the table.",
-            "A trial is considered successful if a valid overhand knot has been formed which remains intact after release, with no visible slack remaining in the knot."
+            "A trial is successful if a valid overhand knot remains intact after release with no visible slack in the knot."
           ],
           "metrics": [
             {
@@ -199,16 +251,29 @@
             }
           ],
           "executionConstraints": [
-            "Any stategy can be used to accomplish the task.",
-            "The manipulation system has 60 seconds to complete the task."
+            "Any manipulation strategy may be used.",
+            "The task must be completed within 60 seconds."
           ]
         },
         {
           "id": "twist-lid-on-jar",
           "title": "Twist Lid on Jar",
+          "primitiveProfile": {
+            "manipulation": "Direct",
+            "rigidity": "Rigid manipulanda / rigid environment",
+            "relativeSize": "Comparable to the hand",
+            "controlledDegreesOfFreedom": "Low — one movable rigid lid",
+            "constraintComplexity": "High — threaded alignment and torque",
+            "constraintChange": "High — free motion to thread engagement",
+            "motionRegime": "Quasistatic"
+          },
           "shortDescription": "Pick up a regular mouth round jar lid from a table and thread and tighten it onto a fixed jar.",
+          "configurationImages": [
+            { "src": "Images/task_pictures/twist_lid/starting.jpg", "caption": "Starting configuration", "alt": "Jar and detached lid in their starting positions" },
+            { "src": "Images/task_pictures/twist_lid/ending.jpg", "caption": "Ending configuration", "alt": "Lid threaded onto the jar" }
+          ],
           "description": "Pick up a regular mouth round jar lid from a table and thread and tighten it onto a fixed jar.",
-          "justification": "Twist a Lid on Jar evaluates a system's ability to perform contact-rich assembly involving both translational and rotational manipulation. The task involves quasistatic direct manipulation of a rigid object whose dimensions are comparable to those of the hand and requires sequentially coordinating object relocation, alignment, and in-hand manipulation. The task exhibits substantial constraint complexity, since successful completion depends on satisfying geometric constraints imposed by the threaded interface while simultaneously maintaining a stable grasp and applying sufficient torque. It also involves significant constraint change, as the interaction progresses from unconstrained free-space motion to initial contact, thread engagement, and eventually fully constrained rotational tightening. More broadly, lid threading is representative of a wide range of household and industrial assembly operations that require alignment, insertion, and controlled application of rotational forces.",
+          "justification": "Twist a Lid on Jar evaluates a system's ability to perform contact-rich assembly involving both translational and rotational manipulation. The task involves quasistatic direct manipulation of one movable rigid lid, comparable in size to the hand, against a rigid jar and environment. Controlling a single movable rigid body produces low controlled degrees of freedom. The task nevertheless exhibits high constraint complexity because successful completion depends on satisfying the threaded interface geometry while maintaining a stable grasp and applying sufficient torque. It also involves high constraint change as the interaction progresses from free-space motion to initial contact, thread engagement, and fully constrained rotational tightening. More broadly, lid threading is representative of household and industrial assembly operations that require alignment, insertion, and controlled rotational force.",
           "items": [
             {
               "item": "jar lid",
@@ -219,13 +284,13 @@
             {
               "item": "Regular-mouth jar",
               "quantity": 1,
-              "specification": "Any plastic jar that is compatable with the lid",
+              "specification": "Any plastic jar that is compatible with the lid",
               "link": "https://www.uline.com/Product/Detail/S-9936/Jars/Clear-Round-Wide-Mouth-Plastic-Jars-16-oz-White-Cap?pricode=WB0644&gadtype=pla&id=S-9936&ad_group_id=152179486982&gad_source=1&gad_campaignid=11612151543&gclid=Cj0KCQjwguLSBhDLARIsAH-yPrELFzXivNndELEB9E2T3k6Yjjk5g-u3pHuzmfw575vte0hAn15mJ2IaArQNEALw_wcB"
             },
             {
               "item": "Rigid mounting fixture",
               "quantity": 1,
-              "specification": "Any fixture that fixes the jar along all 6 DoF in the perscribed starting configuration (e.g., tape).",
+              "specification": "Any fixture that secures the jar in all six degrees of freedom in the prescribed starting configuration (e.g., tape).",
               "link": "https://www.mcmaster.com/76135A1/"
             },
             {
@@ -243,7 +308,7 @@
           "procedures": [
             "Position the manipulator in the prescribed starting configuration.",
             "Grasp and thread the lid until it is fully seated on the jar.",
-            "A trial is considered successful if the lid is properly threaded onto the jar, fully seated, and remains attached to the jar after the manipulator releases contact."
+            "A trial is successful if the lid is properly threaded onto the jar, is fully seated, and remains attached after the manipulator releases contact."
           ],
           "metrics": [
             {
@@ -253,16 +318,30 @@
             }
           ],
           "executionConstraints": [
-            "Any stategy can be used to accomplish the task.",
-            "The manipulation system has 60 seconds to complete the task."
+            "Any manipulation strategy may be used.",
+            "The task must be completed within 60 seconds."
           ]
         },
         {
           "id": "thread-screw-with-screwdriver",
           "title": "Use Screwdriver",
+          "primitiveProfile": {
+            "manipulation": "Indirect — tool use",
+            "rigidity": "Rigid manipulanda / rigid environment",
+            "relativeSize": "Mixed relative to the hand",
+            "controlledDegreesOfFreedom": "Moderate — tool pose plus constrained screw motion",
+            "constraintComplexity": "High — alignment, axial force, and torque",
+            "constraintChange": "High — transport, engagement, and tightening",
+            "motionRegime": "Quasistatic"
+          },
           "shortDescription": "Use a screwdriver to thread a screw.",
+          "configurationImages": [
+            { "src": "Images/task_pictures/use_screwdriver/starting.png", "caption": "Starting configuration", "alt": "Screwdriver and partially threaded screw before the task" },
+            { "src": "Images/task_pictures/use_screwdriver/intermediate.png", "caption": "Using the screwdriver", "alt": "Screwdriver engaged with the screw" },
+            { "src": "Images/task_pictures/use_screwdriver/ending.png", "caption": "Ending configuration", "alt": "Screw after being threaded with the screwdriver" }
+          ],
           "description": "Beginning with a partially threaded screw, grasp a screwdriver and use it to thread the screw an additional three turns.",
-          "justification": "Use Screwdriver evaluates a system's ability to perform quasistatic indirect manipulation of a rigid object through the use of a tool. Relative to direct assembly tasks, screwdriver use introduces additional degrees of freedom associated with grasping, orienting, and stabilizing the tool while simultaneously controlling its interaction with the screw. The task exhibits high constraint complexity, as successful completion requires maintaining alignment between the screwdriver tip and screw head, generating sufficient torque to advance the screw, and regulating contact forces to prevent the driver head from camming out. It also involves substantial constraint change, progressing from free-space tool transport to tool engagement, threaded insertion, and final tightening. More broadly, screwdriver use serves as a representative benchmark for tool use and indirect manipulation, capabilities that are fundamental to many manufacturing, maintenance, and assembly operations.",
+          "justification": "Use Screwdriver evaluates a system's ability to perform quasistatic indirect manipulation using rigid manipulanda in a rigid environment. The hand-scale screwdriver and smaller screw occupy mixed size categories. Coordinating the tool pose with the screw's constrained motion produces moderate controlled degrees of freedom. The task exhibits high constraint complexity because successful completion requires maintaining tip-to-head alignment, applying axial force and torque, and regulating contact to prevent cam-out. It also involves high constraint change, progressing from free-space tool transport to engagement, threaded insertion, final tightening, and disengagement. More broadly, screwdriver use represents tool-mediated manipulation that is fundamental to manufacturing, maintenance, and assembly.",
           "items": [
             {
               "item": "Phillips-head screwdriver",
@@ -299,7 +378,7 @@
             "Position the manipulator in the prescribed starting configuration.",
             "Grasp the screwdriver and use it to thread the screw three rotations into the threaded hole.",
             "Disengage the screwdriver from the screw.",
-            "A trial is considered successful if the screw is has been threaded a total of at least four rotations into the threaded hole."
+            "A trial is successful if the screw has been threaded at least four complete rotations into the threaded hole."
           ],
           "metrics": [
             {
@@ -309,16 +388,30 @@
             }
           ],
           "executionConstraints": [
-            "Any stategy can be used as long as the manipulator never contacts the screw.",
-            "The manipulation system has 60 seconds to complete the task."
+            "Any manipulation strategy may be used, provided the manipulator does not directly contact the screw.",
+            "The task must be completed within 60 seconds."
           ]
         },
         {
           "id": "cut-pattern-with-scissors",
           "title": "Use Scissors",
+          "primitiveProfile": {
+            "manipulation": "Indirect — articulated tool",
+            "rigidity": "Mixed manipulanda / rigid environment",
+            "relativeSize": "Mixed relative to the hand",
+            "controlledDegreesOfFreedom": "High — tool articulation and sheet control",
+            "constraintComplexity": "Moderate — path following, blade contact, and material support",
+            "constraintChange": "High — repeated blade-material contact",
+            "motionRegime": "Quasistatic"
+          },
           "shortDescription": "Pick up and use scissors to cut out a circle drawn on a piece of paper.",
+          "configurationImages": [
+            { "src": "Images/task_pictures/use_scissors/starting.jpg", "caption": "Starting configuration", "alt": "Scissors and marked paper before cutting" },
+            { "src": "Images/task_pictures/use_scissors/intermediate.jpg", "caption": "Cutting with scissors", "alt": "Scissors cutting the marked paper" },
+            { "src": "Images/task_pictures/use_scissors/ending.jpg", "caption": "Ending configuration", "alt": "Circle cut out from the paper" }
+          ],
           "description": "Pick up and use scissors to cut out a circle drawn on a piece of A4 printer paper.",
-          "justification": "Use Scissors evaluates a system's ability to perform indirect quasistatic manipulation through an articulated tool while interacting with a deformable object. The task requires manipulating a pair of scissors whose dimensions are comparable to those of the hand while simultaneously controlling the motion and deformation of a sheet of paper. Relative to direct manipulation tasks, scissor use introduces additional degrees of freedom associated with the tool's articulation and coordination between the tool and the material being cut. More broadly, scissor use serves as a representative benchmark for articulated tool manipulation and tool-mediated interaction with deformable objects, capabilities that are important in manufacturing, medical, and household manipulation tasks.",
+          "justification": "Use Scissors evaluates a system's ability to perform quasistatic indirect manipulation with mixed rigid and deformable manipulanda in a rigid environment. The hand-scale rigid scissors and larger deformable paper occupy mixed size categories. Tool articulation combined with control of the paper's distributed deformation produces high controlled degrees of freedom. Constraint complexity is moderate: the cut must follow the prescribed path while blade contact and material support are maintained, but the task has no tightly toleranced rigid mating interface. Constraint change is high because blade-paper contacts repeatedly form and break and cutting irreversibly changes the paper's material topology. More broadly, scissor use represents articulated tool manipulation and tool-mediated interaction with deformable objects.",
           "items": [
             {
               "item": "Standard office scissors",
@@ -348,7 +441,7 @@
           "procedures": [
             "Position the manipulator in the prescribed starting configuration.",
             "Grasp the scissors and cut continuously along the solid line until the circular region is fully separated from the surrounding paper.",
-            "A trial is considered successful if the circular region is completely detached from the sheet and the cut remains within the dotted lines."
+            "A trial is successful if the circular region is completely detached from the sheet and the cut remains within the dotted lines."
           ],
           "metrics": [
             {
@@ -358,16 +451,29 @@
             }
           ],
           "executionConstraints": [
-            "Any stategy can be used as long as the cutting of the paper is performed by the scissor blades.",
-            "The manipulation system has 60 seconds to complete the task."
+            "Any manipulation strategy may be used, provided only the blades of the scissors cut the paper.",
+            "The task must be completed within 60 seconds."
           ]
         },
         {
           "id": "fasten-unfasten-button",
           "title": "Fasten Button",
+          "primitiveProfile": {
+            "manipulation": "Direct",
+            "rigidity": "Mixed manipulanda / rigid environment",
+            "relativeSize": "Smaller than the hand",
+            "controlledDegreesOfFreedom": "Moderate — object pose and localized fabric deformation",
+            "constraintComplexity": "High — tight geometry and force coordination",
+            "constraintChange": "High — contact, partial insertion, and passage",
+            "motionRegime": "Quasistatic"
+          },
           "shortDescription": "Button a button on a buttoning board.",
+          "configurationImages": [
+            { "src": "Images/task_pictures/button_button/starting.jpg", "caption": "Starting configuration", "alt": "Unfastened button on the task board" },
+            { "src": "Images/task_pictures/button_button/ending.jpg", "caption": "Ending configuration", "alt": "Fastened button on the task board" }
+          ],
           "description": "Button a button on a buttoning board.",
-          "justification": "Fasten Button evaluates a system's ability to perform precision manipulation under tight geometric constraints involving both rigid and deformable components. The task requires quasistatic direct manipulation of a small rigid object whose dimensions are significantly smaller than those of the hand while interacting with a deformable buttonhole. The task exhibits high constraint complexity, as successful completion depends on satisfying multiple geometric constraints simultaneously while maintaining stable contact with the button and fabric. It also involves substantial constraint change, progressing from free-space manipulation to contact with the buttonhole, partial insertion, and eventual passage through the fabric. The interaction requires careful coordination of fingertip forces and object pose throughout the manipulation sequence, and small positioning errors can lead to task failure. More broadly, button fastening serves as a representative benchmark for fine manipulation tasks encountered in dressing, garment handling, and other activities that require precise interaction with small everyday objects.",
+          "justification": "Fasten Button evaluates a system's ability to perform precision manipulation under tight geometric constraints involving mixed rigid and deformable manipulanda in a rigid environment. The task requires quasistatic direct manipulation of a rigid button that is smaller than the hand while interacting with deformable fabric. Coordinating the button pose with localized fabric deformation produces moderate controlled degrees of freedom. The task exhibits high constraint complexity because successful completion depends on satisfying multiple geometric constraints while regulating fingertip forces and maintaining stable contact. It also involves high constraint change, progressing from free-space manipulation to buttonhole contact, partial insertion, and complete passage through the fabric. More broadly, button fastening represents fine manipulation tasks encountered in dressing, garment handling, and interaction with small everyday objects.",
           "items": [
             {
               "item": "Buttoning board",
@@ -390,7 +496,7 @@
             "Position the manipulator in the prescribed starting configuration.",
             "Grasp and pull the button completely through the opening until it reaches the fully fastened configuration.",
             "Release the button.",
-            "A trial is considered successful if the button remains fully fastened after the manipulator releases contact and no portion of the button remains trapped within the buttonhole."
+            "A trial is successful if the button remains fully fastened after the manipulator releases contact and no portion of it remains trapped within the buttonhole."
           ],
           "metrics": [
             {
@@ -400,16 +506,29 @@
             }
           ],
           "executionConstraints": [
-            "Any stategy can be used to accomplish this task.",
-            "The manipulation system has 60 seconds to complete the task."
+            "Any manipulation strategy may be used.",
+            "The task must be completed within 60 seconds."
           ]
         },
         {
           "id": "in-hand-object-reorientation",
           "title": "In-Hand Reorienting",
+          "primitiveProfile": {
+            "manipulation": "Direct",
+            "rigidity": "Rigid manipulandum / environment not engaged",
+            "relativeSize": "Comparable to the hand",
+            "controlledDegreesOfFreedom": "High — object pose and multiple finger joints",
+            "constraintComplexity": "High — simultaneous contacts and grasp forces",
+            "constraintChange": "Moderate — contacts shift without release",
+            "motionRegime": "Quasistatic"
+          },
           "shortDescription": "Change the orientation of a small rectangular prism from a stable grasp to another stable grasp.",
+          "configurationImages": [
+            { "src": "Images/task_pictures/in_hand_reorientation/starting.jpg", "caption": "Initial grasp", "alt": "Stock reference of a cube held in an initial grasp" },
+            { "src": "Images/task_pictures/in_hand_reorientation/ending.jpg", "caption": "Target grasp", "alt": "Stock reference of a cube held in a different orientation" }
+          ],
           "description": "Change the orientation of a small rectangular prism from a stable grasp at any orientation relative to the palm to a stable grasp at any other orientation.",
-          "justification": "In-Hand Reorienting evaluates a system's ability to manipulate an object within the hand while maintaining continuous control and without relying on environmental support. The task involves quasistatic direct manipulation of a rigid object whose dimensions are comparable to those of the fingers and requires coordinated control of multiple finger joints to change the object's orientation relative to the palm. The task exhibits high constraint complexity, as successful completion depends on coordinating multiple simultaneous contacts, regulating grasp forces, and managing object motion within the hand. More broadly, in-hand reorientation is a hallmark capability of dexterous manipulation and serves as a canonical benchmark for evaluating the intrinsic manipulation capabilities of multifingered robotic hands.",
+          "justification": "In-Hand Reorienting evaluates a system's ability to manipulate an object within the hand while maintaining continuous control and without engaging the environment. The task involves quasistatic direct manipulation of a rigid object whose dimensions are comparable to those of the hand. Coordinating the object's pose with multiple finger joints and contacts produces high controlled degrees of freedom. The task also exhibits high constraint complexity because successful completion depends on coordinating simultaneous contacts, regulating grasp forces, and maintaining a precise object orientation. Constraint change is moderate because contacts may shift within the hand while the object remains continuously controlled and no environmental interface is introduced. More broadly, in-hand reorientation is a hallmark capability of dexterous manipulation and a canonical benchmark of multifingered robotic hands.",
           "items": [
             {
               "item": "Rectangular prism",
@@ -419,15 +538,15 @@
             }
           ],
           "setup": [
-            "Prior to each trial, randomly select an initial orientation and a target orientation (euler angles with repsect to a global frame).",
-            "One euler angle of the target orientation must differ to the initial orientation by atleast 90 degrees.",
+            "Before each trial, randomly select an initial orientation and a target orientation, expressed as Euler angles with respect to a global frame.",
+            "At least one Euler angle of the target orientation must differ from the initial orientation by 90 degrees or more.",
             "Place the rectangular prism in a stable grasp within the hand at the initial orientation."
           ],
           "procedures": [
             "Position the manipulator with the object in the prescribed initial grasp and orientation.",
             "Reorient the object from the initial orientation to the specified target orientation using only in-hand manipulation.",
             "Hold the object within the target orientation tolerance for at least 2 seconds.",
-            "A trial is considered successful if the object does not contact the environment and is held within the target orientation tolerance (5 deg about each axis) at the end of the trial for 2 seconds."
+            "A trial is successful if the object does not contact the environment and remains within the target orientation tolerance (5 degrees about each axis) for 2 seconds at the end of the trial."
           ],
           "metrics": [
             {
@@ -437,21 +556,35 @@
             }
           ],
           "executionConstraints": [
-            "Any stategy can be used to accomplish this task as long as the rectangular prism does not contact the environment.",
-            "The manipulation system has 60 seconds to complete the task."
+            "Any manipulation strategy may be used, provided the rectangular prism does not contact the environment.",
+            "The task must be completed within 60 seconds."
           ]
         },
         {
           "id": "spin-a-top",
           "title": "Spin a Top",
+          "primitiveProfile": {
+            "manipulation": "Direct",
+            "rigidity": "Rigid manipulanda / rigid environment",
+            "relativeSize": "Smaller than the hand",
+            "controlledDegreesOfFreedom": "Low — one rigid object",
+            "constraintComplexity": "Low — few simultaneous environmental constraints",
+            "constraintChange": "Moderate — grasp, release, and table contact",
+            "motionRegime": "Dynamic"
+          },
           "shortDescription": "Spin a hand-spun top so that it remains upright.",
+          "configurationImages": [
+            { "src": "Images/task_pictures/spin_top/starting_and_ending.jpg", "caption": "Starting configuration", "alt": "Stationary top before the task" },
+            { "src": "Images/task_pictures/spin_top/intermediate.jpg", "caption": "Top spinning", "alt": "Top spinning upright during the task" },
+            { "src": "Images/task_pictures/spin_top/starting_and_ending.jpg", "caption": "Ending configuration", "alt": "Top at rest after the task" }
+          ],
           "description": "Spin a top so that it remains upright.",
-          "justification": "Spin a Top evaluates a system's ability to exploit object dynamics to achieve a desired outcome. The task involves dynamic direct manipulation of a rigid object whose dimensions are small relative to the hand and requires generating an appropriate combination of orientation, angular velocity, and release conditions for successful execution. Unlike many dexterous manipulation tasks that are primarily quasistatic, spinning a top depends critically on dynamic interactions and the transfer of momentum from the hand to the object. The task exhibits moderate constraint complexity, as successful performance requires coordinating grasping, rotational motion, and release timing while maintaining control of the object up to the point of disengagement. It also involves significant constraint change, progressing from stable grasping to dynamic release, after which the object's behavior is governed entirely by its interaction with the environment. Because the top's stability depends on the quality of the imparted spin, small errors in orientation, velocity, or release timing can lead to immediate failure. More broadly, spinning a top serves as a representative benchmark for dynamic dexterous manipulation, evaluating a manipulator's ability to intentionally exploit physical dynamics rather than relying solely on precise quasistatic control.",
+          "justification": "Spin a Top evaluates a system's ability to exploit object dynamics to achieve a desired outcome. The task involves dynamic direct manipulation of one rigid object that is smaller than the hand within a rigid environment, producing low controlled degrees of freedom. It also has low constraint complexity because few environmental constraints are active simultaneously. Constraint change is moderate, consisting primarily of grasping the top, releasing it, and establishing contact with the table. Unlike quasistatic benchmarks, success depends critically on transferring momentum and generating the appropriate orientation, angular velocity, and release conditions. Because the top's stability depends on the imparted spin, small errors in orientation, velocity, or timing can lead to immediate failure. More broadly, spinning a top represents dynamic dexterous manipulation in which physical dynamics are intentionally exploited.",
           "items": [
             {
               "item": "Top",
               "quantity": 1,
-              "specification": "24mm diameter spinning top.",
+              "specification": "24 mm diameter spinning top.",
               "link": "https://www.amazon.com/CHEETOP-Stainless-Spinning-Precision-Non-Slip/dp/B08HDB6VGF/ref=sr_1_9?crid=3NWLDBLZ5CO6J&dib=eyJ2IjoiMSJ9.peRcCIZdvT9cVql407jmduKJp2uzvFpdJWMHf0wId1w7-5rjGbLkm3uAjLSBESwTIbFkU5wAz3WWIdGwF8UJuMVp4YvVpI20-qEe6V2ksFW43GSAwnYlVn5KTy8gQ51OWq4_8y6Hi2QRe0u3NQNrn_SBcPB2jQ4kEUd5pYetLPcDGqDACB9glmcKtdIOuIFkSK-jvCxNBXra5z29mG5kXPhnSYPZvwFsN5g_HO2mPe0AS1BVUVAoc7t2xtHrZgklXKn2hMSbTyC1sDSbhpkj_SHJSSCfRw7SxvVObozvLS8.dAWzkYt9gNYHnt3kS9FzxmBCqZ4e3Bt2cggKxlsTcLQ&dib_tag=se&keywords=spinning%2Btop&qid=1782523534&sprefix=spinning%2Btop%2Caps%2C118&sr=8-9&th=1"
             },
             {
@@ -468,9 +601,9 @@
           ],
           "procedures": [
             "Position the manipulator in the prescribed starting configuration.",
-            "Grasp and Impart rotational velocity to the top and release it onto the table surface.",
+            "Grasp the top, impart rotational velocity to it, and release it onto the table surface.",
             "Allow the top to spin freely without further contact from the manipulator.",
-            "A trial is considered successful if the top remains upright and spinning for at least 5 seconds following release."
+            "A trial is successful if the top remains upright and spins for at least 5 seconds after release."
           ],
           "metrics": [
             {
@@ -480,20 +613,34 @@
             }
           ],
           "executionConstraints": [
-            "Any stategy can be used as long as the end effector eventually breaks contact with the top."
+            "Any manipulation strategy may be used, provided the end effector releases the top."
           ]
         },
         {
           "id": "use-chopsticks",
           "title": "Use Chopsticks",
+          "primitiveProfile": {
+            "manipulation": "Indirect — two tools",
+            "rigidity": "Rigid manipulanda / rigid environment",
+            "relativeSize": "Mixed relative to the hand",
+            "controlledDegreesOfFreedom": "High — two tools and object pose",
+            "constraintComplexity": "Moderate — bilateral contact and force regulation",
+            "constraintChange": "Moderate — repeated acquisition and release cycles",
+            "motionRegime": "Quasistatic"
+          },
           "shortDescription": "Use a pair of chopsticks to grasp small wooden cubes individually and transfer them into a target container (Box and Blocks but with chopsticks).",
+          "configurationImages": [
+            { "src": "Images/task_pictures/use_chopsticks/starting.jpg", "caption": "Starting configuration", "alt": "Blocks and chopsticks before the task" },
+            { "src": "Images/task_pictures/use_chopsticks/intermediate.png", "caption": "Using the chopsticks", "alt": "Chopsticks grasping and transferring a block" },
+            { "src": "Images/task_pictures/use_chopsticks/ending.jpg", "caption": "Ending configuration", "alt": "Blocks after transfer with chopsticks" }
+          ],
           "description": "Use chopsticks to pick up small wooden cubes and place them in a bin.",
-          "justification": "Use Chopsticks evaluates a system's ability to perform quasistatic indirect manipulation through a pair of tools while handling small objects that are significantly smaller than the hand. The task involves manipulating two rigid chopsticks and a set of rigid cubes, requiring coordinated control of multiple objects simultaneously. Relative to direct grasping tasks, the use of chopsticks introduces additional degrees of freedom associated with controlling the relative motion and contact forces between the chopsticks while maintaining stable object capture. Successful completion requires precise alignment of the chopsticks, careful force regulation to prevent dropping or crushing the object, and accurate placement of the object into a target container. It also involves repeated constraint change, progressing through cycles of tool positioning, object acquisition, object transport, and object release. More broadly, chopstick use serves as a representative benchmark for precision tool use and indirect manipulation, assessing a manipulator's ability to perform fine object handling through intermediate tools rather than direct hand-object contact.",
+          "justification": "Use Chopsticks evaluates a system's ability to perform quasistatic indirect manipulation with rigid manipulanda in a rigid environment. The long chopsticks and blocks that are smaller than the hand occupy mixed size categories. Coordinating two tools and the captured block produces high controlled degrees of freedom. Constraint complexity is moderate because successful capture requires bilateral alignment and force regulation but does not involve a tightly toleranced rigid mating interface. Constraint change is also moderate because the task repeats the same tool-positioning, acquisition, transport, and release cycle. More broadly, chopstick use represents precision tool use and object handling through intermediate tools rather than direct hand-object contact.",
           "items": [
             {
               "item": "Chopsticks",
               "quantity": 1,
-              "specification": "9.45in bamboo chopsticks",
+              "specification": "9.45 in bamboo chopsticks",
               "link": "https://www.amazon.com/LOROTOCO-Chopsticks-Reusable-Dishwasher-%EF%BC%889-45in%EF%BC%89/dp/B0CZCYQWMZ/ref=sr_1_3_sspa?crid=2LPX41YYPWZBK&dib=eyJ2IjoiMSJ9.xSUo6ZTZ6S3dctpbaUurOk6oKlguSPy86hP9_257XocurUvtp28KlD6doH207Ppq3q_COUJpWqkSgnvmopYVVa-ueYcHDDXzpk4TNpEMZR8u0LXoXhH1Uvt0Cka5Ei_ShYnR9UVvr4PPUhxD4YW4ssqJcs5AGomHjOQR_9PpQxDz_8TMs6Fu_VFpUljw26_O8gazz81qpjJ03m0HExxZTs_B7ckOSiz7ttPqBrpe7mxnrEQWqhGZJ--FPhQe5Je3khuH19eOQt86IFlS2NF9-s-ES3YOVJAgjsrAEBnb0y8.gZeu6FUW_sO4kC5UPHKcPmBIxQqPLX6cG88zNEMUbck&dib_tag=se&keywords=chopsticks&qid=1782523686&sprefix=chpsticks%2Caps%2C143&sr=8-3-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&th=1"
             },
             {
@@ -522,11 +669,11 @@
             }
           ],
           "setup": [
-            "The setup of the bins,lid, and blocks should be identical to that of the YCB Box and Blocks benchmark Protocol 3a."
+            "The arrangement of the bins, lid, and blocks must match YCB Box and Blocks Protocol 3a."
           ],
           "procedures": [
-            "Setup environment as described above.",
-            "During a 60 second time period, transfer as many blocks as possible using the chopsticks from one bin to another."
+            "Set up the environment as described above.",
+            "During a 60-second period, use the chopsticks to transfer as many blocks as possible from one bin to the other."
           ],
           "metrics": [
             {
@@ -536,17 +683,30 @@
             }
           ],
           "executionConstraints": [
-            "The manipulation system excluding the chopsticks may not make contact with the bloacks.",
-            "For a successful transfer, a blcok must cross over the deviding barrier before being dropped. BLocks cannot be tossed over the barrier.",
-            "If multiple blocks are tranported at the same time, it is counted as one block."
+            "No part of the manipulation system other than the chopsticks may contact the blocks.",
+            "A transfer is successful only if the block crosses the divider before it is released; blocks may not be tossed over the divider.",
+            "Transporting multiple blocks simultaneously counts as one block transferred."
           ]
         },
         {
           "id": "extract-object-from-opaque-bag",
           "title": "Blindly Retrieve an Object from Cover",
+          "primitiveProfile": {
+            "manipulation": "Direct",
+            "rigidity": "Rigid manipulanda / rigid environment",
+            "relativeSize": "Comparable to the hand",
+            "controlledDegreesOfFreedom": "Moderate — target pose amid movable distractors",
+            "constraintComplexity": "Moderate — clutter and confinement",
+            "constraintChange": "High — exploratory contacts form and break",
+            "motionRegime": "Quasistatic"
+          },
           "shortDescription": "Retrieve a particular rigid object from among several in a box without exteroceptive sensing.",
+          "configurationImages": [
+            { "src": "Images/task_pictures/retrieve_clutter/starting.jpg", "caption": "Starting configuration", "alt": "Objects concealed beneath the opaque cover" },
+            { "src": "Images/task_pictures/retrieve_clutter/ending.jpg", "caption": "Ending configuration", "alt": "Target object retrieved from beneath the cover" }
+          ],
           "description": "Retrieve a rigid object of a particular shape from among several distractor objects in a box without exteroceptive sensing (e.g., vision).",
-          "justification": "Blindly Retrieving an Object from Cover evaluates a system's ability to manipulate and identify objects under severe sensing constraints. The task involves quasistatic direct manipulation of multiple rigid objects in a cluttered environment while relying primarily on tactile and proprioceptive feedback rather than exteroceptive sensing such as vision. Relative to conventional object retrieval tasks, successful completion requires not only grasping and extracting an object but also actively exploring and discriminating among several candidate objects based on contact information. The task exhibits substantial constraint complexity, as the manipulator must reason about object identity, geometry, and location while operating within a confined workspace containing multiple potential contacts. It also involves significant constraint change, with contacts between the hand, target object, distractor objects, and container walls being continuously established and broken throughout the exploration and retrieval process. More broadly, blind retrieval serves as a representative benchmark for tactile dexterity and active perception, evaluating a manipulator's ability to use touch not only for control but also for acquiring information about its environment.",
+          "justification": "Blindly Retrieving an Object from Cover evaluates a system's ability to manipulate and identify objects under severe sensing constraints. The task involves quasistatic direct manipulation of rigid target and distractor objects, each comparable in size to the hand, within a rigid confined environment. Because the target is intentionally controlled while distractors may move through incidental contact, the task has moderate controlled degrees of freedom. Its physical constraint complexity is also moderate because clutter and confinement create multiple possible contacts without imposing a tightly toleranced mating interface. The absence of vision increases sensing and inference difficulty rather than physical constraint complexity. Constraint change is high because contacts among the hand, target, distractors, and container walls continually form and break during exploration and retrieval. More broadly, blind retrieval represents tactile dexterity and active perception, using touch both for control and for acquiring information.",
           "items": [
             {
               "item": "Opaque retrieval box",
@@ -576,7 +736,7 @@
           "procedures": [
             "Position the manipulator in the prescribed starting configuration.",
             "Grasp and remove the target object from the box and place it on the table.",
-            "A trial is considered successful if the designated target object is removed from the box, and placed on the table without first removing any distractor objects."
+            "A trial is successful if the designated target object is removed from the box and placed on the table without first removing any distractor objects."
           ],
           "metrics": [
             {
@@ -586,16 +746,29 @@
             }
           ],
           "executionConstraints": [
-            "Any strategy may be used as long as it does not require exteroceptive sensing.",
-            "The manipulation system has 60 seconds to complete the task."
+            "Any manipulation strategy may be used, provided it does not rely on exteroceptive sensing.",
+            "The task must be completed within 60 seconds."
           ]
         },
         {
           "id": "bundle-socks",
           "title": "Bundle Socks",
+          "primitiveProfile": {
+            "manipulation": "Direct",
+            "rigidity": "Deformable manipulanda / rigid environment",
+            "relativeSize": "Comparable to the hand",
+            "controlledDegreesOfFreedom": "High — two continuously deformable objects",
+            "constraintComplexity": "Moderate — compliant alignment, rolling, and tucking",
+            "constraintChange": "High — repeated folding, stretching, and contact",
+            "motionRegime": "Quasistatic"
+          },
           "shortDescription": "Bundle two socks into a pair.",
+          "configurationImages": [
+            { "src": "Images/task_pictures/bundle_socks/starting.jpg", "caption": "Starting configuration", "alt": "Two separate socks before bundling" },
+            { "src": "Images/task_pictures/bundle_socks/ending.jpg", "caption": "Ending configuration", "alt": "Pair of socks bundled together" }
+          ],
           "description": "Bundle two socks by rolling the socks together and tucking one sock cuff over the other.",
-          "justification": "Bundle Socks evaluates a system's ability to manipulate multiple deformable objects whose geometry changes continuously throughout the task. The task involves quasistatic direct manipulation of two flexible garments whose dimensions are comparable to those of the hand and requires coordinating interactions with both objects simultaneously. Successful completion requires aligning the socks, creating and maintaining a desired folded or rolled configuration, and securing the resulting bundle without losing control of either object. It also involves substantial constraint change, with contacts between the socks, manipulator, and environment being repeatedly established and broken as the fabric is folded, stretched, compressed, and tucked into its final configuration. More broadly, sock bundling serves as a representative benchmark for deformable-object manipulation and captures many of the challenges encountered in household, laundry, and garment-handling tasks.",
+          "justification": "Bundle Socks evaluates a system's ability to manipulate multiple deformable objects whose geometry changes continuously throughout the task. It involves quasistatic direct manipulation of two deformable socks, each comparable in size to the hand, within a rigid environment. Coordinating two continuously deformable objects produces high controlled degrees of freedom. Constraint complexity is moderate because the task requires compliant alignment, rolling, and tucking but uses loose final tolerances rather than a rigid mating interface. Constraint change is high because contacts among the socks, manipulator, and environment repeatedly form and break as the fabric is folded, stretched, compressed, and tucked. More broadly, sock bundling represents deformable-object manipulation in household, laundry, and garment-handling tasks.",
           "items": [
             {
               "item": "crew socks",
@@ -611,7 +784,7 @@
             }
           ],
           "setup": [
-            "Place the two socks flat near the center of the tabletop such that they are tourching each other.",
+            "Place the two socks flat near the center of the tabletop so that they are touching each other.",
             "Both socks shall be fully unfolded at the start of the trial.",
             "The manipulator shall begin each trial with the nearest point on the end effector at least 100 mm away from the manipulanda."
           ],
@@ -619,7 +792,7 @@
             "Position the manipulator in the prescribed starting configuration.",
             "Gather the two socks and bundle them together.",
             "Release the bundle onto the table.",
-            "A trial is considered successful if the socks are on the table and successfully bundled after the socks are released from the manipulator."
+            "A trial is successful if the socks remain bundled on the table after the manipulator releases them."
           ],
           "metrics": [
             {
@@ -629,16 +802,30 @@
             }
           ],
           "executionConstraints": [
-            "Any strategy may be used to accomplish this task.",
-            "The manipulation system has 60 seconds to complete the task."
+            "Any manipulation strategy may be used.",
+            "The task must be completed within 60 seconds."
           ]
         },
         {
           "id": "zip-unzip-zipper",
           "title": "Zip a Zipper",
+          "primitiveProfile": {
+            "manipulation": "Direct",
+            "rigidity": "Mixed manipulanda / rigid environment",
+            "relativeSize": "Mixed relative to the hand",
+            "controlledDegreesOfFreedom": "Moderate — guided slider and constrained fabric deformation",
+            "constraintComplexity": "High — alignment, tension, and guided motion",
+            "constraintChange": "High — engagement and disengagement",
+            "motionRegime": "Quasistatic"
+          },
           "shortDescription": "Zip and unzip a garment zipper.",
+          "configurationImages": [
+            { "src": "Images/task_pictures/zip_zipper/starting_and_ending.jpg", "caption": "Starting configuration", "alt": "Zipper in its starting configuration" },
+            { "src": "Images/task_pictures/zip_zipper/intermediate.jpg", "caption": "Zipper fully opened", "alt": "Zipper open during the task" },
+            { "src": "Images/task_pictures/zip_zipper/starting_and_ending.jpg", "caption": "Ending configuration", "alt": "Zipper returned to its ending configuration" }
+          ],
           "description": "Zip and unzip a garment zipper on a task board.",
-          "justification": "Zip a Zipper evaluates a system's ability to manipulate an articulated mechanism while interacting with both rigid and deformable components. The task involves quasistatic direct manipulation of a small zipper pull whose dimensions are significantly smaller than those of the hand, while simultaneously managing the motion and tension of the surrounding fabric. The task exhibits substantial constraint complexity, as successful completion depends on maintaining alignment between mating zipper components while operating within the mechanical constraints imposed by the zipper mechanism. It also involves significant constraint change, progressing engagement and disengagement as the zipper is closed and reopened. Because successful operation depends on coordinated interaction between rigid zipper elements, deformable fabric, and the hand, the task requires careful management of multiple simultaneous contacts throughout the manipulation sequence. More broadly, zipper manipulation serves as a representative benchmark for contact-rich interaction with articulated everyday objects and evaluates a manipulator's ability to coordinate manipulation of both rigid and deformable components.",
+          "justification": "Zip a Zipper evaluates a system's ability to manipulate an articulated mechanism with mixed rigid and deformable manipulanda in a rigid environment. The zipper pull is smaller than the hand while the surrounding fabric is larger, producing mixed relative size. Because the slider is mechanically guided and fabric deformation is constrained by the fixture, the task has moderate controlled degrees of freedom. Constraint complexity is high because successful operation requires maintaining alignment and fabric tension while following the mechanism's rigidly guided path. Constraint change is also high because closing and reopening the zipper repeatedly establishes and breaks engagement among the zipper teeth. More broadly, zipper manipulation represents contact-rich interaction with articulated everyday objects containing both rigid and deformable components.",
           "items": [
             {
               "item": "Zipper task board",
@@ -662,7 +849,7 @@
             "Grasp the pull and close the zipper by moving the pull continuously from the bottom stop to the top stop.",
             "Reopen the zipper by returning the pull to the bottom stop.",
             "Release the zipper pull.",
-            "A trial is considered successful if the zipper is fully closed and subsequently fully reopened."
+            "A trial is successful if the zipper is fully closed and subsequently fully reopened."
           ],
           "metrics": [
             {
@@ -672,16 +859,29 @@
             }
           ],
           "executionConstraints": [
-            "Any strategy may be used to accomplish this task.",
-            "The manipulation system has 60 seconds to complete the task."
+            "Any manipulation strategy may be used.",
+            "The task must be completed within 60 seconds."
           ]
         },
         {
           "id": "paper-folding",
           "title": "Paper Folding",
+          "primitiveProfile": {
+            "manipulation": "Direct",
+            "rigidity": "Deformable manipulanda / rigid environment",
+            "relativeSize": "Larger than the hand",
+            "controlledDegreesOfFreedom": "High — distributed sheet deformation",
+            "constraintComplexity": "Moderate — edge alignment and crease tolerance",
+            "constraintChange": "Moderate — support, folding, self-contact, and release",
+            "motionRegime": "Quasistatic"
+          },
           "shortDescription": "Fold a piece of paper in half with a sharp crease.",
+          "configurationImages": [
+            { "src": "Images/task_pictures/fold_paper/starting.jpg", "caption": "Starting configuration", "alt": "Unfolded paper on the table" },
+            { "src": "Images/task_pictures/fold_paper/ending.jpg", "caption": "Ending configuration", "alt": "Paper folded in half with a crease" }
+          ],
           "description": "Fold a piece of A4 printer paper in half with a sharp crease.",
-          "justification": "Paper Folding evaluates a system's ability to manipulate a thin deformable object whose geometry changes continuously throughout the task. The task involves direct manipulation of a sheet of paper whose dimensions are larger than those of the hand and requires coordinated control of both the global shape and local deformation of the material. Relative to rigid-object manipulation tasks, paper folding introduces a substantially larger number of effective degrees of freedom because the paper can bend, buckle, and deform in many ways while remaining sensitive to small disturbances. Successful completion requires accurately aligning opposing edges, controlling the shape of the sheet during folding, and applying forces in a manner that produces a sharp crease along the intended fold line. More broadly, paper folding serves as a representative benchmark for manipulation of thin flexible materials and captures challenges commonly encountered in packaging, manufacturing, document handling, and other deformable-object manipulation tasks.",
+          "justification": "Paper Folding evaluates a system's ability to manipulate a thin deformable sheet whose geometry changes continuously throughout the task. It involves quasistatic direct manipulation of paper that is larger than the hand within a rigid environment. Controlling the sheet's distributed deformation produces high controlled degrees of freedom. Constraint complexity is moderate because successful completion requires edge alignment and a sharp crease within the specified tolerance, but the target geometry is simple and has no tightly toleranced rigid mating interface. Constraint change is also moderate because the task follows a single progression through table support, folding, self-contact, creasing, and release. More broadly, paper folding represents manipulation of thin flexible materials encountered in packaging, manufacturing, and document handling.",
           "items": [
             {
               "item": "paper",
@@ -705,7 +905,7 @@
             "Position the manipulator in the prescribed starting configuration.",
             "Grasp and fold the paper in half along its long axis with a sharp crease.",
             "Release the folded paper.",
-            "A trial is considered successful if the paper is on the table and folded with no bulges and opposing edges misaligning be no more than 3mm."
+            "A trial is successful if the folded paper rests on the table without bulges and its opposing edges are misaligned by no more than 3 mm."
           ],
           "metrics": [
             {
@@ -715,16 +915,29 @@
             }
           ],
           "executionConstraints": [
-            "Any strategy may be used to accomplish this task.",
-            "The manipulation system has 60 seconds to complete the task."
+            "Any manipulation strategy may be used.",
+            "The task must be completed within 60 seconds."
           ]
         },
         {
           "id": "bundle-dowels-with-rubber-band",
           "title": "Bundle Dowels with a Rubber Band",
+          "primitiveProfile": {
+            "manipulation": "Direct",
+            "rigidity": "Mixed manipulanda / rigid environment",
+            "relativeSize": "Mixed relative to the hand",
+            "controlledDegreesOfFreedom": "High — seven objects and an elastic fastener",
+            "constraintComplexity": "High — alignment, compression, and wrapping",
+            "constraintChange": "High — gathering, stretching, and securing",
+            "motionRegime": "Quasistatic"
+          },
           "shortDescription": "Collect seven dowels into a close-packed bundle and wrap them twice with a rubber band.",
+          "configurationImages": [
+            { "src": "Images/task_pictures/bundle_dowels/starting.jpg", "caption": "Starting configuration", "alt": "Separate dowels and rubber band before bundling" },
+            { "src": "Images/task_pictures/bundle_dowels/ending.jpg", "caption": "Ending configuration", "alt": "Dowels bundled together with the rubber band" }
+          ],
           "description": "Gather seven cylindrical dowels into a compact bundle and secure them by wrapping a rubber band around the bundle twice.",
-          "justification": "Bundle Dowels with a Rubber Band evaluates a system's ability to coordinate manipulation of multiple objects while simultaneously handling a deformable fastening element. The task involves quasistatic direct manipulation of several rigid objects together with a deformable elastic object, requiring control over substantially more degrees of freedom than single-object manipulation tasks. Relative to simple relocation or assembly tasks, successful completion requires gathering, aligning, and maintaining a stable configuration of multiple independent dowels before manipulating the rubber band to secure the resulting bundle. The manipulator must manage contacts between the hand, multiple dowels, the table, and the rubber band while preserving the arrangement of the bundle throughout the fastening process. It also involves substantial constraint change, with contacts being repeatedly established and broken as dowels are collected, compressed into a close-packed configuration, and subsequently secured by stretching and wrapping the rubber band. More broadly, bundling objects with a flexible fastener is representative of many packaging, manufacturing, and household organization tasks that require coordinated manipulation of both rigid and deformable components.",
+          "justification": "Bundle Dowels with a Rubber Band evaluates a system's ability to coordinate multiple rigid objects with a deformable fastening element in a rigid environment. The long, thin dowels and smaller elastic band occupy mixed size categories. Simultaneously controlling seven independent dowels and a deformable fastener produces high controlled degrees of freedom. Constraint complexity is high because the manipulator must maintain many contacts, align and compress the dowels, preserve the bundle, and regulate tension while wrapping the band. Constraint change is also high as contacts repeatedly form and break while the dowels are gathered, compressed, stretched around, and secured. More broadly, bundling with a flexible fastener represents packaging, manufacturing, and household organization tasks involving both rigid and deformable components.",
           "items": [
             {
               "item": "wooden dowels",
@@ -746,15 +959,15 @@
             }
           ],
           "setup": [
-            "Arrange the seven dowels in a row such that they are touching and the top and bottom cyclindrical faces are approximately aligned.",
+            "Arrange the seven dowels in a row so that they are touching and their top and bottom cylindrical faces are approximately aligned.",
             "Place the rubber band flat on the table at least 150 mm from the nearest dowel.",
             "The manipulator shall begin each trial with the nearest point on the end effector at least 100 mm away from the manipulanda."
           ],
           "procedures": [
             "Position the manipulator in the prescribed starting configuration.",
-            "Gather the seven dowels into a single close-packed bundle and Stretch the rubber band and place it around the dowel bundle twice.",
+            "Gather the seven dowels into a single close-packed bundle, then stretch the rubber band and wrap it around the bundle twice.",
             "Release the completed assembly on the table.",
-            "A trial is considered successful if all seven dowels remain secured within a single bundle for at least 3 seconds after the manipulator releases contact and the rubber band has been wrapped around the bundle twice."
+            "A trial is successful if the rubber band is wrapped twice around the bundle and all seven dowels remain secured for at least 3 seconds after the manipulator releases contact."
           ],
           "metrics": [
             {
@@ -764,8 +977,8 @@
             }
           ],
           "executionConstraints": [
-            "Any strategy may be used to accomplish this task.",
-            "The manipulation system has 60 seconds to complete the task."
+            "Any manipulation strategy may be used.",
+            "The task must be completed within 60 seconds."
           ]
         }
       ]

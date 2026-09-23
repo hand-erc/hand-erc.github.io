@@ -158,6 +158,15 @@ function populatePage(benchmark, level, section, pmIndex) {
   document.getElementById('benchmark-title').textContent = benchmark.title;
   document.getElementById('benchmark-subtitle').textContent = benchmark.shortDescription;
 
+  // Concise manipulation primitive tags
+  if (benchmark.primitiveProfile) {
+    const primitiveTags = document.getElementById('benchmark-primitive-tags');
+    primitiveTags.innerHTML = getPrimitiveTags(benchmark.primitiveProfile).map(function (tag) {
+      return '<span class="primitive-tag">' + escapeHTML(tag) + '</span>';
+    }).join('');
+    primitiveTags.style.display = '';
+  }
+
   // Images
   var imageList = benchmark.images || (benchmark.image ? [benchmark.image] : []);
   if (imageList.length > 0) {
@@ -231,10 +240,60 @@ if (benchmark.protocolLink) {
     procList.appendChild(li);
   });
 
+  // Starting, intermediate, and ending task configurations
+  if (benchmark.configurationImages && benchmark.configurationImages.length > 0) {
+    const gallery = document.getElementById('benchmark-configurations');
+    gallery.innerHTML = '';
+    gallery.style.setProperty('--configuration-count', benchmark.configurationImages.length);
+
+    benchmark.configurationImages.forEach(function (configuration) {
+      const figure = document.createElement('figure');
+      figure.className = 'configuration-card';
+
+      const image = document.createElement('img');
+      image.src = configuration.src;
+      image.alt = configuration.alt || configuration.caption || benchmark.title + ' configuration';
+      figure.appendChild(image);
+
+      const caption = document.createElement('figcaption');
+      caption.textContent = configuration.caption;
+      figure.appendChild(caption);
+
+      gallery.appendChild(figure);
+    });
+
+    document.getElementById('configurations-section').style.display = '';
+  }
+
   // Justification
   if (benchmark.justification) {
-    document.getElementById('benchmark-justification').innerHTML =
-      '<p>' + escapeHTML(benchmark.justification) + '</p>';
+    const justification = document.getElementById('benchmark-justification');
+    const sentences = splitIntoSentences(benchmark.justification);
+    const lead = sentences.shift() || benchmark.justification;
+    const rationaleHTML = sentences.length > 0
+      ? '<ul class="justification-points">' + sentences.map(function (sentence) {
+          return '<li>' + escapeHTML(sentence) + '</li>';
+        }).join('') + '</ul>'
+      : '';
+    const profileHTML = benchmark.primitiveProfile
+      ? '<h3 class="justification-subheading">Primitive profile</h3>' +
+        '<div class="primitive-profile-grid">' +
+        getPrimitiveDefinitions().map(function (primitive) {
+          return '<article class="primitive-profile-card">' +
+            '<span class="primitive-profile-label">' + escapeHTML(primitive.label) + '</span>' +
+            '<span class="primitive-profile-value">' +
+              escapeHTML(benchmark.primitiveProfile[primitive.key] || 'Not specified') +
+            '</span>' +
+          '</article>';
+        }).join('') +
+        '</div>'
+      : '';
+
+    justification.innerHTML =
+      profileHTML +
+      '<h3 class="justification-subheading">Why this task</h3>' +
+      '<p class="justification-lead">' + escapeHTML(lead) + '</p>' +
+      rationaleHTML;
     document.getElementById('justification-section').style.display = '';
   }
 
@@ -371,6 +430,42 @@ if (benchmark.protocolLink) {
 function showNotFound() {
   document.getElementById('loading-state').style.display = 'none';
   document.getElementById('not-found-state').style.display = '';
+}
+
+function getPrimitiveDefinitions() {
+  return [
+    { key: 'manipulation', label: 'Manipulation' },
+    { key: 'rigidity', label: 'Rigidity' },
+    { key: 'relativeSize', label: 'Size relative to hand' },
+    { key: 'controlledDegreesOfFreedom', label: 'Controlled degrees of freedom' },
+    { key: 'constraintComplexity', label: 'Constraint complexity' },
+    { key: 'constraintChange', label: 'Constraint change' },
+    { key: 'motionRegime', label: 'Motion regime' }
+  ];
+}
+
+function getPrimitiveTags(profile) {
+  var rigidity = profile.rigidity || '';
+  var rigidityLower = rigidity.toLowerCase();
+  var rigidityTag = rigidityLower.startsWith('mixed')
+    ? 'Mixed rigidity'
+    : rigidityLower.startsWith('deformable') ? 'Deformable' : 'Rigid';
+  var dof = (profile.controlledDegreesOfFreedom || '').split(' — ')[0];
+  var constraints = (profile.constraintComplexity || '').split(' — ')[0];
+
+  return [
+    profile.manipulation,
+    rigidityTag,
+    dof ? dof + ' DoF' : '',
+    constraints ? constraints + ' constraints' : '',
+    profile.motionRegime
+  ].filter(Boolean);
+}
+
+function splitIntoSentences(text) {
+  return (String(text).match(/[^.!?]+(?:[.!?]+|$)/g) || [])
+    .map(function (sentence) { return sentence.trim(); })
+    .filter(Boolean);
 }
 
 /**

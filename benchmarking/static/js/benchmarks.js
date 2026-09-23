@@ -31,9 +31,49 @@ function filterVisible(benchmarks) {
 }
 
 /**
+ * Return a concise set of primitive tags for benchmark listing cards.
+ */
+function getPrimitiveTags(profile) {
+  if (!profile) return [];
+
+  var rigidity = profile.rigidity || '';
+  var rigidityLower = rigidity.toLowerCase();
+  var rigidityTag = rigidityLower.startsWith('mixed')
+    ? 'Mixed rigidity'
+    : rigidityLower.startsWith('deformable') ? 'Deformable' : 'Rigid';
+  var dof = (profile.controlledDegreesOfFreedom || '').split(' — ')[0];
+  var constraints = (profile.constraintComplexity || '').split(' — ')[0];
+
+  return [
+    profile.manipulation,
+    rigidityTag,
+    dof ? dof + ' DoF' : '',
+    constraints ? constraints + ' constraints' : '',
+    profile.motionRegime
+  ].filter(Boolean);
+}
+
+function escapeBenchmarkHTML(value) {
+  return String(value)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;');
+}
+
+/**
  * Create HTML for a single benchmark card.
  */
 function createCard(benchmark, index, prefix) {
+  const tagsHTML = getPrimitiveTags(benchmark.primitiveProfile).length
+    ? '<div class="primitive-tag-list card-primitive-tags">' +
+      getPrimitiveTags(benchmark.primitiveProfile).map(function (tag) {
+        return '<span class="primitive-tag">' + escapeBenchmarkHTML(tag) + '</span>';
+      }).join('') +
+      '</div>'
+    : '';
+
   return `
     <div class="column is-one-third-desktop is-half-tablet">
       <a href="benchmark.html?id=${benchmark.id}" class="benchmark-card-link">
@@ -41,6 +81,7 @@ function createCard(benchmark, index, prefix) {
           <div class="card-content">
             <p class="title is-5">${benchmark.title}</p>
             <p class="subtitle is-6">${benchmark.shortDescription}</p>
+            ${tagsHTML}
           </div>
           <footer class="card-footer">
             <span class="card-footer-item">

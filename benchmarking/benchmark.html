@@ -87,6 +87,7 @@
             </nav>
             <h1 class="title is-2" id="benchmark-title"></h1>
             <p class="subtitle is-5" id="benchmark-subtitle" style="color: var(--text-secondary);"></p>
+            <div class="primitive-tag-list hero-primitive-tags" id="benchmark-primitive-tags" style="display: none;"></div>
           </div>
         </div>
       </section>
@@ -119,14 +120,6 @@
         </div>
       </section>
 
-      <!-- Setup -->
-      <section class="detail-section" id="setup-section" style="display: none;">
-        <div class="container is-max-desktop">
-          <h2 class="title is-3">Setup</h2>
-          <div class="content has-text-justified" id="benchmark-setup"></div>
-        </div>
-      </section>
-
       <!-- Items -->
       <section class="detail-section" id="items-section" style="display: none;">
         <div class="container is-max-desktop">
@@ -135,11 +128,27 @@
         </div>
       </section>
 
+      <!-- Setup -->
+      <section class="detail-section" id="setup-section" style="display: none;">
+        <div class="container is-max-desktop">
+          <h2 class="title is-3">Setup</h2>
+          <div class="content has-text-justified" id="benchmark-setup"></div>
+        </div>
+      </section>
+
       <!-- Test Procedure -->
       <section class="detail-section">
         <div class="container is-max-desktop">
           <h2 class="title is-3">Test Procedure</h2>
           <ol class="procedures-list" id="benchmark-procedures"></ol>
+        </div>
+      </section>
+
+      <!-- Task Configurations -->
+      <section class="detail-section" id="configurations-section" style="display: none;">
+        <div class="container is-max-desktop">
+          <h2 class="title is-3">Task Configurations</h2>
+          <div class="configuration-gallery" id="benchmark-configurations"></div>
         </div>
       </section>
 
@@ -171,7 +180,7 @@
       <section class="detail-section" id="execution-constraints-section" style="display: none;">
         <div class="container is-max-desktop">
           <h2 class="title is-3">Execution Constraints</h2>
-          <ul id="benchmark-execution-constraints"></ul>
+          <ul class="constraints-list" id="benchmark-execution-constraints"></ul>
         </div>
       </section>
 
