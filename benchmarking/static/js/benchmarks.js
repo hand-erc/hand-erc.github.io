@@ -38,9 +38,9 @@ function getPrimitiveTags(profile) {
 
   var rigidity = profile.rigidity || '';
   var rigidityLower = rigidity.toLowerCase();
-  var rigidityTag = rigidityLower.includes('rigid') && rigidityLower.includes('deformable')
+  var rigidityTag = rigidityLower.startsWith('mixed')
     ? 'Mixed rigidity'
-    : rigidityLower.includes('deformable') ? 'Deformable' : 'Rigid';
+    : rigidityLower.startsWith('deformable') ? 'Deformable' : 'Rigid';
   var dof = (profile.controlledDegreesOfFreedom || '').split(' — ')[0];
   var constraints = (profile.constraintComplexity || '').split(' — ')[0];
 
