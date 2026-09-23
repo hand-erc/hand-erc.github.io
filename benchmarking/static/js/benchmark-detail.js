@@ -231,6 +231,31 @@ if (benchmark.protocolLink) {
     procList.appendChild(li);
   });
 
+  // Starting, intermediate, and ending task configurations
+  if (benchmark.configurationImages && benchmark.configurationImages.length > 0) {
+    const gallery = document.getElementById('benchmark-configurations');
+    gallery.innerHTML = '';
+    gallery.style.setProperty('--configuration-count', benchmark.configurationImages.length);
+
+    benchmark.configurationImages.forEach(function (configuration) {
+      const figure = document.createElement('figure');
+      figure.className = 'configuration-card';
+
+      const image = document.createElement('img');
+      image.src = configuration.src;
+      image.alt = configuration.alt || configuration.caption || benchmark.title + ' configuration';
+      figure.appendChild(image);
+
+      const caption = document.createElement('figcaption');
+      caption.textContent = configuration.caption;
+      figure.appendChild(caption);
+
+      gallery.appendChild(figure);
+    });
+
+    document.getElementById('configurations-section').style.display = '';
+  }
+
   // Justification
   if (benchmark.justification) {
     document.getElementById('benchmark-justification').innerHTML =
