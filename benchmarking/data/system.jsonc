@@ -25,8 +25,8 @@
           },
           "shortDescription": "Transfer as many blocks as possible from a cluttered bin to another bin within 60 seconds.",
           "configurationImages": [
-            { "src": "Images/task_pictures/box_and_blocks/starting.jpg", "caption": "Starting configuration", "alt": "Blocks arranged in the starting bin" },
-            { "src": "Images/task_pictures/box_and_blocks/ending.jpg", "caption": "Ending configuration", "alt": "Blocks transferred into the target bin" }
+            { "src": "Images/task_pictures/box_and_blocks/ending.jpg", "caption": "Starting configuration", "alt": "Blocks arranged in the starting bin" },
+            { "src": "Images/task_pictures/box_and_blocks/starting.jpg", "caption": "Ending configuration", "alt": "Blocks transferred into the target bin" }
           ],
           "description": "Starting with blocks in an initial bin, transfer as many blocks as possible over a divider into an adjacent target bin within 60 seconds. This task's setup and procedure are equivalent to Protocol 3a of the YCB Box and Blocks benchmark. Further details on the setup and procedure can be found here.",
           "justification": "Box and Blocks evaluates a system's ability to isolate, grasp, and transport objects from a cluttered environment to a designated target location under time constraints. The task involves quasistatic direct manipulation of rigid blocks in a rigid environment. The blocks are smaller than the hand, and only one block is intentionally controlled at a time, yielding low controlled degrees of freedom and low constraint complexity. High performance still requires reliable grasp acquisition, grasp stability, and efficient object handling, while the repeated grasp, transport, and release cycle produces moderate constraint change. Furthermore, object transport serves as a fundamental building block for many more complex manipulation behaviors, which can often be decomposed into sequences of grasp-and-transport actions.",
