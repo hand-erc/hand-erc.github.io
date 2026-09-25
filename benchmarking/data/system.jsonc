@@ -10,10 +10,19 @@
     {
       "title": "Atomic Benchmarking Tasks",
       "description": "Benchmarks covering a broad range of dexterous abilities.",
+      "groupByTaskCategory": true,
+      "taskCategoryOrder": [
+        "Object Transport and Retrieval",
+        "Assembly and Fastening",
+        "Material Shaping and Reconfiguration",
+        "Opening, Separation, and Disassembly",
+        "Dynamic Manipulation"
+      ],
       "benchmarks": [
         {
           "id": "box-and-blocks",
           "title": "Box and Blocks",
+          "taskCategory": "Object Transport and Retrieval",
           "primitiveProfile": {
             "manipulation": "Direct",
             "rigidity": "Rigid manipulanda / rigid environment",
@@ -84,6 +93,7 @@
         {
           "id": "peg-in-hole",
           "title": "Peg-in-Hole",
+          "taskCategory": "Assembly and Fastening",
           "primitiveProfile": {
             "manipulation": "Direct",
             "rigidity": "Rigid manipulanda / rigid environment",
@@ -154,6 +164,7 @@
         {
           "id": "pick-up-flat-object",
           "title": "Pick Up Flat Object",
+          "taskCategory": "Object Transport and Retrieval",
           "primitiveProfile": {
             "manipulation": "Direct",
             "rigidity": "Rigid manipulanda / rigid environment",
@@ -212,6 +223,7 @@
         {
           "id": "tie-a-knot",
           "title": "Tie a Knot",
+          "taskCategory": "Material Shaping and Reconfiguration",
           "primitiveProfile": {
             "manipulation": "Direct",
             "rigidity": "Deformable manipulanda / rigid environment",
@@ -270,6 +282,7 @@
         {
           "id": "twist-lid-on-jar",
           "title": "Twist Lid on Jar",
+          "taskCategory": "Assembly and Fastening",
           "primitiveProfile": {
             "manipulation": "Direct",
             "rigidity": "Rigid manipulanda / rigid environment",
@@ -340,6 +353,7 @@
         {
           "id": "thread-screw-with-screwdriver",
           "title": "Use Screwdriver",
+          "taskCategory": "Assembly and Fastening",
           "primitiveProfile": {
             "manipulation": "Indirect — tool use",
             "rigidity": "Rigid manipulanda / rigid environment",
@@ -413,6 +427,7 @@
         {
           "id": "cut-pattern-with-scissors",
           "title": "Use Scissors",
+          "taskCategory": "Opening, Separation, and Disassembly",
           "primitiveProfile": {
             "manipulation": "Indirect — articulated tool",
             "rigidity": "Mixed manipulanda / rigid environment",
@@ -479,6 +494,7 @@
         {
           "id": "fasten-unfasten-button",
           "title": "Fasten Button",
+          "taskCategory": "Assembly and Fastening",
           "primitiveProfile": {
             "manipulation": "Direct",
             "rigidity": "Mixed manipulanda / rigid environment",
@@ -537,6 +553,7 @@
         {
           "id": "in-hand-object-reorientation",
           "title": "In-Hand Reorienting",
+          "taskCategory": "Material Shaping and Reconfiguration",
           "primitiveProfile": {
             "manipulation": "Direct",
             "rigidity": "Rigid manipulandum / environment not engaged",
@@ -590,6 +607,7 @@
         {
           "id": "spin-a-top",
           "title": "Spin a Top",
+          "taskCategory": "Dynamic Manipulation",
           "primitiveProfile": {
             "manipulation": "Direct",
             "rigidity": "Rigid manipulanda / rigid environment",
@@ -649,6 +667,7 @@
         {
           "id": "use-chopsticks",
           "title": "Use Chopsticks",
+          "taskCategory": "Object Transport and Retrieval",
           "primitiveProfile": {
             "manipulation": "Indirect — two tools",
             "rigidity": "Rigid manipulanda / rigid environment",
@@ -724,6 +743,7 @@
         {
           "id": "extract-object-from-opaque-bag",
           "title": "Blindly Retrieve an Object from Cover",
+          "taskCategory": "Object Transport and Retrieval",
           "primitiveProfile": {
             "manipulation": "Direct",
             "rigidity": "Rigid manipulanda / rigid environment",
@@ -789,6 +809,7 @@
         {
           "id": "bundle-socks",
           "title": "Bundle Socks",
+          "taskCategory": "Material Shaping and Reconfiguration",
           "primitiveProfile": {
             "manipulation": "Direct",
             "rigidity": "Deformable manipulanda / rigid environment",
@@ -848,6 +869,7 @@
         {
           "id": "zip-unzip-zipper",
           "title": "Zip a Zipper",
+          "taskCategory": "Assembly and Fastening",
           "primitiveProfile": {
             "manipulation": "Direct",
             "rigidity": "Mixed manipulanda / rigid environment",
@@ -908,6 +930,7 @@
         {
           "id": "paper-folding",
           "title": "Paper Folding",
+          "taskCategory": "Material Shaping and Reconfiguration",
           "primitiveProfile": {
             "manipulation": "Direct",
             "rigidity": "Deformable manipulanda / rigid environment",
@@ -967,6 +990,7 @@
         {
           "id": "bundle-dowels-with-rubber-band",
           "title": "Bundle Dowels with a Rubber Band",
+          "taskCategory": "Assembly and Fastening",
           "primitiveProfile": {
             "manipulation": "Direct",
             "rigidity": "Mixed manipulanda / rigid environment",

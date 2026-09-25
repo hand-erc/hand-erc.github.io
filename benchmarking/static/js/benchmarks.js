@@ -170,7 +170,28 @@ function createSection(section, sectionIndex, totalSections, levelId) {
   var visibleBenchmarks = section.benchmarks ? filterVisible(section.benchmarks) : [];
   const showOther = (levelId === 'hand' || levelId === 'component');
 
-  if (section.showSubsectionHeadings) {
+  if (section.groupByTaskCategory) {
+    var configuredCategories = section.taskCategoryOrder || [];
+    var discoveredCategories = visibleBenchmarks.map(function (benchmark) {
+      return benchmark.taskCategory || 'Other';
+    }).filter(function (category, index, categories) {
+      return categories.indexOf(category) === index && configuredCategories.indexOf(category) === -1;
+    });
+    var taskCategories = configuredCategories.concat(discoveredCategories).filter(function (category) {
+      return visibleBenchmarks.some(function (benchmark) {
+        return (benchmark.taskCategory || 'Other') === category;
+      });
+    });
+
+    contentHTML = taskCategories.map(function (category, index) {
+      return createSubsection({
+        title: category,
+        benchmarks: visibleBenchmarks.filter(function (benchmark) {
+          return (benchmark.taskCategory || 'Other') === category;
+        })
+      }, index, '');
+    }).join('');
+  } else if (section.showSubsectionHeadings) {
     // Render section-level benchmarks (+ Other card if applicable) in their own grid, then subsections with headings
     var cardsHTML = visibleBenchmarks.map(function (b, i) {
       return createCard(b, i, '');

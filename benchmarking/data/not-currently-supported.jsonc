@@ -1,10 +1,10 @@
 {
   "categories": [
     {
-      "title": "System Level",
+      "title": "System Level — Proposed Tasks",
       "sections": [
         {
-          "title": "Proposed Tasks",
+          "title": "Opening, Separation, and Disassembly",
           "benchmarks": [
             {
               "name": "Open a Thin Produce Bag",
@@ -13,7 +13,12 @@
             {
               "name": "Tear Open a Snack Pouch",
               "description": "Grasp a sealed snack pouch and tear it open along a designated edge or tear notch."
-            },
+            }
+          ]
+        },
+        {
+          "title": "Assembly and Fastening",
+          "benchmarks": [
             {
               "name": "Close a Ziplock Bag",
               "description": "Align and press the interlocking seal of a resealable plastic bag until it is fully closed."

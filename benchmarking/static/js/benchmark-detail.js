@@ -161,7 +161,10 @@ function populatePage(benchmark, level, section, pmIndex) {
   // Concise manipulation primitive tags
   if (benchmark.primitiveProfile) {
     const primitiveTags = document.getElementById('benchmark-primitive-tags');
-    primitiveTags.innerHTML = getPrimitiveTags(benchmark.primitiveProfile).map(function (tag) {
+    const categoryHTML = benchmark.taskCategory
+      ? '<span class="primitive-tag task-category-tag">' + escapeHTML(benchmark.taskCategory) + '</span>'
+      : '';
+    primitiveTags.innerHTML = categoryHTML + getPrimitiveTags(benchmark.primitiveProfile).map(function (tag) {
       return '<span class="primitive-tag">' + escapeHTML(tag) + '</span>';
     }).join('');
     primitiveTags.style.display = '';
