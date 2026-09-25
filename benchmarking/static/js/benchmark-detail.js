@@ -440,7 +440,10 @@ function getPrimitiveDefinitions() {
     { key: 'controlledDegreesOfFreedom', label: 'Controlled degrees of freedom' },
     { key: 'constraintComplexity', label: 'Constraint complexity' },
     { key: 'constraintChange', label: 'Constraint change' },
-    { key: 'motionRegime', label: 'Motion regime' }
+    { key: 'motionRegime', label: 'Motion regime' },
+    { key: 'observability', label: 'Observability / information gain' },
+    { key: 'dynamicEnvironment', label: 'Dynamic environment' },
+    { key: 'irreversibility', label: 'Irreversibility' }
   ];
 }
 
@@ -452,14 +455,27 @@ function getPrimitiveTags(profile) {
     : rigidityLower.startsWith('deformable') ? 'Deformable' : 'Rigid';
   var dof = (profile.controlledDegreesOfFreedom || '').split(' — ')[0];
   var constraints = (profile.constraintComplexity || '').split(' — ')[0];
+  var observability = (profile.observability || '').split(' — ')[0];
+  var dynamicEnvironment = (profile.dynamicEnvironment || '').split(' — ')[0];
+  var irreversibility = (profile.irreversibility || '').split(' — ')[0];
 
-  return [
+  var tags = [
     profile.manipulation,
     rigidityTag,
     dof ? dof + ' DoF' : '',
     constraints ? constraints + ' constraints' : '',
     profile.motionRegime
   ].filter(Boolean);
+
+  if (observability === 'High') tags.push('High information gain');
+  if (dynamicEnvironment && dynamicEnvironment !== 'Low') {
+    tags.push(dynamicEnvironment + ' dynamic environment');
+  }
+  if (irreversibility && irreversibility !== 'Low') {
+    tags.push(irreversibility + ' irreversibility');
+  }
+
+  return tags;
 }
 
 function splitIntoSentences(text) {

@@ -21,7 +21,10 @@
             "controlledDegreesOfFreedom": "Low — one rigid block at a time",
             "constraintComplexity": "Low",
             "constraintChange": "Moderate — repeated grasp, transport, and release",
-            "motionRegime": "Quasistatic"
+            "motionRegime": "Quasistatic",
+            "observability": "Low — no unknown object properties must be identified",
+            "dynamicEnvironment": "Low — object properties remain effectively constant",
+            "irreversibility": "Low — the task outcome is readily reversible"
           },
           "shortDescription": "Transfer as many blocks as possible from a cluttered bin to another bin within 60 seconds.",
           "configurationImages": [
@@ -88,7 +91,10 @@
             "controlledDegreesOfFreedom": "Low — one rigid peg at a time",
             "constraintComplexity": "High — tight position and angle tolerances",
             "constraintChange": "High — free motion to constrained insertion",
-            "motionRegime": "Quasistatic"
+            "motionRegime": "Quasistatic",
+            "observability": "Low — geometry and tolerances are specified",
+            "dynamicEnvironment": "Low — object properties remain effectively constant",
+            "irreversibility": "Low — insertion can be reversed without material alteration"
           },
           "shortDescription": "Insert pegs into a pegboard with holes of various shapes and tolerances.",
           "configurationImages": [
@@ -155,7 +161,10 @@
             "controlledDegreesOfFreedom": "Low — one rigid object",
             "constraintComplexity": "High — support severely restricts grasp contacts and approaches",
             "constraintChange": "Moderate — table contact to hand support",
-            "motionRegime": "Quasistatic"
+            "motionRegime": "Quasistatic",
+            "observability": "Low — object and support properties are specified",
+            "dynamicEnvironment": "Low — object properties remain effectively constant",
+            "irreversibility": "Low — lifting does not permanently alter the object"
           },
           "shortDescription": "Stably grasp an M6 washer initially lying flat on a rigid table.",
           "configurationImages": [
@@ -210,7 +219,10 @@
             "controlledDegreesOfFreedom": "High — continuously deformable rope",
             "constraintComplexity": "High — contact and topological constraints",
             "constraintChange": "High — evolving contacts and topology",
-            "motionRegime": "Quasistatic"
+            "motionRegime": "Quasistatic",
+            "observability": "Moderate — rope configuration and tension must be inferred",
+            "dynamicEnvironment": "Low — material properties remain effectively constant",
+            "irreversibility": "Low — the knot can be untied without material alteration"
           },
           "shortDescription": "Tie a rope into a tight overhand knot.",
           "configurationImages": [
@@ -265,7 +277,10 @@
             "controlledDegreesOfFreedom": "Low — one movable rigid lid",
             "constraintComplexity": "High — threaded alignment and torque",
             "constraintChange": "High — free motion to thread engagement",
-            "motionRegime": "Quasistatic"
+            "motionRegime": "Quasistatic",
+            "observability": "Moderate — thread engagement and seating must be detected",
+            "dynamicEnvironment": "Low — object properties remain effectively constant",
+            "irreversibility": "Low — the lid can be unscrewed without material alteration"
           },
           "shortDescription": "Pick up a regular mouth round jar lid from a table and thread and tighten it onto a fixed jar.",
           "configurationImages": [
@@ -332,7 +347,10 @@
             "controlledDegreesOfFreedom": "Moderate — tool pose plus constrained screw motion",
             "constraintComplexity": "High — alignment, axial force, and torque",
             "constraintChange": "High — transport, engagement, and tightening",
-            "motionRegime": "Quasistatic"
+            "motionRegime": "Quasistatic",
+            "observability": "Moderate — engagement, cam-out, and seating must be detected",
+            "dynamicEnvironment": "Low — object properties remain effectively constant",
+            "irreversibility": "Low — the screw can be removed without material alteration"
           },
           "shortDescription": "Use a screwdriver to thread a screw.",
           "configurationImages": [
@@ -402,7 +420,10 @@
             "controlledDegreesOfFreedom": "High — tool articulation and sheet control",
             "constraintComplexity": "Moderate — path following, blade contact, and material support",
             "constraintChange": "High — repeated blade-material contact",
-            "motionRegime": "Quasistatic"
+            "motionRegime": "Quasistatic",
+            "observability": "Moderate — cut progress and paper state must be monitored",
+            "dynamicEnvironment": "Moderate — cutting changes the paper's connectivity",
+            "irreversibility": "High — cutting cannot be undone without repair or replacement"
           },
           "shortDescription": "Pick up and use scissors to cut out a circle drawn on a piece of paper.",
           "configurationImages": [
@@ -465,7 +486,10 @@
             "controlledDegreesOfFreedom": "Moderate — object pose and localized fabric deformation",
             "constraintComplexity": "High — tight geometry and force coordination",
             "constraintChange": "High — contact, partial insertion, and passage",
-            "motionRegime": "Quasistatic"
+            "motionRegime": "Quasistatic",
+            "observability": "Moderate — buttonhole engagement and passage must be detected",
+            "dynamicEnvironment": "Low — material properties remain effectively constant",
+            "irreversibility": "Low — fastening can be reversed without material alteration"
           },
           "shortDescription": "Button a button on a buttoning board.",
           "configurationImages": [
@@ -520,7 +544,10 @@
             "controlledDegreesOfFreedom": "High — object pose and multiple finger joints",
             "constraintComplexity": "High — simultaneous contacts and grasp forces",
             "constraintChange": "Moderate — contacts shift without release",
-            "motionRegime": "Quasistatic"
+            "motionRegime": "Quasistatic",
+            "observability": "Moderate — object pose and slip must be estimated",
+            "dynamicEnvironment": "Low — object properties remain effectively constant",
+            "irreversibility": "Low — reorientation does not permanently alter the object"
           },
           "shortDescription": "Change the orientation of a small rectangular prism from a stable grasp to another stable grasp.",
           "configurationImages": [
@@ -570,7 +597,10 @@
             "controlledDegreesOfFreedom": "Low — one rigid object",
             "constraintComplexity": "Low — few simultaneous environmental constraints",
             "constraintChange": "Moderate — grasp, release, and table contact",
-            "motionRegime": "Dynamic"
+            "motionRegime": "Dynamic",
+            "observability": "Low — no unknown object properties must be identified",
+            "dynamicEnvironment": "Low — object properties remain effectively constant",
+            "irreversibility": "Low — spinning does not permanently alter the object"
           },
           "shortDescription": "Spin a hand-spun top so that it remains upright.",
           "configurationImages": [
@@ -626,7 +656,10 @@
             "controlledDegreesOfFreedom": "High — two tools and object pose",
             "constraintComplexity": "Moderate — bilateral contact and force regulation",
             "constraintChange": "Moderate — repeated acquisition and release cycles",
-            "motionRegime": "Quasistatic"
+            "motionRegime": "Quasistatic",
+            "observability": "Moderate — capture and slip must be detected",
+            "dynamicEnvironment": "Low — object properties remain effectively constant",
+            "irreversibility": "Low — transfers do not permanently alter the objects"
           },
           "shortDescription": "Use a pair of chopsticks to grasp small wooden cubes individually and transfer them into a target container (Box and Blocks but with chopsticks).",
           "configurationImages": [
@@ -698,7 +731,10 @@
             "controlledDegreesOfFreedom": "Moderate — target pose amid movable distractors",
             "constraintComplexity": "Moderate — clutter and confinement",
             "constraintChange": "High — exploratory contacts form and break",
-            "motionRegime": "Quasistatic"
+            "motionRegime": "Quasistatic",
+            "observability": "High — active tactile exploration must identify the target",
+            "dynamicEnvironment": "Low — object properties remain effectively constant",
+            "irreversibility": "Low — retrieval does not permanently alter the objects"
           },
           "shortDescription": "Retrieve a particular rigid object from among several in a box without exteroceptive sensing.",
           "configurationImages": [
@@ -760,7 +796,10 @@
             "controlledDegreesOfFreedom": "High — two continuously deformable objects",
             "constraintComplexity": "Moderate — compliant alignment, rolling, and tucking",
             "constraintChange": "High — repeated folding, stretching, and contact",
-            "motionRegime": "Quasistatic"
+            "motionRegime": "Quasistatic",
+            "observability": "Moderate — garment shape and tension must be inferred",
+            "dynamicEnvironment": "Low — material properties remain effectively constant",
+            "irreversibility": "Low — the socks can be unbundled without material alteration"
           },
           "shortDescription": "Bundle two socks into a pair.",
           "configurationImages": [
@@ -816,7 +855,10 @@
             "controlledDegreesOfFreedom": "Moderate — guided slider and constrained fabric deformation",
             "constraintComplexity": "High — alignment, tension, and guided motion",
             "constraintChange": "High — engagement and disengagement",
-            "motionRegime": "Quasistatic"
+            "motionRegime": "Quasistatic",
+            "observability": "Moderate — slider engagement and fabric tension must be detected",
+            "dynamicEnvironment": "Low — material properties remain effectively constant",
+            "irreversibility": "Low — closing is reversed within the task"
           },
           "shortDescription": "Zip and unzip a garment zipper.",
           "configurationImages": [
@@ -873,7 +915,10 @@
             "controlledDegreesOfFreedom": "High — distributed sheet deformation",
             "constraintComplexity": "Moderate — edge alignment and crease tolerance",
             "constraintChange": "Moderate — support, folding, self-contact, and release",
-            "motionRegime": "Quasistatic"
+            "motionRegime": "Quasistatic",
+            "observability": "Moderate — alignment, deformation, and crease state must be monitored",
+            "dynamicEnvironment": "Moderate — creasing changes local rest shape and stiffness",
+            "irreversibility": "Moderate — unfolding leaves a persistent crease"
           },
           "shortDescription": "Fold a piece of paper in half with a sharp crease.",
           "configurationImages": [
@@ -929,7 +974,10 @@
             "controlledDegreesOfFreedom": "High — seven objects and an elastic fastener",
             "constraintComplexity": "High — alignment, compression, and wrapping",
             "constraintChange": "High — gathering, stretching, and securing",
-            "motionRegime": "Quasistatic"
+            "motionRegime": "Quasistatic",
+            "observability": "Moderate — bundle geometry and band tension must be inferred",
+            "dynamicEnvironment": "Low — material properties remain effectively constant",
+            "irreversibility": "Low — the bundle can be disassembled without material alteration"
           },
           "shortDescription": "Collect seven dowels into a close-packed bundle and wrap them twice with a rubber band.",
           "configurationImages": [
