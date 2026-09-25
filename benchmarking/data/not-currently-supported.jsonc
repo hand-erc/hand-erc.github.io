@@ -1,6 +1,28 @@
 {
   "categories": [
     {
+      "title": "System Level",
+      "sections": [
+        {
+          "title": "Proposed Tasks",
+          "benchmarks": [
+            {
+              "name": "Open a Thin Produce Bag",
+              "description": "Separate the two layers of a thin produce bag and open the mouth of the bag."
+            },
+            {
+              "name": "Tear Open a Snack Pouch",
+              "description": "Grasp a sealed snack pouch and tear it open along a designated edge or tear notch."
+            },
+            {
+              "name": "Close a Ziplock Bag",
+              "description": "Align and press the interlocking seal of a resealable plastic bag until it is fully closed."
+            }
+          ]
+        }
+      ]
+    },
+    {
       "title": "Hand Level",
       "sections": [
         {
