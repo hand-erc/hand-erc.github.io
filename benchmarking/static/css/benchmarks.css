@@ -419,12 +419,6 @@
   line-height: 1.5;
 }
 
-.task-category-tag {
-  color: #fff;
-  background: var(--primary-color);
-  border-color: var(--primary-color);
-}
-
 .card-primitive-tags {
   margin-top: 1rem;
 }

@@ -10,14 +10,6 @@
     {
       "title": "Atomic Benchmarking Tasks",
       "description": "Benchmarks covering a broad range of dexterous abilities.",
-      "groupByTaskCategory": true,
-      "taskCategoryOrder": [
-        "Object Transport and Retrieval",
-        "Assembly and Fastening",
-        "Material Shaping and Reconfiguration",
-        "Opening, Separation, and Disassembly",
-        "Dynamic Manipulation"
-      ],
       "benchmarks": [
         {
           "id": "box-and-blocks",
