@@ -31,59 +31,13 @@ function filterVisible(benchmarks) {
 }
 
 /**
- * Return a concise set of primitive tags for benchmark listing cards.
- */
-function getPrimitiveTags(profile) {
-  if (!profile) return [];
-
-  var rigidity = profile.rigidity || '';
-  var rigidityLower = rigidity.toLowerCase();
-  var rigidityTag = rigidityLower.startsWith('mixed')
-    ? 'Mixed rigidity'
-    : rigidityLower.startsWith('deformable') ? 'Deformable' : 'Rigid';
-  var dof = (profile.controlledDegreesOfFreedom || '').split(' — ')[0];
-  var constraints = (profile.constraintComplexity || '').split(' — ')[0];
-  var observability = (profile.observability || '').split(' — ')[0];
-  var dynamicEnvironment = (profile.dynamicEnvironment || '').split(' — ')[0];
-  var irreversibility = (profile.irreversibility || '').split(' — ')[0];
-
-  var tags = [
-    profile.manipulation,
-    rigidityTag,
-    dof ? dof + ' DoF' : '',
-    constraints ? constraints + ' constraints' : '',
-    profile.motionRegime
-  ].filter(Boolean);
-
-  if (observability === 'High') tags.push('High information gain');
-  if (dynamicEnvironment && dynamicEnvironment !== 'Low') {
-    tags.push(dynamicEnvironment + ' dynamic environment');
-  }
-  if (irreversibility && irreversibility !== 'Low') {
-    tags.push(irreversibility + ' irreversibility');
-  }
-
-  return tags;
-}
-
-function escapeBenchmarkHTML(value) {
-  return String(value)
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;')
-    .replace(/'/g, '&#039;');
-}
-
-/**
  * Create HTML for a single benchmark card.
  */
 function createCard(benchmark, index, prefix) {
-  const tagsHTML = getPrimitiveTags(benchmark.primitiveProfile).length
+  const primitiveTagsHTML = getPrimitiveTagsHTML(benchmark.primitiveProfile);
+  const tagsHTML = primitiveTagsHTML
     ? '<div class="primitive-tag-list card-primitive-tags">' +
-      getPrimitiveTags(benchmark.primitiveProfile).map(function (tag) {
-        return '<span class="primitive-tag">' + escapeBenchmarkHTML(tag) + '</span>';
-      }).join('') +
+      primitiveTagsHTML +
       '</div>'
     : '';
 
@@ -432,7 +386,8 @@ function renderTabPanels(data) {
       panel.innerHTML = descHTML + createNotSupportedList(level.categories || []);
     } else {
       const total = level.sections.length;
-      panel.innerHTML = descHTML + level.sections.map(function (s, i) {
+      const primitiveGuideHTML = level.id === 'system' ? createPrimitiveGuide() : '';
+      panel.innerHTML = descHTML + primitiveGuideHTML + level.sections.map(function (s, i) {
         return createSection(s, i, total, level.id);
       }).join('');
     }

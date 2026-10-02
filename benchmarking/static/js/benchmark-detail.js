@@ -164,9 +164,7 @@ function populatePage(benchmark, level, section, pmIndex) {
     const categoryHTML = benchmark.taskCategory
       ? '<span class="primitive-tag task-category-tag">' + escapeHTML(benchmark.taskCategory) + '</span>'
       : '';
-    primitiveTags.innerHTML = categoryHTML + getPrimitiveTags(benchmark.primitiveProfile).map(function (tag) {
-      return '<span class="primitive-tag">' + escapeHTML(tag) + '</span>';
-    }).join('');
+    primitiveTags.innerHTML = categoryHTML + getPrimitiveTagsHTML(benchmark.primitiveProfile);
     primitiveTags.style.display = '';
   }
 
@@ -282,12 +280,7 @@ if (benchmark.protocolLink) {
       ? '<h3 class="justification-subheading">Primitive profile</h3>' +
         '<div class="primitive-profile-grid">' +
         getPrimitiveDefinitions().map(function (primitive) {
-          return '<article class="primitive-profile-card">' +
-            '<span class="primitive-profile-label">' + escapeHTML(primitive.label) + '</span>' +
-            '<span class="primitive-profile-value">' +
-              escapeHTML(benchmark.primitiveProfile[primitive.key] || 'Not specified') +
-            '</span>' +
-          '</article>';
+          return createPrimitiveProfileCard(primitive, benchmark.primitiveProfile[primitive.key]);
         }).join('') +
         '</div>'
       : '';
@@ -433,52 +426,6 @@ if (benchmark.protocolLink) {
 function showNotFound() {
   document.getElementById('loading-state').style.display = 'none';
   document.getElementById('not-found-state').style.display = '';
-}
-
-function getPrimitiveDefinitions() {
-  return [
-    { key: 'manipulation', label: 'Manipulation' },
-    { key: 'rigidity', label: 'Rigidity' },
-    { key: 'relativeSize', label: 'Size relative to hand' },
-    { key: 'controlledDegreesOfFreedom', label: 'Controlled degrees of freedom' },
-    { key: 'constraintComplexity', label: 'Constraint complexity' },
-    { key: 'constraintChange', label: 'Constraint change' },
-    { key: 'motionRegime', label: 'Motion regime' },
-    { key: 'observability', label: 'Observability / information gain' },
-    { key: 'dynamicEnvironment', label: 'Dynamic environment' },
-    { key: 'irreversibility', label: 'Irreversibility' }
-  ];
-}
-
-function getPrimitiveTags(profile) {
-  var rigidity = profile.rigidity || '';
-  var rigidityLower = rigidity.toLowerCase();
-  var rigidityTag = rigidityLower.startsWith('mixed')
-    ? 'Mixed rigidity'
-    : rigidityLower.startsWith('deformable') ? 'Deformable' : 'Rigid';
-  var dof = (profile.controlledDegreesOfFreedom || '').split(' — ')[0];
-  var constraints = (profile.constraintComplexity || '').split(' — ')[0];
-  var observability = (profile.observability || '').split(' — ')[0];
-  var dynamicEnvironment = (profile.dynamicEnvironment || '').split(' — ')[0];
-  var irreversibility = (profile.irreversibility || '').split(' — ')[0];
-
-  var tags = [
-    profile.manipulation,
-    rigidityTag,
-    dof ? dof + ' DoF' : '',
-    constraints ? constraints + ' constraints' : '',
-    profile.motionRegime
-  ].filter(Boolean);
-
-  if (observability === 'High') tags.push('High information gain');
-  if (dynamicEnvironment && dynamicEnvironment !== 'Low') {
-    tags.push(dynamicEnvironment + ' dynamic environment');
-  }
-  if (irreversibility && irreversibility !== 'Low') {
-    tags.push(irreversibility + ' irreversibility');
-  }
-
-  return tags;
 }
 
 function splitIntoSentences(text) {

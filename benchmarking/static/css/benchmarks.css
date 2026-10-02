@@ -337,6 +337,88 @@
   line-height: 1.2;
 }
 
+/* One value palette shared by the guide, cards, and justification profiles. */
+.primitive-tone-blue {
+  --primitive-ink: #1e40af;
+  --primitive-fill: #eff6ff;
+  --primitive-border: #93c5fd;
+}
+
+.primitive-tone-amber {
+  --primitive-ink: #854d0e;
+  --primitive-fill: #fffbeb;
+  --primitive-border: #fcd34d;
+}
+
+.primitive-tone-purple {
+  --primitive-ink: #6b21a8;
+  --primitive-fill: #faf5ff;
+  --primitive-border: #d8b4fe;
+}
+
+.primitive-tone-teal {
+  --primitive-ink: #115e59;
+  --primitive-fill: #f0fdfa;
+  --primitive-border: #5eead4;
+}
+
+.primitive-tone-slate {
+  --primitive-ink: #334155;
+  --primitive-fill: #f1f5f9;
+  --primitive-border: #cbd5e1;
+}
+
+.primitive-tag[data-primitive] {
+  color: var(--primitive-ink);
+  background: var(--primitive-fill);
+  border-color: var(--primitive-border);
+  white-space: normal;
+  text-align: left;
+}
+
+/* System-level primitive guide */
+.primitive-guide-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+.primitive-guide-card {
+  min-width: 0;
+  padding: 1.25rem;
+  background: var(--background-primary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+}
+
+.primitive-guide-card .title {
+  margin-bottom: 0.65rem;
+  color: var(--text-primary);
+}
+
+.primitive-guide-card p {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.primitive-guide-values {
+  display: grid;
+  gap: 0.85rem;
+  margin-top: 1rem;
+  list-style: none;
+}
+
+.primitive-guide-values li {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.3rem;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
 .task-category-tag {
   color: #fff;
   background: var(--primary-color);
@@ -567,6 +649,15 @@
   font-size: 0.95rem;
   font-weight: 600;
   line-height: 1.45;
+}
+
+.primitive-profile-card[class*="primitive-tone-"] {
+  border-top-color: var(--primitive-ink);
+}
+
+.primitive-profile-card .primitive-tag {
+  align-self: flex-start;
+  max-width: 100%;
 }
 
 .justification-lead {
@@ -883,7 +974,8 @@
     height: 210px;
   }
 
-  .primitive-profile-grid {
+  .primitive-profile-grid,
+  .primitive-guide-grid {
     grid-template-columns: 1fr;
   }
 }
