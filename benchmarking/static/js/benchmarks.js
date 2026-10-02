@@ -31,51 +31,102 @@ function filterVisible(benchmarks) {
 }
 
 /**
- * Return a concise set of primitive tags for benchmark listing cards.
+ * Values within a primitive are alternatives; selected primitives combine.
  */
-function getPrimitiveTags(profile) {
-  if (!profile) return [];
-
-  var rigidity = profile.rigidity || '';
-  var rigidityLower = rigidity.toLowerCase();
-  var rigidityTag = rigidityLower.startsWith('mixed')
-    ? 'Mixed rigidity'
-    : rigidityLower.startsWith('deformable') ? 'Deformable' : 'Rigid';
-  var dof = (profile.controlledDegreesOfFreedom || '').split(' — ')[0];
-  var constraints = (profile.constraintComplexity || '').split(' — ')[0];
-
-  return [
-    profile.manipulation,
-    rigidityTag,
-    dof ? dof + ' DoF' : '',
-    constraints ? constraints + ' constraints' : '',
-    profile.motionRegime
-  ].filter(Boolean);
+function matchesPrimitiveFilters(benchmark, selections) {
+  return getPrimitiveDefinitions().every(function (primitive) {
+    const selected = selections[primitive.key] || [];
+    if (selected.length === 0) return true;
+    const value = getPrimitiveValue(primitive, (benchmark.primitiveProfile || {})[primitive.key]);
+    return value && selected.includes(value.value);
+  });
 }
 
-function escapeBenchmarkHTML(value) {
-  return String(value)
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;')
-    .replace(/'/g, '&#039;');
+function createPrimitiveFilters() {
+  const groupsHTML = getPrimitiveDefinitions().map(function (primitive) {
+    const optionsHTML = primitive.values.map(function (value) {
+      return '<button type="button" class="primitive-tag primitive-filter-option primitive-tone-' + value.tone + '"' +
+        ' data-primitive="' + primitive.key + '" data-value="' + escapePrimitiveHTML(value.value) + '"' +
+        ' aria-pressed="false" aria-controls="system-task-list"' +
+        ' title="' + escapePrimitiveHTML(value.description) + '">' + escapePrimitiveHTML(value.tag) + '</button>';
+    }).join('');
+    return '<fieldset class="primitive-filter-group"><legend>' + escapePrimitiveHTML(primitive.label) + '</legend>' +
+      '<div class="primitive-tag-list">' + optionsHTML + '</div></fieldset>';
+  }).join('');
+
+  return '<section class="primitive-filters" id="system-primitive-filters" aria-labelledby="primitive-filter-title">' +
+    '<div class="primitive-filter-header"><h3 class="title is-4" id="primitive-filter-title">Filter tasks</h3>' +
+      '<button type="button" class="button is-small is-light" id="clear-primitive-filters" disabled>Clear filters</button></div>' +
+    '<p class="primitive-filter-help">Choose one or more values per primitive. Tasks must match at least one value in each selected primitive.</p>' +
+    '<div class="primitive-filter-grid">' + groupsHTML + '</div>' +
+    '<p class="primitive-filter-status" id="primitive-filter-status" role="status" aria-live="polite" aria-atomic="true"></p>' +
+    '</section>';
+}
+
+function setupPrimitiveFilters(data) {
+  const filters = document.getElementById('system-primitive-filters');
+  if (!filters) return;
+  const system = data.levels.find(function (level) { return level.id === 'system'; });
+  const tasks = system.sections.flatMap(function (section) {
+    return filterVisible(section.benchmarks || []).concat(
+      filterVisible(section.subsections || []).flatMap(function (subsection) {
+        return filterVisible(subsection.benchmarks || []);
+      })
+    );
+  });
+  const tasksById = new Map(tasks.map(function (task) { return [task.id, task]; }));
+  const cards = document.querySelectorAll('#system-task-list [data-benchmark-id]');
+  const options = filters.querySelectorAll('.primitive-filter-option');
+  const clear = document.getElementById('clear-primitive-filters');
+
+  function updateResults() {
+    const selections = {};
+    options.forEach(function (option) {
+      if (option.getAttribute('aria-pressed') === 'true') {
+        const key = option.dataset.primitive;
+        if (!selections[key]) selections[key] = [];
+        selections[key].push(option.dataset.value);
+      }
+    });
+    let count = 0;
+    cards.forEach(function (card) {
+      const task = tasksById.get(card.dataset.benchmarkId);
+      const matches = Boolean(task && matchesPrimitiveFilters(task, selections));
+      card.hidden = !matches;
+      if (matches) count++;
+    });
+    clear.disabled = Object.keys(selections).length === 0;
+    document.getElementById('primitive-filter-status').textContent = 'Showing ' + count + ' of ' + cards.length + ' tasks';
+    document.getElementById('primitive-filter-empty').hidden = count !== 0;
+  }
+
+  filters.addEventListener('click', function (event) {
+    const option = event.target.closest('.primitive-filter-option');
+    if (option && filters.contains(option)) {
+      option.setAttribute('aria-pressed', option.getAttribute('aria-pressed') === 'true' ? 'false' : 'true');
+      updateResults();
+    }
+  });
+  clear.addEventListener('click', function () {
+    options.forEach(function (option) { option.setAttribute('aria-pressed', 'false'); });
+    updateResults();
+  });
+  updateResults();
 }
 
 /**
  * Create HTML for a single benchmark card.
  */
 function createCard(benchmark, index, prefix) {
-  const tagsHTML = getPrimitiveTags(benchmark.primitiveProfile).length
+  const primitiveTagsHTML = getPrimitiveTagsHTML(benchmark.primitiveProfile);
+  const tagsHTML = primitiveTagsHTML
     ? '<div class="primitive-tag-list card-primitive-tags">' +
-      getPrimitiveTags(benchmark.primitiveProfile).map(function (tag) {
-        return '<span class="primitive-tag">' + escapeBenchmarkHTML(tag) + '</span>';
-      }).join('') +
+      primitiveTagsHTML +
       '</div>'
     : '';
 
   return `
-    <div class="column is-one-third-desktop is-half-tablet">
+    <div class="column is-one-third-desktop is-half-tablet" data-benchmark-id="${escapePrimitiveHTML(benchmark.id)}">
       <a href="benchmark.html?id=${benchmark.id}" class="benchmark-card-link">
         <div class="card benchmark-card">
           <div class="card-content">
@@ -398,9 +449,14 @@ function renderTabPanels(data) {
       panel.innerHTML = descHTML + createNotSupportedList(level.categories || []);
     } else {
       const total = level.sections.length;
-      panel.innerHTML = descHTML + level.sections.map(function (s, i) {
+      const primitiveGuideHTML = level.id === 'system' ? createPrimitiveGuide() : '';
+      const sectionsHTML = level.sections.map(function (s, i) {
         return createSection(s, i, total, level.id);
       }).join('');
+      panel.innerHTML = descHTML + primitiveGuideHTML + (level.id === 'system'
+        ? createPrimitiveFilters() + '<div id="system-task-list">' + sectionsHTML +
+          '<p class="primitive-filter-empty" id="primitive-filter-empty" hidden>No tasks match these values. Try removing a value or clearing the filters.</p></div>'
+        : sectionsHTML);
     }
 
     container.appendChild(panel);
@@ -455,6 +511,7 @@ document.addEventListener('DOMContentLoaded', async function () {
   try {
     const data = await fetchBenchmarks();
     renderTabPanels(data);
+    setupPrimitiveFilters(data);
     setupTabs();
     activateTabFromHash();
 
