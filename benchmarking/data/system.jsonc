@@ -222,7 +222,7 @@
             "relativeSize": "Mixed relative to the hand",
             "controlledDegreesOfFreedom": "High — continuously deformable rope",
             "constraintComplexity": "High — contact and topological constraints",
-            "constraintChange": "High — evolving contacts and topology",
+            "constraintChange": "High — evolving self-contacts and threading constraints",
             "motionRegime": "Quasistatic",
             "observability": "Moderate — rope configuration and tension must be inferred",
             "dynamicEnvironment": "Low — material properties remain effectively constant",
@@ -234,7 +234,7 @@
             { "src": "Images/task_pictures/tie_a_knot/ending.jpg", "caption": "Ending configuration", "alt": "Rope tied in an overhand knot" }
           ],
           "description": "Tie a rope into a tight overhand knot.",
-          "justification": "Tie a Knot evaluates a system's ability to manipulate a deformable object whose geometry changes continuously throughout the task. The task involves quasistatic direct manipulation of a deformable rope in a rigid environment. Its diameter is smaller than the hand while its length is larger, giving it mixed relative size, and its continuously changing shape produces high controlled degrees of freedom. Successful completion requires coordinating intermediate configurations while controlling the rope's global shape, local contacts, and self-contacts. Knot formation also imposes topological constraints, producing high constraint complexity and high constraint change as contacts and topology evolve. More broadly, knot tying serves as a representative benchmark for deformable-object manipulation and captures many of the challenges encountered when handling ropes, cables, sutures, and other flexible materials.",
+          "justification": "Tie a Knot evaluates a system's ability to manipulate a deformable object whose geometry changes continuously throughout the task. The task involves quasistatic direct manipulation of a deformable rope in a rigid environment. Its diameter is smaller than the hand while its length is larger, giving it mixed relative size, and its continuously changing shape produces high controlled degrees of freedom. Successful completion requires coordinating intermediate configurations while controlling the rope's global shape, local contacts, and self-contacts. Knot formation also imposes topological constraints, producing high constraint complexity and high constraint change as self-contacts and threading constraints evolve. More broadly, knot tying serves as a representative benchmark for deformable-object manipulation and captures many of the challenges encountered when handling ropes, cables, sutures, and other flexible materials.",
           "items": [
             {
               "item": "rope",
@@ -352,7 +352,7 @@
             "relativeSize": "Mixed relative to the hand",
             "controlledDegreesOfFreedom": "Moderate — tool pose plus constrained screw motion",
             "constraintComplexity": "High — alignment, axial force, and torque",
-            "constraintChange": "High — transport, engagement, and tightening",
+            "constraintChange": "High — tool acquisition, engagement, rotation, and disengagement",
             "motionRegime": "Quasistatic",
             "observability": "Moderate — engagement, cam-out, and seating must be detected",
             "dynamicEnvironment": "Low — object properties remain effectively constant",
@@ -365,7 +365,7 @@
             { "src": "Images/task_pictures/use_screwdriver/ending.png", "caption": "Ending configuration", "alt": "Screw after being threaded with the screwdriver" }
           ],
           "description": "Beginning with a partially threaded screw, grasp a screwdriver and use it to thread the screw an additional three turns.",
-          "justification": "Use Screwdriver evaluates a system's ability to perform quasistatic indirect manipulation using rigid manipulanda in a rigid environment. The hand-scale screwdriver and smaller screw occupy mixed size categories. Coordinating the tool pose with the screw's constrained motion produces moderate controlled degrees of freedom. The task exhibits high constraint complexity because successful completion requires maintaining tip-to-head alignment, applying axial force and torque, and regulating contact to prevent cam-out. It also involves high constraint change, progressing from free-space tool transport to engagement, threaded insertion, final tightening, and disengagement. More broadly, screwdriver use represents tool-mediated manipulation that is fundamental to manufacturing, maintenance, and assembly.",
+          "justification": "Use Screwdriver evaluates a system's ability to perform quasistatic indirect manipulation using rigid manipulanda in a rigid environment. The hand-scale screwdriver and smaller screw occupy mixed size categories. Coordinating the tool pose with the screw's constrained motion produces moderate controlled degrees of freedom. The task exhibits high constraint complexity because successful completion requires maintaining tip-to-head alignment, applying axial force and torque, and regulating contact to prevent cam-out. It also involves high constraint change, progressing from free-space tool transport to tip engagement, constrained rotation of the already threaded screw, and tool disengagement. More broadly, screwdriver use represents tool-mediated manipulation that is fundamental to manufacturing, maintenance, and assembly.",
           "items": [
             {
               "item": "Phillips-head screwdriver",
@@ -439,7 +439,7 @@
             { "src": "Images/task_pictures/use_scissors/ending.jpg", "caption": "Ending configuration", "alt": "Circle cut out from the paper" }
           ],
           "description": "Pick up and use scissors to cut out a circle drawn on a piece of A4 printer paper.",
-          "justification": "Use Scissors evaluates a system's ability to perform quasistatic indirect manipulation with mixed rigid and deformable manipulanda in a rigid environment. The hand-scale rigid scissors and larger deformable paper occupy mixed size categories. Tool articulation combined with control of the paper's distributed deformation produces high controlled degrees of freedom. Constraint complexity is moderate: the cut must follow the prescribed path while blade contact and material support are maintained, but the task has no tightly toleranced rigid mating interface. Constraint change is high because blade-paper contacts repeatedly form and break and cutting irreversibly changes the paper's material topology. More broadly, scissor use represents articulated tool manipulation and tool-mediated interaction with deformable objects.",
+          "justification": "Use Scissors evaluates a system's ability to perform quasistatic indirect manipulation with mixed rigid and deformable manipulanda in a rigid environment. The hand-scale rigid scissors and larger deformable paper occupy mixed size categories. Tool articulation combined with control of the paper's distributed deformation produces high controlled degrees of freedom. Constraint complexity is moderate: the cut must follow the prescribed path while blade contact and material support are maintained, but the task has no tightly toleranced rigid mating interface. Constraint change is high because blade-paper engagement repeatedly forms and breaks as the cutting location advances along the circle and the paper is repositioned. More broadly, scissor use represents articulated tool manipulation and tool-mediated interaction with deformable objects.",
           "items": [
             {
               "item": "Standard office scissors",
@@ -808,7 +808,7 @@
             "relativeSize": "Comparable to the hand",
             "controlledDegreesOfFreedom": "High — two continuously deformable objects",
             "constraintComplexity": "Moderate — compliant alignment, rolling, and tucking",
-            "constraintChange": "High — repeated folding, stretching, and contact",
+            "constraintChange": "High — rolling, cuff stretching, and tucking",
             "motionRegime": "Quasistatic",
             "observability": "Moderate — garment shape and tension must be inferred",
             "dynamicEnvironment": "Low — material properties remain effectively constant",
@@ -820,7 +820,7 @@
             { "src": "Images/task_pictures/bundle_socks/ending.jpg", "caption": "Ending configuration", "alt": "Pair of socks bundled together" }
           ],
           "description": "Bundle two socks by rolling the socks together and tucking one sock cuff over the other.",
-          "justification": "Bundle Socks evaluates a system's ability to manipulate multiple deformable objects whose geometry changes continuously throughout the task. It involves quasistatic direct manipulation of two deformable socks, each comparable in size to the hand, within a rigid environment. Coordinating two continuously deformable objects produces high controlled degrees of freedom. Constraint complexity is moderate because the task requires compliant alignment, rolling, and tucking but uses loose final tolerances rather than a rigid mating interface. Constraint change is high because contacts among the socks, manipulator, and environment repeatedly form and break as the fabric is folded, stretched, compressed, and tucked. More broadly, sock bundling represents deformable-object manipulation in household, laundry, and garment-handling tasks.",
+          "justification": "Bundle Socks evaluates a system's ability to manipulate multiple deformable objects whose geometry changes continuously throughout the task. It involves quasistatic direct manipulation of two deformable socks, each comparable in size to the hand, within a rigid environment. Coordinating two continuously deformable objects produces high controlled degrees of freedom. Constraint complexity is moderate because the task requires compliant alignment, rolling, and tucking but uses loose final tolerances rather than a rigid mating interface. Constraint change is high because contacts among the socks, manipulator, and environment repeatedly form and break as the fabric is rolled, stretched, compressed, and tucked. More broadly, sock bundling represents deformable-object manipulation in household, laundry, and garment-handling tasks.",
           "items": [
             {
               "item": "crew socks",
@@ -1001,7 +1001,7 @@
             { "src": "Images/task_pictures/bundle_dowels/ending.jpg", "caption": "Ending configuration", "alt": "Dowels bundled together with the rubber band" }
           ],
           "description": "Gather seven cylindrical dowels into a compact bundle and secure them by wrapping a rubber band around the bundle twice.",
-          "justification": "Bundle Dowels with a Rubber Band evaluates a system's ability to coordinate multiple rigid objects with a deformable fastening element in a rigid environment. The long, thin dowels and smaller elastic band occupy mixed size categories. Simultaneously controlling seven independent dowels and a deformable fastener produces high controlled degrees of freedom. Constraint complexity is high because the manipulator must maintain many contacts, align and compress the dowels, preserve the bundle, and regulate tension while wrapping the band. Constraint change is also high as contacts repeatedly form and break while the dowels are gathered, compressed, stretched around, and secured. More broadly, bundling with a flexible fastener represents packaging, manufacturing, and household organization tasks involving both rigid and deformable components.",
+          "justification": "Bundle Dowels with a Rubber Band evaluates a system's ability to coordinate multiple rigid objects with a deformable fastening element in a rigid environment. The long, thin dowels and smaller elastic band occupy mixed size categories. Simultaneously controlling seven independent dowels and a deformable fastener produces high controlled degrees of freedom. Constraint complexity is high because the manipulator must maintain many contacts, align and compress the dowels, preserve the bundle, and regulate tension while wrapping the band. Constraint change is also high as contacts repeatedly form and break while the dowels are gathered and compressed and the band is stretched, wrapped, and secured. More broadly, bundling with a flexible fastener represents packaging, manufacturing, and household organization tasks involving both rigid and deformable components.",
           "items": [
             {
               "item": "wooden dowels",

@@ -419,6 +419,11 @@
   line-height: 1.5;
 }
 
+.primitive-guide-examples {
+  color: #475569;
+  font-size: 0.82rem;
+}
+
 .card-primitive-tags {
   margin-top: 1rem;
 }
