@@ -65,33 +65,6 @@ const primitiveDefinitions = [
       { value: 'Quasistatic', tag: 'Quasistatic', tone: 'blue', description: 'Success does not depend on momentum or other dynamic effects, even if the task is performed quickly.' },
       { value: 'Dynamic', tag: 'Dynamic', tone: 'purple', description: 'Success depends on deliberately generating or exploiting dynamics, such as spinning a top.' }
     ]
-  },
-  {
-    key: 'observability', label: 'Observability / information gain',
-    description: 'How much the system must discover about unknown object properties or interaction states to complete the task.',
-    values: [
-      { value: 'Low', tag: 'Low information gain', tone: 'blue', description: 'No unknown properties or interaction states need to be identified beyond routine task feedback.' },
-      { value: 'Moderate', tag: 'Moderate information gain', tone: 'amber', description: 'Feedback must infer configuration, tension, slip, contact, or engagement state.' },
-      { value: 'High', tag: 'High information gain', tone: 'purple', description: 'Active exploration and object identification are central to success.' }
-    ]
-  },
-  {
-    key: 'dynamicEnvironment', label: 'Dynamic environment',
-    description: 'Whether the object’s physical properties change during the task. This describes changes to the object itself, rather than changes in the active contact set.',
-    values: [
-      { value: 'Low', tag: 'Low dynamic environment', tone: 'blue', description: 'Physical properties remain effectively constant.' },
-      { value: 'Moderate', tag: 'Moderate dynamic environment', tone: 'amber', description: 'A localized or discrete operation changes connectivity, rest shape, or another persistent property, as in cutting or creasing.' },
-      { value: 'High', tag: 'High dynamic environment', tone: 'purple', description: 'Continuously evolving properties are central to control, such as changing spring damping, curing, stiffening, or jamming.' }
-    ]
-  },
-  {
-    key: 'irreversibility', label: 'Irreversibility',
-    description: 'Whether the original state can be restored after the task without repairing or replacing material.',
-    values: [
-      { value: 'Low', tag: 'Low irreversibility', tone: 'blue', description: 'The outcome can be reversed without permanent material alteration.' },
-      { value: 'Moderate', tag: 'Moderate irreversibility', tone: 'amber', description: 'The operation can be functionally reversed, but a residual material change remains, such as a crease.' },
-      { value: 'High', tag: 'High irreversibility', tone: 'purple', description: 'The original state cannot be restored without repair or replacement, as after cutting.' }
-    ]
   }
 ];
 
@@ -137,7 +110,7 @@ function createPrimitiveGuide() {
 
   return '<section class="benchmark-section primitive-guide" id="system-primitives" aria-labelledby="primitive-guide-title">' +
     '<h3 class="title is-4 section-divider" id="primitive-guide-title">Manipulation primitives</h3>' +
-    '<p class="section-description">Each task is described by the ten primitives below. The colored labels are used in the task cards and justification profiles. ' +
+    '<p class="section-description">Each task is described by the seven primitives below. The colored labels are used in the task cards and justification profiles. ' +
       'For graded primitives, blue means Low, amber means Moderate, and purple means High. ' +
       'Each rating describes the task’s demands along that primitive. Categorical values use the colors shown in their entries.</p>' +
     '<div class="primitive-guide-grid">' + definitionsHTML + '</div></section>';
