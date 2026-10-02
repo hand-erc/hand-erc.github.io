@@ -365,11 +365,7 @@ function renderTabPanels(data) {
       panel.innerHTML = descHTML + createNotSupportedList(level.categories || []);
     } else {
       const total = level.sections.length;
-      const primitiveGuideHTML = level.id === 'system'
-        ? createPrimitiveGuide(level.sections.flatMap(function (section) {
-            return filterVisible(section.benchmarks || []);
-          }))
-        : '';
+      const primitiveGuideHTML = level.id === 'system' ? createPrimitiveGuide() : '';
       panel.innerHTML = descHTML + primitiveGuideHTML + level.sections.map(function (s, i) {
         return createSection(s, i, total, level.id);
       }).join('');
