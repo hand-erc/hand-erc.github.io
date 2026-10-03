@@ -337,6 +337,193 @@
   line-height: 1.2;
 }
 
+/* One value palette shared by the guide, cards, and justification profiles. */
+.primitive-tone-blue {
+  --primitive-ink: #1e40af;
+  --primitive-fill: #eff6ff;
+  --primitive-border: #93c5fd;
+}
+
+.primitive-tone-amber {
+  --primitive-ink: #854d0e;
+  --primitive-fill: #fffbeb;
+  --primitive-border: #fcd34d;
+}
+
+.primitive-tone-purple {
+  --primitive-ink: #6b21a8;
+  --primitive-fill: #faf5ff;
+  --primitive-border: #d8b4fe;
+}
+
+.primitive-tone-teal {
+  --primitive-ink: #115e59;
+  --primitive-fill: #f0fdfa;
+  --primitive-border: #5eead4;
+}
+
+.primitive-tone-slate {
+  --primitive-ink: #334155;
+  --primitive-fill: #f1f5f9;
+  --primitive-border: #cbd5e1;
+}
+
+.primitive-tag[data-primitive] {
+  color: var(--primitive-ink);
+  background: var(--primitive-fill);
+  border-color: var(--primitive-border);
+  white-space: normal;
+  text-align: left;
+}
+
+/* System-level primitive guide */
+.primitive-guide-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+.primitive-guide-card {
+  min-width: 0;
+  padding: 1.25rem;
+  background: var(--background-primary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+}
+
+.primitive-guide-card .title {
+  margin-bottom: 0.65rem;
+  color: var(--text-primary);
+}
+
+.primitive-guide-card p {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.primitive-guide-values {
+  display: grid;
+  gap: 0.85rem;
+  margin-top: 1rem;
+  list-style: none;
+}
+
+.primitive-guide-values li {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.3rem;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+/* Primitive value filters */
+.primitive-filters {
+  margin-bottom: 2rem;
+  padding: 1.25rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  background: var(--background-secondary);
+}
+
+.primitive-filter-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 0.65rem;
+}
+
+.primitive-filter-header .title {
+  margin: 0;
+  color: var(--text-primary);
+}
+
+.primitive-filter-help {
+  margin-bottom: 1.25rem;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.primitive-filter-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+  gap: 1.25rem;
+}
+
+.primitive-filter-group {
+  min-width: 0;
+  padding: 0;
+  border: 0;
+}
+
+.primitive-filter-group legend {
+  margin-bottom: 0.55rem;
+  color: var(--text-primary);
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.primitive-filter-option {
+  max-width: 100%;
+  gap: 0.45rem;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.primitive-filter-option::before {
+  content: '';
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 0.9rem;
+  height: 0.9rem;
+  border: 1px solid currentColor;
+  border-radius: 3px;
+  font-size: 0.7rem;
+  line-height: 1;
+}
+
+.primitive-filter-option[aria-pressed="true"] {
+  border-color: var(--primitive-ink);
+  box-shadow: inset 0 0 0 1px var(--primitive-ink);
+}
+
+.primitive-filter-option[aria-pressed="true"]::before {
+  content: '\2713';
+  background: var(--primitive-ink);
+  color: var(--primitive-fill);
+  border-color: var(--primitive-ink);
+}
+
+.primitive-filter-option:focus-visible,
+#clear-primitive-filters:focus-visible {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 3px;
+}
+
+.primitive-filter-status {
+  margin-top: 1.25rem;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.primitive-filter-empty {
+  padding: 1.25rem;
+  color: var(--text-secondary);
+  background: var(--background-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+}
+
+#system-task-list [hidden] {
+  display: none !important;
+}
+
 .card-primitive-tags {
   margin-top: 1rem;
 }
@@ -561,6 +748,15 @@
   font-size: 0.95rem;
   font-weight: 600;
   line-height: 1.45;
+}
+
+.primitive-profile-card[class*="primitive-tone-"] {
+  border-top-color: var(--primitive-ink);
+}
+
+.primitive-profile-card .primitive-tag {
+  align-self: flex-start;
+  max-width: 100%;
 }
 
 .justification-lead {
@@ -877,7 +1073,8 @@
     height: 210px;
   }
 
-  .primitive-profile-grid {
+  .primitive-profile-grid,
+  .primitive-guide-grid {
     grid-template-columns: 1fr;
   }
 }

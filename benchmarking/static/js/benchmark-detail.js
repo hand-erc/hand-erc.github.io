@@ -161,9 +161,7 @@ function populatePage(benchmark, level, section, pmIndex) {
   // Concise manipulation primitive tags
   if (benchmark.primitiveProfile) {
     const primitiveTags = document.getElementById('benchmark-primitive-tags');
-    primitiveTags.innerHTML = getPrimitiveTags(benchmark.primitiveProfile).map(function (tag) {
-      return '<span class="primitive-tag">' + escapeHTML(tag) + '</span>';
-    }).join('');
+    primitiveTags.innerHTML = getPrimitiveTagsHTML(benchmark.primitiveProfile);
     primitiveTags.style.display = '';
   }
 
@@ -279,12 +277,7 @@ if (benchmark.protocolLink) {
       ? '<h3 class="justification-subheading">Primitive profile</h3>' +
         '<div class="primitive-profile-grid">' +
         getPrimitiveDefinitions().map(function (primitive) {
-          return '<article class="primitive-profile-card">' +
-            '<span class="primitive-profile-label">' + escapeHTML(primitive.label) + '</span>' +
-            '<span class="primitive-profile-value">' +
-              escapeHTML(benchmark.primitiveProfile[primitive.key] || 'Not specified') +
-            '</span>' +
-          '</article>';
+          return createPrimitiveProfileCard(primitive, benchmark.primitiveProfile[primitive.key]);
         }).join('') +
         '</div>'
       : '';
@@ -430,36 +423,6 @@ if (benchmark.protocolLink) {
 function showNotFound() {
   document.getElementById('loading-state').style.display = 'none';
   document.getElementById('not-found-state').style.display = '';
-}
-
-function getPrimitiveDefinitions() {
-  return [
-    { key: 'manipulation', label: 'Manipulation' },
-    { key: 'rigidity', label: 'Rigidity' },
-    { key: 'relativeSize', label: 'Size relative to hand' },
-    { key: 'controlledDegreesOfFreedom', label: 'Controlled degrees of freedom' },
-    { key: 'constraintComplexity', label: 'Constraint complexity' },
-    { key: 'constraintChange', label: 'Constraint change' },
-    { key: 'motionRegime', label: 'Motion regime' }
-  ];
-}
-
-function getPrimitiveTags(profile) {
-  var rigidity = profile.rigidity || '';
-  var rigidityLower = rigidity.toLowerCase();
-  var rigidityTag = rigidityLower.startsWith('mixed')
-    ? 'Mixed rigidity'
-    : rigidityLower.startsWith('deformable') ? 'Deformable' : 'Rigid';
-  var dof = (profile.controlledDegreesOfFreedom || '').split(' — ')[0];
-  var constraints = (profile.constraintComplexity || '').split(' — ')[0];
-
-  return [
-    profile.manipulation,
-    rigidityTag,
-    dof ? dof + ' DoF' : '',
-    constraints ? constraints + ' constraints' : '',
-    profile.motionRegime
-  ].filter(Boolean);
 }
 
 function splitIntoSentences(text) {
