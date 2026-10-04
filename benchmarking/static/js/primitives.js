@@ -33,11 +33,11 @@ const primitiveDefinitions = [
   },
   {
     key: 'controlledDegreesOfFreedom', label: 'Controlled degrees of freedom',
-    description: 'How much independent object motion, deformation, and finger-contact motion must be coordinated. These qualitative levels account for fixture guidance and the task’s required manipulation strategy as well as the number of objects.',
+    description: 'How much independent motion or deformation of the manipulanda must be controlled, accounting for the number of objects and fixture guidance. Finger-contact coordination is reflected in the constraint primitives.',
     values: [
-      { value: 'Low', tag: 'Low DoF', tone: 'blue', description: 'One rigid object is controlled with a simple grasp and minimal contact reconfiguration.' },
+      { value: 'Low', tag: 'Low DoF', tone: 'blue', description: 'One rigid object is controlled at a time.' },
       { value: 'Moderate', tag: 'Moderate DoF', tone: 'amber', description: 'Guided mechanisms, localized deformation, or movable distractors require limited additional coordination.' },
-      { value: 'High', tag: 'High DoF', tone: 'purple', description: 'Multiple objects, distributed deformation, or independent finger-contact motion require substantial coordination.' }
+      { value: 'High', tag: 'High DoF', tone: 'purple', description: 'Multiple independently controlled components or distributed deformation require substantial coordination.' }
     ]
   },
   {
@@ -46,16 +46,16 @@ const primitiveDefinitions = [
     values: [
       { value: 'Low', tag: 'Low constraints', tone: 'blue', description: 'Few simultaneous constraints leave broad freedom in grasp and motion.' },
       { value: 'Moderate', tag: 'Moderate constraints', tone: 'amber', description: 'Alignment, confinement, or contact-force requirements allow several feasible manipulation strategies.' },
-      { value: 'High', tag: 'High constraints', tone: 'purple', description: 'Tight geometry, restricted access, topology, or coupled force requirements severely limit feasible grasps and motions.' }
+      { value: 'High', tag: 'High constraints', tone: 'purple', description: 'Restrictive geometry, topology, or coupled contact modes and forces strongly constrain manipulation.' }
     ]
   },
   {
     key: 'constraintChange', label: 'Constraint change',
     description: 'How the active contact set and resulting motion restrictions change during the task. The rating considers the variety and progression of contact modes as well as how often contacts form or break.',
     values: [
-      { value: 'Low', tag: 'Low constraint change', tone: 'blue', description: 'Contacts and motion restrictions remain effectively constant.' },
-      { value: 'Moderate', tag: 'Moderate constraint change', tone: 'amber', description: 'Contacts follow a limited sequence, shift within a grasp, or repeat the same handling cycle.' },
-      { value: 'High', tag: 'High constraint change', tone: 'purple', description: 'Contact modes progressively restrict motion or repeatedly reorganize across interfaces or deformable objects.' }
+      { value: 'Low', tag: 'Low constraint change', tone: 'blue', description: 'Few simple contact transitions introduce limited motion restrictions.' },
+      { value: 'Moderate', tag: 'Moderate constraint change', tone: 'amber', description: 'Support transfers or repeated handling cycles change contact constraints in a predictable sequence.' },
+      { value: 'High', tag: 'High constraint change', tone: 'purple', description: 'Contact modes reorganize, mating interfaces engage or disengage, or deformable self-contacts evolve.' }
     ]
   },
   {
