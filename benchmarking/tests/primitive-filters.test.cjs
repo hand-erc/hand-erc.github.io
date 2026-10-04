@@ -168,3 +168,39 @@ test('controls offer only the seven original primitives and their colored values
   assert.equal((html.match(/aria-pressed="false"/g) || []).length, 21);
   assert(!/observability|dynamicEnvironment|irreversibility/.test(html));
 });
+
+test('primitive tags consistently use lowercase words, preserving the DoF acronym', () => {
+  for (const primitive of context.getPrimitiveDefinitions()) {
+    for (const value of primitive.values) {
+      const words = value.tag.replace(/\bDoF\b/g, 'dof');
+      assert.equal(words, words.toLowerCase(), primitive.key + ': ' + value.tag);
+    }
+  }
+});
+
+test('the guide, filters, task cards, and justification cards share compact rigidity tags', () => {
+  const rigidity = context.getPrimitiveDefinitions().find(primitive => primitive.key === 'rigidity');
+  assert.deepEqual(Array.from(rigidity.values, value => value.tag), [
+    'rigid obj/rigid env', 'deformable obj/rigid env', 'mixed obj/rigid env', 'rigid obj/no env contact'
+  ]);
+  const guide = context.createPrimitiveGuide();
+  const filters = context.createPrimitiveFilters();
+  for (const value of rigidity.values) {
+    const label = '>' + value.tag + '<';
+    assert(guide.includes(label));
+    assert(filters.includes(label));
+    const task = tasks.find(task => task.primitiveProfile.rigidity === value.value);
+    assert(task, value.value);
+    assert(context.getPrimitiveTagsHTML(task.primitiveProfile).includes(label));
+    assert(context.createPrimitiveProfileCard(rigidity, value.value).includes(label));
+  }
+});
+
+test('moderate DoF describes the additional motion or deformation that must be controlled', () => {
+  const dof = context.getPrimitiveDefinitions().find(primitive => primitive.key === 'controlledDegreesOfFreedom');
+  const moderate = dof.values.find(value => value.value === 'Moderate');
+  assert.equal(moderate.description, 'Object motion must be coordinated with limited movement of other components or local deformation.');
+  assert(!/guided mechanisms|restricted to a fixed path/i.test(moderate.description));
+  assert(context.createPrimitiveGuide().includes(moderate.description));
+  assert(context.createPrimitiveFilters().includes(moderate.description));
+});
