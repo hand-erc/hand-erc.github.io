@@ -362,6 +362,15 @@
           "references": ["S. Jacobsen, E. Iversen, D. Knutti, R. Johnson, and K. Biggers, \"Design of the Utah/M.I.T. Dextrous Hand,\" in <em>Proceedings. 1986 IEEE International Conference on Robotics and Automation</em>, San Francisco, CA, USA: IEEE, 1986, pp. 1520–1532. doi: <a href='https://doi.org/10.1109/ROBOT.1986.1087395'>10.1109/ROBOT.1986.1087395</a>."]
         },
         {
+          "id": "finger-proprioception-accuracy",
+          "title": "Proprioception Accuracy",
+          "shortDescription": "How accurately the finger senses its own position.",
+          "description": "Proprioception accuracy measures how well the finger's internal sensors report its own configuration. It is the error between the internally sensed fingertip position (or joint angles) and the fingertip position measured externally, for example with vision-based motion capture.",
+          "procedures": [""],
+          "metrics": [{ "name": "", "unit": "", "description": "" }],
+          "analysisMethods": [""]
+        },
+        {
           "id": "fingertip-strength",
           "title": "Strength",
           "shortDescription": "The maximum force that can be produced at the fingertip.",
