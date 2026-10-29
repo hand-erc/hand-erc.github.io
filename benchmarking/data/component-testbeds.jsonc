@@ -2,13 +2,76 @@
   "description": ["Component test beds are used to benchmark the performance of robot hands at the hand and component level. Listed below are the component testbeds under development within the HAND ERC."],
   "testbeds": [
     {
-      "name": "Finger Testbed",
+      "name": "Finger Dynamics Testbed",
       "hostInstitution": "Northwestern University",
-      "images": ["Images/Finger Testbed.png"],
-      "description": "The goal of this project is to develop a set of metrics and associated testing hardware to evaluate the physical performance of a single robot finger. Metrics in this project evaluate the strength, speed, impedance, and control bandwidth of a robot finger.",
-      "associatedBenchmarks": ["<a href='benchmarks.html#hand'>Finger Benchmarks (Hand Level)</a>"],
+      "images": ["Images/testbeds/Finger Testbed.png"],
+      "description": "This testbed is used to benchmark how component selection affects a finger strength, speed, dynamics, and control performance.",
+      "benchmarkLevel": "<a href='benchmarks.html#hand'>Hand</a>",
       "measurementHardware": ["Fingertip dynamometer", "Vision-based motion capture"],
-      "testbedLead": "anthony.shilati@northwestern.edu"
+      "testbedLead": "anthony.shilati@northwestern.edu",
+      "publications": []
+    },
+    {
+      "name": "Finger Control Testbed",
+      "hostInstitution": "Texas A&amp;M University",
+      "images": ["Images/testbeds/TAMUFingerControlTestbed2.png"],
+      "description": "Single finger testbed with 4 actuators meant to test and validate finger designs.",
+      "benchmarkLevel": "<a href='benchmarks.html#hand'>Hand</a>",
+      "measurementHardware": [
+        "4 Gen 1 actuators",
+        "Metacarpal with 4 Bowden tube mounts",
+        "6-axis force-torque sensor",
+        "Camera and AprilTags",
+        "Digit-integrated force/position sensing equipment (TBD)"
+      ],
+      "testbedLead": "ajbarcio@tamu.edu",
+      "publications": [
+        "Anthony Barcio, David McDougall, and Robert Ambrose, &ldquo;Design of a Progressive Tendon-Driven Robotic Finger with Position-Dependent Moment Arms Using an Inherently Controllable Tendon Routing Strategy,&rdquo; in <em>Proceedings of the IEEE-RAS International Conference on Humanoid Robotics</em>, 2026 (will appear December 2026)."
+      ]
+    },
+    {
+      "name": "CMU Tactile Sensing Testbed",
+      "hostInstitution": "Carnegie Mellon University",
+      "images": ["Images/testbeds/CMUTactileSensorTestbed2.png"],
+      "description": "Characterizing commercially available tactile sensors to compare performance on the same experimental setup.",
+      "benchmarkLevel": "<a href='benchmarks.html#component'>Component</a>",
+      "measurementHardware": [
+        "Yaskawa Motoman GP4",
+        "ATI Gamma F/T sensor",
+        "Br&uuml;el &amp; Kj&aelig;r sound and vibration measurement equipment"
+      ],
+      "testbedLead": "shobhita@andrew.cmu.edu",
+      "publications": []
+    },
+    {
+      "name": "Tendon Torture Testbed",
+      "hostInstitution": "Texas A&amp;M University",
+      "images": ["Images/testbeds/TendonTortureTestbed.png"],
+      "description": "Dual motor testbed for benchmarking robotic tendon materials.",
+      "benchmarkLevel": "<a href='benchmarks.html#component'>Component</a>",
+      "measurementHardware": [
+        "2 Gen 1 series-elastic Neo testbed actuators",
+        "Pulleys with varying radii/bearings"
+      ],
+      "testbedLead": "dmmcdougall@tamu.edu",
+      "publications": [
+        "David McDougall, Anthony Barcio, and Robert Ambrose, &ldquo;A Testbed for Evaluating Tendon Construction and Lifetime in Humanoid Robotic Hands: Design and Preliminary Results,&rdquo; in <em>Proceedings of the IEEE International Conference on Robotics and Automation (ICRA)</em>, 2027.",
+        "David M. McDougall, Anthony J. Barcio, Casey V. Junkin, and Robert O. Ambrose, &ldquo;A Compact, Reliable, and Reproducible Termination Method for Synthetic Fiber Tendons in Humanoid Robotic Hands for Space Applications,&rdquo; in <em>2025 International Conference on Space Robotics (iSpaRo)</em>, 2025, pp. 142&ndash;147, doi: <a href='https://doi.org/10.1109/iSpaRo66239.2025.11436445' target='_blank' rel='noopener'>10.1109/iSpaRo66239.2025.11436445</a>."
+      ]
+    },
+    {
+      "name": "Tendon Transmission Testbed (T&sup3;)",
+      "hostInstitution": "Northwestern University",
+      "images": ["Images/testbeds/TendonTransmissionTestbed.png"],
+      "description": "The goal of this project is to evaluate the efficiency of various tendon transmission methods and ultimately predict frictional losses based on the transmission method, wrap angle, and bend radius.",
+      "benchmarkLevel": "<a href='benchmarks.html#component'>Component</a>",
+      "measurementHardware": [
+        "20 kg load cell (x2)",
+        "Magnetic linear encoder (x1)",
+        "EC 60 flat (x1)"
+      ],
+      "testbedLead": "sairam@u.northwestern.edu",
+      "publications": []
     }
   ]
 }

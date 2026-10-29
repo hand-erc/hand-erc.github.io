@@ -436,7 +436,7 @@
               "title": "Finger Breakaway Force",
               "shortDescription": "The minimum commanded fingertip force that causes motion of the finger. A measure of static friction.",
               "description": "Breakaway force is a measure of mechanical transparency from the actuators to the fingertip that captures static friction. In the forward direction, breakaway force is the minimum commanded fingertip force that causes joint motion. This test is performed with the finger free to move unimpeded, while a slowly ramping force is commanded at the fingertip. The commanded force that causes the finger to move is recorded as the breakaway force.",
-              "associatedTestbed": "<a href='benchmarks.html#component-testbeds'>Finger Testbed</a>",
+              "associatedTestbed": "<a href='benchmarks.html#component-testbeds'>Finger Dynamics Testbed</a>",
               "procedures": [
                 "Ensure the finger is free to move with each joint approximately flexed by 10°.",
                 "Slowly ramp the commanded fingertip force (0.05 N/s) until motion is detected at the joints or fingertip."
@@ -455,7 +455,7 @@
               "title": "Fingertip Force Control Bandwidth",
               "shortDescription": "The speed with which the finger's force controller responds to control inputs.",
               "description": "Force control bandwidth describes how quickly a finger's force controller can respond to fingertip force control inputs. It is measured as the point at which the finger's closed-loop force control frequency response drops to -3dB. Force control bandwidth is measured with the fingertip in a blocked state and will vary with finger configuration due to the configuration-dependent dynamics of robot fingers.",
-              "associatedTestbed": "<a href='benchmarks.html#component-testbeds'>Finger Testbed</a>",
+              "associatedTestbed": "<a href='benchmarks.html#component-testbeds'>Finger Dynamics Testbed</a>",
               "procedures": [
                 "Secure the fingertip to the dynamometer with the finger's joints each flexed by approximately 10°. Ensure that the dynamometer is normal to the finger pad.",
                 "In force control mode, command a fingertip force sine sweep with an amplitude of 3N. The frequency range should be 0.1 Hz up to 120% of the finger's resonant frequency from the <a href='benchmark.html?id=fingertip-effective-impedance'>fingertip impedance</a> measurement.",
@@ -475,7 +475,7 @@
               "title": "Fingertip Force Tracking",
               "shortDescription": "Force control and sensing accuracy when tracking sinusoidal force inputs.",
               "description": "Force control accuracy is only measured in the forward direction, from the actuators to the environment. Force sensing accuracy is also measured as it can significantly impact the force control performance. This test is performed with the fingertip blocked. The finger is commanded to produce sinusoidal force profiles at the fingertip, and the RMSE between commanded force and externally measured force is computed. For force sensing accuracy, the RMSE between the internally sensed and externally measured fingertip force is calculated.",
-              "associatedTestbed": "<a href='benchmarks.html#component-testbeds'>Finger Testbed</a>",
+              "associatedTestbed": "<a href='benchmarks.html#component-testbeds'>Finger Dynamics Testbed</a>",
               "procedures": [
                 "Secure the fingertip to the dynamometer with the finger's joints each flexed by approximately 10°. Ensure that the dynamometer is normal to the finger pad.",
                 "Command a sinusoidal fingertip force profile like the one provided by NIST, while recording the fingertip force measured by the finger sensors and by the dynamometer force sensor."
@@ -501,7 +501,7 @@
               "shortDescription": "The mechanical responsiveness of the finger to environmental disturbances.",
               "description": "Mechanical impedance is a frequency-dependent measure of a system's resistance to motion. It is defined as the ratio of force to velocity: F/V. For a robot finger, it is measured using a dynamometer, which excites the fingertip with sinusoidal motions while measuring the resulting contact force. From the data, the frequency response of the mechanical impedance is measured, and dynamic properties are extracted by fitting a model to the data. For a passive (uncontrolled) finger, the effective mass, stiffness, and damping can be extracted. For controlled fingers, bounds on the controlled mass, stiffness, and damping can be determined. The fingers' passive dynamics define the system resonance, which imposes a fundamental limitation on force bandwidth both from the actuators to the environment and from the environment to the actuators.",
               "images": [{"src": "Images/Finger Impedance Measurement.png", "maxWidth": "55%"}, {"src": "Images/Dynamic Model.png", "maxWidth": "40%"}],
-              "associatedTestbed": "<a href='benchmarks.html#component-testbeds'>Finger Testbed</a>",
+              "associatedTestbed": "<a href='benchmarks.html#component-testbeds'>Finger Dynamics Testbed</a>",
               "procedures": [
                 "Secure the fingertip to the dynamometer with the finger's joints each flexed by approximately 10°. Ensure that the dynamometer is normal to the finger pad.",
                 "Engage the desired control mode or leave the finger passive.",
@@ -524,7 +524,7 @@
               "title": "Finger Backdrive Force",
               "shortDescription": "The minimum force imposed at the fingertip that causes motion of the actuators.",
               "description": "Backdrive force is a mechanical transparency measure from the fingertip to the actuators defined as the smallest force imposed at the fingertip that causes motion at the actuators. This property can be tested by pressing on the fingertip with a slowly increasing force while measuring the actuator positions. Once motion is detected at the actuators, the fingertip force is recorded as the backdrive force.",
-              "associatedTestbed": "<a href='benchmarks.html#component-testbeds'>Finger Testbed</a>",
+              "associatedTestbed": "<a href='benchmarks.html#component-testbeds'>Finger Dynamics Testbed</a>",
               "procedures": [
                 "Secure the fingertip to the dynamometer with the finger's joints each flexed by approximately 10°. Ensure that the dynamometer is normal to the finger pad.",
                 "Put the finger into a passive state by removing power from the actuators.",

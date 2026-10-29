@@ -252,33 +252,46 @@ function createSection(section, sectionIndex, totalSections, levelId) {
 function createTestbedsTable(testbeds) {
   const rows = testbeds.map(function (tb) {
     const images = (tb.images || []).map(function (src) {
-      return '<img src="' + src + '" alt="' + (tb.name || '') + '" style="max-height:900px; margin:2px;">';
+      return '<img src="' + src + '" alt="' + (tb.name || '') + '" style="width:100%; height:auto; margin:2px;">';
     }).join('');
-    const benchmarks = (tb.associatedBenchmarks || []).join(', ');
-    const hardware = (tb.measurementHardware || []).join(', ');
+    const leads = [].concat(tb.testbedLead || []).map(function (email) {
+      return '<a href="mailto:' + email + '">' + email + '</a>';
+    }).join(', ');
+    const publications = (tb.publications || []).map(function (ref, i) {
+      return '<p class="is-size-7" style="padding-left: 2.2em; text-indent: -2.2em; margin-bottom: 0.6em;">[' + (i + 1) + '] ' + ref + '</p>';
+    }).join('');
     return '<tr>' +
-      '<td>' + (tb.name || '') + '</td>' +
+      '<td style="overflow-wrap: anywhere;">' + (tb.name || '') + '</td>' +
       '<td>' + (tb.hostInstitution || '') + '</td>' +
       '<td>' + (images || '') + '</td>' +
       '<td>' + (tb.description || '') + '</td>' +
-      '<td>' + benchmarks + '</td>' +
-      '<td>' + hardware + '</td>' +
-      '<td>' + (tb.testbedLead ? '<a href="mailto:' + tb.testbedLead + '">' + tb.testbedLead + '</a>' : '') + '</td>' +
+      '<td>' + (tb.benchmarkLevel || '') + '</td>' +
+      '<td style="white-space: nowrap;">' + leads + '</td>' +
+      '<td>' + publications + '</td>' +
       '</tr>';
   }).join('');
 
   return `
     <div class="table-container" style="overflow-x: auto;">
-      <table class="table is-bordered is-striped is-hoverable is-fullwidth">
+      <table class="table is-bordered is-striped is-hoverable is-fullwidth" style="table-layout: fixed; width: 1810px; max-width: none;">
+        <colgroup>
+          <col style="width: 140px;">
+          <col style="width: 150px;">
+          <col style="width: 480px;">
+          <col style="width: 260px;">
+          <col style="width: 120px;">
+          <col style="width: 280px;">
+          <col style="width: 380px;">
+        </colgroup>
         <thead>
           <tr>
             <th>Name</th>
             <th>Host Institution</th>
             <th>Images</th>
             <th>Description</th>
-            <th>Associated Benchmarks</th>
-            <th>Measurement Hardware</th>
+            <th>Benchmark Level</th>
             <th>Testbed Lead</th>
+            <th>Publications</th>
           </tr>
         </thead>
         <tbody>
