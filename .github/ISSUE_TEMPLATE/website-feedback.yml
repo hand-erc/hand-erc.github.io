@@ -1,0 +1,17 @@
+name: Website feedback
+description: Feedback about a page on the HAND benchmarking website.
+title: "Website feedback: "
+labels: ["feedback"]
+body:
+  - type: textarea
+    id: feedback
+    attributes:
+      label: Feedback
+      description: Errors you spotted, suggestions, or questions about the page.
+    validations:
+      required: true
+  - type: input
+    id: page
+    attributes:
+      label: Page
+      description: The page this feedback is about. Filled in automatically when you use the feedback box on the website.

@@ -217,6 +217,103 @@ body {
   text-decoration: underline;
 }
 
+/* Feedback Box (added by feedback.js above the footer) */
+.feedback-section {
+  border-top: 1px solid var(--border-color);
+}
+
+.feedback-form {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.feedback-form .feedback-label {
+  color: var(--text-secondary);
+  font-size: 1.05rem;
+  font-weight: 500;
+  line-height: 1.7;
+  margin-bottom: 0.75rem;
+}
+
+.feedback-form .textarea {
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  box-shadow: 0 1px 2px rgb(37 99 235 / 0.04), 0 6px 16px -10px rgb(37 99 235 / 0.18);
+  color: var(--text-primary);
+  font-family: inherit;
+  line-height: 1.7;
+  resize: vertical;
+}
+
+.feedback-form .textarea:hover {
+  border-color: var(--text-light);
+}
+
+.feedback-form .textarea:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgb(37 99 235 / 0.18);
+}
+
+.feedback-count {
+  display: block;
+  margin-top: 0.35rem;
+  color: var(--text-light);
+  font-size: 0.8rem;
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+}
+
+.feedback-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem 1.5rem;
+  margin-top: 1rem;
+}
+
+.feedback-note {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.button.feedback-submit {
+  flex-shrink: 0;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+}
+
+.button.feedback-submit:focus-visible {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 3px;
+}
+
+.button.feedback-submit:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.feedback-status {
+  margin-top: 1rem;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.feedback-status.is-error {
+  color: #b42318;
+}
+
+@media screen and (max-width: 768px) {
+  .feedback-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .button.feedback-submit {
+    justify-content: center;
+    width: 100%;
+  }
+}
+
 /* Scroll to Top Button */
 .scroll-to-top {
   position: fixed;
