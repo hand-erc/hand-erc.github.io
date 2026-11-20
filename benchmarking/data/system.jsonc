@@ -65,6 +65,12 @@
             "Randomly distribute the blocks in the initial bin, leaving the target bin empty, as illustrated in the Starting configuration image.",
             "The manipulation system's end effector must start outside of both bins."
           ],
+          "timing": {
+            "start": "Complete setup first. Begin with the manipulators stationary in the prescribed starting configuration. Start timing at the first task-directed movement after the start signal.",
+            "stop": "Stop transfers when 60 seconds have elapsed. Count only transfers completed within that period under the execution constraints.",
+            "limit": "60 seconds.",
+            "notes": "The metric is the number of blocks transferred, not completion time. Setup and returning the hands to their starting position are not timed."
+          },
           "procedures": [
             "Set up the environment as described above.",
             "During a 60-second period, transfer as many blocks as possible from the initial bin to the target bin, as illustrated in the Ending configuration image. The number shown is illustrative, not a required count."
@@ -134,6 +140,12 @@
           "setup": [
             "Place both the assembly task board and peg holder on the table in any preferred configuration."
           ],
+          "timing": {
+            "start": "Complete setup first, including selecting the row and placing the pegs and pegboard. Begin with the manipulators stationary in the prescribed starting configuration. Start timing at the first task-directed movement after the start signal.",
+            "stop": "Stop when all five pegs have been inserted into their corresponding holes in the selected row, or when three hours have elapsed, whichever comes first.",
+            "limit": "Three hours.",
+            "notes": "The metric is the number of pegs successfully inserted before stopping. Setup and returning the hands to their starting position are not timed."
+          },
           "procedures": [
             "Place the pegs and pegboard in the prescribed starting positions, then select a pegboard row, numbered 1 through 4, to fill.",
             "Grasp the peg whose shape corresponds to the target hole.",
@@ -194,6 +206,12 @@
             "Place the washer flat on the tabletop near the center of the table, as shown in the Starting configuration image.",
             "The manipulator shall begin each trial with the nearest point on the end effector at least 100 mm away from the washer."
           ],
+          "timing": {
+            "start": "Complete setup first. Begin with the manipulators stationary in the prescribed starting configuration. Start timing at the first task-directed movement after the start signal.",
+            "stop": "Stop after the washer has been held stationary at the required height for at least 3 continuous seconds.",
+            "limit": "60 seconds, including the 3-second hold. If the success criteria are not met by then, record an unsuccessful trial, not a completion time.",
+            "notes": "The washer remains grasped at the timing endpoint. Setup, later release, and returning the hand to its starting position are not timed."
+          },
           "procedures": [
             "Position the manipulator in the prescribed starting configuration.",
             "Transport the washer to a height of at least 2 cm above the tabletop; the Ending configuration image illustrates the lifted state.",
@@ -253,6 +271,12 @@
             "Place the rope near the center of the table in any configuration that does not self-intersect, such as the arrangement in the Starting configuration image.",
             "The manipulator shall begin each trial with the nearest point on the end effector at least 100 mm away from all of the manipulanda."
           ],
+          "timing": {
+            "start": "Complete setup first. Begin with the manipulators stationary in the prescribed starting configuration. Start timing at the first task-directed movement after the start signal.",
+            "stop": "Stop when the tied rope has been released onto the table.",
+            "limit": "60 seconds. If the success criteria are not met, record an unsuccessful trial, not a completion time.",
+            "notes": "Check the released knot against the success criteria after stopping the timer. Inspection, setup, and returning the hands to their starting position are not timed."
+          },
           "procedures": [
             "Position the manipulator in the prescribed starting configuration.",
             "Manipulate the rope to tie an overhand knot, as illustrated in the Ending configuration image.",
@@ -325,6 +349,12 @@
             "Place the lid flat on the tabletop with its open side facing downward and its center approximately 150 mm from the centerline of the jar; the Starting configuration image illustrates the arrangement.",
             "The manipulator shall begin each trial with the nearest point on the end effector at least 100 mm away from all of the manipulanda."
           ],
+          "timing": {
+            "start": "Complete setup first. Begin with the manipulators stationary in the prescribed starting configuration. Start timing at the first task-directed movement after the start signal.",
+            "stop": "Stop when the lid is fully seated and the manipulators have released contact with it.",
+            "limit": "60 seconds. If the success criteria are not met, record an unsuccessful trial, not a completion time.",
+            "notes": "Check that the lid remains properly attached after release. Inspection, setup, and returning the hands to their starting position are not timed."
+          },
           "procedures": [
             "Position the manipulator in the prescribed starting configuration.",
             "Grasp and thread the lid until it is fully seated on the jar, as illustrated in the Ending configuration image, then release it.",
@@ -399,6 +429,12 @@
             "Place the screwdriver flat on the tabletop approximately 150 mm from the mounting block.",
             "The manipulator shall begin each trial with the nearest point on the end effector at least 100 mm away from all of the manipulanda."
           ],
+          "timing": {
+            "start": "Complete setup first. Begin with the manipulators stationary in the prescribed starting configuration. Start timing at the first task-directed movement after the start signal.",
+            "stop": "Stop when the screw is fully seated and the screwdriver has been disengaged from the screw head.",
+            "limit": "60 seconds. If the success criteria are not met, record an unsuccessful trial, not a completion time.",
+            "notes": "The initial reach and tool acquisition are timed. Preparing the screw before the trial, setting the screwdriver down afterward, and returning the hands to their starting position are not timed."
+          },
           "procedures": [
             "Position the manipulator in the prescribed starting configuration.",
             "Grasp the screwdriver and engage it with the screw head, as shown in the Using the screwdriver image. Use it to rotate the screw into the mounting block until it is fully seated, with the underside of the screw head flush against the mounting block's threaded seating surface, as illustrated in the Ending configuration image.",
@@ -467,6 +503,12 @@
             "Place the scissors flat on the table approximately 150 mm from the nearest edge of the paper.",
             "The manipulator shall begin each trial with the nearest point on the end effector at least 100 mm away from all of the manipulanda."
           ],
+          "timing": {
+            "start": "Complete setup first. Begin with the manipulators stationary in the prescribed starting configuration. Start timing at the first task-directed movement after the start signal.",
+            "stop": "Stop when the circular piece is completely separated from the surrounding paper.",
+            "limit": "60 seconds. If the success criteria are not met, record an unsuccessful trial, not a completion time.",
+            "notes": "The initial reach, tool acquisition, and access cut are timed. Inspect cutting accuracy afterward. Inspection, setup, putting down the scissors, and returning the hands to their starting position are not timed."
+          },
           "procedures": [
             "Position the manipulator in the prescribed starting configuration.",
             "Grasp the scissors and make an access cut from the paper's edge to the solid circular line. Then cut continuously along the solid line, as illustrated in the Cutting with scissors image, until the circular region is fully separated from the surrounding paper, as shown in the Ending configuration image.",
@@ -525,6 +567,12 @@
             "Place the buttoning board near the center of the table, with the top button unfastened and the remaining buttons fastened, as shown in the Starting configuration image.",
             "The manipulator shall begin each trial with the nearest point on the end effector at least 100 mm away from all of the manipulanda."
           ],
+          "timing": {
+            "start": "Complete setup first. Begin with the manipulators stationary in the prescribed starting configuration. Start timing at the first task-directed movement after the start signal.",
+            "stop": "Stop when the button is fully fastened and the manipulators have released contact with it.",
+            "limit": "60 seconds. If the success criteria are not met, record an unsuccessful trial, not a completion time.",
+            "notes": "Check that the button remains fully fastened after release. Inspection, setup, and returning the hands to their starting position are not timed."
+          },
           "procedures": [
             "Position the manipulator in the prescribed starting configuration.",
             "Grasp and pull the unfastened button completely through its buttonhole until it reaches the fully fastened configuration shown in the Ending configuration image.",
@@ -579,6 +627,12 @@
             "At least one Euler angle of the target orientation must differ from the initial orientation by 90 degrees or more.",
             "Place the rectangular prism in a stable grasp within the hand at the initial orientation."
           ],
+          "timing": {
+            "start": "Complete setup first, including placing the prism in its initial grasp. Begin with the manipulators stationary in the prescribed starting configuration. Start timing at the first task-directed movement after the start signal.",
+            "stop": "Stop after the object has remained within the target orientation tolerance for at least 2 continuous seconds without environmental contact.",
+            "limit": "60 seconds, including the 2-second hold. If the success criteria are not met by then, record an unsuccessful trial, not a completion time.",
+            "notes": "The object remains grasped at the timing endpoint. Selecting orientations, establishing the initial grasp, later release, and returning the hand to its starting position are not timed."
+          },
           "procedures": [
             "Position the manipulator with the object in the prescribed initial grasp and orientation.",
             "Reorient the object from the initial orientation to the specified target orientation using only in-hand manipulation.",
@@ -640,6 +694,12 @@
             "The top shall initially be stationary and in stable contact with the table surface.",
             "The manipulator shall begin each trial with the nearest point on the end effector at least 100 mm away from the nearest point on the top."
           ],
+          "timing": {
+            "start": "Complete setup and begin with the manipulators stationary in the prescribed starting configuration. Start the spin-duration timer when the manipulator releases the top to spin freely.",
+            "stop": "Stop at the first contact between the table and any part of the top other than its bottom tip.",
+            "limit": "No overall trial time limit is specified. A successful trial requires at least 5 seconds of upright spinning after release.",
+            "notes": "This task reports spin duration, not completion time. Setup, reaching for and spinning up the top, and returning the hand to its starting position are not included in spin duration."
+          },
           "procedures": [
             "Position the manipulator in the prescribed starting configuration.",
             "Grasp the top, impart rotational velocity to it, and release it onto the table surface.",
@@ -716,6 +776,12 @@
           "setup": [
             "The arrangement of the bins, lid, and blocks must match YCB Box and Blocks Protocol 3a; the Starting configuration image illustrates the bin and block layout."
           ],
+          "timing": {
+            "start": "Complete setup first. Begin with the manipulators stationary in the prescribed starting configuration. Start timing at the first task-directed movement after the start signal.",
+            "stop": "Stop transfers when 60 seconds have elapsed. Count only transfers completed within that period under the execution constraints.",
+            "limit": "60 seconds.",
+            "notes": "The metric is the number of blocks transferred, not completion time. Setup and returning the hands to their starting position are not timed."
+          },
           "procedures": [
             "Set up the environment as described above.",
             "During a 60-second period, use the chopsticks to transfer as many blocks as possible from the initial bin to the target bin. The Using the chopsticks image illustrates tool use, and the Ending configuration image illustrates transferred blocks; the number shown is not a required count."
@@ -782,6 +848,12 @@
             "Before the trial begins, provide the identity of the target object to the manipulator.",
             "The manipulator shall begin each trial with the nearest point on the end effector at least 100 mm away from the manipulanda."
           ],
+          "timing": {
+            "start": "Complete setup first, including randomization and identifying the target to the manipulator. Begin with the manipulators stationary in the prescribed starting configuration. Start timing at the first task-directed movement after the start signal.",
+            "stop": "Stop when the designated target has been placed on the table and released, without first removing a distractor.",
+            "limit": "60 seconds. If the success criteria are not met, record an unsuccessful trial, not a completion time.",
+            "notes": "All tactile searching and retrieval are timed. Randomization, communicating the target, post-trial inspection, and returning the hands to their starting position are not timed."
+          },
           "procedures": [
             "Position the manipulator in the prescribed starting configuration.",
             "Grasp and remove the target object from the box and place it on the table, as illustrated in the Ending configuration image. The pictured cube is an example, not a required target.",
@@ -841,6 +913,12 @@
             "Both socks shall be fully unfolded at the start of the trial.",
             "The manipulator shall begin each trial with the nearest point on the end effector at least 100 mm away from the manipulanda."
           ],
+          "timing": {
+            "start": "Complete setup first. Begin with the manipulators stationary in the prescribed starting configuration. Start timing at the first task-directed movement after the start signal.",
+            "stop": "Stop when the completed sock bundle has been released onto the table.",
+            "limit": "60 seconds. If the success criteria are not met, record an unsuccessful trial, not a completion time.",
+            "notes": "Check that the socks remain bundled after release. Inspection, setup, and returning the hands to their starting position are not timed."
+          },
           "procedures": [
             "Position the manipulator in the prescribed starting configuration.",
             "Gather the two socks and bundle them together, as illustrated in the Ending configuration image.",
@@ -902,6 +980,12 @@
             "Begin with the zipper fully open and the pull at the bottom stop, as shown in the Starting configuration image.",
             "The manipulator shall begin each trial with the nearest point on the end effector at least 100 mm away from the manipulanda."
           ],
+          "timing": {
+            "start": "Complete setup first. Begin with the manipulators stationary in the prescribed starting configuration. Start timing at the first task-directed movement after the start signal.",
+            "stop": "Stop when the zipper has been fully closed, then fully reopened, and the pull has been released.",
+            "limit": "60 seconds. If the success criteria are not met, record an unsuccessful trial, not a completion time.",
+            "notes": "Both closing and reopening are timed. Setup, inspection, and returning the hands to their starting position are not timed."
+          },
           "procedures": [
             "Position the manipulator in the prescribed starting configuration.",
             "Grasp the pull and close the zipper by moving the pull continuously from the bottom stop to the top stop, as shown in the Zipper fully closed image.",
@@ -963,6 +1047,12 @@
             "The paper shall begin unfolded and free of any external fixtures or constraints other than friction with the table surface.",
             "The manipulator shall begin each trial with the nearest point on the end effector at least 100 mm away from the manipulanda."
           ],
+          "timing": {
+            "start": "Complete setup first. Begin with the manipulators stationary in the prescribed starting configuration. Start timing at the first task-directed movement after the start signal.",
+            "stop": "Stop when the fold and crease are complete and the folded paper has been released onto the table.",
+            "limit": "60 seconds. If the success criteria are not met, record an unsuccessful trial, not a completion time.",
+            "notes": "Inspect edge alignment and the released fold afterward. Inspection, setup, and returning the hands to their starting position are not timed."
+          },
           "procedures": [
             "Position the manipulator in the prescribed starting configuration.",
             "Grasp and fold the paper in half lengthwise by bringing its two long edges together, with a sharp crease, as illustrated in the Ending configuration image.",
@@ -1029,6 +1119,12 @@
             "Place the rubber band flat on the table at least 150 mm from the nearest dowel.",
             "The manipulator shall begin each trial with the nearest point on the end effector at least 100 mm away from the manipulanda."
           ],
+          "timing": {
+            "start": "Complete setup first. Begin with the manipulators stationary in the prescribed starting configuration. Start timing at the first task-directed movement after the start signal.",
+            "stop": "Stop when the completed bundle, with the rubber band wrapped twice, has been released onto the table.",
+            "limit": "60 seconds to complete and release the bundle. If the success criteria are not met, record an unsuccessful trial, not a completion time.",
+            "notes": "The required 3-second post-release stability check is not included in completion time. The trial is successful only if all seven dowels remain secured throughout that check. Setup, inspection, and returning the hands to their starting position are not timed."
+          },
           "procedures": [
             "Position the manipulator in the prescribed starting configuration.",
             "Gather the seven dowels into a single close-packed bundle, then stretch the rubber band and wrap it around the bundle twice; the Ending configuration image illustrates the secured bundle.",
