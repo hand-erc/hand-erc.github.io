@@ -297,6 +297,8 @@ if (benchmark.protocolLink) {
     document.getElementById('setup-section').style.display = '';
   }
 
+  populateTiming(benchmark.timing);
+
   if (benchmark.items && benchmark.items.length > 0) {
 
     let html = `
@@ -423,6 +425,21 @@ if (benchmark.protocolLink) {
 function showNotFound() {
   document.getElementById('loading-state').style.display = 'none';
   document.getElementById('not-found-state').style.display = '';
+}
+
+/**
+ * Render task-specific timing rules; other benchmark levels omit this section.
+ */
+function populateTiming(timing) {
+  const fields = [
+    ['start', 'Start'], ['stop', 'Stop'], ['limit', 'Time limit']
+  ].filter(function (field) {
+    return timing && typeof timing[field[0]] === 'string' && timing[field[0]].trim();
+  });
+  document.getElementById('benchmark-timing').innerHTML = fields.map(function (field) {
+    return '<p><strong>' + field[1] + ':</strong> ' + escapeHTML(timing[field[0]]) + '</p>';
+  }).join('');
+  document.getElementById('timing-section').style.display = fields.length ? '' : 'none';
 }
 
 function splitIntoSentences(text) {
