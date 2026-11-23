@@ -13,8 +13,7 @@
           "benchmarks": [
             { "name": "Number of Blocks Transferred", "unit": "blocks", "description": "Tasks: Box and Blocks, Use Chopsticks" },
             { "name": "Pegs Inserted", "unit": "pegs", "description": "Tasks: Peg-in-Hole" },
-            { "name": "Total Task Completion Time", "unit": "seconds", "description": "Tasks: Pick Up Flat Object, Tie a Knot, Twist Lid on Jar, Use Screwdriver, Use Scissors, Fasten Button, In-Hand Reorienting, Blindly Retrieve an Object from Cover, Bundle Socks, Zip a Zipper, Paper Folding, Bundle Dowels with a Rubber Band" },
-            { "name": "Spin Duration", "unit": "seconds", "description": "Tasks: Spin a Top" }
+            { "name": "Total Task Completion Time", "unit": "seconds", "description": "Tasks: Pick Up Flat Object, Tie a Knot, Twist Lid on Jar, Use Screwdriver, Use Scissors, Fasten Button, In-Hand Reorienting, Spin a Top, Blindly Retrieve an Object from Cover, Bundle Socks, Zip a Zipper, Paper Folding, Bundle Dowels with a Rubber Band" }
           ]
         }
       ]

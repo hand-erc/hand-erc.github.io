@@ -32,21 +32,23 @@ const context = {
 vm.createContext(context);
 vm.runInContext(fs.readFileSync(path.join(root, 'static/js/benchmark-detail.js'), 'utf8'), context);
 
-test('every published system task defines start, stop, limit, and timing notes', () => {
+test('every published system task defines only start, stop, and limit without timing notes', () => {
   assert.equal(tasks.length, 16);
   for (const task of tasks) {
-    for (const key of ['start', 'stop', 'limit', 'notes']) {
+    assert.deepEqual(Object.keys(task.timing).sort(), ['limit', 'start', 'stop']);
+    for (const key of ['start', 'stop', 'limit']) {
       assert.equal(typeof task.timing[key], 'string', task.id + ': ' + key);
       assert(task.timing[key].trim().length > 0, task.id + ': ' + key);
     }
   }
 });
 
-test('task timing excludes setup and starts from stationary hands at first task-directed movement', () => {
-  for (const task of tasks.filter(task => task.id !== 'spin-a-top')) {
+test('all task timers start when the start signal is sent, not when movement begins', () => {
+  for (const task of tasks) {
     assert(task.timing.start.includes('Complete setup first'), task.id);
     assert(task.timing.start.includes('manipulators stationary'), task.id);
-    assert(task.timing.start.includes('first task-directed movement after the start signal'), task.id);
+    assert(task.timing.start.includes('Start timing when the start signal is sent.'), task.id);
+    assert(!task.timing.start.includes('first task-directed movement'), task.id);
   }
 });
 
@@ -56,7 +58,7 @@ test('transfer tasks keep their fixed 60-second counting windows', () => {
     assert.equal(timing.limit, '60 seconds.');
     assert(timing.stop.includes('60 seconds have elapsed'));
     assert(timing.stop.includes('only transfers completed within that period'));
-    assert(timing.notes.includes('number of blocks transferred, not completion time'));
+    assert.equal(find(id).metrics[0].name, 'Number of Blocks Transferred');
   }
 });
 
@@ -66,59 +68,78 @@ test('peg insertion keeps the three-hour limit and partial peg-count metric', ()
   assert(timing.start.includes('selecting the row and placing the pegs and pegboard'));
   assert(timing.stop.includes('all five pegs'));
   assert(timing.stop.includes('whichever comes first'));
-  assert(timing.notes.includes('number of pegs successfully inserted'));
+  assert.equal(find('peg-in-hole').metrics[0].name, 'Pegs Inserted');
 });
 
-test('completion-time tasks keep the 60-second limit and do not report failures as completions', () => {
-  for (const task of tasks.filter(task => task.metrics.some(metric => metric.name === 'Total Task Completion Time'))) {
+test('previously time-limited completion tasks retain 60-second limits and reject unsuccessful completions', () => {
+  for (const task of tasks.filter(task => task.id !== 'spin-a-top' && task.metrics.some(metric => metric.name === 'Total Task Completion Time'))) {
     assert(task.timing.limit.includes('60 seconds'), task.id);
     assert(task.timing.limit.includes('unsuccessful trial, not a completion time'), task.id);
-    assert(task.timing.notes.includes('starting position are not timed') ||
-      task.timing.notes.includes('starting position is not timed'), task.id);
   }
 });
 
-test('required in-hand holds are included in completion time', () => {
+test('required grasp and orientation holds verify success without adding to completion time', () => {
   for (const [id, seconds] of [['pick-up-flat-object', 3], ['in-hand-object-reorientation', 2]]) {
     const timing = find(id).timing;
-    assert(timing.stop.includes(seconds + ' continuous seconds'));
-    assert(timing.limit.includes('including the ' + seconds + '-second hold'));
-    assert(timing.notes.includes('remains grasped'));
+    assert(timing.stop.includes('subsequent ' + seconds + '-second hold succeeds'));
+    assert(timing.stop.includes('hold is not included in completion time'));
+    assert(timing.limit.includes(seconds + '-second verification hold is untimed'));
+    assert(timing.stop.includes('later successful hold, measured from the original start signal'));
+    assert(!timing.limit.includes('including the ' + seconds + '-second hold'));
   }
+  assert(find('pick-up-flat-object').timing.stop.includes('reaches the required height and becomes stationary'));
+  assert(find('in-hand-object-reorientation').timing.stop.includes('reaches the target orientation tolerance'));
 });
 
 test('dowel retention is checked for three seconds after the timed release', () => {
   const task = find('bundle-dowels-with-rubber-band');
   assert(task.timing.stop.includes('released onto the table'));
-  assert(task.timing.notes.includes('3-second post-release stability check is not included in completion time'));
-  assert(task.timing.notes.includes('all seven dowels remain secured'));
+  assert(task.timing.stop.includes('all seven dowels remain secured for 3 seconds'));
+  assert(task.timing.stop.includes('check is not included in completion time'));
   assert(task.procedures.some(step => step.includes('at least 3 seconds after')));
 });
 
 test('tool tasks stop at their existing task endpoints, not tool put-down', () => {
   assert(find('thread-screw-with-screwdriver').timing.stop.includes('fully seated'));
   assert(find('thread-screw-with-screwdriver').timing.stop.includes('disengaged'));
-  assert(find('thread-screw-with-screwdriver').timing.notes.includes('setting the screwdriver down afterward'));
+  assert(!/put down|setting.*down/.test(find('thread-screw-with-screwdriver').timing.stop));
   assert(find('cut-pattern-with-scissors').timing.stop.includes('completely separated'));
-  assert(find('cut-pattern-with-scissors').timing.notes.includes('Inspect cutting accuracy afterward'));
+  assert(!/put down|setting.*down/.test(find('cut-pattern-with-scissors').timing.stop));
 });
 
-test('blind retrieval includes tactile search, but excludes randomization', () => {
+test('blind retrieval starts after setup and ends after the correct target is released', () => {
   const timing = find('extract-object-from-opaque-bag').timing;
   assert(timing.start.includes('including randomization'));
   assert(timing.stop.includes('placed on the table and released'));
-  assert(timing.notes.includes('All tactile searching and retrieval are timed'));
-  assert(timing.notes.includes('post-trial inspection'));
+  assert(timing.start.includes('identifying the target to the manipulator'));
+  assert(timing.stop.includes('without first removing a distractor'));
 });
 
-test('the top retains its release-based spin-duration metric and five-second success criterion', () => {
-  const timing = find('spin-a-top').timing;
-  assert(timing.start.includes('spin-duration timer when the manipulator releases the top'));
-  assert(timing.stop.includes('first contact'));
-  assert(timing.stop.includes('other than its bottom tip'));
+test('the top reports signal-to-release completion time and verifies the five-second spin afterward', () => {
+  const task = find('spin-a-top');
+  const timing = task.timing;
+  assert(timing.start.includes('Start timing when the start signal is sent.'));
+  assert(timing.stop.includes('Stop when the top is released to spin freely'));
+  assert(timing.stop.includes('at least 5 seconds without further manipulator contact'));
+  assert(timing.stop.includes('verification period is not included in completion time'));
   assert(timing.limit.includes('No overall trial time limit is specified'));
-  assert(timing.limit.includes('at least 5 seconds'));
-  assert(timing.notes.includes('spin duration, not completion time'));
+  assert(timing.limit.includes('no need to wait for a successful top to stop spinning'));
+  assert.equal(task.metrics[0].name, 'Total Task Completion Time');
+  assert(task.metrics[0].description.includes('excluding the subsequent 5-second verification period'));
+  assert(task.procedures.some(step => step.includes('at least 5 seconds after release')));
+});
+
+test('the metrics index matches the top completion-time metric and all other system metrics', () => {
+  const index = JSON.parse(fs.readFileSync(path.join(root, 'data/hand-metrics.jsonc'), 'utf8'));
+  const metrics = index.categories.find(category => category.title === 'System').sections
+    .flatMap(section => section.benchmarks || []);
+  assert(!metrics.some(metric => metric.name === 'Spin Duration'));
+  assert(metrics.find(metric => metric.name === 'Total Task Completion Time').description.includes('Spin a Top'));
+  for (const task of tasks) {
+    for (const metric of task.metrics) {
+      assert(metrics.some(entry => entry.name === metric.name), task.id + ': ' + metric.name);
+    }
+  }
 });
 
 test('the Timing section is between Setup and Procedure, leaving configuration images immediately after Procedure', () => {
@@ -135,12 +156,20 @@ test('the detail renderer displays all timing fields for every system task', () 
     context.populateTiming(task.timing);
     assert.equal(elements['timing-section'].style.display, '');
     const html = elements['benchmark-timing'].innerHTML;
-    for (const label of ['Start', 'Stop', 'Time limit', 'Notes']) {
+    for (const label of ['Start', 'Stop', 'Time limit']) {
       assert(html.includes('<strong>' + label + ':</strong>'), task.id);
     }
     assert(html.includes(task.timing.start), task.id);
     assert(html.includes(task.timing.stop), task.id);
+    assert(!html.includes('<strong>Notes:</strong>'), task.id);
   }
+});
+
+test('the renderer ignores legacy timing notes', () => {
+  context.populateTiming({ ...find('paper-folding').timing, notes: 'Legacy timing note' });
+  const html = elements['benchmark-timing'].innerHTML;
+  assert(!html.includes('Notes:'));
+  assert(!html.includes('Legacy timing note'));
 });
 
 test('the detail renderer hides and clears timing for benchmarks without timing data', () => {

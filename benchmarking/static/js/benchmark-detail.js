@@ -432,7 +432,7 @@ function showNotFound() {
  */
 function populateTiming(timing) {
   const fields = [
-    ['start', 'Start'], ['stop', 'Stop'], ['limit', 'Time limit'], ['notes', 'Notes']
+    ['start', 'Start'], ['stop', 'Stop'], ['limit', 'Time limit']
   ].filter(function (field) {
     return timing && typeof timing[field[0]] === 'string' && timing[field[0]].trim();
   });
